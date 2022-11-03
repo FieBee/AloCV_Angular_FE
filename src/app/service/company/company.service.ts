@@ -14,7 +14,7 @@ export class CompanyService {
   constructor(private httpClient: HttpClient ) { }
 
   getAll():Observable<Company[]>{
-    return this.httpClient.get<Company[]>(API_URL)
+    return this.httpClient.get<Company[]>(API_URL + `/company`)
   }
 
   saveCompany(company: Company):Observable<Company>{
