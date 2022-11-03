@@ -8,12 +8,22 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import {JobListComponent} from "./user/job-list/job-list.component";
+import { UploadFileComponent } from './upload/upload-file/upload-file.component';
+import { UploadImageComponent } from './upload/upload-image/upload-image.component';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CompanyListComponent,
+    JobListComponent,
+    UploadFileComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +31,10 @@ import {AppRoutingModule} from "./app-routing.module";
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
