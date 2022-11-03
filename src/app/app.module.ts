@@ -15,6 +15,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../environments/environment";
+import {HeaderComponent} from "./header/header.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {environment} from "../environments/environment";
     CompanyListComponent,
     JobListComponent,
     UploadFileComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
