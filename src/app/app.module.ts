@@ -17,6 +17,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../environments/environment";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
+import { CompanyCreateComponent } from './company/company-create/company-create.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FooterComponent} from "./footer/footer.component";
     UploadFileComponent,
     UploadImageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CompanyCreateComponent
   ],
   imports: [
     BrowserModule,

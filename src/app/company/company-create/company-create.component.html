@@ -1,0 +1,52 @@
+<div class="col-7 m-auto">
+  <br>
+  <h1>Tạo mới Company</h1>
+  <br>
+</div>
+<div  class="col-6  m-auto">
+  <form class="" [formGroup]="walletForm" (ngSubmit)="submit()">
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">Name</div>
+      <div class="col-10"><input class="col-8" type="text" formControlName="name" ></div>
+    </div>
+    <div class=" row mt-3 form-group">
+      <div class="col-2">StaffNumber</div>
+      <div class="col-10"><input  class="col-8" type="number" formControlName="staffNumber" ></div>
+    </div>
+    <div class=" row mt-3 form-group">
+      <div class="col-2">Address</div>
+      <div class="col-10"><input  class="col-8" type="text" formControlName="address" ></div>
+    </div>
+    <div class=" row mt-3 form-group">
+      <div class="col-2">Branch</div>
+      <div class="col-10"><input  class="col-8" type="text" formControlName="branch" ></div>
+    </div>
+    <div class=" row mt-3 form-group">
+      <div class="col-2">LinkMap</div>
+      <div class="col-10"><input  class="col-8" type="text" formControlName="linkMap" ></div>
+    </div>
+    <div class=" row mt-3 form-group">
+      <div class="col-2">LinkFb</div>
+      <div class="col-10"><input  class="col-8" type="text" formControlName="linkFb" ></div>
+    </div>
+    <div class="row mt-3 form-group">
+      <div class="col-2">Image</div>
+      <input type="file" #uploadFile (change)="uploadFileImg()" class="col-4" formControlName="image" id="image" class="form-control" >
+    </div>
+  </form>
+  <form class="" [formGroup]="account" (ngSubmit)="submit()">
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">accountId</div>
+      <div class="col-10"><input class="col-8" type="number" formControlName="id" ></div>
+    </div>
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">UserName</div>
+      <div class="col-10"><input class="col-8" type="text" formControlName="userName" ></div>
+    </div>
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">Password</div>
+      <div class="col-10"><input class="col-8" type="text" formControlName="password" ></div>
+    </div>
+    </form>
+  <button type="submit" (click)="submit()">tao moi</button>
+</div>
