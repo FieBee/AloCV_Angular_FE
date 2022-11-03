@@ -25,9 +25,7 @@ export class LoginComponent implements OnInit {
 
   public onSubmit(){
 
-
     let resp = this.jwtService.login(this.form.value);
-
     resp.subscribe(data => {
         // localStorage.setItem("data",JSON.stringify(data));
         localStorage.setItem("token",JSON.parse(data).token);
@@ -51,8 +49,7 @@ export class LoginComponent implements OnInit {
       // console.error("Lỗi đăng nhập");
     }
   }
-
-
+  
   getUserByAccount_UserName(){
     let resp:Observable<any> = this.jwtService.getUserByAccount_UserName(this.form.get("userName")?.value);
     resp.subscribe(data => {
@@ -66,8 +63,6 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("company",data);
     },error => console.log("Đối tượng đăng nhập không phải company"))
   }
-
-
 
   logout(){
     localStorage.clear();

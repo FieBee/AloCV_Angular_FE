@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
+import { RegisterComponent } from './security/register/register.component';
 
 
 
@@ -15,6 +16,7 @@ import {RouterModule} from "@angular/router";
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
