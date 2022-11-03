@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {JwtClientService} from "../../service/jwt-client.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
-import {error} from "@angular/compiler-cli/src/transformers/util";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -11,13 +11,14 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 })
 export class LoginComponent implements OnInit {
 
-  form = new FormGroup({
-    userName: new FormControl(null, Validators.required),
-    password: new FormControl(null, Validators.required),
+  loginForm = new FormGroup({
+    userName: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
   });
 
 
-  constructor(private jwtService:JwtClientService) { }
+  constructor(private jwtService:JwtClientService,
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -26,10 +27,9 @@ export class LoginComponent implements OnInit {
   public onSubmit(){
 
 
-    let resp = this.jwtService.login(this.form.value);
+    let resp = this.jwtService.login(this.loginForm.value);
 
     resp.subscribe(data => {
-        // localStorage.setItem("data",JSON.stringify(data));
         localStorage.setItem("token",JSON.parse(data).token);
         localStorage.setItem("role",JSON.parse(data).appRole[0].name);
         this.checkAccount(JSON.parse(data).appRole[0].name);
@@ -39,30 +39,41 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  getAppRole(){
+    localStorage.getItem("role")
+  }
+
+  getData(){
+    localStorage.getItem("data")
+  }
+
+
 
   checkAccount(role:string){
     console.log(role)
     if (role === "ROLE_COMPANY"){
       console.log("if role company")
       this.getCompanyByAccount_UserName();
+      this.router.navigate(['/company/home'])
     }else if(role === "ROLE_USER"){
       this.getUserByAccount_UserName();
-    }else {
-      // console.error("Lỗi đăng nhập");
+      this.router.navigate(['/user/home']);
+    }else if(role === "ROLE_ADMIN"){
+      this.router.navigate(['/admin/home']);
     }
   }
 
   getUserByAccount_UserName(){
-    let resp:Observable<any> = this.jwtService.getUserByAccount_UserName(this.form.get("userName")?.value);
+    let resp:Observable<any> = this.jwtService.getUserByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data => {
-      localStorage.setItem("user",data);
+      localStorage.setItem("data",data);
     },error1 => console.log("Đối tượng đăng nhập không phải user"))
   }
 
   getCompanyByAccount_UserName(){
-    let resp:Observable<any> = this.jwtService.getCompanyByAccount_UserName(this.form.get("userName")?.value);
+    let resp:Observable<any> = this.jwtService.getCompanyByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data =>{
-      localStorage.setItem("company",data);
+      localStorage.setItem("data",data);
     },error => console.log("Đối tượng đăng nhập không phải company"))
   }
 
@@ -70,4 +81,11 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
 
+  get email() {
+    return this.loginForm.get('userName');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
 }

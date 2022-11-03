@@ -17,10 +17,10 @@ export class JwtClientService {
   public login(account:any):Observable<any>{
     return this.http.post(API_URL +"/login", account,{responseType: 'text' as 'json'})
   }
-  public getUserByAccount_UserName(userName: ɵGetProperty<ɵTypedOrUntyped<{ password: FormControl<null>; userName: FormControl<null> }, ɵFormGroupRawValue<{ password: FormControl<null>; userName: FormControl<null> }>, any>, "userName"> | undefined):Observable<any>{
+  public getUserByAccount_UserName(userName: ɵGetProperty<ɵTypedOrUntyped<{ password: FormControl<string | null>; userName: FormControl<string | null> }, ɵFormGroupRawValue<{ password: FormControl<string | null>; userName: FormControl<string | null> }>, any>, "userName"> | undefined):Observable<any>{
     return this.http.get(API_URL +`/user/getUser/${userName}`,{responseType: 'text' as 'json'})
   }
-  public getCompanyByAccount_UserName(companyName: ɵGetProperty<ɵTypedOrUntyped<{ password: FormControl<null>; userName: FormControl<null> }, ɵFormGroupRawValue<{ password: FormControl<null>; userName: FormControl<null> }>, any>, "userName"> | undefined):Observable<any>{
+  public getCompanyByAccount_UserName(companyName: ɵGetProperty<ɵTypedOrUntyped<{ password: FormControl<string | null>; userName: FormControl<string | null> }, ɵFormGroupRawValue<{ password: FormControl<string | null>; userName: FormControl<string | null> }>, any>, "userName"> | undefined):Observable<any>{
     return this.http.get(API_URL +`/company/getCompany/${companyName}`,{responseType: 'text' as 'json'})
   }
 
