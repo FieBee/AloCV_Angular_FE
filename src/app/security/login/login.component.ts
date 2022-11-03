@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   getUserByAccount_UserName(){
     let resp:Observable<any> = this.jwtService.getUserByAccount_UserName(this.form.get("userName")?.value);
     resp.subscribe(data => {
@@ -66,8 +65,6 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("company",data);
     },error => console.log("Đối tượng đăng nhập không phải company"))
   }
-
-
 
   logout(){
     localStorage.clear();

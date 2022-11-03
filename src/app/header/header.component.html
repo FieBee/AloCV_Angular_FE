@@ -1,153 +1,133 @@
-<!--&lt;!&ndash; Header Area &ndash;&gt;-->
-<!--<header class="header-area">-->
-<!--  <div class="container">-->
-<!--    <div class="row align-items-center">-->
-<!--      <div class="col-lg-2 col-sm-0">-->
-<!--        <div class="logo">-->
-<!--          <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-8 col-sm-8 text-right pr-0">-->
-<!--        <div class="header-content-right">-->
-<!--          <ul class="header-contact">-->
-<!--            <li><a href="tel:+1123456789"><i class="bx bxs-phone-call"></i> 024 62538829</a></li>-->
-<!--            <li><a href="mailto:hello@paso.com"><i class="bx bxs-envelope"></i> info@codegym.vn</a></li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-2 col-sm-4 text-right pl-0">-->
-<!--        <div class="header-content-right">-->
-<!--          <ul class="header-social">-->
-<!--            <li>-->
-<!--              <a href="#" target="_blank"><i class="bx bxl-facebook"></i></a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#" target="_blank"> <i class="bx bxs-envelope"></i></a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#" target="_blank"> <i class="bx bxl-youtube"></i></a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</header>-->
-<!--&lt;!&ndash; End Header Area &ndash;&gt;-->
-
-<!--&lt;!&ndash;Navbar Area &ndash;&gt;-->
-<!--<div class="navbar-area">-->
-<!--  <div class="mobile-nav">-->
-<!--    <a href="index.html" class="logo">-->
-<!--      <img src="assets/images/logo.png" alt="logo">-->
-<!--    </a>-->
-<!--  </div>-->
-<!--  <div class="main-nav" style="background: #051242">-->
-<!--    <div class="container">-->
-<!--      <nav class="navbar navbar-expand-md navbar-light">-->
-<!--        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">-->
-<!--          <ul class="navbar-nav text-left">-->
-<!--            <li class="nav-item">-->
-<!--              &lt;!&ndash;                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"&ndash;&gt;-->
-<!--              &lt;!&ndash;                               class="nav-link dropdown-toggle active">Trang chủ</a>&ndash;&gt;-->
-<!--              <a routerLink="home"-->
-<!--                 class="nav-link dropdown-toggle active">Trang chủ</a>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'ADMIN'" class="nav-item">-->
-<!--              <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'ADMIN'" class="nav-item">-->
-<!--              <a routerLink="/list-account" class="nav-link">Quản lý tài khoản</a>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'ADMIN'" class="nav-item">-->
-<!--              <a routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'USER'" class="nav-item">-->
-<!--              <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'COMPANY'" class="nav-item">-->
-<!--              <a class="nav-link dropdown-toggle">Việc làm</a>-->
-<!--              <ul class="dropdown-menu">-->
-<!--                <li class="nav-item">-->
-<!--                  <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Danh sách việc làm</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                  <a routerLink="/apply-company" class="nav-link">Danh sách ứng tuyển</a>-->
-<!--                </li>-->
-<!--              </ul>-->
-<!--            </li>-->
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+</head>
 
 
-<!--            <li *ngIf="checkRole == 'COMPANY'" class="nav-item">-->
-<!--              <a class="nav-link dropdown-toggle">Bài Đăng</a>-->
-<!--              <ul class="dropdown-menu">-->
-<!--                <li *ngIf="checkRole == 'COMPANY'" class="nav-item">-->
-<!--                  <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                  <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>-->
-<!--                </li>-->
 
-<!--              </ul>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'USER'" class="nav-item">-->
-<!--              <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>-->
-<!--              <ul class="dropdown-menu">-->
-<!--                <li class="nav-item">-->
-<!--                  <a routerLink="create-cv"  class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                  <a [routerLink]="['/detail-cv/', idGuest]" class="nav-link">Hồ sơ của bạn</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                  <a routerLink="apply-list" class="nav-link">Dách sách ứng tuyển</a>-->
-<!--                </li>-->
-<!--              </ul>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'COMPANY'" class="nav-item">-->
-<!--              <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>-->
-<!--            </li>-->
-<!--            <li *ngIf="checkRole == 'USER'||'COMPANY'" class="nav-item">-->
-<!--              <a class="nav-link dropdown-toggle">Công ty</a>-->
-<!--              <ul class="dropdown-menu">-->
-<!--                <li class="nav-item">-->
-<!--                  <a routerLink="list-company" class="nav-link">Danh sách công ty</a>-->
-<!--                </li>-->
-<!--              </ul>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </div>-->
-
-<!--        <div *ngIf="!checkLogin">-->
-<!--          <a routerLink="/login" class="box-btn">Đăng nhập</a>-->
-<!--        </div>-->
-<!--        <div *ngIf="checkLogin" class="nav-btn dropdown">-->
-<!--          <button class="btn btn-secondary dropdown-toggle" style="background: #007bff" type="button"-->
-<!--                  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">{{name}}-->
-<!--          </button>-->
-
-<!--          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'COMPANY'">-->
-<!--            <li><a class="dropdown-item" routerLink="detail-company">Quản lý hồ sơ</a></li>-->
-<!--            <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>-->
-<!--            <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>-->
-<!--          </ul>-->
-<!--          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'USER'">-->
-<!--            <li><a class="dropdown-item" [routerLink]="['/detail-cv/', idGuest]" >Quản lý hồ sơ</a></li>-->
-<!--            <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>-->
-<!--            <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>-->
-<!--          </ul>-->
-<!--          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" *ngIf="checkRole == 'ADMIN'">-->
-<!--            <li><a class="dropdown-item" routerLink="change-password">Đổi mật khẩu</a></li>-->
-<!--            <li><a class="dropdown-item" (click)="logOut()">Đăng xuất</a></li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </nav>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+  <!-- Navbar -->
+  <nav  class="p-4 navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarCenteredExample"
+      >
+        <!-- Left links -->
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <!-- Navbar dropdown -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dropdown
+            </a>
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#">Action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled"
+            >Disabled</a
+            >
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
 
 
-<!--&lt;!&ndash; End Navbar Area &ndash;&gt;-->
+      <form class="d-flex input-group w-auto">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Type query"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          data-mdb-ripple-color="dark"
+        >
+          Search
+        </button>
+      </form>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarCenteredExample"
+        aria-controls="navbarCenteredExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarButtonsExample"
+        aria-controls="navbarButtonsExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+
+        <div class="d-flex align-items-center">
+          <button type="button" class="btn btn-link px-3 me-2">
+            Login
+          </button>
+          <button type="button" class="btn btn-primary me-3">
+            Sign up for free
+          </button>
+          <a
+            class="btn btn-dark px-3"
+            href="https://github.com/mdbootstrap/mdb-ui-kit"
+            role="button"
+          ><i class="fab fa-github"></i
+          ></a>
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
