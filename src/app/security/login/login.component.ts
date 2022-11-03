@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     if (role === "ROLE_COMPANY"){
       console.log("if role company")
       this.getCompanyByAccount_UserName();
-    }else if(role === "ROLE_COMPANY"){
+    }else if(role === "ROLE_USER"){
       this.getUserByAccount_UserName();
     }else {
       // console.error("Lỗi đăng nhập");
