@@ -9,6 +9,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
 import { RegisterComponent } from './security/register/register.component';
+import { HeaderComponent } from './header/header.component';
+import {FooterComponent} from "./footer/footer.component";
 
 
 
@@ -17,6 +19,8 @@ import { RegisterComponent } from './security/register/register.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,4 +33,6 @@ import { RegisterComponent } from './security/register/register.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
+// @ts-ignore
 export class AppModule { }

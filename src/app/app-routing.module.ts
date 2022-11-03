@@ -5,16 +5,21 @@ import {RegisterComponent} from "./security/register/register.component";
 
 export const ROUTES: Routes = [
   {
-    path: '/login', component: LoginComponent
+    path: 'login', component: LoginComponent
   },
   {
-    path: '/register', component: RegisterComponent
+    path: 'register', component: RegisterComponent
   }
   // { path: '**', component: NotfoundComponent },
 ];
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule]
 })
+
+// @ts-ignore
 export class AppRoutingModule { }
