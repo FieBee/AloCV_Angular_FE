@@ -21,7 +21,7 @@ export class JwtClientService {
     return this.http.get(API_URL +`/user/getUser/${userName}`,{responseType: 'text' as 'json'})
   }
   public getCompanyByAccount_UserName(companyName: ɵGetProperty<ɵTypedOrUntyped<{ password: FormControl<string | null>; userName: FormControl<string | null> }, ɵFormGroupRawValue<{ password: FormControl<string | null>; userName: FormControl<string | null> }>, any>, "userName"> | undefined):Observable<any>{
-    return this.http.get(API_URL +`/company/getCompany/${companyName}`,{responseType: 'text' as 'json'})
+    return this.http.get(API_URL +`/user/getCompany/${companyName}`,{responseType: 'text' as 'json'})
   }
 
 
