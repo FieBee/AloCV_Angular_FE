@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       if (!data){
         this.alertLoginFail()
       }
+      localStorage.setItem("data",JSON.parse(data));
       localStorage.setItem("token",JSON.parse(data).token);
       localStorage.setItem("role",JSON.parse(data).appRole[0].name);
       this.checkAccount(JSON.parse(data).appRole[0].name);
@@ -76,14 +77,14 @@ export class LoginComponent implements OnInit {
       console.log("if role company")
       this.getCompanyByAccount_UserName();
       this.alertLoginSuccess()
-      this.router.navigate(['company/home'])
+      // this.router.navigate(['company/home'])
     }else if(role === "ROLE_USER"){
       this.getUserByAccount_UserName();
       this.alertLoginSuccess()
-      this.router.navigate(['user/home']);
+      // this.router.navigate(['user/home']);
     }else if(role === "ROLE_ADMIN"){
       this.alertLoginSuccess()
-      this.router.navigate(['admin/home']);
+      // this.router.navigate(['admin/home']);
     }
   }
 
@@ -97,7 +98,7 @@ export class LoginComponent implements OnInit {
   getCompanyByAccount_UserName(){
     let resp:Observable<any> = this.jwtService.getCompanyByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data =>{
-      localStorage.setItem("data",data);
+      localStorage.setItem("dataName",JSON.parse(data).name);
     },error => console.log("Đối tượng đăng nhập không phải company"))
   }
 

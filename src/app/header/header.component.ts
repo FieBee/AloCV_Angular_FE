@@ -10,19 +10,23 @@ export class HeaderComponent implements OnInit {
 
 
   public login: boolean | undefined;
-  public objName: string | undefined;
+  public dataName: string | null = localStorage.getItem("dataName") ;
+  public dataRole: string | null = localStorage.getItem("role");
+
   constructor() { }
 
   ngOnInit(): void {
-    if (localStorage.getItem("data")!== null){
+    if (this.dataName!==null){
       console.log("da dang nhap")
       this.login = true
-      this.objName == localStorage.getItem("data")
+      this.dataName = localStorage.getItem("dataName");
     }else {
       console.log("chua dang nhap")
       this.login = false;
-      this.objName =="Login"
+      this.dataName == "Login"
     }
+
+
   }
 
 
