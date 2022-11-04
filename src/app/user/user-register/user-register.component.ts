@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {finalize} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AccountService} from "../../service/account/account.service";
 import {UserService} from "../../service/user/user.service";
 import {Account} from "../../model/account";
@@ -13,15 +13,32 @@ import {Account} from "../../model/account";
 })
 export class UserRegisterComponent implements OnInit {
 
+  passwordChek:string= '';
+  confirmpassword:string = '';
+
+  checkConfirmPassword(){
+    if (this.passwordChek == this.confirmpassword){
+      return true
+    }else {
+      return false
+    }
+
+  }
+  data: any = {
+    password: '',
+    confirmpassword: ''
+  };
+
   userForm: FormGroup = new FormGroup({
-    name: new FormControl(),
+    name: new FormControl('', Validators.required),
     phoneNumber: new FormControl(),
-    image: new FormControl(),
+    image: new FormControl('', Validators.required),
   });
 
   accountForm: FormGroup = new FormGroup({
-    userName: new FormControl(),
-    password: new FormControl(),
+    userName: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
+
   })
 
   account?: Account;
@@ -79,7 +96,28 @@ export class UserRegisterComponent implements OnInit {
     }
   }
 
+  get email() {
+    return this.accountForm.get('userName');
+  }
 
+  get password() {
+    return this.accountForm.get('password');
+  }
+
+  get passwordCheck() {
+    return this.data.password;
+  }
+
+  get name() {
+    return this.userForm.get('name');
+  }
+  get image() {
+    return this.userForm.get('image');
+  }
+
+  // get confirmpassword(){
+  //   return this.data.confirmpassword;
+  // }
 
 
 }

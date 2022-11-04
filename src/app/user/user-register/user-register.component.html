@@ -18,6 +18,12 @@
                       <input type="text" formControlName="name" class="form-control" />
                     </div>
                   </div>
+<!--                  Validate Name-->
+                  <div *ngIf="!name?.valid && (name?.dirty ||name?.touched)">
+                    <div [hidden]="!name?.errors?.['required']">
+                      <p style="color: red"> Name must not be empty </p>
+                    </div>
+                  </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
@@ -28,7 +34,7 @@
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <i class="fas fa-image fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" >Image</label>
                       <input formControlName="image" type="file" #uploadFile (change)="uploadFileImg()" class="col-4" formControlName="image" id="image" class="form-control" >
@@ -43,21 +49,47 @@
                         <input type="email" formControlName="userName" id="form3Example3c" class="form-control" />
                       </div>
                     </div>
+<!--                    Validate Email-->
+                    <div  *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+                      <div [hidden]="!email?.errors?.['required']">
+                        <p style="color: red;margin-top:-20px;margin-right: 50px"> Email is required </p>
+                      </div>
+                      <div [hidden]="!email?.errors?.['email']">
+                        <p style="color: red"> Invalid email id </p>
+                      </div>
+                    </div>
+
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4c">Password</label>
-                        <input type="password" formControlName="password" id="form3Example4c" class="form-control" />
+                        <input [(ngModel)]="passwordChek" type="password" formControlName="password" id="form3Example4c" class="form-control" />
                       </div>
                     </div>
+<!--                    Validate Pass-->
+                    <div *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
+                      <div [hidden]="!password?.errors?.['required']">
+                        <p style="color: red"> Password must not be empty </p>
+                      </div>
+                    </div>
+
+
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Repeat your password</label>
-                        <input type="password" id="form3Example4cd" class="form-control" />
+                        <input [(ngModel)]="confirmpassword" formControlName="repeatPassword" type="password" id="form3Example4cd" class="form-control" />
                       </div>
                     </div>
+                    <div *ngIf="passwordChek !== confirmpassword">
+
+<!--                      Ko binding dc 2 chieu-->
+                      <div [hidden]="checkConfirmPassword()">
+                        <p style="color: red"> Password must not be empty </p>
+                      </div>
+                    </div>
+
 
                     <div class="form-check d-flex justify-content-center mb-5">
                       <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
