@@ -112,12 +112,20 @@
 
         <div class="d-flex align-items-center">
 
+
+<!--          Khong the binding 2 chieu`-->
           <button  type="button" class=" btn btn-link px-3 me-2 ">
             <a  routerLink="login">
-              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [value]="dataName">
+              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
             </a>
           </button>
 
+
+          <button [hidden]="login" type="button" class=" btn btn-link px-3 me-2 ">
+            <a  routerLink="home">
+              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" value="Login">
+            </a>
+          </button>
 
           <button type="button" class="btn btn-link me-3 me-2">
             <a class="btn btn-primary " routerLink="register">Sign up for free</a>

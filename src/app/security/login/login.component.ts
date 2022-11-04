@@ -34,12 +34,14 @@ export class LoginComponent implements OnInit {
     resp.subscribe(data => {
       if (!data){
         this.alertLoginFail()
+      }else {
+        localStorage.setItem("data",JSON.parse(data));
+        localStorage.setItem("token",JSON.parse(data).token);
+        localStorage.setItem("role",JSON.parse(data).appRole[0].name);
+        this.checkAccount(JSON.parse(data).appRole[0].name);
       }
-      localStorage.setItem("data",JSON.parse(data));
-      localStorage.setItem("token",JSON.parse(data).token);
-      localStorage.setItem("role",JSON.parse(data).appRole[0].name);
-      this.checkAccount(JSON.parse(data).appRole[0].name);
-    });
+    })
+    window.onload;
   }
 
   getAppRole(){
@@ -60,7 +62,6 @@ export class LoginComponent implements OnInit {
         text: 'Đăng nhập thất bại, tài khoản của bạn đang bị khóa!',
       })
     }
-
   }
 
   alertLoginSuccess(){
@@ -69,6 +70,7 @@ export class LoginComponent implements OnInit {
       'Đăng nhập thành công!',
       'success'
     )
+      this.router.navigate(['home']);
   }
 
   checkAccount(role:string){
@@ -77,15 +79,15 @@ export class LoginComponent implements OnInit {
       console.log("if role company")
       this.getCompanyByAccount_UserName();
       this.alertLoginSuccess()
-      // this.router.navigate(['company/home'])
+      // this.router.navigate(['home'])
     }else if(role === "ROLE_USER"){
       this.getUserByAccount_UserName();
       this.alertLoginSuccess()
-      // this.router.navigate(['user/home']);
     }else if(role === "ROLE_ADMIN"){
       this.alertLoginSuccess()
-      // this.router.navigate(['admin/home']);
+
     }
+
   }
 
   getUserByAccount_UserName(){

@@ -19,14 +19,11 @@ export class HeaderComponent implements OnInit {
     if (this.dataName!==null){
       console.log("da dang nhap")
       this.login = true
-      this.dataName = localStorage.getItem("dataName");
     }else {
       console.log("chua dang nhap")
       this.login = false;
       this.dataName == "Login"
     }
-
-
   }
 
 
