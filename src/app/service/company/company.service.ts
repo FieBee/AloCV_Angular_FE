@@ -19,6 +19,7 @@ export class CompanyService {
 
   saveCompany(company: Company):Observable<Company>{
     return this.httpClient.post<Company>(API_URL + `/company` , company);
+    console.log(company);
   }
 
   findById(id: number):Observable<Company>{
