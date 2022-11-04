@@ -1,8 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {CompanyService} from "../../service/company/company.service";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
+import {AccountService} from "../../service/account/account.service";
+import {Account} from "../../model/account";
 
 @Component({
   selector: 'app-company-create',
@@ -10,6 +12,11 @@ import {finalize} from "rxjs";
   styleUrls: ['./company-create.component.css']
 })
 export class CompanyCreateComponent implements OnInit {
+
+  accountId: number | undefined
+
+  a?: Account
+
   walletForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
@@ -19,54 +26,74 @@ export class CompanyCreateComponent implements OnInit {
     branch: new FormControl(),
     linkMap: new FormControl(),
     linkFb: new FormControl(),
+    account: new FormControl
 
   });
+  account: FormGroup = new FormGroup({
+    id: new FormControl(),
+    userName: new FormControl(),
+    password: new FormControl(),
+    // appRole: new FormGroup({
+    //   id: new FormControl(2),
+    // })
+  })
 
-  account:FormGroup= new FormGroup({
-  id: new FormControl(),
-  userName: new FormControl(),
-  password: new FormControl(),
-  appRole: new FormGroup({
-  id: new FormControl(2),
-})
-})
   constructor(private companyService: CompanyService,
-              private storage: AngularFireStorage) { }
+              private accountService: AccountService,
+              private storage: AngularFireStorage,) {
+  }
+
+
+  ngOnInit(): void {
+  }
+
   // title = 'FinanceManager-FE';
-  @ViewChild('uploadFile',{static:true})
-  public avatarDom:ElementRef|undefined;
-  selectedImage:any =null;
-  arrayPicture='';
-  submitFile(){
+  @ViewChild('uploadFile', {static: true})
+  public avatarDom: ElementRef | undefined;
+  selectedImage: any = null;
+  arrayPicture = '';
+
+  submitFile() {
     if (this.selectedImage != null) {
       const filePath = this.selectedImage.name;
       const fileRef = this.storage.ref(filePath);
       console.log("fp", filePath)
       console.log("fr", fileRef)
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-        finalize(()=>(fileRef.getDownloadURL().subscribe(url=>{
+        finalize(() => (fileRef.getDownloadURL().subscribe(url => {
           this.arrayPicture = url;
           console.log(url)
         })))
       ).subscribe();
     }
   }
-  uploadFileImg(){
+
+  uploadFileImg() {
     this.selectedImage = this.avatarDom?.nativeElement.files[0];
     console.log(this.selectedImage);
     this.submitFile();
   }
 
-  ngOnInit(): void {
-  }
-  submit(){
-    const wallet=this.walletForm.value;
-    wallet.image = this.arrayPicture
-    console.log(this.arrayPicture)
-    this.companyService.saveCompany(wallet).subscribe(()=>{
-      this.walletForm.reset();
-      alert('Tạo thành công ');
-    })
-  }
 
+  submit() {
+    this.a = {
+      id: this.account?.value.id,
+      userName: this.account?.value.userName,
+      password: this.account?.value.password,
+      appRole: [],
+    }
+    this.accountService.saveAccount(this.a).subscribe(data => {
+      console.log(data);
+      const wallet = this.walletForm.value;
+      wallet.account = data;
+      wallet.image = this.arrayPicture;
+      console.log(this.arrayPicture);
+      console.log(wallet)
+      this.companyService.saveCompany(wallet).subscribe(data1 => {
+        this.walletForm.reset();
+        alert('Tạo thành công ');
+      })
+    })
+
+  }
 }
