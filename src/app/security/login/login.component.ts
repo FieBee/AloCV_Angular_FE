@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 export class LoginComponent implements OnInit {
 
   status:boolean = true;
-  message: string | undefined;
+  message: string | undefined ="";
 
   loginForm = new FormGroup({
     userName: new FormControl('',[Validators.required, Validators.email]),
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 
   alertLoginFail(){
     if (this.status){
-      alert("Sai tên tài khoản hoặc mật khẩu!")
+      this.message ="Sai tên tài khoản hoặc mật khẩu!";
     }else {
       Swal.fire({
         icon: 'error',
