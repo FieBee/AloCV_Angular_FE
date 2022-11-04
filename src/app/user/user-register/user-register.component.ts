@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {finalize} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-user-register',
@@ -8,7 +9,14 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
   styleUrls: ['./user-register.component.css']
 })
 export class UserRegisterComponent implements OnInit {
-  userForm: any;
+
+  userForm: FormGroup = new FormGroup({
+    name: new FormControl(),
+    phoneNumber: new FormControl(),
+    image: new FormControl(),
+  });
+
+
   private selectedImage: any;
   private avatarDom: any;
   arrayPicture='';
