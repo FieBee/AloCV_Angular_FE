@@ -18,6 +18,7 @@ import {environment} from "../environments/environment";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import { HomeComponent } from './home/home.component';
+import { CompanyCreateComponent } from './company/company-create/company-create.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     UploadImageComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    CompanyCreateComponent,
   ],
   imports: [
     BrowserModule,
