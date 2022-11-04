@@ -1,8 +1,7 @@
 export interface Company {
   id? : number;
   name? : string;
-  email? : string;
-  password? : string;
+  account? : any;
   image? : string;
   address? : string;
   staffNumber? : number;
