@@ -29,20 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit(){
+    let resp = this.jwtService.login(this.loginForm.value);
 
-    try {
-      let resp = this.jwtService.login(this.loginForm.value);
-      resp.subscribe(data => {
-          localStorage.setItem("token",JSON.parse(data).token);
-          localStorage.setItem("role",JSON.parse(data).appRole[0].name);
-          this.checkAccount(JSON.parse(data).appRole[0].name);
-          return
-        });
-    }finally {
-      this.alertLoginFail();
-    }
-
-
+    resp.subscribe(data => {
+      if (!data){
+        this.alertLoginFail()
+      }
+      localStorage.setItem("token",JSON.parse(data).token);
+      localStorage.setItem("role",JSON.parse(data).appRole[0].name);
+      this.checkAccount(JSON.parse(data).appRole[0].name);
+    });
   }
 
   getAppRole(){
@@ -88,13 +84,6 @@ export class LoginComponent implements OnInit {
     }else if(role === "ROLE_ADMIN"){
       this.alertLoginSuccess()
       this.router.navigate(['admin/home']);
-    }else {
-      if (this.status){
-        alert("Sai tên đăng nhập hoặc mật khẩu!")
-      }else {
-        alert('Đăng nhập thất bại, tài khoản của bạn đang bị khóa!')
-      }
-
     }
   }
 
