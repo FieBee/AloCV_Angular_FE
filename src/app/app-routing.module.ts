@@ -3,16 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./security/login/login.component";
 import {RegisterComponent} from "./security/register/register.component";
 import {HomeComponent} from "./home/home.component";
+import {UserListComponent} from "./user/user-list/user-list.component";
 
 export const ROUTES: Routes = [
+  // {
+  //   path: 'login', component: LoginComponent
+  // },
+  // {
+  //   path: 'register', component: RegisterComponent
+  // },
   {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'register', component: RegisterComponent
-  },
-  {
-    path: '', component: HomeComponent
+    path: '', component: UserListComponent
   }
   // { path: '**', component: NotfoundComponent },
 ];
