@@ -6,4 +6,5 @@ export interface User {
   cvList? : any;
   notificationList? : any;
   status? : boolean;
+  image?:string;
 }
