@@ -112,10 +112,13 @@
 
         <div class="d-flex align-items-center">
 
-
-          <button  type="button" class=" btn btn-link px-3 me-2">
-            <a  class="btn btn-primary" routerLink="login">Login</a>
+          <button  type="button" class=" btn btn-link px-3 me-2 ">
+            <a  routerLink="login">
+              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [value]="dataName">
+            </a>
           </button>
+
+
           <button type="button" class="btn btn-link me-3 me-2">
             <a class="btn btn-primary " routerLink="register">Sign up for free</a>
           </button>

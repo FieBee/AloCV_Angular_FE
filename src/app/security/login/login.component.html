@@ -30,7 +30,7 @@
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label  class="mt-2 form-label" for="form3Example3">Email address</label>
-            <input   name="userName" formControlName="userName"   aria-describedby=""  type="email" id="form3Example3" class="form-control form-control-lg"
+            <input (mousedown)="message=''" name="userName" formControlName="userName"   aria-describedby=""  type="email" id="form3Example3" class="form-control form-control-lg"
                    placeholder="Enter a valid email address" />
           </div>
 
@@ -57,6 +57,13 @@
           <div *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
             <div [hidden]="!password?.errors?.['required']">
               <p style="color: red"> Password must not be empty </p>
+            </div>
+          </div>
+
+
+          <div *ngIf="message">
+            <div [hidden]="!message">
+              <p style="color: red"> Sai tên tài khoản hoặc mật khẩu! </p>
             </div>
           </div>
 
