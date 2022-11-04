@@ -19,7 +19,13 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import { HomeComponent } from './home/home.component';
 import { CompanyCreateComponent } from './company/company-create/company-create.component';
+
 import { UserListComponent } from './user/user-list/user-list.component';
+
+import { RegisterComponent } from './user/register/register.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +39,11 @@ import { UserListComponent } from './user/user-list/user-list.component';
     FooterComponent,
     HomeComponent,
     CompanyCreateComponent,
+
     UserListComponent,
+
+    RegisterComponent,
+    UserRegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,4 +59,5 @@ import { UserListComponent } from './user/user-list/user-list.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+// @ts-ignore
 export class AppModule { }
