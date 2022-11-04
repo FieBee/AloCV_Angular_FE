@@ -22,7 +22,7 @@ import { CompanyCreateComponent } from './company/company-create/company-create.
 
 import { UserListComponent } from './user/user-list/user-list.component';
 
-import { RegisterComponent } from './user/register/register.component';
+import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 
 

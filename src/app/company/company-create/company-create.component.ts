@@ -33,9 +33,6 @@ export class CompanyCreateComponent implements OnInit {
     id: new FormControl(),
     userName: new FormControl(),
     password: new FormControl(),
-    // appRole: new FormGroup({
-    //   id: new FormControl(2),
-    // })
   })
 
   constructor(private companyService: CompanyService,
@@ -97,3 +94,4 @@ export class CompanyCreateComponent implements OnInit {
 
   }
 }
+

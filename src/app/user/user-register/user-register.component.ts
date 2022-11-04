@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {finalize} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {FormControl, FormGroup} from "@angular/forms";
+import {AccountService} from "../../service/account/account.service";
+import {UserService} from "../../service/user/user.service";
+import {Account} from "../../model/account";
 
 @Component({
   selector: 'app-user-register',
@@ -16,20 +19,41 @@ export class UserRegisterComponent implements OnInit {
     image: new FormControl(),
   });
 
+  accountForm: FormGroup = new FormGroup({
+    userName: new FormControl(),
+    password: new FormControl(),
+  })
 
+  account?: Account;
+
+  // title = 'FinanceManager-FE';
+  @ViewChild('uploadFile', {static: true})
+  public avatarDom: ElementRef | undefined;
   private selectedImage: any;
-  private avatarDom: any;
   arrayPicture='';
 
 
-  constructor(
+  constructor(private accountService:AccountService,
+              private userService:UserService,
               private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
   }
 
   submit() {
-
+    this.account ={
+      userName: this.accountForm?.value.userName,
+      password: this.accountForm?.value.password,
+      appRole: [],
+    }
+    this.accountService.saveAccount(this.account).subscribe(data =>{
+      const user = this.userForm.value;
+      user.account = data;
+      user.image = this.arrayPicture;
+      this.userService.saveUser(user).subscribe( data =>{
+        alert("ok babe")
+      })
+    })
 
   }
 
@@ -54,4 +78,8 @@ export class UserRegisterComponent implements OnInit {
       ).subscribe();
     }
   }
+
+
+
+
 }
