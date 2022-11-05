@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public login: boolean | undefined;
   public dataName: string | null = localStorage.getItem("dataName") ;
-  public dataRole: string | null = localStorage.getItem("role");
+  // public dataRole: string | null = localStorage.getItem("role");
 
   constructor() { }
 

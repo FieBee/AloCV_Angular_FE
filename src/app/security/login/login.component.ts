@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
               private showMessage : ShowMessage) { }
 
   ngOnInit(): void {
-
   }
 
   public onSubmit(){
@@ -35,12 +34,14 @@ export class LoginComponent implements OnInit {
 
     resp.subscribe(data => {
       if (!data){
-        this.showMessage.alertLoginFail();
+        this.message = "Sai tên tài khoản hoặc mật khẩu!"
+        // this.showMessage.alertLoginFail();
       }else {
         localStorage.setItem("data",JSON.parse(data));
         localStorage.setItem("token",JSON.parse(data).token);
         localStorage.setItem("role",JSON.parse(data).appRole[0].name);
         this.checkAccount(JSON.parse(data).appRole[0].name);
+        // this.router.navigate()
       }
     })
     window.onload;
@@ -72,7 +73,7 @@ export class LoginComponent implements OnInit {
   getUserByAccount_UserName(){
     let resp:Observable<any> = this.jwtService.getUserByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data => {
-      localStorage.setItem("data",data);
+      localStorage.setItem("dataName",data);
     },error1 => console.log("Đối tượng đăng nhập không phải user"))
   }
 
