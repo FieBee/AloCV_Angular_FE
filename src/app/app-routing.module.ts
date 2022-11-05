@@ -14,15 +14,23 @@ export const ROUTES: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then(module => module.RegisterModule),
+  //   loadChildren: () => import('./register/register.module').then(module => module.RegisterModule),
     component: RegisterComponent
+  },
+  {
+    path: 'register/user',
+    component: UserRegisterComponent
+  },
+  {
+    path: 'register/company',
+    component: CompanyCreateComponent
   },
   {
     path: 'home', component: HomeComponent
   },
-  // {
-  // path: 'company/list', component: CompanyListComponent
-  // },
+  {
+  path: 'company/list', component: CompanyListComponent
+  },
   // {
   // path: 'company/create', component: CompanyCreateComponent
   //

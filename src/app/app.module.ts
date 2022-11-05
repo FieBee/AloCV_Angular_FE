@@ -39,16 +39,19 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
     FooterComponent,
     HomeComponent,
     CompanyCreateComponent,
-
     UserListComponent,
-
-    RegisterComponent
+    RegisterComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule,
+
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
