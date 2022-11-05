@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import Swal from "sweetalert2";
+import {ShowMessage} from "../../commom/show-message";
 
 @Component({
   selector: 'app-login',
@@ -21,8 +22,9 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(private jwtService:JwtClientService,
-              private router: Router) { }
+  constructor(private jwtService : JwtClientService,
+              private router : Router,
+              private showMessage : ShowMessage) { }
 
   ngOnInit(): void {
 
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
 
     resp.subscribe(data => {
       if (!data){
-        this.alertLoginFail()
+        this.showMessage.alertLoginFail();
       }else {
         localStorage.setItem("data",JSON.parse(data));
         localStorage.setItem("token",JSON.parse(data).token);
@@ -52,42 +54,19 @@ export class LoginComponent implements OnInit {
     localStorage.getItem("data")
   }
 
-  alertLoginFail(){
-    if (this.status){
-      this.message ="Sai tên tài khoản hoặc mật khẩu!";
-    }else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Lỗi',
-        text: 'Đăng nhập thất bại, tài khoản của bạn đang bị khóa!',
-      })
-    }
-  }
 
-  alertLoginSuccess(){
-    Swal.fire(
-      '',
-      'Đăng nhập thành công!',
-      'success'
-    )
-      this.router.navigate(['home']);
-  }
 
   checkAccount(role:string){
 
     if (role === "ROLE_COMPANY"){
       console.log("if role company")
       this.getCompanyByAccount_UserName();
-      this.alertLoginSuccess()
       // this.router.navigate(['home'])
     }else if(role === "ROLE_USER"){
       this.getUserByAccount_UserName();
-      this.alertLoginSuccess()
-    }else if(role === "ROLE_ADMIN"){
-      this.alertLoginSuccess()
-
+    }else if(role === "ROLE_ADMIN") {
     }
-
+    this.showMessage.alertLoginSuccess()
   }
 
   getUserByAccount_UserName(){

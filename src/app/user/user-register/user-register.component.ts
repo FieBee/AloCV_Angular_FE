@@ -5,6 +5,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AccountService} from "../../service/account/account.service";
 import {UserService} from "../../service/user/user.service";
 import {Account} from "../../model/account";
+import {ShowMessage} from "../../commom/show-message";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-register',
@@ -49,13 +51,14 @@ export class UserRegisterComponent implements OnInit {
   private selectedImage: any;
   arrayPicture='';
 
+  ngOnInit(): void {
+  }
 
   constructor(private accountService:AccountService,
               private userService:UserService,
-              private storage: AngularFireStorage) { }
-
-  ngOnInit(): void {
-  }
+              private storage: AngularFireStorage,
+              private showMessage:ShowMessage,
+              private router:Router) { }
 
   submit() {
     this.account ={
@@ -68,7 +71,9 @@ export class UserRegisterComponent implements OnInit {
       user.account = data;
       user.image = this.arrayPicture;
       this.userService.saveUser(user).subscribe( data =>{
-        alert("ok babe")
+        this.showMessage.alertRegisterSuccess()
+        // this.router.navigate("home")
+
       })
     })
 
