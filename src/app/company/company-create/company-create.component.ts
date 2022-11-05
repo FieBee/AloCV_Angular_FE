@@ -5,6 +5,7 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
 import {AccountService} from "../../service/account/account.service";
 import {Account} from "../../model/account";
+import {ShowMessage} from "../../commom/show-message";
 
 @Component({
   selector: 'app-company-create',
@@ -13,7 +14,6 @@ import {Account} from "../../model/account";
 })
 export class CompanyCreateComponent implements OnInit {
 
-  accountId: number | undefined
 
   a?: Account
 
@@ -37,7 +37,8 @@ export class CompanyCreateComponent implements OnInit {
 
   constructor(private companyService: CompanyService,
               private accountService: AccountService,
-              private storage: AngularFireStorage,) {
+              private storage: AngularFireStorage,
+              private showMessage:ShowMessage) {
   }
 
 
@@ -88,7 +89,7 @@ export class CompanyCreateComponent implements OnInit {
       console.log(wallet)
       this.companyService.saveCompany(wallet).subscribe(data1 => {
         this.walletForm.reset();
-        alert('Tạo thành công ');
+        this.showMessage.alertRegisterSuccess()
       })
     })
 
