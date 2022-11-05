@@ -5,6 +5,7 @@ import {HomeComponent} from "./home/home.component";
 import {CompanyListComponent} from "./company/company-list/company-list.component";
 import {CompanyCreateComponent} from "./company/company-create/company-create.component";
 import {RegisterComponent} from "./register/register.component";
+import {UserRegisterComponent} from "./user/user-register/user-register.component";
 
 export const ROUTES: Routes = [
 
@@ -12,18 +13,20 @@ export const ROUTES: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'register', component: RegisterComponent
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then(module => module.RegisterModule),
+    component: RegisterComponent
   },
   {
     path: 'home', component: HomeComponent
   },
-  {
-  path: 'company/list', component: CompanyListComponent
-  },
-  {
-  path: 'company/create', component: CompanyCreateComponent
-
-  }
+  // {
+  // path: 'company/list', component: CompanyListComponent
+  // },
+  // {
+  // path: 'company/create', component: CompanyCreateComponent
+  //
+  // }
   // { path: '**', component: NotfoundComponent },
 ];
 

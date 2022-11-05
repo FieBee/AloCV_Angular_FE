@@ -42,8 +42,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 
     UserListComponent,
 
-    RegisterComponent,
-    UserRegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

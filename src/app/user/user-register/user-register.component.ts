@@ -5,8 +5,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AccountService} from "../../service/account/account.service";
 import {UserService} from "../../service/user/user.service";
 import {Account} from "../../model/account";
-import {ShowMessage} from "../../commom/show-message";
 import {Router} from "@angular/router";
+import {ShowMessage} from "../../commom/show-message";
 
 @Component({
   selector: 'app-user-register',
