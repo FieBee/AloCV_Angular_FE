@@ -14,7 +14,17 @@ import {ShowMessage} from "../../commom/show-message";
 })
 export class CompanyCreateComponent implements OnInit {
 
+  passwordChek:string= '';
+  confirmpassword:string = '';
 
+  checkConfirmPassword(){
+    if (this.passwordChek == this.confirmpassword){
+      return true
+    }else {
+      return false
+    }
+
+  }
   a?: Account
 
   walletForm: FormGroup = new FormGroup({
@@ -29,7 +39,7 @@ export class CompanyCreateComponent implements OnInit {
     account: new FormControl
 
   });
-  account: FormGroup = new FormGroup({
+  accountForm: FormGroup = new FormGroup({
     id: new FormControl(),
     userName: new FormControl(),
     password: new FormControl(),
@@ -75,9 +85,9 @@ export class CompanyCreateComponent implements OnInit {
 
   submit() {
     this.a = {
-      id: this.account?.value.id,
-      userName: this.account?.value.userName,
-      password: this.account?.value.password,
+      id: this.accountForm?.value.id,
+      userName: this.accountForm?.value.userName,
+      password: this.accountForm?.value.password,
       appRole: [],
     }
     this.accountService.saveAccount(this.a).subscribe(data => {
@@ -94,5 +104,20 @@ export class CompanyCreateComponent implements OnInit {
     })
 
   }
+  get email() {
+    return this.accountForm.get('userName');
+  }
+
+  get password() {
+    return this.accountForm.get('password');
+  }
+
+  get name() {
+    return this.walletForm.get('name');
+  }
+  get image() {
+    return this.walletForm.get('image');
+  }
+
 }
 
