@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public login: boolean | undefined;
   public dataName: string | null = localStorage.getItem("dataName") ;
-  // public dataRole: string | null = localStorage.getItem("role");
+  public checkRole: string | null | undefined ;
 
   constructor() { }
 
@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
       this.login = false;
       this.dataName == "Login"
     }
+    this.checkRole = localStorage.getItem("role");
   }
 
 
