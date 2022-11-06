@@ -78,6 +78,18 @@ export class UserRegisterComponent implements OnInit {
     })
 
   }
+  // checkAccount_userName(){
+  //   this.accountService.getAll().subscribe(data =>{
+  //     const accountList: any = data;
+  //     console.log(data)
+  //     for (let i = 0; i < accountList.length; i++) {
+  //       if (this.accountForm.get("userName")?.valid == accountList[i].userName){
+  //         return false
+  //       }
+  //     }
+  //     return true
+  //   })
+  // }
 
   uploadFileImg(){
     this.selectedImage = this.avatarDom?.nativeElement.files[0];
@@ -107,10 +119,6 @@ export class UserRegisterComponent implements OnInit {
 
   get password() {
     return this.accountForm.get('password');
-  }
-
-  get passwordCheck() {
-    return this.data.password;
   }
 
   get name() {

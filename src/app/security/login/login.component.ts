@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
               private showMessage : ShowMessage) { }
 
   ngOnInit(): void {
-
   }
 
   public onSubmit(){
@@ -35,7 +34,8 @@ export class LoginComponent implements OnInit {
 
     resp.subscribe(data => {
       if (!data){
-        this.showMessage.alertLoginFail();
+        this.message = "Sai tên tài khoản hoặc mật khẩu!"
+        // this.showMessage.alertLoginFail();
       }else {
         localStorage.setItem("data",JSON.parse(data));
         localStorage.setItem("token",JSON.parse(data).token);
@@ -58,13 +58,17 @@ export class LoginComponent implements OnInit {
 
   checkAccount(role:string){
 
-    if (role === "ROLE_COMPANY"){
+    if (role == "ROLE_COMPANY"){
       console.log("if role company")
       this.getCompanyByAccount_UserName();
-      // this.router.navigate(['home'])
-    }else if(role === "ROLE_USER"){
+      this.router.navigate(['company'])
+    }else if(role == "ROLE_USER" ||role == "ROLE_ADMIN" ){
       this.getUserByAccount_UserName();
-    }else if(role === "ROLE_ADMIN") {
+      if (role == "ROLE_USER"){
+        this.router.navigate(['user'])
+      }else {
+        this.router.navigate(['admin'])
+      }
     }
     this.showMessage.alertLoginSuccess()
   }
@@ -72,15 +76,15 @@ export class LoginComponent implements OnInit {
   getUserByAccount_UserName(){
     let resp:Observable<any> = this.jwtService.getUserByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data => {
-      localStorage.setItem("data",data);
-    },error1 => console.log("Đối tượng đăng nhập không phải user"))
+      localStorage.setItem("dataName",JSON.parse(data).name);
+    },error1 => console.log("get user name id fail"))
   }
 
   getCompanyByAccount_UserName(){
     let resp:Observable<any> = this.jwtService.getCompanyByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data =>{
       localStorage.setItem("dataName",JSON.parse(data).name);
-    },error => console.log("Đối tượng đăng nhập không phải company"))
+    },error => console.log("get company name id fail"))
   }
 
   logout(){
