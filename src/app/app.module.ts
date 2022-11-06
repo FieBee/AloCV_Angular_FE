@@ -24,6 +24,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { FindJobUserComponent } from './user/find-job-user/find-job-user.component';
 
 
 
@@ -41,7 +42,8 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
     CompanyCreateComponent,
     UserListComponent,
     RegisterComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    FindJobUserComponent
   ],
   imports: [
     BrowserModule,
