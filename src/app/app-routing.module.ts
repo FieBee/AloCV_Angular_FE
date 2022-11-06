@@ -26,7 +26,7 @@ export const ROUTES: Routes = [
     component: CompanyCreateComponent
   },
   {
-    path: 'home', component: HomeComponent
+    path: '', component: HomeComponent
   },
   {
   path: 'company/list', component: CompanyListComponent
@@ -35,7 +35,7 @@ export const ROUTES: Routes = [
   // path: 'company/create', component: CompanyCreateComponent
   //
   // }
-  // { path: '**', component: NotfoundComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 

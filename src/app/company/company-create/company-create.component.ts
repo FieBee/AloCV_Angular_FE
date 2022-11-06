@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CompanyService} from "../../service/company/company.service";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
@@ -29,8 +29,8 @@ export class CompanyCreateComponent implements OnInit {
 
   walletForm: FormGroup = new FormGroup({
     id: new FormControl(),
-    name: new FormControl(),
-    image: new FormControl(),
+    name: new FormControl('', Validators.required),
+    image: new FormControl('', Validators.required),
     address: new FormControl(),
     staffNumber: new FormControl(),
     branch: new FormControl(),
@@ -41,8 +41,8 @@ export class CompanyCreateComponent implements OnInit {
   });
   accountForm: FormGroup = new FormGroup({
     id: new FormControl(),
-    userName: new FormControl(),
-    password: new FormControl(),
+    userName: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl('',Validators.required),
   })
 
   constructor(private companyService: CompanyService,
