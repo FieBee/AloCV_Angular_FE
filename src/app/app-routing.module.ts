@@ -45,7 +45,7 @@ export const ROUTES: Routes = [
   path: 'job/job-create', component: JobCreateComponent
   },
   {
-  path: 'job/job-edit', component: JobEditComponent
+  path: 'job/job-edit/:id', component: JobEditComponent
   },
   // {
   // path: 'company/create', component: CompanyCreateComponent

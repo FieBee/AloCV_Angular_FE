@@ -31,4 +31,5 @@ export class JobService {
   delete(id: any): Observable<Job>{
     return this.httpClient.delete<Job>(API_URL + `/job/${id}`);
   }
+
 }
