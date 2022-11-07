@@ -1,0 +1,148 @@
+
+
+<section class="vh-200" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Tạo doanh nghiệp của bạn</p>
+
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                     class="img-fluid" alt="Sample image">
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+
+                <form [formGroup]="walletForm" (ngSubmit)="submit()" class="mx-1 mx-md-4">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label">Company Name</label>
+                      <input type="text" formControlName="name" class="form-control" />
+                    </div>
+                  </div>
+                  <!--                  Validate Name-->
+                  <div *ngIf="!name?.valid && (name?.dirty ||name?.touched)">
+                    <div [hidden]="!name?.errors?.['required']">
+                      <p style="color: red"> Name must not be empty </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-image fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" >Image</label>
+                      <input formControlName="image" type="file" #uploadFile (change)="uploadFileImg()"   id="image" class="col-4 form-control" >
+                    </div>
+                  </div>
+
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" >Address</label>
+                    <input type="text" formControlName="name" class="form-control " />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" >Staff Number</label>
+                    <input type="number" formControlName="name" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" >Branch</label>
+                    <input type="text" formControlName="name" class="form-control" />
+                  </div>
+                </div>
+                </form>
+
+
+                <form [formGroup]="accountForm" (ngSubmit)="submit()" class="mx-1 mx-md-4">
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input type="email" formControlName="userName" id="form3Example3c" class="form-control" />
+                    </div>
+                  </div>
+                  <!--                    Validate Email-->
+                  <div  *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+                    <div [hidden]="!email?.errors?.['required']">
+                      <p style="color: red;margin-top:-20px;margin-right: 50px"> Email is required </p>
+                    </div>
+                    <div [hidden]="!email?.errors?.['email']">
+                      <p style="color: red"> Invalid email id </p>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <input [(ngModel)]="passwordChek" type="password" formControlName="password" id="form3Example4c" class="form-control" />
+                    </div>
+                  </div>
+                  <!--                    Validate Pass-->
+                  <div *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
+                    <div [hidden]="!password?.errors?.['required']">
+                      <p style="color: red"> Password must not be empty </p>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <input [(ngModel)]="confirmpassword"  type="password" id="form3Example4cd" class="form-control" />
+                    </div>
+                  </div>
+                  <div *ngIf="passwordChek !== confirmpassword">
+
+                    <!--                      Ko binding dc 2 chieu-->
+                    <div [hidden]="checkConfirmPassword()">
+                      <p style="color: red"> Password must not be empty </p>
+                    </div>
+                  </div>
+
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button [disabled]="!accountForm.valid && !walletForm.valid" type="submid" class="btn btn-primary btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+                  </div>
+                </form>
+
+
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

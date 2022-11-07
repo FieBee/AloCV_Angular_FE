@@ -1,0 +1,27 @@
+<br>
+<h1 style="text-align: center">Job List</h1>
+<br>
+<table class="table table-borderless container" >
+  <thead>
+  <tr>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Location</td>
+    <td>Salary</td>
+    <td>Position</td>
+    <td>Gender</td>
+    <!--    <td colspan="2" style="text-align: center">Action</td>-->
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let j of job; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{j.name}}</td>
+    <td>{{j.location.name}}</td>
+    <td>{{j.salaryRange}}</td>
+    <td>{{j.position}}</td>
+    <td>{{j.gender}}</td>
+    <!--    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/delete',com.id]" style="width: 100%">Detail</button></td>-->
+  </tr>
+  </tbody>
+</table>

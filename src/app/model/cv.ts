@@ -3,4 +3,6 @@ export interface Cv {
   description? : string;
   image? : string;
   status? : boolean;
+  user? : any;
+  job? : any;
 }

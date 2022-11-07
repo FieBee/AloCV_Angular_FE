@@ -1,0 +1,24 @@
+<br>
+<h1 style="text-align: center">User List</h1>
+<br>
+<table class="table table-borderless container" >
+  <thead>
+  <tr>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Phone</td>
+    <td>Status</td>
+    <td colspan="2" style="text-align: center">Action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let u of user; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{u.name}}</td>
+    <td>{{u.phoneNumber}}</td>
+    <td>{{u.status}}</td>
+    <!--    <td style="text-align: center"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/edit',com.id]" style="width: 100%">Edit</button></td>-->
+    <!--    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/delete',com.id]" style="width: 100%">Delete</button></td>-->
+  </tr>
+  </tbody>
+</table>
