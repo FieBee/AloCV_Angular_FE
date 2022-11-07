@@ -8,7 +8,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
-import {JobListComponent} from "./user/job-list/job-list.component";
 import { UploadFileComponent } from './upload/upload-file/upload-file.component';
 import { UploadImageComponent } from './upload/upload-image/upload-image.component';
 import {AngularFireModule} from "@angular/fire/compat";
@@ -19,12 +18,12 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import { HomeComponent } from './home/home.component';
 import { CompanyCreateComponent } from './company/company-create/company-create.component';
-
 import { UserListComponent } from './user/user-list/user-list.component';
-
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { AdminJobListComponent } from './job/admin-job-list/admin-job-list.component';
+import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
+import { AdminJobCreateComponent } from './job/admin-job-create/admin-job-create.component';
 
 
 
@@ -33,7 +32,6 @@ import { AdminJobListComponent } from './job/admin-job-list/admin-job-list.compo
     AppComponent,
     LoginComponent,
     CompanyListComponent,
-    JobListComponent,
     UploadFileComponent,
     UploadImageComponent,
     HeaderComponent,
@@ -43,14 +41,15 @@ import { AdminJobListComponent } from './job/admin-job-list/admin-job-list.compo
     UserListComponent,
     RegisterComponent,
     UserRegisterComponent,
-    AdminJobListComponent
+    AdminJobListComponent,
+    UserJobListComponent,
+    AdminJobCreateComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule,
-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

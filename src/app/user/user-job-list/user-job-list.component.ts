@@ -3,11 +3,11 @@ import {Job} from "../../model/job";
 import {JobService} from "../../service/job/job.service";
 
 @Component({
-  selector: 'app-job-list',
-  templateUrl: './job-list.component.html',
-  styleUrls: ['./job-list.component.css']
+  selector: 'app-user-job-list',
+  templateUrl: './user-job-list.component.html',
+  styleUrls: ['./user-job-list.component.css']
 })
-export class JobListComponent implements OnInit {
+export class UserJobListComponent implements OnInit {
 
   job: Job[] | undefined ;
 

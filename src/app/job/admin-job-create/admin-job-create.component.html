@@ -1,0 +1,18 @@
+<div class=”text-center”>
+  <h2>Tạo mới sản phẩm</h2>
+</div>
+<form [formGroup]="jobForm" (ngSubmit)="addJob()">
+  <label class="col">
+    Tên sản phẩm:
+    <input type="text" formControlName="name" class="form-control">
+  </label>
+  <label class="col">
+    <label for="location">Location:</label>
+    <select class="custom-select custom-select-sm" id="location" formControlName="location">
+      <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+    </select>
+  </label>
+  <div class="col">
+    <button class="btn btn-info" type="submit">Tạo mới</button>
+  </div>
+</form>

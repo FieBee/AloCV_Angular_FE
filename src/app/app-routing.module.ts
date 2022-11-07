@@ -6,8 +6,9 @@ import {CompanyListComponent} from "./company/company-list/company-list.componen
 import {CompanyCreateComponent} from "./company/company-create/company-create.component";
 import {RegisterComponent} from "./register/register.component";
 import {UserRegisterComponent} from "./user/user-register/user-register.component";
-import {JobListComponent} from "./user/job-list/job-list.component";
 import {AdminJobListComponent} from "./job/admin-job-list/admin-job-list.component";
+import {UserJobListComponent} from "./user/user-job-list/user-job-list.component";
+import {AdminJobCreateComponent} from "./job/admin-job-create/admin-job-create.component";
 
 export const ROUTES: Routes = [
 
@@ -34,10 +35,13 @@ export const ROUTES: Routes = [
   path: 'company/list', component: CompanyListComponent
   },
   {
-  path: 'user/job-list', component: JobListComponent
+  path: 'user/job-list', component: UserJobListComponent
   },
   {
   path: 'admin/job-list', component: AdminJobListComponent
+  },
+  {
+  path: 'admin/job-create', component: AdminJobCreateComponent
   },
   // {
   // path: 'company/create', component: CompanyCreateComponent
