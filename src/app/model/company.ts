@@ -8,7 +8,5 @@ export interface Company {
   branch? : string;
   linkMap? : string;
   linkFb? : string;
-  jobList? : any;
-  notificationList? : any;
   status? : boolean;
 }

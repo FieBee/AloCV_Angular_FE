@@ -8,7 +8,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
-import {JobListComponent} from "./user/job-list/job-list.component";
 import { UploadFileComponent } from './upload/upload-file/upload-file.component';
 import { UploadImageComponent } from './upload/upload-image/upload-image.component';
 import {AngularFireModule} from "@angular/fire/compat";
@@ -24,7 +23,9 @@ import { UserListComponent } from './user/user-list/user-list.component';
 
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+
 import { FindJobUserComponent } from './user/find-job-user/find-job-user.component';
+import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
 
 
 
@@ -33,7 +34,6 @@ import { FindJobUserComponent } from './user/find-job-user/find-job-user.compone
     AppComponent,
     LoginComponent,
     CompanyListComponent,
-    JobListComponent,
     UploadFileComponent,
     UploadImageComponent,
     HeaderComponent,
@@ -43,14 +43,14 @@ import { FindJobUserComponent } from './user/find-job-user/find-job-user.compone
     UserListComponent,
     RegisterComponent,
     UserRegisterComponent,
-    FindJobUserComponent
+    FindJobUserComponent,
+    UserJobListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule,
-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

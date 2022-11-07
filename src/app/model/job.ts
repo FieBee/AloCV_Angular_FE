@@ -11,5 +11,4 @@ export interface Job {
   description? : string;
   recruitNumber? : number;
   gender? : string;
-  cvList? : any;
 }
