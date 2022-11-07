@@ -44,3 +44,11 @@
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
+
+*{
+  text-decoration: none;
+}
+
+.submit{
+  background: orange;
+}
