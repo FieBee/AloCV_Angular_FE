@@ -27,6 +27,8 @@ export class HeaderComponent implements OnInit {
     this.checkRole = localStorage.getItem("role");
   }
 
-
+  logout(){
+    localStorage.clear();
+  }
 
 }
