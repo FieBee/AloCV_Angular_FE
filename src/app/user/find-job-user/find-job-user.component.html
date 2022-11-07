@@ -3,17 +3,16 @@
 <div class="content">
   <div class="container col-10">
     <h1 class="text-center mt-4 mb-4">Danh Sách Việc Làm</h1>
-    <mat-label>Ngành nghề</mat-label>
-    <select matNativeControl ngModel name="cityId">
-      <option *ngFor="let jF of jobField" [value]="jF.id">{{jF.jobField}}</option>
+    <mat-label>Lĩnh Vực</mat-label>
+    <select class="custom-select custom-select-sm" id="jobField" formControlName="jobField">
+      <option *ngFor="let jF of jobFieldList" [value]="jF.id">{{jF.name}}</option>
     </select>
 
-    <mat-form-field  *ngIf="advancedForm" appearance="outline" class="col-md-6 col-lg-6 my-3">
-      <mat-label>Lĩnh vực</mat-label>
-      <select matNativeControl ngModel name="fieldId">
-        <option *ngFor="let field of fields" [value]="field.id">{{field.name}}</option>
-      </select>
-    </mat-form-field>
+
+    <mat-label>Địa điểm</mat-label>
+    <select class="custom-select custom-select-sm" id="location" formControlName="location">
+      <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+    </select>
 
       <mat-label>Tên công ty</mat-label>
       <select matNativeControl ngModel name="companyId">

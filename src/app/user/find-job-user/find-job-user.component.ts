@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FindJobService} from "../../service/find-job.service";
+import {JobFieldService} from "../../service/jobField/job-field.service";
+import {JobField} from "../../model/job-field";
 
 @Component({
   selector: 'app-find-job-user',
@@ -13,11 +15,14 @@ export class FindJobUserComponent implements OnInit {
   public jobField = '';
   public location = '';
   public company = '';
+  jobFieldList: JobField[]=[]
 
 
-  constructor(private FindJobService: FindJobService) { }
+  constructor(private FindJobService: FindJobService,
+              private JobFieldService: JobFieldService) { }
 
   ngOnInit(): void {
+    this.getAllJobField()
     // this.searchJob(0);
   }
   getSearch(pageable: any) {
@@ -29,6 +34,14 @@ export class FindJobUserComponent implements OnInit {
         this.listJob = data;
       }
     });
+  }
+  getAllJobField() {
+    this.JobFieldService.getAll().subscribe((result: any) => {
+      this.jobFieldList = result;
+      console.log(result);
+    }, (error: any) => {
+      console.log(error);
+    })
   }
   // getListPeriodicPatient(pageable: any) {
   //   this.name = '';

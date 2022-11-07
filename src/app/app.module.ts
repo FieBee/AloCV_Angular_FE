@@ -26,6 +26,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 
 import { FindJobUserComponent } from './user/find-job-user/find-job-user.component';
 import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
+import { JobFieldComponent } from './job/job-field/job-field.component';
 
 
 
@@ -44,7 +45,8 @@ import { UserJobListComponent } from './user/user-job-list/user-job-list.compone
     RegisterComponent,
     UserRegisterComponent,
     FindJobUserComponent,
-    UserJobListComponent
+    UserJobListComponent,
+    JobFieldComponent
   ],
   imports: [
     BrowserModule,
@@ -65,3 +67,4 @@ import { UserJobListComponent } from './user/user-job-list/user-job-list.compone
 })
 // @ts-ignore
 export class AppModule { }
+//@ts-ignore
