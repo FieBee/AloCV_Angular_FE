@@ -6,6 +6,7 @@ import {finalize} from "rxjs";
 import {AccountService} from "../../service/account/account.service";
 import {Account} from "../../model/account";
 import {ShowMessage} from "../../commom/show-message";
+import {AppRole} from "../../model/dto/app-role";
 
 @Component({
   selector: 'app-company-create',
@@ -26,6 +27,10 @@ export class CompanyCreateComponent implements OnInit {
 
   }
   a?: Account
+  role?:AppRole = new class implements AppRole {
+    id: number =2;
+  }
+
 
   walletForm: FormGroup = new FormGroup({
     id: new FormControl(),
@@ -43,6 +48,7 @@ export class CompanyCreateComponent implements OnInit {
     id: new FormControl(),
     userName: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl(Math.floor(Math.random() * 100000000)),
+    // appRole: new FormControl(2)
   })
 
 
@@ -89,7 +95,7 @@ export class CompanyCreateComponent implements OnInit {
       id: this.accountForm?.value.id,
       userName: this.accountForm?.value.userName,
       password: this.accountForm?.value.password,
-      appRole: [],
+      appRole:[ this.role] ,
     }
     this.accountService.saveAccount(this.a).subscribe(data => {
       console.log(data);
