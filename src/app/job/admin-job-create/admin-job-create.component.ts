@@ -34,16 +34,28 @@ export class AdminJobCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAll();
+    this.getAllLocation();
   }
 
   addJob() {
     const job: Job = {
       name: this.jobForm.value.name,
+      // jobField: {
+      //   id: this.jobForm.value.jobField
+      // },
+      salaryRange: this.jobForm.value.salaryRange,
       location: {
         id: this.jobForm.value.location
-      }
+      },
+      position: this.jobForm.value.position,
+      experience: this.jobForm.value.experience,
+      jobType: this.jobForm.value.jobType,
+      expiredDate: this.jobForm.value.expiredDate,
+      description: this.jobForm.value.description,
+      recruitNumber: this.jobForm.value.recruitNumber,
+      gender: this.jobForm.value.gender,
     };
+    console.log(job)
     this.jobService.saveJob(job).subscribe(() => {
       alert('success');
       this.jobForm.reset();
@@ -51,7 +63,7 @@ export class AdminJobCreateComponent implements OnInit {
     });
   }
 
-  getAll() {
+  getAllLocation() {
     this.locationService.getAll().subscribe((result: any) => {
       this.locationList = result;
       console.log(result);
