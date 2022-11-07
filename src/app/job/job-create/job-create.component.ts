@@ -39,16 +39,16 @@ export class JobCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllLocation(),
-    this.getAllJobField();
+    this.getAllLocation()
+    this.getAllJobField()
   }
 
   addJob() {
     const job: Job = {
       name: this.jobForm.value.name,
-      jobField: {
-        id: this.jobForm.value.jobField
-      },
+      // jobField: {
+      //   id: this.jobForm.value.jobField
+      // },
       salaryRange: this.jobForm.value.salaryRange,
       location: {
         id: this.jobForm.value.location

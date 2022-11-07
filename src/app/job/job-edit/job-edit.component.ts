@@ -20,10 +20,12 @@ export class JobEditComponent implements OnInit {
     id: 0,
     name: "",
     // jobField: {
+    //   id: 0,
     //   name: "",
     // },
     salaryRange: 0,
     location : {
+      id: 0,
       name: "",
     },
     position: "",

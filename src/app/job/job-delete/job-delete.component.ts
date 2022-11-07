@@ -5,6 +5,8 @@ import {Location} from "../../model/location";
 import {JobService} from "../../service/job/job.service";
 import {LocationService} from "../../service/location/location.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {JobFieldService} from "../../service/jobField/job-field.service";
+import {JobField} from "../../model/job-field";
 
 @Component({
   selector: 'app-job-delete',
@@ -23,7 +25,7 @@ export class JobDeleteComponent implements OnInit {
     //   name: "",
     // },
     salaryRange: 0,
-    location : {
+    location: {
       name: "",
     },
     position: "",
@@ -39,8 +41,11 @@ export class JobDeleteComponent implements OnInit {
 
   locationList: Location[] | undefined;
 
+  jobFieldList: JobField[] | undefined;
+
   constructor(private jobService: JobService,
               private locationService: LocationService,
+              private jobFieldService: JobFieldService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
@@ -67,12 +72,22 @@ export class JobDeleteComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.getAllLocation();
+    this.getAllLocation()
+    this.getAllJobField()
   }
 
   getAllLocation() {
     this.locationService.getAll().subscribe((result: any) => {
       this.locationList = result;
+      console.log(result);
+    }, (error: any) => {
+      console.log(error);
+    })
+  }
+
+  getAllJobField() {
+    this.jobFieldService.getAll().subscribe((result: any) => {
+      this.jobFieldList = result;
       console.log(result);
     }, (error: any) => {
       console.log(error);
