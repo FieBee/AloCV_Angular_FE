@@ -6,6 +6,7 @@ import {CompanyListComponent} from "./company/company-list/company-list.componen
 import {CompanyCreateComponent} from "./company/company-create/company-create.component";
 import {RegisterComponent} from "./register/register.component";
 import {UserRegisterComponent} from "./user/user-register/user-register.component";
+import {JobListComponent} from "./user/job-list/job-list.component";
 
 export const ROUTES: Routes = [
 
@@ -30,6 +31,9 @@ export const ROUTES: Routes = [
   },
   {
   path: 'company/list', component: CompanyListComponent
+  },
+  {
+  path: 'user/job-list', component: JobListComponent
   },
   // {
   // path: 'company/create', component: CompanyCreateComponent

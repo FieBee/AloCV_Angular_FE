@@ -6,16 +6,18 @@
   <tr>
     <td>ID</td>
     <td>Name</td>
+    <td>Location</td>
     <td>Salary</td>
     <td>Position</td>
     <td>Gender</td>
-    <td colspan="2" style="text-align: center">Action</td>
+<!--    <td colspan="2" style="text-align: center">Action</td>-->
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let j of job; index as i">
     <td>{{i + 1}}</td>
     <td>{{j.name}}</td>
+    <td>{{j.location.name}}</td>
     <td>{{j.salaryRange}}</td>
     <td>{{j.position}}</td>
     <td>{{j.gender}}</td>
