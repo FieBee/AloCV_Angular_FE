@@ -18,12 +18,13 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import { HomeComponent } from './home/home.component';
 import { CompanyCreateComponent } from './company/company-create/company-create.component';
-
 import { UserListComponent } from './user/user-list/user-list.component';
-
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { JobListComponent } from './job/job-list/job-list.component';
 import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
+import { JobCreateComponent } from './job/job-create/job-create.component';
+import { JobEditComponent } from './job/job-edit/job-edit.component';
 
 
 
@@ -41,7 +42,10 @@ import { UserJobListComponent } from './user/user-job-list/user-job-list.compone
     UserListComponent,
     RegisterComponent,
     UserRegisterComponent,
-    UserJobListComponent
+    JobListComponent,
+    UserJobListComponent,
+    JobCreateComponent,
+    JobEditComponent
   ],
   imports: [
     BrowserModule,
