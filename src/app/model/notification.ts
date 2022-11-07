@@ -3,4 +3,6 @@ export interface Notification {
   content? : string;
   time? : Date;
   status? : boolean;
+  company? : any;
+  user? : any;
 }

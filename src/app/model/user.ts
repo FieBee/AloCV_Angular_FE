@@ -3,8 +3,7 @@ export interface User {
   name? : string;
   phoneNumber? : string;
   account? : any;
-  cvList? : any;
-  notificationList? : any;
   status? : boolean;
-  image?:string;
+  image? : string;
+  isAdmin? : boolean;
 }
