@@ -121,36 +121,82 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-        <li><a class="nav-link scrollto" href="#services">Services</a></li>
-        <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-        <li><a class="nav-link scrollto" href="#team">Team</a></li>
-        <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-              <ul>
-                <li><a href="#">Deep Drop Down 1</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li>
-              </ul>
+        <li class="nav-item">
+          <!--                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"-->
+          <!--                               class="nav-link dropdown-toggle active">Trang chủ</a>-->
+          <a routerLink="home"
+             class="nav-link dropdown-toggle active">Trang chủ</a>
+        </li>
+        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
+          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
+        </li>
+        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
+          <a routerLink="/list-account" class="nav-link">Quản lý tài khoản</a>
+        </li>
+        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
+          <a routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>
+        </li>
+        <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item">
+          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
+        </li>
+        <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle">Việc làm</a>
+          <ul class="dropdown">
+            <li class="nav-item">
+              <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Danh sách việc làm</a>
             </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
+            <li class="nav-item">
+              <a routerLink="/apply-company" class="nav-link">Danh sách ứng tuyển</a>
+            </li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#contact">Contact</a>
 
+
+        <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle">Bài Đăng</a>
+          <ul class="dropdown">
+            <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item">
+              <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
+            </li>
+
+          </ul>
         </li>
-
+        <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
+          <ul class="dropdown">
+            <li class="nav-item">
+              <a routerLink="create-cv"  class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/detail-cv/']" class="nav-link">Hồ sơ của bạn</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="apply-list" class="nav-link">Dách sách ứng tuyển</a>
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item">
+          <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>
+        </li>
+        <li *ngIf="checkRole == 'ROLE_USER'||'ROLE_COMPANY'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle">Công ty</a>
+          <ul class="dropdown">
+            <li class="nav-item">
+              <a routerLink="list-company" class="nav-link">Danh sách công ty</a>
+            </li>
+          </ul>
+        </li>
+          <li>  </li>
         <li>
-          <a  routerLink="login">
-               <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" value="Login">
+          <button type="button" class=" btn btn-link px-3 me-2 ">
+            <a  routerLink="home">
+              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
             </a>
+          </button>
+
         </li>
 
 
