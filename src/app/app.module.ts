@@ -21,9 +21,10 @@ import { CompanyCreateComponent } from './company/company-create/company-create.
 import { UserListComponent } from './user/user-list/user-list.component';
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { AdminJobListComponent } from './job/admin-job-list/admin-job-list.component';
+import { JobListComponent } from './job/job-list/job-list.component';
 import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
-import { AdminJobCreateComponent } from './job/admin-job-create/admin-job-create.component';
+import { JobCreateComponent } from './job/job-create/job-create.component';
+import { JobEditComponent } from './job/job-edit/job-edit.component';
 
 
 
@@ -41,9 +42,10 @@ import { AdminJobCreateComponent } from './job/admin-job-create/admin-job-create
     UserListComponent,
     RegisterComponent,
     UserRegisterComponent,
-    AdminJobListComponent,
+    JobListComponent,
     UserJobListComponent,
-    AdminJobCreateComponent
+    JobCreateComponent,
+    JobEditComponent
   ],
   imports: [
     BrowserModule,

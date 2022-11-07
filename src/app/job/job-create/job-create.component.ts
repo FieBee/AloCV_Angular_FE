@@ -6,11 +6,11 @@ import {Job} from "../../model/job";
 import {Location} from "../../model/location";
 
 @Component({
-  selector: 'app-admin-job-create',
-  templateUrl: './admin-job-create.component.html',
-  styleUrls: ['./admin-job-create.component.css']
+  selector: 'app-job-create',
+  templateUrl: './job-create.component.html',
+  styleUrls: ['./job-create.component.css']
 })
-export class AdminJobCreateComponent implements OnInit {
+export class JobCreateComponent implements OnInit {
 
   jobForm: FormGroup = new FormGroup({
     id: new FormControl(),

@@ -21,8 +21,8 @@
     <td>{{j.salaryRange}}</td>
     <td>{{j.position}}</td>
     <td>{{j.gender}}</td>
-    <td style="text-align: center"><button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/admin/job-edit', j.id]" style="width: 70%">Edit</button></td>
-    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/admin/job-delete', j.id]" style="width: 53%">Delete</button></td>
+    <td style="text-align: center"><button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit', j.id]" style="width: 70%">Edit</button></td>
+    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete', j.id]" style="width: 53%">Delete</button></td>
   </tr>
   </tbody>
 </table>
