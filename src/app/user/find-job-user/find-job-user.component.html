@@ -5,7 +5,7 @@
     <h1 class="text-center mt-4 mb-4">Danh Sách Việc Làm</h1>
     <mat-label>Ngành nghề</mat-label>
     <select matNativeControl ngModel name="cityId">
-      <option *ngFor="let jF of jobField" [value]="jF">{{jF.jobField}}</option>
+      <option *ngFor="let jF of jobField" [value]="jF.id">{{jF.jobField}}</option>
     </select>
 
     <mat-form-field  *ngIf="advancedForm" appearance="outline" class="col-md-6 col-lg-6 my-3">
