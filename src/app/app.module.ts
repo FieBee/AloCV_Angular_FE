@@ -27,6 +27,7 @@ import { JobFieldComponent } from './job/job-field/job-field.component';
 import { JobListComponent } from './job/job-list/job-list.component';
 import { JobCreateComponent } from './job/job-create/job-create.component';
 import { JobEditComponent } from './job/job-edit/job-edit.component';
+import { JobDeleteComponent } from './job/job-delete/job-delete.component';
 
 
 
@@ -51,7 +52,8 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
     JobListComponent,
     UserJobListComponent,
     JobCreateComponent,
-    JobEditComponent
+    JobEditComponent,
+    JobDeleteComponent
 
   ],
   imports: [

@@ -15,7 +15,7 @@
     </div>
 
 <!--    <div class=" row mt-3 form-group">-->
-<!--      <div class="col-2">Price</div>-->
+<!--      <div class="col-2">Job Field</div>-->
 <!--      <div class="col-10"><input name="price" [(ngModel)]="job.jobField.name"  class="col-8" type="number" >-->
 <!--      </div>-->
 <!--    </div>-->
@@ -29,7 +29,7 @@
       <div class="col-2 ">Location</div>
       <div class="col-10">
         <select class="custom-select custom-select-sm" id="location" name="location">
-          <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+          <option *ngFor="let location of locationList" [value]="location.id" [(ngModel)]="job.location.id">{{location.name}}</option>
         </select>
       </div>
     </div>

@@ -12,6 +12,15 @@
     </div>
 
     <div class=" row mt-3 form-group">
+      <div class="col-2">Job Field</div>
+      <div class="col-10">
+        <select class="custom-select custom-select-sm" formControlName="jobField">
+          <option *ngFor="let jobField of jobFieldList" [value]="jobField.id">{{jobField.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class=" row mt-3 form-group">
       <div class="col-2">Salary</div>
       <div class="col-10"><input  class="col-8" type="number" formControlName="salaryRange"></div>
     </div>
@@ -58,7 +67,7 @@
 
     <div class="row mt-3 form-group">
       <div class="col-2">Description</div>
-      <div class="col-7"><textarea  class="col-4" formControlName="description"  class="form-control"  placeholder="description"></textarea></div>
+      <div class="col-10"><textarea  class="col-8" formControlName="description" placeholder="description"></textarea></div>
     </div>
 
     <div class="row">
