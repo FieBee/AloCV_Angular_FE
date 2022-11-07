@@ -11,6 +11,7 @@ export class JobListComponent implements OnInit {
 
   job: Job[] | undefined ;
 
+
   constructor(private jobService: JobService) {
   }
 

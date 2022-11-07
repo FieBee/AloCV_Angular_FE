@@ -47,11 +47,15 @@ export const ROUTES: Routes = [
   {
   path: 'job/job-edit/:id', component: JobEditComponent
   },
+  {
+    path: 'job/job-edit', component: JobEditComponent
+  },
   // {
   // path: 'company/create', component: CompanyCreateComponent
   //
   // }
   { path: '**', component: HomeComponent },
+
 ];
 
 
