@@ -13,22 +13,22 @@ export class JobService {
   constructor(private httpClient: HttpClient ) { }
 
   getAll():Observable<Job[]>{
-    return this.httpClient.get<Job[]>(API_URL + `/jobmot`)
+    return this.httpClient.get<Job[]>(API_URL + `/job`)
   }
 
   saveJob(job: Job):Observable<Job>{
-    return this.httpClient.post<Job>(API_URL + `/jobmot` , job);
+    return this.httpClient.post<Job>(API_URL + `/job` , job);
   }
 
   findById(id: number):Observable<Job>{
-    return this.httpClient.get<Job>(API_URL + `/jobmot/${id}`);
+    return this.httpClient.get<Job>(API_URL + `/job/${id}`);
   }
 
   editJob(id: number | undefined, job: Job): Observable<Job>{
-    return this.httpClient.put<Job>(API_URL + `/jobmot/${id}`,job);
+    return this.httpClient.put<Job>(API_URL + `/job/${id}`,job);
   }
 
   delete(id: any): Observable<Job>{
-    return this.httpClient.delete<Job>(API_URL + `/jobmot/${id}`);
+    return this.httpClient.delete<Job>(API_URL + `/job/${id}`);
   }
 }
