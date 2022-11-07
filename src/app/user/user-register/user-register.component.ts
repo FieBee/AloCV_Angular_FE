@@ -7,6 +7,7 @@ import {UserService} from "../../service/user/user.service";
 import {Account} from "../../model/account";
 import {Router} from "@angular/router";
 import {ShowMessage} from "../../commom/show-message";
+import {AppRole} from "../../model/dto/app-role";
 
 @Component({
   selector: 'app-user-register',
@@ -30,6 +31,9 @@ export class UserRegisterComponent implements OnInit {
     password: '',
     confirmpassword: ''
   };
+  role?:AppRole = new class implements AppRole {
+    id: number =3;
+  }
 
   userForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -39,7 +43,7 @@ export class UserRegisterComponent implements OnInit {
 
   accountForm: FormGroup = new FormGroup({
     userName: new FormControl('',[Validators.required, Validators.email]),
-    password: new FormControl(Math.random() * 100000000),
+    password: new FormControl(Math.floor(Math.random() * 100000000)),
 
   })
 
@@ -64,7 +68,7 @@ export class UserRegisterComponent implements OnInit {
     this.account ={
       userName: this.accountForm?.value.userName,
       password: this.accountForm?.value.password,
-      appRole: [],
+      appRole: [this.role],
     }
     this.accountService.saveAccount(this.account).subscribe(data =>{
       const user = this.userForm.value;

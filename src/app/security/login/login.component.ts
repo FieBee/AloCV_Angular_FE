@@ -87,9 +87,6 @@ export class LoginComponent implements OnInit {
     },error => console.log("get company name id fail"))
   }
 
-  logout(){
-    localStorage.clear();
-  }
 
   get email() {
     return this.loginForm.get('userName');
