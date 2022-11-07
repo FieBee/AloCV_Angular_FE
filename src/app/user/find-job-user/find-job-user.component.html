@@ -3,131 +3,72 @@
 <div class="content">
   <div class="container col-10">
     <h1 class="text-center mt-4 mb-4">Danh Sách Việc Làm</h1>
-    <mat-label>Lĩnh Vực</mat-label>
-    <select class="custom-select custom-select-sm" id="jobField" formControlName="jobField">
-      <option *ngFor="let jF of jobFieldList" [value]="jF.id">{{jF.name}}</option>
-    </select>
-
-
-    <mat-label>Địa điểm</mat-label>
-    <select class="custom-select custom-select-sm" id="location" formControlName="location">
-      <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
-    </select>
-
-      <mat-label>Tên công ty</mat-label>
-      <select matNativeControl ngModel name="companyId">
-        <option *ngFor="let com of company" [value]="com.id">{{com.name}}</option>
-      </select>
-
-
-      <mat-label>Vị trí tuyển dụng</mat-label>
-      <select matNativeControl ngModel name="vacancies">
-        <option *ngFor="let vc of vacancies" [value]="vc.id">{{vc.name}}</option>
-      </select>
-
-
-      <mat-label>Thời gian làm việc</mat-label>
-      <select matNativeControl ngModel name="workingTimeId">
-        <option *ngFor="let wt of workingTime" [value]="wt.id">{{wt.name}}</option>
-      </select>
-
-    <mat-label  >Mức lương</mat-label>
-    <mat-slider
-                thumbLabel
-                [displayWith]="formatLabel"
-                tickInterval="1000000"
-                step="1000000"
-                min="0"
-                max="20000000"
-                ngModel
-                name="salary"
-                aria-label="units"></mat-slider>
-    <div class="col-md-6 col-lg-3 my-3" style="margin-left: 400px">
-      <button type="submit" class="btn btn-lg btn-block btn-light btn-custom btn-outline-primary"
-              id="contact-submit" style="margin-top: 10px;">
-        Tìm Kiếm
-      </button>
-    </div>
-  </div>
-
-  <div class="filter-result">
-    <div *ngFor="let rcm of recruitmentNews"
-         class="job-box d-md-flex align-items-center justify-content-between mb-30">
-      <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-        <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
-          <img src="{{rcm.avatar}}" alt="">
-        </div>
-        <div class="job-content">
-          <h5 class="text-center text-md-left">{{rcm.title}}</h5>
-          <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
-            <li class="mr-md-4">
-              <i class="zmdi zmdi-pin mr-2"></i> {{rcm.cityName}}
-            </li>
-            <li class="mr-md-4" *ngIf="check == true">
-              <i class="zmdi zmdi-money mr-2"></i> {{rcm.salary | currency:'VND' : true : '1.0-0': 'en-US' }}
-            </li>
-            <li class="mr-md-4" *ngIf="check == false">
-              <i class="zmdi zmdi-money mr-2"></i> Lương XXX
-            </li>
-            <li class="mr-md-4">
-              <i class="zmdi zmdi-time mr-2"></i> {{rcm.workingTimeName}}
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="job-right my-4 flex-shrink-0">
-        <button *ngIf="checkUser" mat-stroked-button color="primary" (click)="openDialogApply(rcm.id)">Ứng tuyển</button>
-      </div>
-      <div class="job-right my-4 flex-shrink-0">
-        <button *ngIf="checkUser" mat-stroked-button color="primary" (click)="openDialogApplyNow(rcm.id)"
-        >Ứng tuyển ngay
-        </button>
-      </div>
-    </div>
-  </div>
     <div class="search row d-flex justify-content-xl-end justify-content-center mb-4 text-center">
       <div class="col-xl-2 col-md-3">
         <label for="provider">Họ Và Tên</label>
         <input (keydown.enter)="getSearch(0)" [(ngModel)]="name" id="provider" class="form-control" type="text"
-               placeholder="Nhập vào tên công việc, tên công ty, tên thành phố...">
+               placeholder="Nhập vào tên công việc">
       </div>
+
+    <td>Lĩnh Vực</td>
+    <select class="custom-select custom-select-sm" id="jobField" formControlName="jobField">
+      <option *ngFor="let jF of jobFieldList" [value]="jF.id">{{jF.name}}</option>
+    </select>
+
+    <td>Địa điểm</td>
+    <select class="custom-select custom-select-sm" id="location" formControlName="location">
+      <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+    </select>
+
+      <td>Tên công ty</td>
+      <select matNativeControl ngModel name="companyId">
+        <option *ngFor="let company of companyList" [value]="company.id">{{company.name}}</option>
+      </select>
+
+    <td>Mức lương</td>
+      <select matNativeControl ngModel name="companyId">
+        <option *ngFor="let company of salaryRange" [value]="company">{{company}}</option>
+      </select>
+
       <div class="col-xl-2 col-4 mt-xl-4 mt-md-3 mt-2 d-xl-flex justify-content-xl-end">
         <button (click)="getSearch(0)" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>
       </div>
     </div>
-    <div class="col-xl-2 col-12 px-0">
-      <!--            <br>-->
+  </div>
+
     </div>
     <div class="">
       <table class="table table-hover table-bordered ">
         <thead>
         <tr class="table-primary">
           <th class="center-stt">STT</th>
-          <th>Mã Bệnh Nhân</th>
-          <th>Họ Và Tên</th>
-          <th>Ngày Sinh</th>
-          <th>Giới Tính</th>
-          <th>Người Giám Hộ</th>
-          <th>Số Điện Thoại</th>
-          <th>Địa Chỉ</th>
-          <th>Email</th>
-          <th class="text-center">Chức năng</th>
+          <th>Tên công việc</th>
+          <th>Lĩnh Vực</th>
+          <th>Mức Lương</th>
+          <th>Địa điểm</th>
+          <th>Kinh nghiệm</th>
+          <th>Hình thức</th>
+          <th>Ngày hết hạn</th>
+          <th>Mô tả</th>
+          <th>Số lượng tuyển</th>
+          <th>Yêu cầu giới tính</th>
+<!--          <th class="text-center">Chức năng</th>-->
         </tr>
         </thead>
-        <tbody *ngIf="listPatient.content.length > 0">
-        <tr *ngFor="let element of listPatient.content,index as i  " >
+        <tr *ngFor="let element of jobList, index as i  " >
           <td class="center-stt">{{i + 1}}</td>
-          <td>{{getCode(element.patientId,3)}}</td>
           <td>{{element.name}}</td>
-          <td>{{element.dateOfBirth|date:'dd/MM/yyy'}}</td>
+          <td>{{element.jobField|date:'dd/MM/yyy'}}</td>
+          <td>{{element.salaryRange}}</td>
+          <td>{{element.location}}</td>
+          <td>{{element.experience}}</td>
+          <td>{{element.jobType}}</td>
+          <td>{{element.expiredDate}}</td>
+          <td>{{element.description}}</td>
+          <td>{{element.recruitNumber}}</td>
           <td>{{element.gender}}</td>
-          <td>{{element.guardian}}</td>
-          <td>{{element.phone}}</td>
-          <td>{{element.address}}</td>
-          <td>{{element.email}}</td>
           <td class="text-center">
           </td>
         </tr>
-        </tbody>
       </table>
     </div>
