@@ -11,22 +11,22 @@
       </div>
 
     <td>Lĩnh Vực</td>
-    <select class="custom-select custom-select-sm" id="jobField" formControlName="jobField">
-      <option *ngFor="let jF of jobFieldList" [value]="jF.id">{{jF.name}}</option>
+    <select [(ngModel)]="jobField" class="custom-select custom-select-sm" id="jobField" >
+      <option *ngFor="let jF of jobFieldList" [value]="jF.name">{{jF.name}}</option>
     </select>
 
     <td>Địa điểm</td>
-    <select class="custom-select custom-select-sm" id="location" formControlName="location">
-      <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+    <select [(ngModel)]="location" class="custom-select custom-select-sm" id="location">
+      <option *ngFor="let location of locationList" [value]="location.name">{{location.name}}</option>
     </select>
 
       <td>Tên công ty</td>
-      <select matNativeControl ngModel name="companyId">
-        <option *ngFor="let company of companyList" [value]="company.id">{{company.name}}</option>
+      <select matNativeControl [(ngModel)]="company" name="companyId">
+        <option *ngFor="let company of companyList" [value]="company.name">{{company.name}}</option>
       </select>
 
     <td>Mức lương</td>
-      <select matNativeControl ngModel name="companyId">
+      <select matNativeControl [(ngModel)]="company"  ngModel name="companyId">
         <option *ngFor="let company of salaryRange" [value]="company">{{company}}</option>
       </select>
 
