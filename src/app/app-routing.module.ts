@@ -50,7 +50,8 @@ export const ROUTES: Routes = [
   },
   {
     path: 'job/job-delete/:id', component: JobDeleteComponent
-  },
+  }
+  ,
   // {
   // path: 'company/create', component: CompanyCreateComponent
   //

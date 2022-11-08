@@ -1,3 +1,11 @@
 h1{
   font-weight: bold;
 }
+
+p{
+  font-size: 13px;
+}
+th, td{
+  padding-left: 10px;
+}
+

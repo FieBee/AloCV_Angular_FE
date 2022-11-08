@@ -32,4 +32,7 @@ export class JobService {
     return this.httpClient.delete<Job>(API_URL + `/job/${id}`);
   }
 
+  findJobByCompanyId(id: number | undefined):Observable<Job[]>{
+    return this.httpClient.get<Job[]>(API_URL +`/job/company/${id}`)
+  }
 }

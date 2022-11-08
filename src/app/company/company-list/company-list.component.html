@@ -1,25 +1,20 @@
-<br>
-<h1 style="text-align: center">Company List</h1>
-<br>
-<table class="table table-borderless container" >
-  <thead>
-  <tr>
-    <td>ID</td>
-    <td>Title</td>
-    <td>Price</td>
-    <td>Description</td>
-    <td colspan="2" style="text-align: center">Action</td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let com of company; index as i">
-    <td>{{i + 1}}</td>
-    <td>{{com.name}}</td>
-<!--    <td>{{com.account}}</td>-->
-    <td>{{com.address}}</td>
-    <td>{{com.staffNumber}}</td>
-<!--    <td style="text-align: center"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/edit',com.id]" style="width: 100%">Edit</button></td>-->
-<!--    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/delete',com.id]" style="width: 100%">Delete</button></td>-->
-  </tr>
-  </tbody>
-</table>
+<div
+  style=";border-radius: 5px;background: rgb(252,233,224); position: absolute;border: 1px solid rebeccapurple;height:300px;width: 300px;right: 15px">
+  <div style="margin-left: 60px">
+    <thead style=";text-align: center">
+    <tr>
+      <th class="th-sm "><a >Công ty</a>
+      </th>
+      <th class="th-sm"><a href="">Địa điểm</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody style="text-align: center">
+    <div *ngFor="let c of company">
+      <button [value]="c.id">
+        {{c.name}}
+      </button>
+    </div>
+  </div>
+</div>
+
