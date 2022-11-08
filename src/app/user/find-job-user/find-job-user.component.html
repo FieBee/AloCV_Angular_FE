@@ -11,6 +11,7 @@
       </div>
 
     <td>Lĩnh Vực</td>
+
     <select [(ngModel)]="jobField" class="custom-select custom-select-sm" id="jobField" >
       <option *ngFor="let jF of jobFieldList" [value]="jF.name">{{jF.name}}</option>
     </select>
@@ -26,8 +27,8 @@
       </select>
 
     <td>Mức lương</td>
-      <select matNativeControl [(ngModel)]="company"  ngModel name="companyId">
-        <option *ngFor="let company of salaryRange" [value]="company">{{company}}</option>
+      <select matNativeControl [(ngModel)]="salaryRange"  name="companyId">
+        <option *ngFor="let salary of salaryRangeList" [value]="salary">{{salary}}</option>
       </select>
 
       <div class="col-xl-2 col-4 mt-xl-4 mt-md-3 mt-2 d-xl-flex justify-content-xl-end">
@@ -58,9 +59,9 @@
         <tr *ngFor="let element of jobList, index as i  " >
           <td class="center-stt">{{i + 1}}</td>
           <td>{{element.name}}</td>
-          <td>{{element.jobField|date:'dd/MM/yyy'}}</td>
+          <td>{{element.jobField.name}}</td>
           <td>{{element.salaryRange}}</td>
-          <td>{{element.location}}</td>
+          <td>{{element.location.name}}</td>
           <td>{{element.experience}}</td>
           <td>{{element.jobType}}</td>
           <td>{{element.expiredDate}}</td>

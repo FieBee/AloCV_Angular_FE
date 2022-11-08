@@ -16,12 +16,11 @@ import {Job} from "../../model/job";
 })
 export class FindJobUserComponent implements OnInit {
 
-  salaryRange:number[] = [1000000,2000000,3000000,4000000,5000000,6000000,7000000,8000000];
+  salaryRangeList:number[] = [1000000,2000000,3000000,4000000,5000000,6000000,7000000,8000000];
 
-  salary:number | undefined;
+  salaryRange:number | undefined;
 
   public name = '';
-  // public salaryRange = '';
   public jobField = '';
   public location = '';
   public company = '';
@@ -49,9 +48,10 @@ export class FindJobUserComponent implements OnInit {
     console.log(this.jobField)
     console.log(this.location)
     console.log(this.company)
+    console.log("f")
     this.FindJobService.getAllJobBy(this.name, this.salaryRange, this.jobField, this.location, this.company).subscribe(data => {
-      console.log(data)
 
+      console.log(data)
       // if (data == null) {
       //   console.log("Thông tin bạn tìm kiếm hiện không có trong hệ thống ", 'Thông báo !')
       //   // this.getListPeriodicPatient(0);

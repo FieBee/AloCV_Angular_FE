@@ -22,8 +22,8 @@ export class FindJobService {
     this.header = new Headers({'Content-Type': 'application/context'})
   }
   getAllJobBy(name: string, salaryRange: any, jobField: string, location: string, company: string): Observable<any> {
-    return this.http.get(this.url + '/' + name + '/' + salaryRange
-      +'/' + jobField + '/' + location + '/' + company );
+    return this.http.get(this.url + '/search?name=' + name + '&salaryRange=' + salaryRange
+      +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
   }
 
   // errorHandler(error) {
@@ -38,6 +38,5 @@ export class FindJobService {
   //   console.log(errorMessage);
   //   return throwError(errorMessage);
   // }
-
 
 }
