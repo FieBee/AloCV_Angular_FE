@@ -17,7 +17,7 @@ export class JobCreateComponent implements OnInit {
   jobForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
-    // jobField: new FormControl(),
+    jobField: new FormControl(),
     salaryRange: new FormControl(),
     location: new FormControl(),
     position: new FormControl(),
@@ -46,9 +46,9 @@ export class JobCreateComponent implements OnInit {
   addJob() {
     const job: Job = {
       name: this.jobForm.value.name,
-      // jobField: {
-      //   id: this.jobForm.value.jobField
-      // },
+      jobField: {
+        id: this.jobForm.value.jobField
+      },
       salaryRange: this.jobForm.value.salaryRange,
       location: {
         id: this.jobForm.value.location

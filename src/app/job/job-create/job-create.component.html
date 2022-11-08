@@ -1,91 +1,221 @@
-<div class="col-7 m-auto">
-  <br>
-  <h1 style="text-align: center">Create Job</h1>
-  <br>
-</div>
-<div  class="col-6  m-auto">
-  <form class="" [formGroup]="jobForm" (ngSubmit)="addJob()">
+<!--<div class="col-7 m-auto">-->
+<!--  <br>-->
+<!--  <h1 style="text-align: center">Create Job</h1>-->
+<!--  <br>-->
+<!--</div>-->
+<!--<div  class="col-6  m-auto">-->
+<!--  <form class="" [formGroup]="jobForm" (ngSubmit)="addJob()">-->
 
-    <div class="row mt-3 form-group">
-      <div class="col-2 ">Name</div>
-      <div class="col-10"><input class="col-8" type="text" formControlName="name"></div>
-    </div>
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2 ">Name</div>-->
+<!--      <div class="col-10"><input class="col-8" type="text" formControlName="name"></div>-->
+<!--    </div>-->
 
 <!--    <div class=" row mt-3 form-group">-->
 <!--      <div class="col-2">Job Field</div>-->
 <!--      <div class="col-10">-->
-<!--        <select class="custom-select custom-select-sm" formControlName="jobField">-->
-<!--          <option *ngFor="let jobField of jobFieldList" [value]="jobField.id">{{jobField.name}}</option>-->
+<!--        <select class="custom-select custom-select-sm" id="jobField" formControlName="jobField">-->
+<!--          <option *ngFor="let job of jobFieldList" [value]="job.id">{{job.name}}</option>-->
 <!--        </select>-->
 <!--      </div>-->
 <!--    </div>-->
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Salary</div>
-      <div class="col-10"><input  class="col-8" type="number" formControlName="salaryRange"></div>
-    </div>
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Salary</div>-->
+<!--      <div class="col-10"><input  class="col-8" type="number" formControlName="salaryRange"></div>-->
+<!--    </div>-->
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Location</div>
-      <div class="col-10">
-        <select class="custom-select custom-select-sm" id="location" formControlName="location">
-          <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
-        </select>
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Location</div>-->
+<!--      <div class="col-10">-->
+<!--        <select class="custom-select custom-select-sm" id="location" formControlName="location">-->
+<!--          <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Position</div>-->
+<!--      <div class="col-10"><input  class="col-8" type="text" formControlName="position"></div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Experience</div>-->
+<!--      <div class="col-10"><input  class="col-8" type="text" formControlName="experience"></div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Job Type</div>-->
+<!--      <div class="col-10">-->
+<!--        <input type="radio" value="Fulltime" name="jobType" formControlName="jobType"> Fulltime-->
+<!--        <input type="radio" value="Female" name="jobType" formControlName="jobType"> Parttime-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Recruitment Number</div>-->
+<!--      <div class="col-10"><input  class="col-8" type="number" formControlName="recruitNumber"></div>-->
+<!--    </div>-->
+<!--    <div *ngIf="!recruitNumber?.valid && (recruitNumber?.dirty ||recruitNumber?.touched)">-->
+<!--      <div [hidden]="!recruitNumber?.errors?.['required']">-->
+<!--        <p style="color: red"> Recruitment number must not be null!!! </p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Expired Date</div>-->
+<!--      <div class="col-10"><input  class="col-8" type="date" formControlName="expiredDate"></div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Gender</div>-->
+<!--      <div class="col-10">-->
+<!--      <input type="radio" value="Male" name="gender" formControlName="gender" style=""> Male-->
+<!--      <input type="radio" value="Female" name="gender" formControlName="gender" style=""> Female-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2">Description</div>-->
+<!--      <div class="col-10"><textarea  class="col-8" formControlName="description" placeholder="description"></textarea></div>-->
+<!--    </div>-->
+
+<!--    <div class="row">-->
+<!--      <div class="col-2 m-auto">-->
+<!--        <button type="submit" class="btn mt-4 btn-outline-info" [disabled]="!jobForm.valid">Submit</button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </form>-->
+<!--</div>-->
+
+
+<div class="formbold-main-wrapper">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="formbold-form-wrapper">
+    <img src="your-image-here.jpg">
+    <form [formGroup]="jobForm" (ngSubmit)="addJob()">
+      <div class="formbold-input-flex">
+        <div>
+          <label class="formbold-form-label"> Tên công việc </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Tên công việc"
+            class="formbold-form-input"
+            formControlName="name"
+          />
+        </div>
+
+        <div>
+          <label class="formbold-form-label">Giới tính ưu tiên</label>
+          <select class="formbold-form-input" name="occupation" id="occupation">
+            <option value="Male" formControlName="gender">Male</option>
+            <option value="Female" formControlName="gender">Female</option>
+            <option value="Others" formControlName="gender">Others</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Position</div>
-      <div class="col-10"><input  class="col-8" type="text" formControlName="position"></div>
-    </div>
+      <div class="formbold-input-flex">
+        <div>
+          <label class="formbold-form-label">Lĩnh vực</label>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Experience</div>
-      <div class="col-10"><input  class="col-8" type="text" formControlName="experience"></div>
-    </div>
+          <select class="formbold-form-input" formControlName="jobField">
+            <option *ngFor="let job of jobFieldList" [value]="job.id">{{job.name}}</option>
+          </select>
+        </div>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Job Type</div>
-      <div class="col-10">
-        <input type="radio" value="Fulltime" name="jobType" formControlName="jobType"> Fulltime
-        <input type="radio" value="Female" name="jobType" formControlName="jobType"> Parttime
+        <div>
+          <label class="formbold-form-label">Loại hình công việc</label>
+          <select class="formbold-form-input">
+            <option value="Fulltime" formControlName="jobType">Fulltime</option>
+            <option value="Parttime" formControlName="jobType">Parttime</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Recruitment Number</div>
-      <div class="col-10"><input  class="col-8" type="number" formControlName="recruitNumber"></div>
-    </div>
-    <div *ngIf="!recruitNumber?.valid && (recruitNumber?.dirty ||recruitNumber?.touched)">
-      <div [hidden]="!recruitNumber?.errors?.['required']">
-        <p style="color: red"> Recruitment number must not be null!!! </p>
+      <div class="formbold-mb-3 formbold-input-wrapp">
+        <label for="phone" class="formbold-form-label"> Phone </label>
+
+        <div>
+          <input
+            type="text"
+            name="areacode"
+            id="areacode"
+            placeholder="Area code"
+            class="formbold-form-input formbold-w-45"
+          />
+
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="Phone number"
+            class="formbold-form-input"
+          />
+        </div>
       </div>
-    </div>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Expired Date</div>
-      <div class="col-10"><input  class="col-8" type="date" formControlName="expiredDate"></div>
-    </div>
-
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Gender</div>
-      <div class="col-10">
-      <input type="radio" value="Male" name="gender" formControlName="gender" style=""> Male
-      <input type="radio" value="Female" name="gender" formControlName="gender" style=""> Female
+      <div class="formbold-mb-3">
+        <label class="formbold-form-label"> Vị trí ứng tuyển: </label>
+        <input
+          type="text"
+          placeholder="Vị trí ứng tuyển"
+          class="formbold-form-input"
+        />
       </div>
-    </div>
 
-    <div class="row mt-3 form-group">
-      <div class="col-2">Description</div>
-      <div class="col-10"><textarea  class="col-8" formControlName="description" placeholder="description"></textarea></div>
-    </div>
-
-    <div class="row">
-      <div class="col-2 m-auto">
-        <button type="submit" class="btn mt-4 btn-outline-info" [disabled]="!jobForm.valid">Submit</button>
+      <div class="formbold-mb-3">
+        <label for="dob" class="formbold-form-label"> When can you start? </label>
+        <input type="date" class="formbold-form-input" />
       </div>
-    </div>
 
-  </form>
+      <div class="formbold-mb-3">
+        <label for="address" class="formbold-form-label"> Address </label>
+
+        <input
+          type="text"
+          name="address"
+          id="address"
+          placeholder="Street address"
+          class="formbold-form-input formbold-mb-3"
+        />
+        <input
+          type="text"
+          name="address2"
+          id="address2"
+          placeholder="Street address line 2"
+          class="formbold-form-input"
+        />
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="message" class="formbold-form-label">
+          Cover Letter
+        </label>
+        <textarea
+          rows="6"
+          name="message"
+          id="message"
+          class="formbold-form-input"
+        ></textarea>
+      </div>
+
+      <div class="formbold-form-file-flex">
+        <label for="upload" class="formbold-form-label">
+          Upload Resume
+        </label>
+        <input
+          type="file"
+          name="upload"
+          id="upload"
+          class="formbold-form-file"
+        />
+      </div>
+
+      <button class="formbold-btn" [disabled]="!jobForm.valid">Submit</button>
+    </form>
+  </div>
 </div>
-
