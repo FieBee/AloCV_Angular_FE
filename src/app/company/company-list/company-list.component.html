@@ -5,9 +5,12 @@
   <thead>
   <tr>
     <td>ID</td>
-    <td>Title</td>
-    <td>Price</td>
-    <td>Description</td>
+    <td>Name</td>
+    <td>Image</td>
+    <td>Address</td>
+    <td>StaffNumber</td>
+    <td>Branch</td>
+    <td>Your Email</td>
     <td colspan="2" style="text-align: center">Action</td>
   </tr>
   </thead>
@@ -15,9 +18,11 @@
   <tr *ngFor="let com of company; index as i">
     <td>{{i + 1}}</td>
     <td>{{com.name}}</td>
-<!--    <td>{{com.account}}</td>-->
+    <td><img src="{{com.image}}" alt="khong co anh" style="width: 100px;"></td>
     <td>{{com.address}}</td>
     <td>{{com.staffNumber}}</td>
+    <td>{{com.branch}}</td>
+    <td>{{com.account}}</td>
 <!--    <td style="text-align: center"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/edit',com.id]" style="width: 100%">Edit</button></td>-->
 <!--    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/delete',com.id]" style="width: 100%">Delete</button></td>-->
   </tr>

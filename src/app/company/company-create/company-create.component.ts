@@ -27,7 +27,7 @@ export class CompanyCreateComponent implements OnInit {
   }
   a?: Account
 
-  walletForm: FormGroup = new FormGroup({
+  companyForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
@@ -93,13 +93,13 @@ export class CompanyCreateComponent implements OnInit {
     }
     this.accountService.saveAccount(this.a).subscribe(data => {
       console.log(data);
-      const wallet = this.walletForm.value;
-      wallet.account = data;
-      wallet.image = this.arrayPicture;
+      const company = this.companyForm.value;
+      company.account = data;
+      company.image = this.arrayPicture;
       console.log(this.arrayPicture);
-      console.log(wallet)
-      this.companyService.saveCompany(wallet).subscribe(data1 => {
-        this.walletForm.reset();
+      console.log(company)
+      this.companyService.saveCompany(company).subscribe(data1 => {
+        this.companyForm.reset();
         this.showMessage.alertRegisterSuccess()
       })
     })
@@ -114,10 +114,10 @@ export class CompanyCreateComponent implements OnInit {
   }
 
   get name() {
-    return this.walletForm.get('name');
+    return this.companyForm.get('name');
   }
   get image() {
-    return this.walletForm.get('image');
+    return this.companyForm.get('image');
   }
 
 }
