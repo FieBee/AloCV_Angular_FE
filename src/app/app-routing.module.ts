@@ -53,17 +53,15 @@ export const ROUTES: Routes = [
   {
 
     path: 'job/job-delete/:id', component: JobDeleteComponent
-<<<<<<< HEAD
+
   },
   {
 
     path: 'user/find-job-user', component: FindJobUserComponent
 
   },
-=======
-  }
-  ,
->>>>>>> feature/template
+
+
   // {
   // path: 'company/create', component: CompanyCreateComponent
   //

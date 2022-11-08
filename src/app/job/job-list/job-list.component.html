@@ -7,6 +7,14 @@
     </td>
   </tr>
 </div>
+<br>
+<div >
+  <tr >
+    <td *ngFor="let lo of location">
+      <button  (click)="getJobByCompanyId(lo.id)">{{lo.name}}</button>
+    </td>
+  </tr>
+</div>
 
 
 <h1 style="text-align: center">Job List</h1>

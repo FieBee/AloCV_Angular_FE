@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Job} from "../../model/job";
 import {JobService} from "../../service/job/job.service";
 import {CompanyService} from "../../service/company/company.service";
 import {Company} from "../../model/company";
+import {LocationService} from "../../service/location/location.service";
 
 @Component({
   selector: 'app-job-list',
@@ -11,16 +12,20 @@ import {Company} from "../../model/company";
 })
 export class JobListComponent implements OnInit {
 
-  job: Job[] | undefined |any;
-  conpanyId: number| any;
-  company: Company[] |undefined
+  job: Job[] | undefined | any;
+  company: Company[] | undefined
+  location: any
+
 
   constructor(private jobService: JobService,
-              private companyService:CompanyService) {
+              private companyService: CompanyService,
+              private locationService: LocationService) {
   }
 
   ngOnInit(): void {
+
     this.getAllCompany();
+    this.getAllLocation();
     this.getAll();
   }
 
@@ -33,16 +38,30 @@ export class JobListComponent implements OnInit {
     })
   }
 
-  getJobByCompanyId(id: number | undefined){
-    this.jobService.findJobByCompanyId(id).subscribe((data:any )=>{
+  getJobByCompanyId(id: number | undefined) {
+    this.jobService.findJobByCompanyId(id).subscribe((data: any) => {
       this.job = data
       console.log(data)
-    },error => console.log("fail"))
+    }, error => console.log("fail"))
   }
 
-  getAllCompany(){
-    this.companyService.getAll().subscribe(data =>{
+  getJobByLocationId(id: number | undefined) {
+    this.jobService.findJobByLocationId(id).subscribe((data: any) => {
+      this.job = data
+      console.log(data)
+    }, error => console.log("fail"))
+  }
+
+  getAllCompany() {
+    this.companyService.getAll().subscribe(data => {
       this.company = data;
+    })
+  }
+
+  getAllLocation() {
+    this.locationService.getAll().subscribe(data => {
+      this.location = data;
+      console.log(data)
     })
   }
 }
