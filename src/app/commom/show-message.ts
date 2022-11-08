@@ -16,7 +16,7 @@ export class ShowMessage {
   alertLoginSuccess(){
     Swal.fire(
       '',
-      'Đăng nhập thành công! Kiểm tra email của bạn!',
+      'Đăng nhập thành công!',
       'success'
     )
 
@@ -34,7 +34,7 @@ export class ShowMessage {
   alertRegisterSuccess(){
     Swal.fire(
       '',
-      'Đăng ký thành công!',
+      'Đăng ký thành công! Kiểm tra email của bạn!',
       'success'
     )
   }

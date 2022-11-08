@@ -3,6 +3,7 @@ import {Company} from "../../model/company";
 import {Subscription} from "rxjs";
 import {CompanyService} from "../../service/company/company.service";
 import {ActivatedRoute} from "@angular/router";
+import {JobService} from "../../service/job/job.service";
 
 @Component({
   selector: 'app-company-list',
@@ -10,10 +11,11 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./company-list.component.css']
 })
 export class CompanyListComponent implements OnInit {
-  // @ts-ignore
-  company: Company[] ;
 
-  constructor(private companyService: CompanyService) {
+  company: Company[] | undefined ;
+
+  constructor(private companyService: CompanyService,
+              private jobService:JobService) {
   }
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class CompanyListComponent implements OnInit {
       console.log(error);
     })
   }
+
 
 
 }
