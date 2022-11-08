@@ -17,7 +17,7 @@ export class JobCreateComponent implements OnInit {
   jobForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
-    jobField: new FormControl(),
+    // jobField: new FormControl(),
     salaryRange: new FormControl(),
     location: new FormControl(),
     position: new FormControl(),
@@ -25,7 +25,7 @@ export class JobCreateComponent implements OnInit {
     jobType: new FormControl(),
     expiredDate: new FormControl(),
     description: new FormControl(),
-    recruitNumber: new FormControl(),
+    recruitNumber: new FormControl('', [Validators.required]),
     gender: new FormControl(),
   });
 
@@ -85,6 +85,10 @@ export class JobCreateComponent implements OnInit {
     }, (error: any) => {
       console.log(error);
     })
+  }
+
+  get recruitNumber(){
+    return this.jobForm.get('recruitNumber');
   }
 
 }

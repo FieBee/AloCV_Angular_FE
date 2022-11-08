@@ -15,7 +15,6 @@ export class JobEditComponent implements OnInit {
 
   sub:Subscription;
 
-  // @ts-ignore
   job: Job = {
     id: 0,
     name: "",
@@ -26,7 +25,6 @@ export class JobEditComponent implements OnInit {
     salaryRange: 0,
     location : {
       id: 0,
-      name: "",
     },
     position: "",
     experience: "",
@@ -60,6 +58,7 @@ export class JobEditComponent implements OnInit {
   }
 
   updateJob(){
+    console.log(this.job.location)
     this.jobService.editJob(this.job.id, this.job).subscribe(()=>{
       alert('Success')
       this.router.navigate(['/job/job-list']);

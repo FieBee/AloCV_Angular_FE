@@ -11,14 +11,14 @@
       <div class="col-10"><input class="col-8" type="text" formControlName="name"></div>
     </div>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Job Field</div>
-      <div class="col-10">
-        <select class="custom-select custom-select-sm" formControlName="jobField">
-          <option *ngFor="let jobField of jobFieldList" [value]="jobField.id">{{jobField.name}}</option>
-        </select>
-      </div>
-    </div>
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Job Field</div>-->
+<!--      <div class="col-10">-->
+<!--        <select class="custom-select custom-select-sm" formControlName="jobField">-->
+<!--          <option *ngFor="let jobField of jobFieldList" [value]="jobField.id">{{jobField.name}}</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <div class=" row mt-3 form-group">
       <div class="col-2">Salary</div>
@@ -53,6 +53,16 @@
     </div>
 
     <div class=" row mt-3 form-group">
+      <div class="col-2">Recruitment Number</div>
+      <div class="col-10"><input  class="col-8" type="number" formControlName="recruitNumber"></div>
+    </div>
+    <div *ngIf="!recruitNumber?.valid && (recruitNumber?.dirty ||recruitNumber?.touched)">
+      <div [hidden]="!recruitNumber?.errors?.['required']">
+        <p style="color: red"> Recruitment number must not be null!!! </p>
+      </div>
+    </div>
+
+    <div class=" row mt-3 form-group">
       <div class="col-2">Expired Date</div>
       <div class="col-10"><input  class="col-8" type="date" formControlName="expiredDate"></div>
     </div>
@@ -72,7 +82,7 @@
 
     <div class="row">
       <div class="col-2 m-auto">
-        <button type="submit" class="btn mt-4 btn-outline-info">Submit</button>
+        <button type="submit" class="btn mt-4 btn-outline-info" [disabled]="!jobForm.valid">Submit</button>
       </div>
     </div>
 
