@@ -78,6 +78,8 @@ export class LoginComponent implements OnInit {
     resp.subscribe(data => {
       localStorage.setItem("dataName",JSON.parse(data).name);
       localStorage.setItem("dataImg",JSON.parse(data).image);
+      localStorage.setItem("dataId",JSON.parse(data).id);
+
     },error1 => console.log("get user name id fail"))
   }
 
@@ -86,6 +88,7 @@ export class LoginComponent implements OnInit {
     resp.subscribe(data =>{
       localStorage.setItem("dataName",JSON.parse(data).name);
       localStorage.setItem("dataImg",JSON.parse(data).image);
+      localStorage.setItem("dataId",JSON.parse(data).id);
 
     },error => console.log("get company name id fail"))
   }

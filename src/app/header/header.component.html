@@ -190,11 +190,11 @@
           </ul>
         </li>
           <li style="margin-left: 50px; margin-right: -50px" *ngIf="dataName">
-            <div *ngIf="checkDataImg">
+            <div *ngIf="!checkDataImg">
               <img style="width: 40px;height: auto;padding: 0px; border-radius: 50%" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" >
 
             </div>
-            <div *ngIf="!checkDataImg">
+            <div *ngIf="checkDataImg">
               <img style="width: 40px;height: auto;padding: 0px; border-radius: 50%" [src]="dataImg">
             </div>
           </li>

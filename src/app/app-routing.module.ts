@@ -53,12 +53,15 @@ export const ROUTES: Routes = [
   {
 
     path: 'job/job-delete/:id', component: JobDeleteComponent
+
   },
   {
 
     path: 'user/find-job-user', component: FindJobUserComponent
 
   },
+
+
   // {
   // path: 'company/create', component: CompanyCreateComponent
   //
