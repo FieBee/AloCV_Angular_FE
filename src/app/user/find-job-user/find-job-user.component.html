@@ -26,9 +26,13 @@
         <option *ngFor="let company of companyList" [value]="company.name">{{company.name}}</option>
       </select>
 
-    <td>Mức lương</td>
-      <select matNativeControl [(ngModel)]="salaryRange"  name="companyId">
-        <option *ngFor="let salary of salaryRangeList" [value]="salary">{{salary}}</option>
+    <td>Mức lương nhỏ nhất </td>
+      <select matNativeControl [(ngModel)]="salaryRange_min"  name="companyId">
+        <option *ngFor="let salary_min of salaryRangeList" [value]="salary_min">{{salary_min}}</option>
+      </select>
+      <td>Mức lương lớn nhất </td>
+      <select matNativeControl [(ngModel)]="salaryRange_max"  name="companyId">
+        <option *ngFor="let salaryRange_max of salaryRangeList" [value]="salaryRange_max">{{salaryRange_max}}</option>
       </select>
 
       <div class="col-xl-2 col-4 mt-xl-4 mt-md-3 mt-2 d-xl-flex justify-content-xl-end">

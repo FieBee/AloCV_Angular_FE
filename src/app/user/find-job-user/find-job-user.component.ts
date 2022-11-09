@@ -18,7 +18,8 @@ export class FindJobUserComponent implements OnInit {
 
   salaryRangeList:number[] = [1000000,2000000,3000000,4000000,5000000,6000000,7000000,8000000];
 
-  salaryRange:number | undefined;
+  salaryRange_min:number | any = " ";
+  salaryRange_max:number | any = " ";
 
   public name = '';
   public jobField = '';
@@ -44,12 +45,18 @@ export class FindJobUserComponent implements OnInit {
   }
   getSearch(pageable: any) {
     console.log(this.name)
-    console.log(this.salaryRange)
+    console.log(this.salaryRange_min)
+    console.log(this.salaryRange_max)
     console.log(this.jobField)
     console.log(this.location)
     console.log(this.company)
     console.log("f")
-    this.FindJobService.getAllJobBy(this.name, this.salaryRange, this.jobField, this.location, this.company).subscribe(data => {
+    // if(this.salaryRange_min = undefined || this.salaryRange_max =='') {
+    //   this.salaryRange_min=null
+    //   console.log("abc")
+    // }
+    this.FindJobService.getAllJobBy(this.name,this.salaryRange_min , this.salaryRange_max, this.jobField, this.location, this.company).subscribe(data => {
+      this.jobList=data
 
       console.log(data)
       // if (data == null) {
