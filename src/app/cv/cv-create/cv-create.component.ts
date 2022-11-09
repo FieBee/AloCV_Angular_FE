@@ -15,6 +15,7 @@ import {JobService} from "../../service/job/job.service";
 import {User} from "../../model/user";
 import {Job} from "../../model/job";
 import {JobFieldService} from "../../service/jobField/job-field.service";
+import {Cv} from "../../model/cv";
 
 @Component({
   selector: 'app-cv-create',
@@ -26,14 +27,10 @@ export class CvCreateComponent implements OnInit {
     id: new FormControl(),
     description: new FormControl(),
     image: new FormControl(),
-    user: new FormControl(),
   });
 
   userId:string | null = localStorage.getItem('dataId')
 
-  user:User = {
-    id: this.userId,
-  }
 
   // job?:Job = new class implements Job {
   //   id: number = 1;
@@ -77,19 +74,21 @@ export class CvCreateComponent implements OnInit {
 
   submit() {
 
-    const a = {
+    const cv = this.cvForm.value;
+    cv.image = this.arrayPicture;
+
+    console.log(this.userId)
+    const a:Cv = {
       id: this.cvForm?.value.id,
       description: this.cvForm?.value.description,
       status: this.cvForm?.value.status,
-      us: [this.user],
-      // job: [this.job],
+      image: this.arrayPicture,
+      user: {
+        id:this.userId
+      }
     }
-    const cv = this.cvForm.value;
-    cv.image = this.arrayPicture;
-    console.log(this.arrayPicture);
-    console.log(cv)
+    console.log(a)
     this.cvService.saveCv(a).subscribe(data => {
-      console.log(data);
       alert('success');
       this.cvForm.reset();
     });
