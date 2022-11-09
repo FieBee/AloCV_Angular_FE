@@ -50,20 +50,13 @@ export class FindJobUserComponent implements OnInit {
     console.log(this.company)
     console.log("f")
     this.FindJobService.getAllJobBy(this.name, this.salaryRange, this.jobField, this.location, this.company).subscribe(data => {
-
       console.log(data)
-      // if (data == null) {
-      //   console.log("Thông tin bạn tìm kiếm hiện không có trong hệ thống ", 'Thông báo !')
-      //   // this.getListPeriodicPatient(0);
-      // } else {
-      //   this.jobList = data;
-      // }
     });
   }
   getAllJob() {
     this.JobService.getAll().subscribe((result: any) => {
       this.jobList = result;
-      console.log(result);
+      console.log(result)
     }, (error: any) => {
       console.log(error);
     })
@@ -72,7 +65,6 @@ export class FindJobUserComponent implements OnInit {
   getAllJobField() {
     this.JobFieldService.getAll().subscribe((result: any) => {
       this.jobFieldList = result;
-      console.log(result);
     }, (error: any) => {
       console.log(error);
     })
@@ -80,7 +72,6 @@ export class FindJobUserComponent implements OnInit {
   getAllLocation() {
     this.LocationService.getAll().subscribe((result: any) => {
       this.locationList = result;
-      console.log(result);
     }, (error: any) => {
       console.log(error);
     })
@@ -88,7 +79,6 @@ export class FindJobUserComponent implements OnInit {
   getAllCompany() {
     this.CompanyService.getAll().subscribe((result: any) => {
       this.companyList = result;
-      console.log(result);
     }, (error: any) => {
       console.log(error);
     })
@@ -106,33 +96,6 @@ export class FindJobUserComponent implements OnInit {
     }
     return 'BN-' + num;
   }
-
-  // getListPeriodicPatient(pageable: any) {
-  //   this.name = '';
-  //   this.salaryRange = '';
-  //   this.jobField = '';
-  //   this.location = '';
-  //   this.company = '';
-  //
-  //   this.FindJobService.getAllJob(pageable).subscribe(data => {
-  //     this.listJob = data;
-  //     console.log(data);
-  //   }, error => console.log(error))
-  // }
-
-  // searchJob(pageable) {
-  //   this.patientId = this.patientId.replace('BN-', '');
-  //   this.patientId = this.patientId.replace('BN', '');
-  //   this.patientId = this.patientId.replace('B', '');
-  //   this.patientId = this.patientId.replace('N-', '');
-  //   this.patientId = this.patientId.replace('N', '');
-  //   console.log(this.patientId);
-  //   if (this.patientId === '' && this.name === '') {
-  //     this.getListPeriodicPatient(pageable);
-  //   }
-  //   this.getSearch(pageable)
-  // }
-
 
 
 }
