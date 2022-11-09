@@ -11,7 +11,15 @@
 <div >
   <tr >
     <td *ngFor="let lo of location">
-      <button  (click)="getJobByCompanyId(lo.id)">{{lo.name}}</button>
+      <button  (click)="getJobByLocationId(lo.id)">{{lo.name}}</button>
+    </td>
+  </tr>
+</div>
+<br>
+<div >
+  <tr >
+    <td *ngFor="let jo of jobField">
+      <button  (click)="getJobByJobFieldId(jo.id)">{{jo.name}}</button>
     </td>
   </tr>
 </div>
