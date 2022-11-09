@@ -21,6 +21,7 @@
     "@angular/router": "^14.2.0",
     "bootstrap": "^5.2.2",
     "firebase": "^9.13.0",
+    "ngx-image-zoom": "^1.0.1",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.6.5",
     "tslib": "^2.3.0",
