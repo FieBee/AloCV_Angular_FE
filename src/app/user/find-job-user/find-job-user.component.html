@@ -13,17 +13,19 @@
     <td>Lĩnh Vực</td>
 
     <select [(ngModel)]="jobField" class="custom-select custom-select-sm" id="jobField" >
+      Tất cả<option value=" ">Tất cả</option>
       <option *ngFor="let jF of jobFieldList" [value]="jF.name">{{jF.name}}</option>
     </select>
 
     <td>Địa điểm</td>
-    <select [(ngModel)]="location" class="custom-select custom-select-sm" id="location">
+    <select [(ngModel)]="location" class="custom-select custom-select-sm" id="location">Tất cả
+<!--      <option value=" ">Tất cả</option>-->
       <option *ngFor="let location of locationList" [value]="location.name">{{location.name}}</option>
     </select>
 
       <td>Tên công ty</td>
-      <select matNativeControl [(ngModel)]="company" name="companyId">
-
+      <select matNativeControl [(ngModel)]="company" name="companyId">Tất cả
+<!--        <option value=" ">Tất cả</option>-->
         <option *ngFor="let company of companyList" [value]="company.name">{{company.name}}</option>
       </select>
 

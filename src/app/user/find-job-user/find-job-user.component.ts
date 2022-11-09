@@ -18,13 +18,13 @@ export class FindJobUserComponent implements OnInit {
 
   salaryRangeList:number[] = [1000000,2000000,3000000,4000000,5000000,6000000,7000000,8000000];
 
-  salaryRange_min:number | any = " ";
-  salaryRange_max:number | any = " ";
+  salaryRange_min:number | any = 0;
+  salaryRange_max:number | any = 1000000000;
 
-  public name = '';
-  public jobField = '';
-  public location = '';
-  public company = '';
+  public name = ' ';
+  public jobField = ' ';
+  public location = ' ';
+  public company = ' ';
   jobFieldList: JobField[]=[]
   locationList: Location[]=[]
   companyList: Company[]=[]

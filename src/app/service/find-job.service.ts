@@ -21,9 +21,9 @@ export class FindJobService {
   constructor(private http: HttpClient) {
     this.header = new Headers({'Content-Type': 'application/context'})
   }
-  getAllJobBy(name: string, salaryRange: any, jobField: string, location: string, company: string): Observable<any> {
-    return this.http.get(this.url + '/search?name=' + name + '&salaryRange=' + salaryRange
-      +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
+  getAllJobBy(name: string, salaryRange_min: any,salaryRange_max: any, jobField: string, location: string, company: string): Observable<any> {
+    return this.http.get(this.url + '/search?name=' + name + '&salaryRange_min=' + salaryRange_min +
+      '&salaryRange_max=' + salaryRange_max  +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
   }
 
 
