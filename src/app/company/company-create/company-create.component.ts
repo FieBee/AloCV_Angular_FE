@@ -6,6 +6,8 @@ import {finalize} from "rxjs";
 import {AccountService} from "../../service/account/account.service";
 import {Account} from "../../model/account";
 import {ShowMessage} from "../../commom/show-message";
+import {AppRole} from "../../model/dto/app-role";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-company-create',
@@ -26,8 +28,12 @@ export class CompanyCreateComponent implements OnInit {
 
   }
   a?: Account
+  role?:AppRole = new class implements AppRole {
+    id: number =2;
+  }
 
-  walletForm: FormGroup = new FormGroup({
+
+  companyForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
@@ -37,19 +43,20 @@ export class CompanyCreateComponent implements OnInit {
     linkMap: new FormControl(),
     linkFb: new FormControl(),
     account: new FormControl
-
   });
   accountForm: FormGroup = new FormGroup({
     id: new FormControl(),
     userName: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl(Math.floor(Math.random() * 100000000)),
+    // appRole: new FormControl(2)
   })
 
 
   constructor(private companyService: CompanyService,
               private accountService: AccountService,
               private storage: AngularFireStorage,
-              private showMessage:ShowMessage) {
+              private showMessage:ShowMessage,
+              private router: Router) {
   }
 
 
@@ -89,19 +96,20 @@ export class CompanyCreateComponent implements OnInit {
       id: this.accountForm?.value.id,
       userName: this.accountForm?.value.userName,
       password: this.accountForm?.value.password,
-      appRole: [],
+      appRole:[ this.role] ,
     }
     this.accountService.saveAccount(this.a).subscribe(data => {
       console.log(data);
-      const wallet = this.walletForm.value;
-      wallet.account = data;
-      wallet.image = this.arrayPicture;
+      const company = this.companyForm.value;
+      company.account = data;
+      company.image = this.arrayPicture;
       console.log(this.arrayPicture);
-      console.log(wallet)
-      this.companyService.saveCompany(wallet).subscribe(data1 => {
-        this.walletForm.reset();
+      console.log(company)
+      this.companyService.saveCompany(company).subscribe(data1 => {
+        this.companyForm.reset();
         this.showMessage.alertRegisterSuccess()
       })
+      this.router.navigate(["login"]);
     })
 
   }
@@ -114,10 +122,11 @@ export class CompanyCreateComponent implements OnInit {
   }
 
   get name() {
-    return this.walletForm.get('name');
+    return this.companyForm.get('name');
   }
+
   get image() {
-    return this.walletForm.get('image');
+    return this.companyForm.get('image');
   }
 
 }

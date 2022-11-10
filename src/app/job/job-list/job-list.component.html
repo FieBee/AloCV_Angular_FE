@@ -1,28 +1,114 @@
-<!--<br>-->
-<!--<h1 style="text-align: center">Job List</h1>-->
-<!--<br>-->
-<!--<table class="table table-borderless container" >-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <td>ID</td>-->
-<!--    <td>Name</td>-->
-<!--    <td>Location</td>-->
-<!--    <td>Salary</td>-->
-<!--    <td>Position</td>-->
-<!--    <td>Gender</td>-->
-<!--    <td colspan="2" style="text-align: center">Action</td>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--  <tr *ngFor="let j of job; index as i">-->
-<!--    <td>{{i + 1}}</td>-->
-<!--    <td>{{j.name}}</td>-->
-<!--    <td>{{j.location.name}}</td>-->
-<!--    <td>{{j.salaryRange}}</td>-->
-<!--    <td>{{j.position}}</td>-->
-<!--    <td>{{j.gender}}</td>-->
-<!--    <td style="text-align: center"><button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit', j.id]" style="width: 70%">Edit</button></td>-->
-<!--    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete', j.id]" style="width: 53%">Delete</button></td>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
+
+<section style="margin-top: -50px" id="hero" class="d-flex align-items-center">
+
+  <div style="height: 160px" class="container">
+    <div id="footer" class="row gy-3">
+
+      <div class="footer-newsletter col-lg-8 order-2 order-lg-6 d-flex flex-column justify-content-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div style="margin-left: 100px; margin-top: -70px" class="col-lg-6">
+              <h4>"Alo" là có việc!!</h4>
+              <p>Để thoát khỏi sự trầm cảm, hãy đến với chúng tôi,cùng AloCV nhặt ve chai và tạo nên thương hiệu!!!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 order-1 order-lg-2 hero-img">
+        <img style="width: 300px; margin-top: -70px" src="assets/img/hero-img.svg" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="position:absolute;bottom: 150px; margin-left: 180px;padding-bottom: 100px; justify-content: center" class="row">
+  <div style="" class="col-3">
+    <b>Tên công việc</b>
+    <input  [(ngModel)]="name" class="form-control" type="text" placeholder="Tên công việc">
+  </div>
+  <div class="col-2">
+    <b>Lĩnh vực</b>
+    <select [(ngModel)]="jobField" class="form-select" aria-label="Default select example">
+      <option selected value="">Tất cả</option>
+      <option *ngFor="let jF of jobFieldList" [value]="jF.name">{{jF.name}}</option>
+    </select>
+  </div>
+
+  <div class="col-2">
+    <b>Địa điểm</b>
+    <select [(ngModel)]="locationData" class="form-select" aria-label="Default select example">
+      <option selected value="">Tất cả</option>
+      <option *ngFor="let location of locationList" [value]="location.name">{{location.name}}</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <b>Công ty</b>
+    <select  class="form-select" aria-label="Default select example" [(ngModel)]="companyData" name="companyId">Tất cả
+      <option selected value="">Tất cả</option>
+      <option *ngFor="let company of companyList" [value]="company.name">{{company.name}}</option>
+    </select>
+  </div>
+
+  <div class="col-2">
+    <b>Chọn mức lương</b>
+    <select  class="form-select" aria-label="Default select example"  [(ngModel)]="salary"  name="companyId">
+      <option selected value="">Tất cả</option>
+      <option *ngFor="let salary of salaryRangeList" [value]="salary">{{salary}}</option>
+    </select>
+  </div>
+  <div class="col-3" aria-label="Default select example" >
+    <p></p>
+    <button style="" (click)="checkSalary()" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>
+  </div>
+</div>
+
+
+<td *ngFor="let jo of jobFieldList">
+  <button  (click)="getJobByJobFieldId(jo.id)">{{jo.name}}</button>
+</td>
+
+<div >
+  <tr >
+    <td *ngFor="let c of companyList">
+      <button  (click)="getJobByCompanyId(c.id)">{{c.name}}</button>
+    </td>
+  </tr>
+</div>
+<br>
+
+<div >
+  <tr >
+    <td *ngFor="let lo of locationList">
+      <button  (click)="getJobByLocationId(lo.id)">{{lo.name}}</button>
+    </td>
+  </tr>
+</div>
+
+<div style="text-align: center; justify-content: center" class="row">
+  <div *ngFor="let j of jobList; index as i" style=" margin-right: 15px;height :130px;width: 250px;border-radius: 5px;border: 1px solid #d1cfd3" class="jobItem mt-3 col-3 d-flex align-items-stretch "  >
+    <div  class="">
+      <div class="icon row">
+        <div class="col-3">
+          <img [src]="companyImg" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
+        </div>
+        <div class="col-8  mt-3">
+          <p style="float: left; padding-left: 20px"  class="title"><a href="">{{j.name}}</a></p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="description">{{j.company.name}}</p>
+        <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">
+      </div>
+      <div class="row">
+        <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>
+        <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

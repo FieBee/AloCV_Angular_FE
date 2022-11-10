@@ -7,6 +7,7 @@ import {Job} from "../../model/job";
 import {LocationService} from "../../service/location/location.service";
 import {JobField} from "../../model/job-field";
 import {JobFieldService} from "../../service/jobField/job-field.service";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-job-edit',
@@ -30,7 +31,7 @@ export class JobEditComponent implements OnInit {
     position: "",
     experience: "",
     jobType: "",
-    // expiredDate: Date,
+    expiredDate: new Date(),
     recruitNumber: 0,
     gender: "",
     description: "Mo ta",
@@ -61,7 +62,7 @@ export class JobEditComponent implements OnInit {
     });
   }
 
-  updateJob(){
+  updateJob(editJobForm: NgForm){
     console.log(this.job.location)
     this.jobService.editJob(this.job.id, this.job).subscribe(()=>{
       alert('Success')
