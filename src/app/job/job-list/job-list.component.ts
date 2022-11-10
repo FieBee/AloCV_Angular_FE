@@ -132,4 +132,10 @@ export class JobListComponent implements OnInit {
   }
 
 
+  getJobByJobFieldId(id: number | undefined) {
+    this.jobService.findJobByJobFieldId(id).subscribe((data: any) => {
+      this.jobList = data
+      console.log(data)
+    }, error => console.log("fail"))
+  }
 }

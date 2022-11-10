@@ -65,15 +65,9 @@
 </div>
 
 
-<!--<div class="col-2" aria-label="Default select example" >-->
-<!--  <p> </p>-->
-<!--  <button (click)="checkSalary()" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>-->
-<!--</div>-->
-
-
-<!--<div class="row text-center mt-5 ">-->
-<!--  <b><h1>Tin tuyển dụng mới nhất</h1></b>-->
-<!--</div>-->
+<td *ngFor="let jo of jobFieldList">
+  <button  (click)="getJobByJobFieldId(jo.id)">{{jo.name}}</button>
+</td>
 
 <div >
   <tr >
