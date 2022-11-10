@@ -25,7 +25,7 @@ export class JobCreateComponent implements OnInit {
     jobType: new FormControl(),
     expiredDate: new FormControl(),
     description: new FormControl(),
-    recruitNumber: new FormControl(),
+    recruitNumber: new FormControl('', [Validators.required]),
     gender: new FormControl(),
   });
 
@@ -46,9 +46,9 @@ export class JobCreateComponent implements OnInit {
   addJob() {
     const job: Job = {
       name: this.jobForm.value.name,
-      // jobField: {
-      //   id: this.jobForm.value.jobField
-      // },
+      jobField: {
+        id: this.jobForm.value.jobField
+      },
       salaryRange: this.jobForm.value.salaryRange,
       location: {
         id: this.jobForm.value.location
@@ -85,6 +85,10 @@ export class JobCreateComponent implements OnInit {
     }, (error: any) => {
       console.log(error);
     })
+  }
+
+  get recruitNumber(){
+    return this.jobForm.get('recruitNumber');
   }
 
 }

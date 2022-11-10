@@ -1,80 +1,221 @@
 
 
-<div class="col-7 m-auto">
-  <br>
-  <h1 style="text-align: center">Update Job</h1>
-  <br>
-</div>
+<!--<div class="col-7 m-auto">-->
+<!--  <br>-->
+<!--  <h1 style="text-align: center">Update Job</h1>-->
+<!--  <br>-->
+<!--</div>-->
+<!--<div  class="col-6  m-auto">-->
 
-<div  class="col-6  m-auto">
-  <form (ngSubmit)="updateJob()" class="container">
 
-    <div class="row mt-3 form-group">
-      <div class="col-2 ">Name</div>
-      <div class="col-10"><input name="name" [(ngModel)]="job.name"  class="col-8" type="text" ></div>
-    </div>
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2 ">Name</div>-->
+<!--      <div class="col-10"><input name="name" [(ngModel)]="job.name"  class="col-8" type="text" ></div>-->
+<!--    </div>-->
 
-<!--    <div class=" row mt-3 form-group">-->
-<!--      <div class="col-2">Job Field</div>-->
-<!--      <div class="col-10"><input name="price" [(ngModel)]="job.jobField.name"  class="col-8" type="number" >-->
+<!--  <div class="row mt-3 form-group">-->
+<!--    <div class="col-2 ">Job Field</div>-->
+<!--    <div class="col-10">-->
+<!--      <select class="custom-select custom-select-sm" id="jobField" [(ngModel)]="job.jobField.id">-->
+<!--        <option *ngFor="let job of jobFieldList" [value]="job.id"  name="location">{{job.name}}</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2 ">Salary</div>-->
+<!--      <div class="col-10"><input name="salaryRange" [(ngModel)]="job.salaryRange"  class="col-8" type="number"></div>-->
+<!--    </div>-->
+
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2 ">Location</div>-->
+<!--      <div class="col-10">-->
+<!--        <select class="custom-select custom-select-sm" id="location" [(ngModel)]="job.location.id">-->
+<!--          <option *ngFor="let location of locationList" [value]="location.id"  name="location">{{location.name}}</option>-->
+<!--        </select>-->
 <!--      </div>-->
 <!--    </div>-->
 
-    <div class="row mt-3 form-group">
-      <div class="col-2 ">Salary</div>
-      <div class="col-10"><input name="salaryRange" [(ngModel)]="job.salaryRange"  class="col-8" type="number"></div>
-    </div>
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2">Position</div>-->
+<!--      <div class="col-10"><input name="position" [(ngModel)]="job.position"  class="col-8" type="text"></div>-->
+<!--    </div>-->
 
-    <div class="row mt-3 form-group">
-      <div class="col-2 ">Location</div>
-      <div class="col-10">
-        <select class="custom-select custom-select-sm" id="location" name="location">
-          <option *ngFor="let location of locationList" [value]="location.id" [(ngModel)]="job.location.id">{{location.name}}</option>
-        </select>
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2">Experience</div>-->
+<!--      <div class="col-10"><input name="experience" [(ngModel)]="job.experience"  class="col-8"  type="text"></div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Job Type</div>-->
+<!--      <div class="col-10">-->
+<!--        <input type="radio" value="Fulltime" name="jobType" [(ngModel)]="job.jobType"> Fulltime-->
+<!--        <input type="radio" value="Female" name="jobType" [(ngModel)]="job.jobType"> Parttime-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Expired Date</div>-->
+<!--      <div class="col-10"><input name="expriredDate" class="col-8" type="date" ></div>-->
+<!--    </div>-->
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Gender</div>-->
+<!--      <div class="col-10">-->
+<!--        <input type="radio" value="Male" name="gender" [(ngModel)]="job.gender"> Male-->
+<!--        <input type="radio" value="Female" name="gender" [(ngModel)]="job.gender"> Female-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="row mt-3 form-group">-->
+<!--      <div class="col-2">Description</div>-->
+<!--      <div class="col-10"><textarea name="description" [(ngModel)]="job.description"  class="col-8" placeholder="description"></textarea></div>-->
+<!--    </div>-->
+
+<!--    <div class="row">-->
+<!--      <div class="col-2 m-auto">-->
+<!--        <button type="submit" (click)="updateJob() " class="btn mt-4 btn-outline-info">Submit</button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <img alt="" style="height: 100px; width: auto" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/L%C3%A1_c%E1%BB%9D_c%E1%BB%A7a_%C4%90%E1%BA%A3ng_c%E1%BB%99ng_s%E1%BA%A3n_Vi%E1%BB%87t_Nam.png?20220329090833">
+
+    <!--    <h1 style="text-align: center; color: #e77575" >Thêm mới công việc</h1>-->
+    <br>
+    <br>
+
+    <form #editJobForm="ngForm" (ngSubmit)="updateJob(editJobForm)">
+      <div class="formbold-input-flex form-group">
+        <div>
+          <label class="formbold-form-label"> Tên công việc </label>
+          <input
+            type="text"
+            placeholder="Tên công việc"
+            class="formbold-form-input"
+            name="name"
+            [(ngModel)]="job.name"
+          />
+        </div>
+
+        <div>
+          <label class="formbold-form-label">Giới tính ưu tiên</label>
+          <select class="formbold-form-input" name="gender" [(ngModel)]="job.gender">
+            <option value="Male" >Male</option>
+            <option value="Female" >Female</option>
+            <option value="Others" >Others</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="row mt-3 form-group">
-      <div class="col-2">Position</div>
-      <div class="col-10"><input name="position" [(ngModel)]="job.position"  class="col-8" type="text"></div>
-    </div>
+      <div class="formbold-input-flex form-group">
+        <div>
+          <label class="formbold-form-label">Lĩnh vực</label>
+          <select class="formbold-form-input" name="jobField" [(ngModel)]="job.jobField.id">
+            <option *ngFor="let job of jobFieldList" [value]="job.id">{{job.name}}</option>
+          </select>
+        </div>
 
-    <div class="row mt-3 form-group">
-      <div class="col-2">Experience</div>
-      <div class="col-10"><input name="experience" [(ngModel)]="job.experience"  class="col-8"  type="text"></div>
-    </div>
+        <div>
+          <label class="formbold-form-label">Loại hình công việc</label>
+          <select class="formbold-form-input" name="jobType" [(ngModel)]="job.jobType">
+            <option value="Fulltime" >Fulltime</option>
+            <option value="Parttime" >Parttime</option>
+          </select>
+        </div>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Job Type</div>
-      <div class="col-10">
-        <input type="radio" value="Fulltime" name="jobType" [(ngModel)]="job.jobType"> Fulltime
-        <input type="radio" value="Female" name="jobType" [(ngModel)]="job.jobType"> Parttime
       </div>
-    </div>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Expired Date</div>
-      <div class="col-10"><input name="expriredDate" class="col-8" type="date" ></div>
-    </div>
+      <div class="formbold-mb-3 formbold-input-wrapp form-group">
+        <label class="formbold-form-label"> Địa điểm </label>
 
-    <div class=" row mt-3 form-group">
-      <div class="col-2">Gender</div>
-      <div class="col-10">
-        <input type="radio" value="Male" name="gender" [(ngModel)]="job.gender"> Male
-        <input type="radio" value="Female" name="gender" [(ngModel)]="job.gender"> Female
+        <div>
+          <select class="formbold-form-input formbold-w-45" name="location" [(ngModel)]="job.location.id">
+            <option selected>Thành phố</option>
+            <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="Địa chỉ"
+            class="formbold-form-input"
+            name="position"
+            [(ngModel)]="job.position"
+          />
+        </div>
       </div>
-    </div>
 
-    <div class="row mt-3 form-group">
-      <div class="col-2">Description</div>
-      <div class="col-10"><textarea name="description" [(ngModel)]="job.description"  class="col-8" placeholder="description"></textarea></div>
-    </div>
-
-    <div class="row">
-      <div class="col-2 m-auto">
-        <button type="submit" class="btn mt-4 btn-outline-info">Submit</button>
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label"> Yêu cầu kinh nghiệm </label>
+        <input
+          type="text"
+          placeholder="Yêu cầu kinh nghiệm"
+          class="formbold-form-input"
+          name="experience"
+          [(ngModel)]="job.experience"
+        />
       </div>
-    </div>
 
-  </form>
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label"> Ngày hết hạn </label>
+        <input type="date" class="formbold-form-input" name="expiredDate" [(ngModel)]="job.expiredDate"/>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label class="formbold-form-label"> Số lượng cần tuyển </label>
+
+        <input
+          type="number"
+          class="formbold-form-input formbold-mb-3"
+          placeholder="Số lượng"
+          name="recruitNumber"
+          [(ngModel)]="job.recruitNumber"
+          #recruitNumber = "ngModel"
+          required
+        />
+        <div class="text-danger" *ngIf="!recruitNumber?.valid && (recruitNumber?.dirty ||recruitNumber?.touched)">
+            <p style="color: red"> Số lượng cần tuyển không được để trống </p> <br>
+          </div>
+
+        <label class="formbold-form-label"> Mức lương </label>
+        <input
+          type="text"
+          placeholder="Mức lương"
+          class="formbold-form-input"
+          name="salaryRange"
+          [(ngModel)]="job.salaryRange"
+        />
+      </div>
+
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label">
+          Mô tả công việc
+        </label>
+        <textarea
+          rows="6"
+          class="formbold-form-input"
+          name="description"
+          [(ngModel)]="job.description"
+        ></textarea>
+      </div>
+
+      <!--      <div class="formbold-form-file-flex">-->
+      <!--        <label for="upload" class="formbold-form-label">-->
+      <!--          Upload Resume-->
+      <!--        </label>-->
+      <!--        <input-->
+      <!--          type="file"-->
+      <!--          name="upload"-->
+      <!--          id="upload"-->
+      <!--          class="formbold-form-file"-->
+      <!--        />-->
+      <!--      </div>-->
+
+      <button type="submit" class="formbold-btn" >Submit</button>
+    </form>
+  </div>
 </div>
+
