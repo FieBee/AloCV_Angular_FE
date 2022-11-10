@@ -1,3 +1,4 @@
+
 <section style="margin-top: -50px" id="hero" class="d-flex align-items-center">
 
   <div style="height: 160px" class="container">
@@ -21,15 +22,15 @@
   </div>
 </section>
 
-
-<div style="position:absolute;bottom: 200px; margin-left: 180px;padding-bottom: 100px; justify-content: center" class="row">
-  <div class="col-2">
+<div style="position:absolute;bottom: 150px; margin-left: 180px;padding-bottom: 100px; justify-content: center" class="row">
+  <div style="" class="col-3">
     <b>Tên công việc</b>
     <input  [(ngModel)]="name" class="form-control" type="text" placeholder="Tên công việc">
   </div>
   <div class="col-2">
     <b>Lĩnh vực</b>
     <select [(ngModel)]="jobField" class="form-select" aria-label="Default select example">
+      <option selected value="">Tất cả</option>
       <option *ngFor="let jF of jobFieldList" [value]="jF.name">{{jF.name}}</option>
     </select>
   </div>
@@ -37,34 +38,37 @@
   <div class="col-2">
     <b>Địa điểm</b>
     <select [(ngModel)]="locationData" class="form-select" aria-label="Default select example">
-      <option >dia diem</option>
+      <option selected value="">Tất cả</option>
       <option *ngFor="let location of locationList" [value]="location.name">{{location.name}}</option>
     </select>
   </div>
 
-  <div class="col-2">
+  <div class="col-3">
     <b>Công ty</b>
     <select  class="form-select" aria-label="Default select example" [(ngModel)]="companyData" name="companyId">Tất cả
+      <option selected value="">Tất cả</option>
       <option *ngFor="let company of companyList" [value]="company.name">{{company.name}}</option>
     </select>
   </div>
 
   <div class="col-2">
     <b>Chọn mức lương</b>
-    <select  class="form-select" aria-label="Default select example" matNativeControl [(ngModel)]="salary"  name="companyId">
-      <option selected value=" ">Tất cả</option>
+    <select  class="form-select" aria-label="Default select example"  [(ngModel)]="salary"  name="companyId">
+      <option selected value="">Tất cả</option>
       <option *ngFor="let salary of salaryRangeList" [value]="salary">{{salary}}</option>
     </select>
   </div>
-  <div class="col-2" aria-label="Default select example" >
-    <p> </p>
-    <button (click)="checkSalary()" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>
+  <div class="col-3" aria-label="Default select example" >
+    <p></p>
+    <button style="" (click)="checkSalary()" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>
   </div>
-
-
-
-
 </div>
+
+
+<!--<div class="col-2" aria-label="Default select example" >-->
+<!--  <p> </p>-->
+<!--  <button (click)="checkSalary()" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>-->
+<!--</div>-->
 
 
 <!--<div class="row text-center mt-5 ">-->
@@ -79,6 +83,7 @@
   </tr>
 </div>
 <br>
+
 <div >
   <tr >
     <td *ngFor="let lo of locationList">
