@@ -42,8 +42,9 @@ export class CompanyCreateComponent implements OnInit {
   accountForm: FormGroup = new FormGroup({
     id: new FormControl(),
     userName: new FormControl('',[Validators.required, Validators.email]),
-    password: new FormControl('',Validators.required),
+    password: new FormControl(Math.floor(Math.random() * 100000000)),
   })
+
 
   constructor(private companyService: CompanyService,
               private accountService: AccountService,

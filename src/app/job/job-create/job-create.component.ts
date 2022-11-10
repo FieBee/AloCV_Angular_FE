@@ -4,6 +4,8 @@ import {JobService} from "../../service/job/job.service";
 import {LocationService} from "../../service/location/location.service";
 import {Job} from "../../model/job";
 import {Location} from "../../model/location";
+import {JobField} from "../../model/job-field";
+import {JobFieldService} from "../../service/jobField/job-field.service";
 
 @Component({
   selector: 'app-job-create',
@@ -23,26 +25,30 @@ export class JobCreateComponent implements OnInit {
     jobType: new FormControl(),
     expiredDate: new FormControl(),
     description: new FormControl(),
-    recruitNumber: new FormControl(),
+    recruitNumber: new FormControl('', [Validators.required]),
     gender: new FormControl(),
   });
 
   locationList: Location[] | undefined;
 
+  jobFieldList: JobField[] | undefined;
+
   constructor(private jobService: JobService,
+              private jobFieldService: JobFieldService,
               private locationService: LocationService) {
   }
 
   ngOnInit(): void {
-    this.getAllLocation();
+    this.getAllLocation()
+    this.getAllJobField()
   }
 
   addJob() {
     const job: Job = {
       name: this.jobForm.value.name,
-      // jobField: {
-      //   id: this.jobForm.value.jobField
-      // },
+      jobField: {
+        id: this.jobForm.value.jobField
+      },
       salaryRange: this.jobForm.value.salaryRange,
       location: {
         id: this.jobForm.value.location
@@ -70,6 +76,19 @@ export class JobCreateComponent implements OnInit {
     }, (error: any) => {
       console.log(error);
     })
+  }
+
+  getAllJobField() {
+    this.jobFieldService.getAll().subscribe((result: any) => {
+      this.jobFieldList = result;
+      console.log(result);
+    }, (error: any) => {
+      console.log(error);
+    })
+  }
+
+  get recruitNumber(){
+    return this.jobForm.get('recruitNumber');
   }
 
 }

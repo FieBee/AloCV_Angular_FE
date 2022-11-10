@@ -21,10 +21,14 @@ import { CompanyCreateComponent } from './company/company-create/company-create.
 import { UserListComponent } from './user/user-list/user-list.component';
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { JobListComponent } from './job/job-list/job-list.component';
+import { FindJobUserComponent } from './user/find-job-user/find-job-user.component';
 import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
+import { JobFieldComponent } from './job/job-field/job-field.component';
+import { JobListComponent } from './job/job-list/job-list.component';
 import { JobCreateComponent } from './job/job-create/job-create.component';
 import { JobEditComponent } from './job/job-edit/job-edit.component';
+import { JobDeleteComponent } from './job/job-delete/job-delete.component';
+
 
 
 
@@ -42,10 +46,15 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
     UserListComponent,
     RegisterComponent,
     UserRegisterComponent,
+    FindJobUserComponent,
+    UserJobListComponent,
+    JobFieldComponent,
     JobListComponent,
     UserJobListComponent,
     JobCreateComponent,
-    JobEditComponent
+    JobEditComponent,
+    JobDeleteComponent
+
   ],
   imports: [
     BrowserModule,
@@ -66,3 +75,4 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
 })
 // @ts-ignore
 export class AppModule { }
+//@ts-ignore

@@ -1,28 +1,28 @@
-<br>
-<h1 style="text-align: center">Job List</h1>
-<br>
-<table class="table table-borderless container" >
-  <thead>
-  <tr>
-    <td>ID</td>
-    <td>Name</td>
-    <td>Location</td>
-    <td>Salary</td>
-    <td>Position</td>
-    <td>Gender</td>
-    <td colspan="2" style="text-align: center">Action</td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let j of job; index as i">
-    <td>{{i + 1}}</td>
-    <td>{{j.name}}</td>
-    <td>{{j.location.name}}</td>
-    <td>{{j.salaryRange}}</td>
-    <td>{{j.position}}</td>
-    <td>{{j.gender}}</td>
-    <td style="text-align: center"><button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit', j.id]" style="width: 70%">Edit</button></td>
-    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete', j.id]" style="width: 53%">Delete</button></td>
-  </tr>
-  </tbody>
-</table>
+<!--<br>-->
+<!--<h1 style="text-align: center">Job List</h1>-->
+<!--<br>-->
+<!--<table class="table table-borderless container" >-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <td>ID</td>-->
+<!--    <td>Name</td>-->
+<!--    <td>Location</td>-->
+<!--    <td>Salary</td>-->
+<!--    <td>Position</td>-->
+<!--    <td>Gender</td>-->
+<!--    <td colspan="2" style="text-align: center">Action</td>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let j of job; index as i">-->
+<!--    <td>{{i + 1}}</td>-->
+<!--    <td>{{j.name}}</td>-->
+<!--    <td>{{j.location.name}}</td>-->
+<!--    <td>{{j.salaryRange}}</td>-->
+<!--    <td>{{j.position}}</td>-->
+<!--    <td>{{j.gender}}</td>-->
+<!--    <td style="text-align: center"><button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit', j.id]" style="width: 70%">Edit</button></td>-->
+<!--    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete', j.id]" style="width: 53%">Delete</button></td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->

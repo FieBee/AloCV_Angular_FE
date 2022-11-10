@@ -39,7 +39,7 @@ export class UserRegisterComponent implements OnInit {
 
   accountForm: FormGroup = new FormGroup({
     userName: new FormControl('',[Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl(Math.random() * 100000000),
 
   })
 

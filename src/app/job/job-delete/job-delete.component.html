@@ -1,0 +1,69 @@
+
+
+<div class="col-7 m-auto">
+  <br>
+  <h1 style="text-align: center">Delete Job</h1>
+  <br>
+</div>
+
+<div  class="col-6  m-auto">
+  <form (ngSubmit)="deleteJob(id)" class="container">
+
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">Name</div>
+      <div class="col-10">{{job.name}}</div>
+    </div>
+
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">Job Field</div>
+      <div class="col-10">{{job.jobField.name}}</div>
+    </div>
+
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">Salary</div>
+      <div class="col-10">{{job.salaryRange}}</div>
+    </div>
+
+    <div class="row mt-3 form-group">
+      <div class="col-2 ">Location</div>
+      <div class="col-10">{{job.location.name}}</div>
+    </div>
+
+    <div class="row mt-3 form-group">
+      <div class="col-2">Position</div>
+      <div class="col-10">{{job.position}}</div>
+    </div>
+
+    <div class="row mt-3 form-group">
+      <div class="col-2">Experience</div>
+      <div class="col-10">{{job.experience}}</div>
+    </div>
+
+    <div class=" row mt-3 form-group">
+      <div class="col-2">Job Type</div>
+      <div class="col-10">{{job.jobType}}</div>
+    </div>
+
+<!--    <div class=" row mt-3 form-group">-->
+<!--      <div class="col-2">Expired Date</div>-->
+<!--      <div class="col-10">{{job.expiredDate}}</div>-->
+<!--    </div>-->
+
+    <div class=" row mt-3 form-group">
+      <div class="col-2">Gender</div>
+      <div class="col-10">{{job.gender}}</div>
+    </div>
+
+    <div class="row mt-3 form-group">
+      <div class="col-2">Description</div>
+      <div class="col-10">{{job.description}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-2 m-auto">
+        <button type="submit" class="btn mt-4 btn-outline-info">Submit</button>
+      </div>
+    </div>
+
+  </form>
+</div>

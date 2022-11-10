@@ -10,6 +10,7 @@ import {JobListComponent} from "./job/job-list/job-list.component";
 import {UserJobListComponent} from "./user/user-job-list/user-job-list.component";
 import {JobCreateComponent} from "./job/job-create/job-create.component";
 import {JobEditComponent} from "./job/job-edit/job-edit.component";
+import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
 
 export const ROUTES: Routes = [
 
@@ -33,25 +34,29 @@ export const ROUTES: Routes = [
     path: '', component: HomeComponent
   },
   {
-  path: 'company/list', component: CompanyListComponent
+    path: 'company/list', component: CompanyListComponent
   },
   {
-  path: 'user/job-list', component: UserJobListComponent
+    path: 'user/job-list', component: UserJobListComponent
   },
   {
-  path: 'job/job-list', component: JobListComponent
+    path: 'job/job-list', component: JobListComponent
   },
   {
-  path: 'job/job-create', component: JobCreateComponent
+    path: 'job/job-create', component: JobCreateComponent
   },
   {
-  path: 'job/job-edit', component: JobEditComponent
+    path: 'job/job-edit/:id', component: JobEditComponent
+  },
+  {
+    path: 'job/job-delete/:id', component: JobDeleteComponent
   },
   // {
   // path: 'company/create', component: CompanyCreateComponent
   //
   // }
   { path: '**', component: HomeComponent },
+
 ];
 
 
