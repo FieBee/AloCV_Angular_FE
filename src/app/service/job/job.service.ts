@@ -10,7 +10,9 @@ const API_URL = `${environment.apiUrl}`;
 })
 export class JobService {
 
-  constructor(private httpClient: HttpClient ) { }
+  constructor(private httpClient: HttpClient ) {
+
+  }
 
   getAll():Observable<Job[]>{
     return this.httpClient.get<Job[]>(API_URL + `/job`)
@@ -38,5 +40,10 @@ export class JobService {
 
   findJobByLocationId(id: number | undefined):Observable<Job[]>{
     return this.httpClient.get<Job[]>(API_URL +`/job/location/${id}`)
+  }
+
+  getAllJobBy(name: string, salaryRange_min: any,salaryRange_max: any, jobField: string, location: string, company: string): Observable<any> {
+    return this.httpClient.get(API_URL + '/job/search?name=' + name + '&salaryRange_min=' + salaryRange_min +
+      '&salaryRange_max=' + salaryRange_max  +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
   }
 }
