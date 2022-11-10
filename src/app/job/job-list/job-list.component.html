@@ -81,8 +81,7 @@
 <br>
 <div >
   <tr >
-<<<<<<< HEAD
-    <td *ngFor="let lo of location">
+    <td *ngFor="let lo of locationList">
       <button  (click)="getJobByLocationId(lo.id)">{{lo.name}}</button>
     </td>
   </tr>
@@ -90,12 +89,12 @@
 <br>
 <div >
   <tr >
-    <td *ngFor="let jo of jobField">
+    <td *ngFor="let jo of jobFieldList">
       <button  (click)="getJobByJobFieldId(jo.id)">{{jo.name}}</button>
-=======
+    </td>
+
     <td *ngFor="let lo of locationList">
       <button  (click)="getJobByLocationId(lo.id)">{{lo.name}}</button>
->>>>>>> 9ba8478d7a78ab810c6bd600d8309b65724e2987
     </td>
   </tr>
 </div>
