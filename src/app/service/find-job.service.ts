@@ -5,6 +5,7 @@ import {catchError, Observable, throwError} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+
 export class FindJobService {
   private url = "http://localhost:8080/job";
 
