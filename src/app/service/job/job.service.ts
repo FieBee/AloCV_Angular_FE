@@ -22,7 +22,7 @@ export class JobService {
     return this.httpClient.post<Job>(API_URL + `/job` , job);
   }
 
-  findById(id: number):Observable<Job>{
+  findById(id: number | undefined):Observable<Job>{
     return this.httpClient.get<Job>(API_URL + `/job/${id}`);
   }
 
