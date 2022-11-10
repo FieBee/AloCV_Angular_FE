@@ -29,7 +29,11 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
 import { JobDeleteComponent } from './job/job-delete/job-delete.component';
 import { CvCreateComponent } from './cv/cv-create/cv-create.component';
 import { CvListComponent } from './cv/cv-list/cv-list.component';
+
 import { NotfoundComponent } from './notfound/notfound.component';
+
+import { JobDetailComponent } from './job/job-detail/job-detail.component';
+
 
 
 
@@ -57,7 +61,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
     JobDeleteComponent,
     CvCreateComponent,
     CvListComponent,
-    NotfoundComponent
+
+    NotfoundComponent,
+
+    JobDetailComponent
+
 
   ],
   imports: [
