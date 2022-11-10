@@ -90,13 +90,17 @@
 <!--</div>-->
 
 
+
 <div class="formbold-main-wrapper">
-  <!-- Author: FormBold Team -->
-  <!-- Learn More: https://formbold.com -->
   <div class="formbold-form-wrapper">
-    <img src="your-image-here.jpg">
-    <form [formGroup]="jobForm" (ngSubmit)="addJob()">
-      <div class="formbold-input-flex">
+      <img style="height: 100px; width: auto" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/L%C3%A1_c%E1%BB%9D_c%E1%BB%A7a_%C4%90%E1%BA%A3ng_c%E1%BB%99ng_s%E1%BA%A3n_Vi%E1%BB%87t_Nam.png?20220329090833">
+
+<!--    <h1 style="text-align: center; color: #e77575" >Thêm mới công việc</h1>-->
+    <br>
+    <br>
+
+    <form class="" [formGroup]="jobForm" (ngSubmit)="addJob()">
+      <div class="formbold-input-flex form-group">
         <div>
           <label class="formbold-form-label"> Tên công việc </label>
           <input
@@ -110,18 +114,17 @@
 
         <div>
           <label class="formbold-form-label">Giới tính ưu tiên</label>
-          <select class="formbold-form-input" name="occupation" id="occupation">
-            <option value="Male" formControlName="gender">Male</option>
-            <option value="Female" formControlName="gender">Female</option>
-            <option value="Others" formControlName="gender">Others</option>
+          <select class="formbold-form-input" formControlName="gender">
+            <option value="Male" >Male</option>
+            <option value="Female" >Female</option>
+            <option value="Others" >Others</option>
           </select>
         </div>
       </div>
 
-      <div class="formbold-input-flex">
+      <div class="formbold-input-flex form-group">
         <div>
           <label class="formbold-form-label">Lĩnh vực</label>
-
           <select class="formbold-form-input" formControlName="jobField">
             <option *ngFor="let job of jobFieldList" [value]="job.id">{{job.name}}</option>
           </select>
@@ -129,93 +132,95 @@
 
         <div>
           <label class="formbold-form-label">Loại hình công việc</label>
-          <select class="formbold-form-input">
-            <option value="Fulltime" formControlName="jobType">Fulltime</option>
-            <option value="Parttime" formControlName="jobType">Parttime</option>
+          <select class="formbold-form-input" formControlName="jobType">
+            <option value="Fulltime" >Fulltime</option>
+            <option value="Parttime" >Parttime</option>
           </select>
         </div>
+
       </div>
 
-      <div class="formbold-mb-3 formbold-input-wrapp">
-        <label for="phone" class="formbold-form-label"> Phone </label>
+      <div class="formbold-mb-3 formbold-input-wrapp form-group">
+        <label class="formbold-form-label"> Địa điểm </label>
 
         <div>
-          <input
-            type="text"
-            name="areacode"
-            id="areacode"
-            placeholder="Area code"
-            class="formbold-form-input formbold-w-45"
-          />
+          <select class="formbold-form-input formbold-w-45" id="location" formControlName="location" >
+            <option selected>Thành phố</option>
+            <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+          </select>
 
           <input
             type="text"
-            name="phone"
-            id="phone"
-            placeholder="Phone number"
+            placeholder="Địa chỉ"
             class="formbold-form-input"
+            formControlName="position"
           />
         </div>
       </div>
 
-      <div class="formbold-mb-3">
-        <label class="formbold-form-label"> Vị trí ứng tuyển: </label>
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label"> Yêu cầu kinh nghiệm </label>
         <input
           type="text"
-          placeholder="Vị trí ứng tuyển"
+          placeholder="Yêu cầu kinh nghiệm"
           class="formbold-form-input"
+          formControlName="experience"
         />
       </div>
 
-      <div class="formbold-mb-3">
-        <label for="dob" class="formbold-form-label"> When can you start? </label>
-        <input type="date" class="formbold-form-input" />
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label"> Ngày hết hạn </label>
+        <input type="date" class="formbold-form-input" formControlName="expiredDate"/>
       </div>
 
       <div class="formbold-mb-3">
-        <label for="address" class="formbold-form-label"> Address </label>
+        <label class="formbold-form-label"> Số lượng cần tuyển </label>
 
         <input
-          type="text"
-          name="address"
-          id="address"
-          placeholder="Street address"
+          type="number"
           class="formbold-form-input formbold-mb-3"
+          placeholder="Số lượng"
+          formControlName="recruitNumber"
         />
+        <div *ngIf="!recruitNumber?.valid && (recruitNumber?.dirty ||recruitNumber?.touched)">
+          <div [hidden]="!recruitNumber?.errors?.['required']">
+            <p style="color: red"> Số lượng cần tuyển không được để trống </p>
+          </div>
+        </div>
+
+        <label class="formbold-form-label"> Mức lương </label>
         <input
           type="text"
-          name="address2"
-          id="address2"
-          placeholder="Street address line 2"
+          placeholder="Mức lương"
           class="formbold-form-input"
+          formControlName="salaryRange"
         />
       </div>
 
-      <div class="formbold-mb-3">
-        <label for="message" class="formbold-form-label">
-          Cover Letter
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label">
+          Mô tả công việc
         </label>
         <textarea
           rows="6"
-          name="message"
-          id="message"
           class="formbold-form-input"
+          formControlName="description"
         ></textarea>
       </div>
 
-      <div class="formbold-form-file-flex">
-        <label for="upload" class="formbold-form-label">
-          Upload Resume
-        </label>
-        <input
-          type="file"
-          name="upload"
-          id="upload"
-          class="formbold-form-file"
-        />
-      </div>
+<!--      <div class="formbold-form-file-flex">-->
+<!--        <label for="upload" class="formbold-form-label">-->
+<!--          Upload Resume-->
+<!--        </label>-->
+<!--        <input-->
+<!--          type="file"-->
+<!--          name="upload"-->
+<!--          id="upload"-->
+<!--          class="formbold-form-file"-->
+<!--        />-->
+<!--      </div>-->
 
-      <button class="formbold-btn" [disabled]="!jobForm.valid">Submit</button>
+      <button type="submit" class="formbold-btn" [disabled]="!jobForm.valid">Submit</button>
     </form>
   </div>
 </div>
