@@ -4,9 +4,12 @@ import {JobService} from "../../service/job/job.service";
 import {CompanyService} from "../../service/company/company.service";
 import {Company} from "../../model/company";
 import {LocationService} from "../../service/location/location.service";
+import {JobFieldService} from "../../service/jobField/job-field.service";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 import {JobField} from "../../model/job-field";
 import {Location} from "../../model/location";
-import {JobFieldService} from "../../service/jobField/job-field.service";
+
+
 
 @Component({
   selector: 'app-job-list',
@@ -19,7 +22,7 @@ export class JobListComponent implements OnInit {
     "5Tr - 10Tr",
     "10Tr - 30Tr",
     "Trên 30Tr",
-    ];
+  ];
   salaryRange_min:number | any = 0;
   salaryRange_max:number | any = 1000000000;
   public name = '';
@@ -46,7 +49,7 @@ export class JobListComponent implements OnInit {
       this.salaryRange_max = 10000000000;
     }
     this.getSearch(0)
-}
+  }
 
   jobFieldList: JobField[]=[]
   locationList: any
@@ -58,7 +61,7 @@ export class JobListComponent implements OnInit {
   constructor(private jobService: JobService,
               private companyService: CompanyService,
               private locationService: LocationService,
-              private jobFielService:JobFieldService) {
+              private jobFieldService:JobFieldService) {
   }
 
   ngOnInit(): void {
@@ -121,7 +124,7 @@ export class JobListComponent implements OnInit {
   }
 
   getAllJobField() {
-    this.jobFielService.getAll().subscribe((result: any) => {
+    this.jobFieldService.getAll().subscribe((result: any) => {
       this.jobFieldList = result;
     }, (error: any) => {
       console.log(error);
