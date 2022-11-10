@@ -25,10 +25,10 @@ export class JobListComponent implements OnInit {
   ];
   salaryRange_min:number | any = 0;
   salaryRange_max:number | any = 1000000000;
-  public name = ' ';
-  public jobField = ' ';
-  public locationData = ' ';
-  public companyData = ' ';
+  public name = '';
+  public jobField = '';
+  public locationData = '';
+  public companyData = '';
   salary: string | undefined
 
   checkSalary(){
@@ -139,4 +139,10 @@ export class JobListComponent implements OnInit {
   }
 
 
+  getJobByJobFieldId(id: number | undefined) {
+    this.jobService.findJobByJobFieldId(id).subscribe((data: any) => {
+      this.jobList = data
+      console.log(data)
+    }, error => console.log("fail"))
+  }
 }

@@ -5,13 +5,14 @@ import {Observable} from "rxjs";
 import {Job} from "../../model/job";
 
 const API_URL = `${environment.apiUrl}`;
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class JobService {
 
   constructor(private httpClient: HttpClient ) {
-
   }
 
   getAll():Observable<Job[]>{
@@ -50,4 +51,5 @@ export class JobService {
     return this.httpClient.get(API_URL + '/job/search?name=' + name + '&salaryRange_min=' + salaryRange_min +
       '&salaryRange_max=' + salaryRange_max  +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
   }
+
 }
