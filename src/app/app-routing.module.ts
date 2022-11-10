@@ -6,14 +6,16 @@ import {CompanyListComponent} from "./company/company-list/company-list.componen
 import {CompanyCreateComponent} from "./company/company-create/company-create.component";
 import {RegisterComponent} from "./register/register.component";
 import {UserRegisterComponent} from "./user/user-register/user-register.component";
-import {JobListComponent} from "./job/job-list/job-list.component";
 import {UserJobListComponent} from "./user/user-job-list/user-job-list.component";
 import {JobCreateComponent} from "./job/job-create/job-create.component";
 import {JobEditComponent} from "./job/job-edit/job-edit.component";
 import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
-import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
 import {CvCreateComponent} from "./cv/cv-create/cv-create.component";
 import {CvListComponent} from "./cv/cv-list/cv-list.component";
+import {NotfoundComponent} from "./notfound/notfound.component";
+import {
+  RoleGuardService as AuthGuard
+} from './service/role-guard.service';
 
 
 export const ROUTES: Routes = [
@@ -35,16 +37,34 @@ export const ROUTES: Routes = [
     component: CompanyCreateComponent
   },
   {
-    path: '', component: HomeComponent
+    path: 'user', component: HomeComponent,
+    canActivate: [AuthGuard],
+    data:{
+      roles:["ROLE_USER"]
+    }
+  },
+  {
+    path: 'admin', component: HomeComponent,
+    canActivate: [AuthGuard],
+    data:{
+      roles:["ROLE_ADMIN"]
+    }
+  },
+  {
+    path: 'company', component: HomeComponent,
+    canActivate: [AuthGuard],
+    data:{
+      roles:["ROLE_COMPANY"]
+    }
+  },
+  {
+    path: 'home', component: HomeComponent
   },
   {
     path: 'company/list', component: CompanyListComponent
   },
   {
     path: 'user/job-list', component: UserJobListComponent
-  },
-  {
-    path: '../home', component: JobListComponent
   },
   {
     path: 'job/job-create', component: JobCreateComponent
@@ -67,7 +87,8 @@ export const ROUTES: Routes = [
   // path: 'company/create', component: CompanyCreateComponent
   //
   // }
-  { path: '**', component: HomeComponent },
+  { path: '', component: HomeComponent },
+  { path: '**', component: NotfoundComponent },
 
 ];
 
