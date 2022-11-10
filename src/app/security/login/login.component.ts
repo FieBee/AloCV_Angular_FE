@@ -77,6 +77,9 @@ export class LoginComponent implements OnInit {
     let resp:Observable<any> = this.jwtService.getUserByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data => {
       localStorage.setItem("dataName",JSON.parse(data).name);
+      localStorage.setItem("dataImg",JSON.parse(data).image);
+      localStorage.setItem("dataId",JSON.parse(data).id);
+
     },error1 => console.log("get user name id fail"))
   }
 
@@ -84,12 +87,12 @@ export class LoginComponent implements OnInit {
     let resp:Observable<any> = this.jwtService.getCompanyByAccount_UserName(this.loginForm.get("userName")?.value);
     resp.subscribe(data =>{
       localStorage.setItem("dataName",JSON.parse(data).name);
+      localStorage.setItem("dataImg",JSON.parse(data).image);
+      localStorage.setItem("dataId",JSON.parse(data).id);
+
     },error => console.log("get company name id fail"))
   }
 
-  logout(){
-    localStorage.clear();
-  }
 
   get email() {
     return this.loginForm.get('userName');
