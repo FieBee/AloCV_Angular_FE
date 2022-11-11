@@ -5,6 +5,7 @@ import {Company} from "../../model/company";
 import {CompanyService} from "../../service/company/company.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {CvService} from "../../service/cv/cv.service";
 
 @Component({
   selector: 'app-job-detail',
@@ -13,32 +14,50 @@ import {Subscription} from "rxjs";
 })
 export class JobDetailComponent implements OnInit {
   sub:Subscription;
-  // j: number | undefined;
   job: Job ={
   };
+
+
+
   companyList: Company |undefined;
-  private id: number | undefined;
+  id: any;
+  dataRole = localStorage.getItem("role")
+  cvList:any;
+  cvId: any;
+
 
   constructor(private jobService: JobService,
               private companyService: CompanyService,
               private router: Router,
-              private activatedRoute: ActivatedRoute
-              ) {
+              private activatedRoute: ActivatedRoute,
+              private cvService: CvService
+  ) {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       // @ts-ignore
       this.id = +paramMap.get('id');
       this.getJobById(this.id);
+      console.log(this.id)
+    })
+  }
+
+  applyCv(){
+    this.cvService.findById(this.cvId).subscribe(data =>{
+      console.log(this.cvId)
+      this.jobService.findById(this.id).subscribe(jobData => {
+        data.job = jobData
+        this.cvService.editCv(data.id,data).subscribe(data=> {
+          alert("Ứng tuyển thành công!")
+        },error => console.log("Lỗi add Cv"))
+      })
     })
   }
 
   ngOnInit(): void {
-  
+    this.getAllCv();
   }
   getJobById(j: number) {
-    // this.jobService.findJobByCompanyId(1).subscribe();
     this.jobService.findById(j).subscribe((result: any) => {
       console.log(this.job)
-      // alert("ok")
       this.job = result;
       console.log(result);
     }, (error: any) => {
@@ -46,12 +65,14 @@ export class JobDetailComponent implements OnInit {
     })
   }
 
-  getAllCompanyById() {
-    this.companyService.findById(1).subscribe((result: any) => {
-      this.companyList = result;
-      console.log(result);
-    }, (error: any) => {
-      console.log(error);
+  getAllCv(){
+    this.cvService.findCVByUserId(this.getUserId()).subscribe(data=>{
+      this.cvList = data;
+      console.log("Đã lấy được list Cv by UserId")
     })
+  }
+
+  getUserId(){
+    return localStorage.getItem("dataId");
   }
 }
