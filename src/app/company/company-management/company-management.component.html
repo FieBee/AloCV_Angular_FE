@@ -55,5 +55,9 @@
         <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
       </div>
     </div>
+    <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit', j.id]" style="width: 70%">Edit</button>
+    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete', j.id]" style="width: 53%">Delete</button>
+
   </div>
 </div>
+

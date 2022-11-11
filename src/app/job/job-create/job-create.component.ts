@@ -32,6 +32,7 @@ export class JobCreateComponent implements OnInit {
   locationList: Location[] | undefined;
 
   jobFieldList: JobField[] | undefined;
+  companyId: any | null = localStorage.getItem('dataId')
 
   constructor(private jobService: JobService,
               private jobFieldService: JobFieldService,
@@ -52,6 +53,9 @@ export class JobCreateComponent implements OnInit {
       salaryRange: this.jobForm.value.salaryRange,
       location: {
         id: this.jobForm.value.location
+      },
+      company: {
+        id:this.companyId
       },
       position: this.jobForm.value.position,
       experience: this.jobForm.value.experience,
@@ -90,5 +94,6 @@ export class JobCreateComponent implements OnInit {
   get recruitNumber(){
     return this.jobForm.get('recruitNumber');
   }
+
 
 }
