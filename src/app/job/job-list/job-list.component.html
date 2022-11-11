@@ -75,11 +75,10 @@
         <div  style="float: left" class="row">
           <div  class="icon row">
             <div class="col-3">
-              <img [src]="companyImg" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
+              <img [src]="j.company.image" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
             </div>
             <div class="col-8  mt-3">
-              <p style="float: left; padding-left: 10px"  class="title"><a >{{j.name}}</a></p>
-            </div>
+              <p style="float: left; padding-left: 10px"  class="title"><a href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></p>            </div>
 <!--            <div style=";font-size: 14px;margin-left: 160px; position: absolute" class="col-1">-->
 <!--              <button style="border: 0px ;color: white; background: #5e5eff" class=" ">Ứng tuyển</button>-->
 <!--            </div>-->
