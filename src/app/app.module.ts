@@ -60,7 +60,6 @@ import {JobDetailComponent} from "./job/job-detail/job-detail.component";
     CvListComponent,
     NotfoundComponent,
     JobDetailComponent
-
   ],
   imports: [
     BrowserModule,

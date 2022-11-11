@@ -85,6 +85,11 @@ export const ROUTES: Routes = [
   {
     path: 'user/list-cv', component: CvListComponent
   },
+  {
+
+    path: 'job/job-detail/:id', component: JobDetailComponent
+
+  },
 
 
 
