@@ -1,0 +1,59 @@
+
+<!--<table class="table table-borderless container" >-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <td>ID</td>-->
+<!--    <td>Title</td>-->
+<!--    <td>Price</td>-->
+<!--    <td>Description</td>-->
+<!--    <td colspan="2" style="text-align: center">Action</td>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let com of company; index as i">-->
+<!--    <td>{{i + 1}}</td>-->
+<!--    <td>{{com.name}}</td>-->
+<!--    &lt;!&ndash;    <td>{{com.account}}</td>&ndash;&gt;-->
+<!--    <td>{{com.address}}</td>-->
+<!--    <td>{{com.staffNumber}}</td>-->
+<!--    &lt;!&ndash;    <td style="text-align: center"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/edit',com.id]" style="width: 100%">Edit</button></td>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/company/delete',com.id]" style="width: 100%">Delete</button></td>&ndash;&gt;-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--<div >-->
+<!--  <tr >-->
+<!--    <<tr *ngFor="let com of company; index as i">-->
+<!--      <a ="getJobByCompanyId(c.id)">{{c.name}}<a>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</div>-->
+<!--<br>-->
+<br>
+<br>
+<br>
+<br>
+<h1 style="text-align: center">Danh sách việc làm đã đăng tuyển </h1>
+<div style="text-align: center; justify-content: center" class="row">
+  <div *ngFor="let j of jobList; index as i" style=" margin-right: 15px;height :130px;width: 250px;border-radius: 5px;border: 1px solid #d1cfd3" class="jobItem mt-3 col-3 d-flex align-items-stretch "  >
+    <div  class="">
+      <div class="icon row">
+        <div class="col-3">
+          <img [src]="companyImg" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
+        </div>
+        <div class="col-8  mt-3">
+          <p style="float: left; padding-left: 20px"  class="title"><a href="">{{j.name}}</a></p>
+        </div>
+      </div>
+<!--      <div class="row">-->
+<!--        <p class="description">{{j.company.name}}</p>-->
+<!--        <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">-->
+<!--      </div>-->
+      <div class="row">
+        <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>
+        <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
+      </div>
+    </div>
+  </div>
+</div>

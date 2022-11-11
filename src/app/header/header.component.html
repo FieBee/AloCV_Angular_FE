@@ -156,7 +156,7 @@
           <a class="nav-link dropdown-toggle">Bài Đăng</a>
           <ul class="dropdown">
             <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item">
-              <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
+              <a routerLink="/company/company-management" class="nav-link">Quản lý bài đăng</a>
             </li>
             <li class="nav-item">
               <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
@@ -164,6 +164,7 @@
 
           </ul>
         </li>
+
         <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
           <ul class="dropdown">

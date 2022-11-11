@@ -12,6 +12,7 @@ import {JobCreateComponent} from "./job/job-create/job-create.component";
 import {JobEditComponent} from "./job/job-edit/job-edit.component";
 import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
 import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
+import {CompanyManagementComponent} from "./company/company-management/company-management.component";
 
 
 export const ROUTES: Routes = [
@@ -59,6 +60,9 @@ export const ROUTES: Routes = [
 
     path: 'user/find-job-user', component: FindJobUserComponent
 
+  },
+  {
+    path:'company/company-management',component:CompanyManagementComponent
   },
 
 
