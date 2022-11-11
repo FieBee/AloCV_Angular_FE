@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
         this.checkAccount(JSON.parse(data).appRole[0].name);
       }
     })
-    window.onload;
   }
 
   getAppRole(){

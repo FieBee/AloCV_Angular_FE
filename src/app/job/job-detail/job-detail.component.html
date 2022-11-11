@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+<div style="margin-top: 100px" class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
+      <div class="card border-0 shadow">
+<!--        <img [src]="job.company.image" alt="...">-->
+        <div class="card-body p-1-9 p-xl-5">
+          <div class="mb-4">
+            <h3 class="h4 mb-0">{{job.company.name}}</h3><br>
+            <span class="text-primary">By nhóm 1 vjp pro number 1</span>
+          </div>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-3"><a href="#!"><i
+              class="far fa-envelope display-25 me-3 text-secondary"></i>{{job.company.account.userName}}</a></li>
+            <li class="mb-3"><a href="#!"><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>+012 (345)
+              6789</a></li>
+            <li><a href="#!"><i class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>{{job.company.address}}
+            </a></li>
+          </ul>
+          <ul class="social-icon-style2 ps-0">
+            <li><a href="#!" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#!" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#!" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="#!" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8" style="padding-top: 30px">
+      <div class="ps-lg-1-6 ps-xl-5">
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="h1 mb-0 text-primary" style="font-size: 25px">Công việc: <i
+              style="font-size: 20px; font-style: normal; color: #18d26e" class="mb-0">{{job.name}}</i></h2>
+          </div>
+
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Mô tả công việc: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.description}}</i></h2>
+          </div>
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Mức lương: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.salaryRange}}</i></h2>
+          </div>
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Hình thức làm việc: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.jobType}}</i></h2>
+          </div>
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Giới tính: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.gender}}</i></h2>
+          </div>
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Số lượng cần tuyển: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.recruitNumber}}</i></h2>
+          </div>
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Cấp bậc và kinh nghiệm yêu cầu: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.jobField.name}} {{job.experience}}</i>
+            </h2>
+          </div>
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Địa điểm làm việc: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.location.name}}</i></h2>
+          </div>
+        </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2 class="mb-0 text-primary" style="font-size: 25px">Ngày hết hạn: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal">{{job.expiredDate}}</i></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="dataRole == 'ROLE_USER'">
+  <h2  class="col-2"> Nộp VC ứng tuyển </h2>
+  <div class="col-3">
+    <select [(ngModel)]="cvId">
+      <option [value]="cv.id" *ngFor="let cv of cvList">
+        <div class="col-8" >{{cv.description}} </div>
+      </option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <button (click)="applyCv()">Nộp</button>
+  </div>
+</div>
+
+<style>
+
+</style>

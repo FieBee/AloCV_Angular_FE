@@ -60,55 +60,92 @@
   </div>
   <div class="col-3" aria-label="Default select example" >
     <p></p>
-    <button style="" (click)="checkSalary()" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>
-  </div>
-</div>
-
-
-<td *ngFor="let jo of jobFieldList">
-  <button  (click)="getJobByJobFieldId(jo.id)">{{jo.name}}</button>
-</td>
-
-<div >
-  <tr >
-    <td *ngFor="let c of companyList">
-      <button  (click)="getJobByCompanyId(c.id)">{{c.name}}</button>
-    </td>
-  </tr>
-</div>
-<br>
-
-<div >
-  <tr >
-    <td *ngFor="let lo of locationList">
-      <button  (click)="getJobByLocationId(lo.id)">{{lo.name}}</button>
-    </td>
-  </tr>
-</div>
-
-<div style="text-align: center; justify-content: center" class="row">
-  <div *ngFor="let j of jobList; index as i" style=" margin-right: 15px;height :130px;width: 250px;border-radius: 5px;border: 1px solid #d1cfd3" class="jobItem mt-3 col-3 d-flex align-items-stretch "  >
-    <div  class="">
-      <div class="icon row">
-        <div class="col-3">
-          <img [src]="companyImg" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
-        </div>
-        <div class="col-8  mt-3">
-          <p style="float: left; padding-left: 20px"  class="title"><a href="">{{j.name}}</a></p>
-        </div>
-      </div>
-      <div class="row">
-        <p class="description">{{j.company.name}}</p>
-        <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">
-      </div>
-      <div class="row">
-        <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>
-        <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
-      </div>
-    </div>
+    <button style="background: rgb(234,101,42)" (click)="checkSalary()" class="btn btn-success mt-2"><i class="fa fa-search"></i> Tìm kiếm</button>
   </div>
 </div>
 
 
 
+
+<div style="margin-top: 100px;text-align: center; justify-content: left;" class="row">
+  <div  style="float: left; background:rgb(254,248,245)" class="col-10">
+    <a href="">
+      <div  *ngFor="let j of jobList; index as i" style=" background:rgb(246,236,236); margin-top: 15px;float: left ;margin-right: 15px;height :130px;width: 250px;border-radius: 5px;border: 1px solid #ebe6ec" class="col-3" >
+
+        <div  style="float: left" class="row">
+          <div  class="icon row">
+            <div class="col-3">
+              <img [src]="j.company.image" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
+            </div>
+            <div class="col-8  mt-3">
+              <p style="float: left; padding-left: 10px"  class="title"><a href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></p>            </div>
+<!--            <div style=";font-size: 14px;margin-left: 160px; position: absolute" class="col-1">-->
+<!--              <button style="border: 0px ;color: white; background: #5e5eff" class=" ">Ứng tuyển</button>-->
+<!--            </div>-->
+          </div>
+          <div class="row">
+            <p class="description">{{j.company.name}}</p>
+            <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">
+          </div>
+          <div class="row">
+            <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>
+            <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div  class="col-1" style="float: left; ;width: 200px; background: rgb(253,236,228)">
+    <ul >
+      <li>
+        <h3>Danh mục</h3>
+        <input type="checkbox" checked>
+        <i></i>
+        <h2>Địa điểm</h2>
+        <p style="margin-top: 25px" *ngFor="let lo of locationList">
+          <a  (click)="getJobByLocationId(lo.id)">{{lo.name}}</a>
+        </p>
+      </li>
+      <li>
+        <input type="checkbox" checked>
+        <i></i>
+        <h2>Chuyên ngành</h2>
+        <p style="margin-top: 25px" *ngFor="let lo of jobFieldList">
+          <a  (click)="getJobByJobFieldId(lo.id)">{{lo.name}}</a>
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--Google map-->
+<!--<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">-->
+<!--  <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"-->
+<!--          style="border:0" allowfullscreen></iframe>-->
+<!--</div>-->
+
+
+
+<!--<td *ngFor="let jo of jobFieldList">-->
+<!--  <button  (click)="getJobByJobFieldId(jo.id)">{{jo.name}}</button>-->
+<!--</td>-->
+
+<!--<div >-->
+<!--  <tr >-->
+<!--    <td *ngFor="let c of companyList">-->
+<!--      <button  (click)="getJobByCompanyId(c.id)">{{c.name}}</button>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</div>-->
+<!--<br>-->
+
+<!--<div >-->
+<!--  <tr >-->
+<!--    <td *ngFor="let lo of locationList">-->
+<!--      <button  (click)="getJobByLocationId(lo.id)">{{lo.name}}</button>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</div>-->
 

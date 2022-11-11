@@ -24,7 +24,7 @@ export class AccountService {
     return this.httpClient.get<Account>(API_URL + `/account/${id}`);
   }
 
-  editAccount(id: number | undefined, account: Account): Observable<Account>{
+  editAccount(id: number | undefined |any, account: Account): Observable<Account>{
     return this.httpClient.put<Account>(API_URL + `/account/${id}`,account);
   }
 
