@@ -85,9 +85,15 @@
             <h2 class="mb-0 text-primary" style="font-size: 25px">Ngày hết hạn: <i
               style="font-size: 20px; color: #18d26e; font-style: normal">{{job.expiredDate}}</i></h2>
           </div>
-        </div>
-      </div>
     </div>
+        <div class="mb-5 wow fadeIn">
+          <div class="text-start mb-1-6 wow fadeIn">
+            <h2  class="mb-0 text-primary" style="font-size: 25px">Danh sach cv: <i
+              style="font-size: 20px; color: #18d26e; font-style: normal" *ngFor="let cv of cvs">{{cv.description}} </i></h2>
+          </div>
+    </div>
+  </div>
+</div>
   </div>
 </div>
 
