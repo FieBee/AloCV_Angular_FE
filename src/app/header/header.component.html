@@ -156,7 +156,7 @@
           <a class="nav-link dropdown-toggle">Bài Đăng</a>
           <ul class="dropdown">
             <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item">
-              <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
+              <a routerLink="/company/company-management" class="nav-link">Quản lý bài đăng</a>
             </li>
             <li class="nav-item">
               <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
@@ -168,10 +168,10 @@
           <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
           <ul class="dropdown">
             <li class="nav-item">
-              <a routerLink="create-cv"  class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
+              <a routerLink="user/create-cv"  class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['/detail-cv/']" class="nav-link">Hồ sơ của bạn</a>
+              <a routerLink="user/list-cv" class="nav-link">Hồ sơ của bạn</a>
             </li>
             <li class="nav-item">
               <a routerLink="apply-list" class="nav-link">Dách sách ứng tuyển</a>

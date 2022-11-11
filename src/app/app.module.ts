@@ -21,7 +21,6 @@ import { CompanyCreateComponent } from './company/company-create/company-create.
 import { UserListComponent } from './user/user-list/user-list.component';
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { FindJobUserComponent } from './user/find-job-user/find-job-user.component';
 import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
 import { JobFieldComponent } from './job/job-field/job-field.component';
 import { JobListComponent } from './job/job-list/job-list.component';
@@ -30,6 +29,8 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
 import { JobDeleteComponent } from './job/job-delete/job-delete.component';
 import { CvCreateComponent } from './cv/cv-create/cv-create.component';
 import { CvListComponent } from './cv/cv-list/cv-list.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 
 
 
@@ -48,7 +49,6 @@ import { CvListComponent } from './cv/cv-list/cv-list.component';
     UserListComponent,
     RegisterComponent,
     UserRegisterComponent,
-    FindJobUserComponent,
     UserJobListComponent,
     JobFieldComponent,
     JobListComponent,
@@ -57,8 +57,9 @@ import { CvListComponent } from './cv/cv-list/cv-list.component';
     JobEditComponent,
     JobDeleteComponent,
     CvCreateComponent,
-    CvListComponent
-
+    CvListComponent,
+    NotfoundComponent,
+    JobDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +69,6 @@ import { CvListComponent } from './cv/cv-list/cv-list.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
