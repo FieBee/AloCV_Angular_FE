@@ -31,6 +31,7 @@ import { CvCreateComponent } from './cv/cv-create/cv-create.component';
 import { CvListComponent } from './cv/cv-list/cv-list.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
+import { ApplyListComponent } from './cv/apply-list/apply-list.component';
 
 
 
@@ -59,7 +60,8 @@ import {JobDetailComponent} from "./job/job-detail/job-detail.component";
     CvCreateComponent,
     CvListComponent,
     NotfoundComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    ApplyListComponent
   ],
   imports: [
     BrowserModule,
