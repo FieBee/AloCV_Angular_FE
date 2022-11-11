@@ -1,6 +1,8 @@
+
+
 <div class="formbold-main-wrapper">
   <div class="formbold-form-wrapper">
-      <img style="height: 100px; width: auto" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/L%C3%A1_c%E1%BB%9D_c%E1%BB%A7a_%C4%90%E1%BA%A3ng_c%E1%BB%99ng_s%E1%BA%A3n_Vi%E1%BB%87t_Nam.png?20220329090833">
+      <img alt="" style="height: 100px; width: auto" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/L%C3%A1_c%E1%BB%9D_c%E1%BB%A7a_%C4%90%E1%BA%A3ng_c%E1%BB%99ng_s%E1%BA%A3n_Vi%E1%BB%87t_Nam.png?20220329090833">
 
 <!--    <h1 style="text-align: center; color: #e77575" >Thêm mới công việc</h1>-->
     <br>
@@ -47,21 +49,18 @@
 
       </div>
 
-      <div class="formbold-mb-3 formbold-input-wrapp form-group">
-        <label class="formbold-form-label"> Địa điểm </label>
-
+      <div class="formbold-input-flex form-group">
         <div>
-          <select class="formbold-form-input formbold-w-45" id="location" formControlName="location" >
+          <label class="formbold-form-label"> Địa điểm </label>
+          <select class="formbold-form-input" id="location" formControlName="location" >
             <option selected>Thành phố</option>
             <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
           </select>
+        </div>
 
-          <input
-            type="text"
-            placeholder="Địa chỉ"
-            class="formbold-form-input"
-            formControlName="position"
-          />
+        <div>
+          <label class="formbold-form-label "> Ngày hết hạn </label>
+          <input type="date" class="formbold-form-input" formControlName="expiredDate"/>
         </div>
       </div>
 
@@ -73,11 +72,6 @@
           class="formbold-form-input"
           formControlName="experience"
         />
-      </div>
-
-      <div class="formbold-mb-3 form-group">
-        <label class="formbold-form-label"> Ngày hết hạn </label>
-        <input type="date" class="formbold-form-input" formControlName="expiredDate"/>
       </div>
 
       <div class="formbold-mb-3">
@@ -131,3 +125,4 @@
     </form>
   </div>
 </div>
+
