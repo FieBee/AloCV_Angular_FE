@@ -63,7 +63,6 @@ export class JobEditComponent implements OnInit {
   }
 
   updateJob(editJobForm: NgForm){
-    console.log(this.job.location)
     this.jobService.editJob(this.job.id, this.job).subscribe(()=>{
       alert('Success')
       this.router.navigate(['/job/job-list']);
@@ -72,6 +71,7 @@ export class JobEditComponent implements OnInit {
 
   ngOnInit(){
     this.getAllLocation();
+    this.getAllJobField();
   }
 
   getAllLocation() {
@@ -91,5 +91,6 @@ export class JobEditComponent implements OnInit {
       console.log(error);
     })
   }
+
 
 }
