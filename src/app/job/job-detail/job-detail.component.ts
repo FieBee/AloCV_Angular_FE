@@ -3,7 +3,8 @@ import {JobService} from "../../service/job/job.service";
 import {Job} from "../../model/job";
 import {Company} from "../../model/company";
 import {CompanyService} from "../../service/company/company.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-job-detail',
@@ -11,22 +12,31 @@ import {Router} from "@angular/router";
   styleUrls: ['./job-detail.component.css']
 })
 export class JobDetailComponent implements OnInit {
-  jobId: number | undefined;
+  sub:Subscription;
+  // j: number | undefined;
   job: Job ={
   };
   companyList: Company |undefined;
+  private id: number | undefined;
 
   constructor(private jobService: JobService,
               private companyService: CompanyService,
-              private router: Router
-              ) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute
+              ) {
+    this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
+      // @ts-ignore
+      this.id = +paramMap.get('id');
+      this.getJobById(this.id);
+    })
+  }
 
   ngOnInit(): void {
-    this.getJobById()
+  
   }
-  getJobById() {
+  getJobById(j: number) {
     // this.jobService.findJobByCompanyId(1).subscribe();
-    this.jobService.findById(3).subscribe((result: any) => {
+    this.jobService.findById(j).subscribe((result: any) => {
       console.log(this.job)
       // alert("ok")
       this.job = result;

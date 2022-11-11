@@ -12,6 +12,7 @@ import {JobCreateComponent} from "./job/job-create/job-create.component";
 import {JobEditComponent} from "./job/job-edit/job-edit.component";
 import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
 import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
+import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 
 
 export const ROUTES: Routes = [
@@ -58,6 +59,11 @@ export const ROUTES: Routes = [
   {
 
     path: 'user/find-job-user', component: FindJobUserComponent
+
+  },
+  {
+
+    path: 'job/job-detail/:id', component: JobDetailComponent
 
   },
 

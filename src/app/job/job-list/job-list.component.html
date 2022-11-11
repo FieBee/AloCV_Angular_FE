@@ -95,7 +95,7 @@
           <img [src]="companyImg" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
         </div>
         <div class="col-8  mt-3">
-          <p style="float: left; padding-left: 20px"  class="title"><a href="">{{j.name}}</a></p>
+          <p style="float: left; padding-left: 20px"  class="title"><a href="" [routerLink]="['job/job-detail',j.id]">{{j.name}}</a></p>
         </div>
       </div>
       <div class="row">
