@@ -25,8 +25,7 @@ export class JobDetailComponent implements OnInit {
     this.getJobById()
   }
   getJobById() {
-    // this.jobService.findJobByCompanyId(1).subscribe();
-    this.jobService.findById(3).subscribe((result: any) => {
+    this.jobService.findById(1).subscribe((result: any) => {
       console.log(this.job)
       // alert("ok")
       this.job = result;
