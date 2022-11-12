@@ -65,7 +65,7 @@ export class JobDeleteComponent implements OnInit {
   deleteJob(id: number | undefined) {
     this.jobService.delete(id).subscribe(() => {
       alert('Delete success!');
-      this.router.navigate(['/job/job-list']);
+      this.router.navigate(['/company/company-management']);
     }, e => {
       console.log(e);
     });
