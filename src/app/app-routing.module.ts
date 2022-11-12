@@ -17,6 +17,7 @@ import {
   RoleGuardService as AuthGuard
 } from './service/role-guard.service';
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
+import {ApplyListComponent} from "./cv/apply-list/apply-list.component";
 
 
 export const ROUTES: Routes = [
@@ -86,9 +87,11 @@ export const ROUTES: Routes = [
     path: 'user/list-cv', component: CvListComponent
   },
   {
-
     path: 'job/job-detail/:id', component: JobDetailComponent
 
+  },
+  {
+    path: 'user/list-apply', component: ApplyListComponent
   },
 
 
