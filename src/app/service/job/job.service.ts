@@ -52,4 +52,7 @@ export class JobService {
       '&salaryRange_max=' + salaryRange_max  +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
   }
 
+  findJobByUserId(id: string):Observable<Job[]> {
+    return this.httpClient.get<Job[]>(API_URL + `/job/searchByUserId/${id}`)
+  }
 }
