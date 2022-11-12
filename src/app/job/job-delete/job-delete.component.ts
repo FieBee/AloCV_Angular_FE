@@ -65,7 +65,7 @@ export class JobDeleteComponent implements OnInit {
 
   deleteJob(id: number | undefined) {
     this.jobService.delete(id).subscribe(() => {
-      Swal.fire('Xóa thành công!');
+      Swal.fire('Khóa công việc thành công!');
       this.router.navigate(['/company/company-management']);
     }, e => {
       console.log(e);
