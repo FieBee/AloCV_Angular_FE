@@ -32,6 +32,7 @@ import { CvListComponent } from './cv/cv-list/cv-list.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import { CompanyEditComponent } from './company/company-edit/company-edit.component';
+import { ApplyListComponent } from './cv/apply-list/apply-list.component';
 
 
 
@@ -61,6 +62,7 @@ import { CompanyEditComponent } from './company/company-edit/company-edit.compon
     CvListComponent,
     NotfoundComponent,
     JobDetailComponent,
+    ApplyListComponent,
     CompanyEditComponent
   ],
   imports: [

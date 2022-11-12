@@ -6,6 +6,7 @@ import {CompanyService} from "../../service/company/company.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {CvService} from "../../service/cv/cv.service";
+import {Cv} from "../../model/cv";
 
 @Component({
   selector: 'app-job-detail',
@@ -15,15 +16,16 @@ import {CvService} from "../../service/cv/cv.service";
 export class JobDetailComponent implements OnInit {
   sub:Subscription;
   job: Job ={
+    id: 1,
   };
-
-
 
   companyList: Company |undefined;
   id: any;
   dataRole = localStorage.getItem("role")
   cvList:any;
   cvId: any;
+
+  cvs: Cv[] | undefined;
 
 
   constructor(private jobService: JobService,
@@ -54,6 +56,7 @@ export class JobDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCv();
+    this.getCvByJobId();
   }
   getJobById(j: number) {
     this.jobService.findById(j).subscribe((result: any) => {
@@ -74,5 +77,12 @@ export class JobDetailComponent implements OnInit {
 
   getUserId(){
     return localStorage.getItem("dataId");
+  }
+
+  getCvByJobId(){
+    this.cvService.findCVByJobId(this.job.id).subscribe((data: any)=>{
+      this.cvs = data;
+      console.log(data)
+    })
   }
 }
