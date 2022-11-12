@@ -33,6 +33,7 @@ import { CompanyManagementComponent } from './company/company-management/company
 import { NotfoundComponent } from './notfound/notfound.component';
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import { CompanyEditComponent } from './company/company-edit/company-edit.component';
+import { ApplyListComponent } from './cv/apply-list/apply-list.component';
 
 
 
@@ -64,6 +65,7 @@ import { CompanyEditComponent } from './company/company-edit/company-edit.compon
     CompanyManagementComponent,
     NotfoundComponent,
     JobDetailComponent,
+    ApplyListComponent,
     CompanyEditComponent
 
   ],
