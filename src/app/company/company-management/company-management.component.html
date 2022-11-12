@@ -35,29 +35,50 @@
 <br>
 <br>
 <h1 style="text-align: center">Danh sách việc làm đã đăng tuyển </h1>
-<div style="text-align: center; justify-content: center" class="row">
-  <div *ngFor="let j of jobList; index as i" style=" margin-right: 15px;height :130px;width: 250px;border-radius: 5px;border: 1px solid #d1cfd3" class="jobItem mt-3 col-3 d-flex align-items-stretch "  >
-    <div  class="">
-      <div class="icon row">
-        <div class="col-3">
-          <img [src]="companyImg" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
-        </div>
-        <div class="col-8  mt-3">
-          <p style="float: left; padding-left: 20px"  class="title"><a href="">{{j.name}}</a></p>
-        </div>
-      </div>
-<!--      <div class="row">-->
-<!--        <p class="description">{{j.company.name}}</p>-->
-<!--        <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">-->
+<table class="table table-borderless container" >
+  <thead>
+  <tr>
+    <td>ID</td>
+    <td>Tên</td>
+    <td>Địa điểm</td>
+    <td>Description</td>
+    <td colspan="2" style="text-align: center">Action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let j of jobList; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{j.name}}</td>
+    <td>{{j.location.name}}</td>
+    <td>{{j.description}}</td>
+        <td style="text-align: center"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['job//job-edit',j.id]" style="width: 100%">Edit</button></td>
+        <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/delete',j.id]" style="width: 100%">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+<!--<div style="text-align: center; justify-content: center" class="row">-->
+<!--  <div *ngFor="let j of jobList; index as i" style=" margin-right: 15px;height :130px;width: 250px;border-radius: 5px;border: 1px solid #d1cfd3" class="jobItem mt-3 col-3 d-flex align-items-stretch "  >-->
+<!--    <div  class="">-->
+<!--      <div class="icon row">-->
+<!--        <div class="col-3">-->
+<!--          <img [src]="companyImg" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">-->
+<!--        </div>-->
+<!--        <div class="col-8  mt-3">-->
+<!--          <p style="float: left; padding-left: 20px"  class="title"><a href="">{{j.name}}</a></p>-->
+<!--        </div>-->
 <!--      </div>-->
-      <div class="row">
-        <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>
-        <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
-      </div>
-    </div>
-    <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit', j.id]" style="width: 70%">Edit</button>
-    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete', j.id]" style="width: 53%">Delete</button>
+<!--&lt;!&ndash;      <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p class="description">{{j.company.name}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      <div class="row">-->
+<!--        <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>-->
+<!--        <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit', j.id]" style="width: 70%">Edit</button>-->
+<!--    <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete', j.id]" style="width: 53%">Delete</button>-->
 
-  </div>
-</div>
+<!--  </div>-->
+<!--</div>-->
 

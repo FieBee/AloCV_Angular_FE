@@ -6,6 +6,7 @@ import {Job} from "../../model/job";
 import {Location} from "../../model/location";
 import {JobField} from "../../model/job-field";
 import {JobFieldService} from "../../service/jobField/job-field.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-job-create',
@@ -67,7 +68,9 @@ export class JobCreateComponent implements OnInit {
     };
     console.log(job)
     this.jobService.saveJob(job).subscribe(() => {
-      alert('success');
+      Swal.fire('Success',
+        'You Have Successfully Added A New Wallet',
+        'success')
       this.jobForm.reset();
     }, () => {
     });
