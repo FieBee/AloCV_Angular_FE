@@ -65,7 +65,7 @@ export class JobEditComponent implements OnInit {
 
   updateJob(editJobForm: NgForm){
     this.jobService.editJob(this.job.id, this.job).subscribe(()=>{
-      Swal.fire('Success')
+      Swal.fire('Sửa thành công!')
       this.router.navigate(['/company/company-management']);
     });
   }
