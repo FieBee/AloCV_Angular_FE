@@ -1,19 +1,20 @@
+<hr>
 <div style="" class="row">
-  <p style="margin-top: 0px;font-size: 30px">Top công ty tuyển dụng cao nhất</p>
+  <p style="margin-top: 30px;font-size: 30px">Top công ty tuyển dụng cao nhất</p>
 </div>
 
 <div  style=" background:rgb(254,248,245)" class="container mt-auto">
-<div style="margin-top: 15px" *ngFor="let j of companyList; index as i" class="row">
+<div style="margin-top: 25px; padding-bottom: 20px" *ngFor="let j of companyList; index as i" class="row">
   <div >
     <div class="row">
       <div class="col-1"></div>
       <div class="col-1">
         {{i+1+'.'}}
       </div>
-      <div style="margin-left: -50px" class="col-1">
-        <img [src]="j.image">
+      <div style="margin-left: -50px;  margin-top: -15px" class="col-1">
+        <img style="height: 50px;width: auto;border-radius: 50%" [src]="j.image">
       </div>
-      <div style="margin-left: -50px" class="col-6">
+      <div style="margin-left: -50px;" class="col-6">
         <a [routerLink]="['company-detail/',j.id]">{{j.name}}</a>
       </div>
     </div>

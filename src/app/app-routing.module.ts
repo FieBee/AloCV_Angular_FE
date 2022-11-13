@@ -12,18 +12,17 @@ import {JobEditComponent} from "./job/job-edit/job-edit.component";
 import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
 
 // import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
-import {CompanyManagementComponent} from "./company/company-management/company-management.component";
-
 import {CvCreateComponent} from "./cv/cv-create/cv-create.component";
 import {CvListComponent} from "./cv/cv-list/cv-list.component";
 import {NotfoundComponent} from "./notfound/notfound.component";
 import {
   RoleGuardService as AuthGuard
 } from './service/role-guard.service';
-import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import {ApplyListComponent} from "./cv/apply-list/apply-list.component";
 import {CompanyEditComponent} from "./company/company-edit/company-edit.component";
 import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
+import {CompanyManagementComponent} from "./company/company-management/company-management.component";
+import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 
 
 export const ROUTES: Routes = [
@@ -72,6 +71,9 @@ export const ROUTES: Routes = [
     path: 'company/list', component: CompanyListComponent
   },
   {
+    path: 'company-detail/:id', component: CompanyDetailComponent
+  },
+  {
     path: 'user/job-list', component: UserJobListComponent
   },
   {
@@ -94,10 +96,6 @@ export const ROUTES: Routes = [
   },
   {
     path: 'job/job-detail/:id', component: JobDetailComponent
-
-  },
-  {
-    path: 'company-detail/:id', component: CompanyDetailComponent
 
   },
   {
