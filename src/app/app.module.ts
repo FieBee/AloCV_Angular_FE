@@ -35,6 +35,7 @@ import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import { CompanyEditComponent } from './company/company-edit/company-edit.component';
 import { ApplyListComponent } from './cv/apply-list/apply-list.component';
 import { CompanyTopRecruitmentComponent } from './company/company-top-recruitment/company-top-recruitment.component';
+import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 
 
 
@@ -68,7 +69,8 @@ import { CompanyTopRecruitmentComponent } from './company/company-top-recruitmen
     JobDetailComponent,
     ApplyListComponent,
     CompanyEditComponent,
-    CompanyTopRecruitmentComponent
+    CompanyTopRecruitmentComponent,
+    CompanyDetailComponent
 
   ],
   imports: [
