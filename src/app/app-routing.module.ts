@@ -10,6 +10,10 @@ import {UserJobListComponent} from "./user/user-job-list/user-job-list.component
 import {JobCreateComponent} from "./job/job-create/job-create.component";
 import {JobEditComponent} from "./job/job-edit/job-edit.component";
 import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
+
+// import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
+import {CompanyManagementComponent} from "./company/company-management/company-management.component";
+
 import {CvCreateComponent} from "./cv/cv-create/cv-create.component";
 import {CvListComponent} from "./cv/cv-list/cv-list.component";
 import {NotfoundComponent} from "./notfound/notfound.component";
@@ -92,7 +96,12 @@ export const ROUTES: Routes = [
 
   },
   {
+
+    path: 'company/company-management', component: CompanyManagementComponent
+  },
+  {
     path: 'user/list-apply', component: ApplyListComponent
+
   },
   {
   path: 'company/edit', component: CompanyEditComponent

@@ -109,6 +109,13 @@ export class JobListComponent implements OnInit {
       console.log(data)
     }, error => console.log("fail"))
   }
+  getJobByJobFieldId(id: number | undefined) {
+    this.jobService.findJobByJobFieldId(id).subscribe((data: any) => {
+      this.jobList = data
+      console.log(data)
+    }, error => console.log("fail"))
+  }
+
 
   getAllCompany() {
     this.companyService.getAll().subscribe(data => {
@@ -129,13 +136,5 @@ export class JobListComponent implements OnInit {
     }, (error: any) => {
       console.log(error);
     })
-  }
-
-
-  getJobByJobFieldId(id: number | undefined) {
-    this.jobService.findJobByJobFieldId(id).subscribe((data: any) => {
-      this.jobList = data
-      console.log(data)
-    }, error => console.log("fail"))
   }
 }

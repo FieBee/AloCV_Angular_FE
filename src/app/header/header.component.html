@@ -139,17 +139,7 @@
         <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item">
           <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
         </li>
-        <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle">Việc làm</a>
-          <ul class="dropdown">
-            <li class="nav-item">
-              <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Danh sách việc làm</a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="/apply-company" class="nav-link">Danh sách ứng tuyển</a>
-            </li>
-          </ul>
-        </li>
+
 
 
         <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item dropdown">
@@ -159,11 +149,12 @@
               <a routerLink="/company/company-management" class="nav-link">Quản lý bài đăng</a>
             </li>
             <li class="nav-item">
-              <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
+              <a routerLink="/job/job-create" class="nav-link">Viết Bài Đăng</a>
             </li>
 
           </ul>
         </li>
+
         <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
           <ul class="dropdown">

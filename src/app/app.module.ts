@@ -29,10 +29,12 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
 import { JobDeleteComponent } from './job/job-delete/job-delete.component';
 import { CvCreateComponent } from './cv/cv-create/cv-create.component';
 import { CvListComponent } from './cv/cv-list/cv-list.component';
+import { CompanyManagementComponent } from './company/company-management/company-management.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import { CompanyEditComponent } from './company/company-edit/company-edit.component';
 import { ApplyListComponent } from './cv/apply-list/apply-list.component';
+
 
 
 
@@ -60,10 +62,12 @@ import { ApplyListComponent } from './cv/apply-list/apply-list.component';
     JobDeleteComponent,
     CvCreateComponent,
     CvListComponent,
+    CompanyManagementComponent,
     NotfoundComponent,
     JobDetailComponent,
     ApplyListComponent,
     CompanyEditComponent
+
   ],
   imports: [
     BrowserModule,
