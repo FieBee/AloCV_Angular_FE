@@ -34,6 +34,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import { CompanyEditComponent } from './company/company-edit/company-edit.component';
 import { ApplyListComponent } from './cv/apply-list/apply-list.component';
+import { CompanyTopRecruitmentComponent } from './company/company-top-recruitment/company-top-recruitment.component';
 
 
 
@@ -66,7 +67,8 @@ import { ApplyListComponent } from './cv/apply-list/apply-list.component';
     NotfoundComponent,
     JobDetailComponent,
     ApplyListComponent,
-    CompanyEditComponent
+    CompanyEditComponent,
+    CompanyTopRecruitmentComponent
 
   ],
   imports: [
