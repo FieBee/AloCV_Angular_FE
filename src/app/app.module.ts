@@ -21,10 +21,21 @@ import { CompanyCreateComponent } from './company/company-create/company-create.
 import { UserListComponent } from './user/user-list/user-list.component';
 import { RegisterComponent } from './register/register.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { JobListComponent } from './job/job-list/job-list.component';
 import { UserJobListComponent } from './user/user-job-list/user-job-list.component';
+import { JobFieldComponent } from './job/job-field/job-field.component';
+import { JobListComponent } from './job/job-list/job-list.component';
 import { JobCreateComponent } from './job/job-create/job-create.component';
 import { JobEditComponent } from './job/job-edit/job-edit.component';
+import { JobDeleteComponent } from './job/job-delete/job-delete.component';
+import { CvCreateComponent } from './cv/cv-create/cv-create.component';
+import { CvListComponent } from './cv/cv-list/cv-list.component';
+import { CompanyManagementComponent } from './company/company-management/company-management.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import {JobDetailComponent} from "./job/job-detail/job-detail.component";
+import { CompanyEditComponent } from './company/company-edit/company-edit.component';
+import { ApplyListComponent } from './cv/apply-list/apply-list.component';
+
+
 
 
 
@@ -42,10 +53,21 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
     UserListComponent,
     RegisterComponent,
     UserRegisterComponent,
+    UserJobListComponent,
+    JobFieldComponent,
     JobListComponent,
     UserJobListComponent,
     JobCreateComponent,
-    JobEditComponent
+    JobEditComponent,
+    JobDeleteComponent,
+    CvCreateComponent,
+    CvListComponent,
+    CompanyManagementComponent,
+    NotfoundComponent,
+    JobDetailComponent,
+    ApplyListComponent,
+    CompanyEditComponent
+
   ],
   imports: [
     BrowserModule,
@@ -55,7 +77,6 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
@@ -66,3 +87,4 @@ import { JobEditComponent } from './job/job-edit/job-edit.component';
 })
 // @ts-ignore
 export class AppModule { }
+//@ts-ignore

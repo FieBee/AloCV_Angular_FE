@@ -1,0 +1,83 @@
+<section class="vh-200" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-grid justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <p style="color: rgb(69,134,248)" class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Danh sách CV của
+                bạn</p>
+              <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+              <table  class="col-10 m-auto　table align-middle mb-0 bg-white" style="border-radius: 12px; border: 1px">
+
+                <tbody>
+
+                <tr *ngFor="let c of cv">
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div class="juss ms-3">
+                        <p class="fw-bold mb-1" style="text-align: center">{{c.description}}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mt-0 m-auto justify-content-center d-flex align-items-center">
+                      <div class="thumbnail" style="align-items: center">
+
+                        <img
+                          src="{{c.image}}"
+                          alt="Lỗi hiển thị"
+                          style="width: 400px; height: auto;"
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* Khung chứa thumbnail */
+  .thumbnail {
+    width: 400px;
+    height: 500px;
+    overflow: visible;
+    /*border: 1px solid #e5e5e5;*/
+  }
+
+  /* Thumbnail */
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    transition-duration: 0.5s;
+    /* Safari & Google Chrome */
+    -webkit-transition-duration: 0.5s;
+    /* Mozilla Firefox */
+    -moz-transition-duration: 0.5s;
+    /* Opera */
+    -o-transition-duration: 0.5s;
+    /* IE 9 */
+    -ms-transition-duration: 0.5s;
+  }
+
+  /* Hover chuột vào thumbnail */
+  .thumbnail img:hover {
+    transform: scale(2, 2);
+    /* Safari & Google Chrome */
+    -webkit-transform: scale(1.2);
+    /* Mozilla Firefox */
+    -moz-transform: scale(1.2);
+    /* Opera */
+    -o-transform: scale(1.2);
+    /* IE 9 */
+    -ms-transform: scale(1.2);
+    cursor: pointer;
+  }
+</style>

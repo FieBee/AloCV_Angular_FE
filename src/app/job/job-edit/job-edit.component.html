@@ -1,1 +1,130 @@
-<p>job-edit works!</p>
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <img alt="" style="height: 100px; width: auto" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/L%C3%A1_c%E1%BB%9D_c%E1%BB%A7a_%C4%90%E1%BA%A3ng_c%E1%BB%99ng_s%E1%BA%A3n_Vi%E1%BB%87t_Nam.png?20220329090833">
+
+    <!--    <h1 style="text-align: center; color: #e77575" >Thêm mới công việc</h1>-->
+    <br>
+    <br>
+
+    <form #editJobForm="ngForm" (ngSubmit)="updateJob(editJobForm)">
+      <div class="formbold-input-flex form-group">
+        <div>
+          <label class="formbold-form-label"> Tên công việc </label>
+          <input
+            type="text"
+            placeholder="Tên công việc"
+            class="formbold-form-input"
+            name="name"
+            [(ngModel)]="job.name"
+          />
+        </div>
+
+        <div>
+          <label class="formbold-form-label">Giới tính ưu tiên</label>
+          <select class="formbold-form-input" name="gender" [(ngModel)]="job.gender">
+            <option value="Male" >Male</option>
+            <option value="Female" >Female</option>
+            <option value="Others" >Others</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="formbold-input-flex form-group">
+        <div>
+          <label class="formbold-form-label">Lĩnh vực</label>
+          <select class="formbold-form-input" name="jobField" [(ngModel)]="job.jobField.id">
+            <option *ngFor="let job of jobFieldList" [value]="job.id">{{job.name}}</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="formbold-form-label">Loại hình công việc</label>
+          <select class="formbold-form-input" name="jobType" [(ngModel)]="job.jobType">
+            <option value="Fulltime" >Fulltime</option>
+            <option value="Parttime" >Parttime</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="formbold-input-flex form-group">
+        <div>
+          <label class="formbold-form-label"> Địa điểm </label>
+          <select class="formbold-form-input" name="location" [(ngModel)]="job.location.id">
+            <option selected>Thành phố</option>
+            <option *ngFor="let location of locationList" [value]="location.id">{{location.name}}</option>
+          </select>
+        </div>
+
+        <div class="formbold-mb-3 form-group">
+          <label class="formbold-form-label"> Ngày hết hạn </label>
+          <input type="date" class="formbold-form-input" name="expiredDate" [(ngModel)]="job.expiredDate"/>
+        </div>
+      </div>
+
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label"> Yêu cầu kinh nghiệm </label>
+        <input
+          type="text"
+          placeholder="Yêu cầu kinh nghiệm"
+          class="formbold-form-input"
+          name="experience"
+          [(ngModel)]="job.experience"
+        />
+      </div>
+
+      <div class="formbold-mb-3">
+        <label class="formbold-form-label"> Số lượng cần tuyển </label>
+
+        <input
+          type="number"
+          class="formbold-form-input formbold-mb-3"
+          placeholder="Số lượng"
+          name="recruitNumber"
+          [(ngModel)]="job.recruitNumber"
+          #recruitNumber = "ngModel"
+          required
+        />
+        <div class="text-danger" *ngIf="!recruitNumber?.valid && (recruitNumber?.dirty ||recruitNumber?.touched)">
+            <p style="color: red"> Số lượng cần tuyển không được để trống </p> <br>
+          </div>
+
+        <label class="formbold-form-label"> Mức lương </label>
+        <input
+          type="text"
+          placeholder="Mức lương"
+          class="formbold-form-input"
+          name="salaryRange"
+          [(ngModel)]="job.salaryRange"
+        />
+      </div>
+
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label">
+          Mô tả công việc
+        </label>
+        <textarea
+          rows="6"
+          class="formbold-form-input"
+          name="description"
+          [(ngModel)]="job.description"
+        ></textarea>
+      </div>
+
+      <!--      <div class="formbold-form-file-flex">-->
+      <!--        <label for="upload" class="formbold-form-label">-->
+      <!--          Upload Resume-->
+      <!--        </label>-->
+      <!--        <input-->
+      <!--          type="file"-->
+      <!--          name="upload"-->
+      <!--          id="upload"-->
+      <!--          class="formbold-form-file"-->
+      <!--        />-->
+      <!--      </div>-->
+
+      <button type="submit" class="formbold-btn" [disabled]="!editJobForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
+
