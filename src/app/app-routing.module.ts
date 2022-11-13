@@ -18,6 +18,7 @@ import {
 } from './service/role-guard.service';
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import {ApplyListComponent} from "./cv/apply-list/apply-list.component";
+import {CompanyEditComponent} from "./company/company-edit/company-edit.component";
 
 
 export const ROUTES: Routes = [
@@ -93,13 +94,9 @@ export const ROUTES: Routes = [
   {
     path: 'user/list-apply', component: ApplyListComponent
   },
-
-
-
-  // {
-  // path: 'company/create', component: CompanyCreateComponent
-  //
-  // }
+  {
+  path: 'company/edit', component: CompanyEditComponent
+  },
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
 
