@@ -33,4 +33,7 @@ export class CompanyService {
     return this.httpClient.delete<Company>(API_URL + `/company/${id}`);
   }
 
+  getTopRecruitment(): Observable<Company[]>{
+    return this.httpClient.get<Company[]>(API_URL + `/topcompanyjob`);
+  }
 }
