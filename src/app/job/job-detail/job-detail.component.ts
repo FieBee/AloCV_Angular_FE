@@ -43,15 +43,20 @@ export class JobDetailComponent implements OnInit {
   }
 
   applyCv(){
-    this.cvService.findById(this.cvId).subscribe(data =>{
-      console.log(this.cvId)
-      this.jobService.findById(this.id).subscribe(jobData => {
-        data.job = jobData
-        this.cvService.editCv(data.id,data).subscribe(data=> {
-          alert("Ứng tuyển thành công!")
-        },error => console.log("Lỗi add Cv"))
+    if (this.cvId){
+      this.cvService.findById(this.cvId).subscribe(data =>{
+        console.log(this.cvId)
+        this.jobService.findById(this.id).subscribe(jobData => {
+          data.job = jobData
+          this.cvService.editCv(data.id,data).subscribe(data=> {
+            alert("Ứng tuyển thành công!")
+          },error => console.log("Lỗi add Cv"))
+        })
       })
-    })
+    }else {
+      alert("Hãy chọn CV!!")
+    }
+
   }
 
   ngOnInit(): void {

@@ -70,15 +70,16 @@
 <div style="margin-top: -100px;text-align: center; justify-content: left;" class="row">
   <div  style="float: left; background:rgb(254,248,245)" class="col-10">
     <a href="">
-      <div  *ngFor="let j of jobList; index as i" style=" background:rgb(246,236,236); margin-top: 15px;float: left ;margin-right: 15px;height :130px;width: 250px;border-radius: 5px;border: 1px solid #ebe6ec" class="col-3" >
+      <div  *ngFor="let j of jobList; index as i" style=" background:rgb(246,236,236); margin-top: 15px;float: left ;margin-right: 15px;height :178px;width: 250px;border-radius: 5px;border: 1px solid #ebe6ec" class="col-3" >
 
         <div  style="float: left" class="row">
           <div  class="icon row">
             <div class="col-3">
-              <img [src]="j.company.image" style="float: left;border-radius: 50%;height: 50px;width: auto"   width="60" height="60">
+              <img [src]="j.company.image" style="float: left;border-radius: 50%;height: 50px;width: auto; margin-top: 15px;margin-left: 5px"  >
             </div>
             <div class="col-8  mt-3">
-              <p style="float: left; padding-left: 10px"  class="title"><a href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></p>            </div>
+              <p style="float: left; padding-left: 0px"  class="title">
+                <a style="font-size: 13px" href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></p>            </div>
             <!--            <div style=";font-size: 14px;margin-left: 160px; position: absolute" class="col-1">-->
             <!--              <button style="border: 0px ;color: white; background: #5e5eff" class=" ">Ứng tuyển</button>-->
             <!--            </div>-->
