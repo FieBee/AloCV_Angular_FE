@@ -79,6 +79,7 @@ export class CompanyEditComponent implements OnInit {
       this.company = company;
     });
   }
+
   updateCompany(){
     this.companyService.editCompany(this.companyId, this.company).subscribe(()=>{
       alert('Success');

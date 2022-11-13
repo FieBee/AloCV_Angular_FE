@@ -23,6 +23,7 @@ import {
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import {ApplyListComponent} from "./cv/apply-list/apply-list.component";
 import {CompanyEditComponent} from "./company/company-edit/company-edit.component";
+import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
 
 
 export const ROUTES: Routes = [
@@ -96,7 +97,10 @@ export const ROUTES: Routes = [
 
   },
   {
+    path: 'company-detail/:id', component: CompanyDetailComponent
 
+  },
+  {
     path: 'company/company-management', component: CompanyManagementComponent
   },
   {

@@ -14,7 +14,7 @@
         <img [src]="j.image">
       </div>
       <div style="margin-left: -50px" class="col-6">
-        <a routerLink="">{{j.name}}</a>
+        <a [routerLink]="['company-detail/',j.id]">{{j.name}}</a>
       </div>
     </div>
   </div>
