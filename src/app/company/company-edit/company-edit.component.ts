@@ -80,11 +80,14 @@ export class CompanyEditComponent implements OnInit {
     });
   }
 
-  updateCompany(){
+   updateCompany(){
     this.companyService.editCompany(this.companyId, this.company).subscribe(()=>{
+      this.getCompanyImg();
       alert('Success');
       console.log(this.company)
-      // this.router.navigate(['/company/company-list']);
+      this.router.navigate(['home']).then(() => {
+        location.reload();
+      });
     });
   }
   updateAccount() {
@@ -104,4 +107,10 @@ export class CompanyEditComponent implements OnInit {
     })
   }
 
+  getCompanyImg(){
+    this.companyService.findById(localStorage.getItem("dataId")).subscribe(data =>{
+      localStorage.setItem("dataImg",<string>data.image)
+      console.log(data)
+    })
+  }
 }

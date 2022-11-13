@@ -58,8 +58,9 @@ export class LoginComponent implements OnInit {
     if (!role){
       return;
     }
-    await this.showMessage.alertLoginSuccess()
+
     if (role == "ROLE_COMPANY"){
+      await this.showMessage.alertLoginSuccess()
       this.getCompanyByAccount_UserName();
       this.router.navigate(['company']).then(() => {
         window.location.reload();
@@ -67,10 +68,12 @@ export class LoginComponent implements OnInit {
     }else if(role == "ROLE_USER" ||role == "ROLE_ADMIN" ){
       this.getUserByAccount_UserName();
       if (role == "ROLE_USER"){
+        await this.showMessage.alertLoginSuccess()
         this.router.navigate(['user']).then(() =>{
           window.location.reload();
         });
       }else {
+        await this.showMessage.alertLoginSuccess()
         this.router.navigate(['admin']).then(() => {
           window.location.reload();
         });
