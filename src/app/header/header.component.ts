@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit,OnChanges {
   public dataName: string | null = localStorage.getItem("dataName") ;
   public dataImg: string | null = localStorage.getItem("dataImg") ;
   public checkRole: string | null | undefined ;
+  dataId: any =  localStorage.getItem("dataId") ;
 
   constructor(private showMessage:ShowMessage,
               private router:Router) { }

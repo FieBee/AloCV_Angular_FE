@@ -104,7 +104,7 @@ export const ROUTES: Routes = [
 
   },
   {
-  path: 'company/edit', component: CompanyEditComponent
+  path: 'company/edit/:id', component: CompanyEditComponent
   },
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
