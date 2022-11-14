@@ -5,6 +5,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CvService} from "../../service/cv/cv.service";
 import {UserService} from "../../service/user/user.service";
 import {User} from "../../model/user";
+import {Cv} from "../../model/cv";
 
 @Component({
   selector: 'app-user-detail',
@@ -24,7 +25,7 @@ export class UserDetailComponent implements OnInit {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       // @ts-ignore
       this.userID = +paramMap.get('id');
-      this.getCompanyById(this.userID);
+      this.getUserById(this.userID);
       console.log(this.userID)
     })
   }
@@ -32,14 +33,24 @@ export class UserDetailComponent implements OnInit {
   userID:number|undefined;
   users:User={}
 
+  cvs: Cv[] | undefined;
+
   ngOnInit(): void {
+    this.getCvByJobId();
   }
 
-  getCompanyById(userID: number){
+  getUserById(userID: number){
     this.userService.findById(userID).
     subscribe(user =>{
       this.users = user;
     });
+  }
+
+  getCvByJobId(){
+    this.cvService.findCVByUserId(this.userID).subscribe((data: any)=>{
+      this.cvs = data;
+      console.log(data)
+    })
   }
 
 }

@@ -13,8 +13,8 @@
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="col-md-7 col-lg-5 mb-5 mb-lg-0 wow fadeIn">
-                    <div class="card border-0 shadow">
-                      <img [src]="users.image" alt="khong co anh">
+                    <div class="card border-0 shadow" *ngFor="let c of cvs">
+                      <img [src]="c.image" alt="khong co anh">
                       <div class="card-body p-1-9 p-xl-5">
                         <div class="mb-4">
                           <h3 class="h4 mb-0">{{users.name}}</h3><br>
@@ -41,8 +41,8 @@
                           </li>
                           <li style="margin-top: 20px" class="mb-3"><a href=""><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>Số điện thoại:
                             {{users.phoneNumber}}</a></li>
-<!--                          <li style="margin-top: 20px"><a href=""><i-->
-<!--                            class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i> Địa chỉ: {{company.address}}-->
+<!--                          <li style="margin-top: 20px"><a href="" ><i-->
+<!--                            class="fas fa-map-marker-alt display-25 me-3 text-secondary" ></i><img [src]="c.image" alt="khong co anh">-->
 <!--                          </a></li>-->
 <!--                          <li style="margin-top: 20px" class="mb-3">-->
 <!--                            <a href=""><i-->
