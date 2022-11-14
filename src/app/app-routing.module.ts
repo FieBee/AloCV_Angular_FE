@@ -65,9 +65,6 @@ export const ROUTES: Routes = [
     }
   },
   {
-    path: 'home', component: HomeComponent
-  },
-  {
     path: 'company/list', component: CompanyListComponent
   },
   {
