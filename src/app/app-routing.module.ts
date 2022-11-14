@@ -120,7 +120,7 @@ export const ROUTES: Routes = [
 
   },
   {
-  path: 'company/edit/:id', component: CompanyEditComponent
+  path: 'company/company-detail/:id/edit/:id', component: CompanyEditComponent
   },
   {
   path: 'company/user-detail/:id', component: UserDetailComponent

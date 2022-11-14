@@ -85,7 +85,7 @@ export class CompanyEditComponent implements OnInit {
       this.getCompanyImg();
       alert('Success');
       console.log(this.company)
-      this.router.navigate(['home']).then(() => {
+      this.router.navigate(['']).then(() => {
         location.reload();
       });
     });

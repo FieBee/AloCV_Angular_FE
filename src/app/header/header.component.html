@@ -82,8 +82,11 @@
           </li>
         <li *ngIf="dataName">
           <button type="button" class=" btn btn-link px-3 me-2 ">
-            <a >
+            <a *ngIf="checkRole == 'ROLE_USER'">
               <input [routerLink]="['user/user-detail/',dataId]" style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
+            </a>
+            <a *ngIf="checkRole == 'ROLE_COMPANY'">
+              <input [routerLink]="['company/company-detail/',dataId]" style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
             </a>
           </button>
         </li>
