@@ -1,0 +1,36 @@
+
+<br>
+<br>
+<br>
+<br>
+<div style="height: 500px">
+  <b><h1 style="text-align: center">Danh sách việc làm đã đăng tuyển </h1></b>
+  <br>
+  <br>
+  <br>
+  <table border="1px solid black" class="table table-borderless container" >
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>Tên</td>
+      <td>Địa điểm</td>
+      <td>Description</td>
+      <td colspan="2" style="text-align: center">Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let j of jobList; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{j.name}}</td>
+      <td>{{j.location.name}}</td>
+      <td>{{j.description}}</td>
+      <td style="text-align: center"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-edit',j.id]" style="width: 100%">Sửa</button></td>
+      <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-delete',j.id]" style="width: 100%">Khóa</button></td>
+      <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/job/job-detail',j.id]" style="width: 100%">Chi tiết</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+

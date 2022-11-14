@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
     userName: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
+  private dataName: string | null | undefined;
+  private dataImg: string | null | undefined;
+  private dataId: string | null | undefined;
 
 
   constructor(private jwtService : JwtClientService,
@@ -43,34 +46,41 @@ export class LoginComponent implements OnInit {
         this.checkAccount(JSON.parse(data).appRole[0].name);
       }
     })
-    window.onload;
+
   }
 
   getAppRole(){
     localStorage.getItem("role")
   }
 
-  getData(){
-    localStorage.getItem("data")
-  }
 
-
-
-  checkAccount(role:string){
+  async checkAccount(role:string){
+    if (!role){
+      return;
+    }
 
     if (role == "ROLE_COMPANY"){
-      console.log("if role company")
+      await this.showMessage.alertLoginSuccess()
       this.getCompanyByAccount_UserName();
-      this.router.navigate(['company'])
+      this.router.navigate(['company']).then(() => {
+        window.location.reload();
+      });
     }else if(role == "ROLE_USER" ||role == "ROLE_ADMIN" ){
       this.getUserByAccount_UserName();
       if (role == "ROLE_USER"){
-        this.router.navigate(['user'])
+        await this.showMessage.alertLoginSuccess()
+        this.router.navigate(['user']).then(() =>{
+          window.location.reload();
+        });
       }else {
-        this.router.navigate(['admin'])
+        await this.showMessage.alertLoginSuccess()
+        this.router.navigate(['admin']).then(() => {
+          window.location.reload();
+        });
       }
     }
-    this.showMessage.alertLoginSuccess()
+
+
   }
 
   getUserByAccount_UserName(){
@@ -100,5 +110,11 @@ export class LoginComponent implements OnInit {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+  getData(){
+    this.dataName = localStorage.getItem("dataName");
+    this.dataImg  = localStorage.getItem("dataImg");
+    this.dataId =  localStorage.getItem("dataId");
   }
 }

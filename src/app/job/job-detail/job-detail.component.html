@@ -1,0 +1,143 @@
+<section class="vh-200" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+                    integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous"/>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-7 col-lg-5 mb-5 mb-lg-0 wow fadeIn">
+                    <div class="card border-0 shadow">
+                      <img [src]="job.company.image" alt="khong co anh">
+                      <div class="card-body p-1-9 p-xl-5">
+                        <div class="mb-4">
+                          <h3 class="h4 mb-0">{{job.company.name}}</h3><br>
+                          <span class="text-primary">By nhóm 1 vjp pro number 1</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                          <li class="mb-3"><a href="#!"><i
+                            class="far fa-envelope display-25 me-3 text-secondary"></i>{{job.company.account.userName}}
+                          </a></li>
+                          <li class="mb-3"><a href="#!"><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>+012
+                            (345)
+                            6789</a></li>
+                          <li><a href="#!"><i
+                            class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>{{job.company.address}}
+                          </a></li>
+                        </ul>
+                        <ul class="social-icon-style2 ps-0">
+                          <li><a href="#!" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
+                          <li><a href="#!" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
+                          <li><a href="#!" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
+                          <li><a href="#!" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-5" style="padding-top: 10px">
+                    <table style="border: 1px">
+                    <div class="ps-lg-1-6 ps-xl-5">
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Công việc: {{job.name}}</p>
+                        </div>
+                      </div>
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Mô tả công việc: {{job.description}}</p>
+                        </div>
+                      </div>
+                      <div *ngIf="dataRole" class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Mức lương: {{job.salaryRange}}</p>
+                        </div>
+                      </div>
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Hình thức làm việc: {{job.jobType}}</p>
+                        </div>
+                      </div>
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Giới tính: {{job.gender}}</p>
+                        </div>
+                      </div>
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Số lượng cần tuyển: {{job.recruitNumber}}</p>
+                        </div>
+                      </div>
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Cấp bậc và kinh nghiệm yêu cầu: {{job.jobField.name}} {{job.experience}}</p>
+                        </div>
+                      </div>
+
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Địa điểm làm việc: {{job.location.name}}</p>
+                        </div>
+                      </div>
+
+                      <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>Ngày hết hạn: {{job.expiredDate}}</p>
+                        </div>
+                      </div>
+
+                      <div class="mb-5 wow fadeIn" *ngIf="dataRole == 'ROLE_COMPANY'">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>CV đã nộp vào công việc này: </p>
+                          <p *ngFor="let c of cvs"><a href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a></p>
+                        </div>
+                      </div>
+
+                      <div class="col-8" *ngIf="!dataRole">
+                        <button routerLink="/login" class="btn btn-primary">Đăng nhập để xem chi tiết!</button  >
+                      </div>
+
+                      <div class="row" *ngIf="dataRole == 'ROLE_USER'">
+                        <div style="text-align: center; justify-content: center" class="row">
+                          <h2 style="text-align: center" class=""> Nộp CV ứng tuyển </h2>
+                        </div>
+                        <div class="row">
+                          <div class="col-10 m-auto">
+
+                            <select [(ngModel)]="cvId" class="form-select" aria-label="Default select example">
+                              <option [value]="cv.id" selected *ngFor="let cv of cvList">{{cv.description}}</option>
+                            </select>
+                          </div>
+                          <div class="col-2 m-auto">
+                            <button class="btn-primary btn" (click)="applyCv()">Nộp</button>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+  </div>
+</section>
+
+
+
+<!--<div class="mb-5 wow fadeIn">-->
+<!--  <div class="text-start mb-1-6 wow fadeIn">-->
+<!--    <h2  class="mb-0 text-primary" style="font-size: 25px">Danh sach cv: <i-->
+<!--      style="font-size: 20px; color: #18d26e; font-style: normal" *ngFor="let cv of cvs">{{cv.description}} </i></h2>-->
+<!--  </div>-->
+<!--</div>-->

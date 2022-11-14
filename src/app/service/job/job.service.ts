@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Job} from "../../model/job";
+import {Company} from "../../model/company";
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -23,7 +24,7 @@ export class JobService {
     return this.httpClient.post<Job>(API_URL + `/job` , job);
   }
 
-  findById(id: number):Observable<Job>{
+  findById(id: number | undefined):Observable<Job>{
     return this.httpClient.get<Job>(API_URL + `/job/${id}`);
   }
 
@@ -52,4 +53,11 @@ export class JobService {
       '&salaryRange_max=' + salaryRange_max  +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
   }
 
+  findJobByUserId(id: string):Observable<Job[]> {
+    return this.httpClient.get<Job[]>(API_URL + `/job/searchByUserId/${id}`)
+  }
+
+  getTopJobByDate(): Observable<Company[]>{
+    return this.httpClient.get<Company[]>(API_URL + `/topcompanyjob/job`);
+  }
 }

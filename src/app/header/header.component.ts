@@ -12,14 +12,16 @@ export class HeaderComponent implements OnInit,OnChanges {
 
 
   public login: boolean | undefined;
-  public dataName: string | null = localStorage.getItem("dataName") ;
-  public dataImg: string | null = localStorage.getItem("dataImg") ;
+  public dataName: string | null | undefined ;
+  public dataImg: string | null | undefined;
   public checkRole: string | null | undefined ;
+  dataId: any  ;
 
   constructor(private showMessage:ShowMessage,
               private router:Router) { }
 
   ngOnInit(): void {
+    this.getData();
     if (this.dataName!==null){
       console.log("da dang nhap")
       this.login = true
@@ -33,9 +35,11 @@ export class HeaderComponent implements OnInit,OnChanges {
     }
   }
 
-  logout(){
-    this.showMessage.alertLogout()
-    this.router.navigate(["home"])
+  async logout(){
+    await this.showMessage.alertLogout()
+    this.router.navigate(["home"]).then(()=>{
+      location.reload();
+    })
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -48,5 +52,12 @@ export class HeaderComponent implements OnInit,OnChanges {
     }else {
       return true
     }
+  }
+
+
+  getData(){
+    this.dataName = localStorage.getItem("dataName");
+    this.dataImg  = localStorage.getItem("dataImg");
+    this.dataId =  localStorage.getItem("dataId");
   }
 }

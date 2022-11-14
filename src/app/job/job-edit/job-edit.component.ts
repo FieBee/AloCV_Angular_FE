@@ -8,6 +8,7 @@ import {LocationService} from "../../service/location/location.service";
 import {JobField} from "../../model/job-field";
 import {JobFieldService} from "../../service/jobField/job-field.service";
 import {NgForm} from "@angular/forms";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-job-edit',
@@ -63,15 +64,15 @@ export class JobEditComponent implements OnInit {
   }
 
   updateJob(editJobForm: NgForm){
-    console.log(this.job.location)
     this.jobService.editJob(this.job.id, this.job).subscribe(()=>{
-      alert('Success')
-      this.router.navigate(['/job/job-list']);
+      Swal.fire('Sửa thành công!')
+      this.router.navigate(['/company/company-management']);
     });
   }
 
   ngOnInit(){
     this.getAllLocation();
+    this.getAllJobField();
   }
 
   getAllLocation() {
@@ -91,5 +92,6 @@ export class JobEditComponent implements OnInit {
       console.log(error);
     })
   }
+
 
 }

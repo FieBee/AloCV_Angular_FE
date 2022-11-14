@@ -130,4 +130,3 @@ export class CompanyCreateComponent implements OnInit {
   }
 
 }
-

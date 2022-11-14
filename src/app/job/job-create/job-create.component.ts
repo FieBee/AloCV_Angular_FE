@@ -6,6 +6,8 @@ import {Job} from "../../model/job";
 import {Location} from "../../model/location";
 import {JobField} from "../../model/job-field";
 import {JobFieldService} from "../../service/jobField/job-field.service";
+import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-job-create',
@@ -32,10 +34,12 @@ export class JobCreateComponent implements OnInit {
   locationList: Location[] | undefined;
 
   jobFieldList: JobField[] | undefined;
+  companyId: any | null = localStorage.getItem('dataId')
 
   constructor(private jobService: JobService,
               private jobFieldService: JobFieldService,
-              private locationService: LocationService) {
+              private locationService: LocationService,
+              private router:Router) {
   }
 
   ngOnInit(): void {
@@ -53,6 +57,9 @@ export class JobCreateComponent implements OnInit {
       location: {
         id: this.jobForm.value.location
       },
+      company: {
+        id:this.companyId
+      },
       position: this.jobForm.value.position,
       experience: this.jobForm.value.experience,
       jobType: this.jobForm.value.jobType,
@@ -63,8 +70,10 @@ export class JobCreateComponent implements OnInit {
     };
     console.log(job)
     this.jobService.saveJob(job).subscribe(() => {
-      alert('success');
-      this.jobForm.reset();
+      Swal.fire('Thành công',
+        'Bạn đã thêm công việc mới thành công',
+        'success')
+      this.router.navigate(['/company/company-management']);
     }, () => {
     });
   }
@@ -90,5 +99,6 @@ export class JobCreateComponent implements OnInit {
   get recruitNumber(){
     return this.jobForm.get('recruitNumber');
   }
+
 
 }

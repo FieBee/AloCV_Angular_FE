@@ -13,8 +13,8 @@ export class ShowMessage {
               ) {
   }
 
-  alertLoginSuccess(){
-    Swal.fire(
+  async alertLoginSuccess(){
+    await Swal.fire(
       '',
       'Đăng nhập thành công!',
       'success'
@@ -39,8 +39,8 @@ export class ShowMessage {
     )
   }
 
-  alertLogout(){
-    Swal.fire({
+  async alertLogout(){
+    await Swal.fire({
       title: 'Bạn chắc chắc muốn đăng xuất?',
       showCancelButton: true,
       confirmButtonText: 'Đăng xuất',

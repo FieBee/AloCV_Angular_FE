@@ -6,12 +6,24 @@ import {CompanyListComponent} from "./company/company-list/company-list.componen
 import {CompanyCreateComponent} from "./company/company-create/company-create.component";
 import {RegisterComponent} from "./register/register.component";
 import {UserRegisterComponent} from "./user/user-register/user-register.component";
-import {JobListComponent} from "./job/job-list/job-list.component";
 import {UserJobListComponent} from "./user/user-job-list/user-job-list.component";
 import {JobCreateComponent} from "./job/job-create/job-create.component";
 import {JobEditComponent} from "./job/job-edit/job-edit.component";
 import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
-import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
+
+// import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
+import {CvCreateComponent} from "./cv/cv-create/cv-create.component";
+import {CvListComponent} from "./cv/cv-list/cv-list.component";
+import {NotfoundComponent} from "./notfound/notfound.component";
+import {
+  RoleGuardService as AuthGuard
+} from './service/role-guard.service';
+import {ApplyListComponent} from "./cv/apply-list/apply-list.component";
+import {CompanyEditComponent} from "./company/company-edit/company-edit.component";
+import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
+import {CompanyManagementComponent} from "./company/company-management/company-management.component";
+import {JobDetailComponent} from "./job/job-detail/job-detail.component";
+import {UserDetailComponent} from "./user/user-detail/user-detail.component";
 
 
 export const ROUTES: Routes = [
@@ -33,40 +45,72 @@ export const ROUTES: Routes = [
     component: CompanyCreateComponent
   },
   {
-    path: '', component: HomeComponent
+    path: 'user', component: HomeComponent,
+    canActivate: [AuthGuard],
+    data:{
+      roles:["ROLE_USER"]
+    }
+  },
+  {
+    path: 'admin', component: HomeComponent,
+    canActivate: [AuthGuard],
+    data:{
+      roles:["ROLE_ADMIN"]
+    }
+  },
+  {
+    path: 'company', component: HomeComponent,
+    canActivate: [AuthGuard],
+    data:{
+      roles:["ROLE_COMPANY"]
+    }
   },
   {
     path: 'company/list', component: CompanyListComponent
   },
   {
-    path: 'user/job-list', component: UserJobListComponent
+    path: 'company-detail/:id', component: CompanyDetailComponent
   },
   {
-    path: 'job/job-list', component: JobListComponent
+    path: 'user/job-list', component: UserJobListComponent
   },
   {
     path: 'job/job-create', component: JobCreateComponent
   },
   {
+    path: 'job/job-detail/:id', component: JobDetailComponent
+  },
+  {
     path: 'job/job-edit/:id', component: JobEditComponent
   },
   {
-
     path: 'job/job-delete/:id', component: JobDeleteComponent
+  },
+  {
+    path: 'user/create-cv', component: CvCreateComponent
+  },
+  {
+    path: 'user/list-cv', component: CvListComponent
+  },
+  {
+    path: 'job/job-detail/:id', component: JobDetailComponent
 
   },
   {
-
-    path: 'user/find-job-user', component: FindJobUserComponent
+    path: 'company/company-management', component: CompanyManagementComponent
+  },
+  {
+    path: 'user/list-apply', component: ApplyListComponent
 
   },
-
-
-  // {
-  // path: 'company/create', component: CompanyCreateComponent
-  //
-  // }
-  { path: '**', component: HomeComponent },
+  {
+  path: 'company/edit/:id', component: CompanyEditComponent
+  },
+  {
+  path: 'company/user-detail/:id', component: UserDetailComponent
+  },
+  { path: '', component: HomeComponent },
+  { path: '**', component: NotfoundComponent },
 
 ];
 

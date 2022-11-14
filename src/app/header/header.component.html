@@ -1,120 +1,11 @@
 
-<!--  &lt;!&ndash; Navbar &ndash;&gt;-->
-<!--  <nav  class="p-4 navbar navbar-expand-lg navbar-light bg-light">-->
-<!--    &lt;!&ndash; Container wrapper &ndash;&gt;-->
-<!--    <div class="container">-->
-<!--      &lt;!&ndash; Navbar brand &ndash;&gt;-->
-<!--      <div class=" collapse navbar-collapse mean-menu" id="navbarSupportedContent">-->
-<!--          <div class="nav-item ">-->
-<!--            <a routerLink="home"-->
-<!--               class="nav-link  active">Trang chủ</a>-->
-<!--          </div>-->
-
-<!--          <div  class="nav-item dropdown">-->
-<!--            <div *ngIf="checkRole == 'ROLE_ADMIN'">Quản lí-->
-<!--              <div class="dropdown-content">-->
-<!--                <a *ngIf="checkRole == 'ROLE_ADMIN'" routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Quản lí</a>-->
-<!--                <a *ngIf="checkRole == 'ROLE_ADMIN'" routerLink="/list-account" class="nav-link">Quản lý tài khoản</a>-->
-<!--                <a *ngIf="checkRole == 'ROLE_ADMIN'" routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--      </div>-->
-
-
-<!--      <form class="d-flex input-group w-auto">-->
-<!--        <input-->
-<!--          type="search"-->
-<!--          class="form-control"-->
-<!--          placeholder="Type query"-->
-<!--          aria-label="Search"-->
-<!--        />-->
-<!--        <button-->
-<!--          class="btn btn-outline-primary"-->
-<!--          type="button"-->
-<!--          data-mdb-ripple-color="dark"-->
-<!--        >-->
-<!--          Search-->
-<!--        </button>-->
-<!--      </form>-->
-<!--      <button-->
-<!--        class="navbar-toggler"-->
-<!--        type="button"-->
-<!--        data-mdb-toggle="collapse"-->
-<!--        data-mdb-target="#navbarCenteredExample"-->
-<!--        aria-controls="navbarCenteredExample"-->
-<!--        aria-expanded="false"-->
-<!--        aria-label="Toggle navigation"-->
-<!--      >-->
-<!--        <i class="fas fa-bars"></i>-->
-<!--      </button>-->
-
-<!--      &lt;!&ndash; Collapsible wrapper &ndash;&gt;-->
-
-<!--      &lt;!&ndash; Toggle button &ndash;&gt;-->
-<!--      <button-->
-<!--        class="navbar-toggler"-->
-<!--        type="button"-->
-<!--        data-mdb-toggle="collapse"-->
-<!--        data-mdb-target="#navbarButtonsExample"-->
-<!--        aria-controls="navbarButtonsExample"-->
-<!--        aria-expanded="false"-->
-<!--        aria-label="Toggle navigation"-->
-<!--      >-->
-<!--        <i class="fas fa-bars"></i>-->
-<!--      </button>-->
-
-<!--      &lt;!&ndash; Collapsible wrapper &ndash;&gt;-->
-<!--      <div class="collapse navbar-collapse" id="navbarButtonsExample">-->
-<!--        &lt;!&ndash; Left links &ndash;&gt;-->
-<!--        <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Dashboard</a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--        &lt;!&ndash; Left links &ndash;&gt;-->
-
-<!--        <div class="d-flex align-items-center">-->
-
-
-<!--&lt;!&ndash;          Khong the binding 2 chieu`&ndash;&gt;-->
-<!--          <button  type="button" class=" btn btn-link px-3 me-2 ">-->
-<!--            <a  routerLink="login">-->
-<!--              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">-->
-<!--            </a>-->
-<!--          </button>-->
-
-
-<!--          <button [hidden]="login" type="button" class=" btn btn-link px-3 me-2 ">-->
-<!--            <a  routerLink="login">-->
-<!--              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" value="Login">-->
-<!--            </a>-->
-<!--          </button>-->
-
-<!--          <button type="button" class="btn btn-link me-3 me-2"> -->
-<!--            <a class="btn btn-primary " routerLink="register">Sign up for free</a>-->
-<!--          </button>-->
-<!--          <a-->
-<!--            class="btn btn-dark px-3"-->
-<!--            href="https://github.com/mdbootstrap/mdb-ui-kit"-->
-<!--            role="button"-->
-<!--          ><i class="fab fa-github"></i-->
-<!--          ></a>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      &lt;!&ndash; Collapsible wrapper &ndash;&gt;-->
-<!--    </div>-->
-<!--    &lt;!&ndash; Container wrapper &ndash;&gt;-->
-<!--  </nav>-->
-<!--  &lt;!&ndash; Navbar &ndash;&gt;-->
 
 
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex align-items-center justify-content-between">
 
     <div class="logo">
-      <h1 class="text-light"><a href="index.html"><span>AloCV</span></a></h1>
+      <h1 class="text-light"><a routerLink="home"><span>AloCV</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     </div>
@@ -125,7 +16,7 @@
           <!--                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"-->
           <!--                               class="nav-link dropdown-toggle active">Trang chủ</a>-->
           <a routerLink="home"
-             class="nav-link dropdown-toggle active">Trang chủ</a>
+             class="nav-link active">Trang chủ</a>
         </li>
         <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
           <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
@@ -139,42 +30,33 @@
         <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item">
           <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
         </li>
-        <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle">Việc làm</a>
-          <ul class="dropdown">
-            <li class="nav-item">
-              <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Danh sách việc làm</a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="/apply-company" class="nav-link">Danh sách ứng tuyển</a>
-            </li>
-          </ul>
-        </li>
+
 
 
         <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle">Bài Đăng</a>
           <ul class="dropdown">
             <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item">
-              <a routerLink="list-recruitmentnew-company" class="nav-link">Quản lý bài đăng</a>
+              <a routerLink="/company/company-management" class="nav-link">Quản lý bài đăng</a>
             </li>
             <li class="nav-item">
-              <a routerLink="/create-recruitmentnew" class="nav-link">Viết Bài Đăng</a>
+              <a routerLink="/job/job-create" class="nav-link">Viết Bài Đăng</a>
             </li>
 
           </ul>
         </li>
+
         <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle">Hồ Sơ Ứng Tuyển</a>
           <ul class="dropdown">
             <li class="nav-item">
-              <a routerLink="create-cv"  class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
+              <a routerLink="user/create-cv"  class="nav-link">Viết Hồ Sơ Ứng Tuyển</a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['/detail-cv/']" class="nav-link">Hồ sơ của bạn</a>
+              <a routerLink="user/list-cv" class="nav-link">Hồ sơ của bạn</a>
             </li>
             <li class="nav-item">
-              <a routerLink="apply-list" class="nav-link">Dách sách ứng tuyển</a>
+              <a routerLink="user/list-apply" class="nav-link">Dách sách ứng tuyển</a>
             </li>
           </ul>
         </li>
@@ -195,13 +77,13 @@
 
             </div>
             <div *ngIf="checkDataImg">
-              <img style="width: 40px;height: auto;padding: 0px; border-radius: 50%" [src]="dataImg">
+              <img style="width: 40px;height: 40px;padding: 0px; border-radius: 50%" [src]="dataImg">
             </div>
           </li>
         <li *ngIf="dataName">
           <button type="button" class=" btn btn-link px-3 me-2 ">
             <a >
-              <input style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
+              <input [routerLink]="['company/edit/',dataId]" style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
             </a>
           </button>
         </li>
@@ -216,8 +98,8 @@
 
 
 
-        <li><a *ngIf="!dataName" routerLink="register" class="getstarted scrollto" href="#about">Sign up for free</a></li>
-        <li><a *ngIf="dataName" (click)="this.logout()" class="getstarted scrollto" href="#about">Logout</a></li>
+        <li><a *ngIf="!dataName" routerLink="register" class="getstarted scrollto" href="#about">Đăng ký</a></li>
+        <li><a *ngIf="dataName" (click)="this.logout()" class="getstarted scrollto" href="#about">Đăng xuất</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

@@ -109,6 +109,13 @@ export class JobListComponent implements OnInit {
       console.log(data)
     }, error => console.log("fail"))
   }
+  getJobByJobFieldId(id: number | undefined) {
+    this.jobService.findJobByJobFieldId(id).subscribe((data: any) => {
+      this.jobList = data
+      console.log(data)
+    }, error => console.log("fail"))
+  }
+
 
   getAllCompany() {
     this.companyService.getAll().subscribe(data => {
@@ -131,11 +138,9 @@ export class JobListComponent implements OnInit {
     })
   }
 
-
-  getJobByJobFieldId(id: number | undefined) {
-    this.jobService.findJobByJobFieldId(id).subscribe((data: any) => {
-      this.jobList = data
-      console.log(data)
-    }, error => console.log("fail"))
+  getTopJobByDate(){
+    this.jobService.getTopJobByDate().subscribe(data => {
+      this.jobList = data;
+    }, error => alert("Lỗi!! Không thể lấy được danh sách công việc theo Date!!"))
   }
 }

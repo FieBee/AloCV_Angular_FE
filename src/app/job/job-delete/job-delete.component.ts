@@ -7,6 +7,7 @@ import {LocationService} from "../../service/location/location.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {JobFieldService} from "../../service/jobField/job-field.service";
 import {JobField} from "../../model/job-field";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-job-delete',
@@ -64,8 +65,8 @@ export class JobDeleteComponent implements OnInit {
 
   deleteJob(id: number | undefined) {
     this.jobService.delete(id).subscribe(() => {
-      alert('Delete success!');
-      this.router.navigate(['/job/job-list']);
+      Swal.fire('Khóa công việc thành công!');
+      this.router.navigate(['/company/company-management']);
     }, e => {
       console.log(e);
     });
