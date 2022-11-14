@@ -137,4 +137,10 @@ export class JobListComponent implements OnInit {
       console.log(error);
     })
   }
+
+  getTopJobByDate(){
+    this.jobService.getTopJobByDate().subscribe(data => {
+      this.jobList = data;
+    }, error => alert("Lỗi!! Không thể lấy được danh sách công việc theo Date!!"))
+  }
 }
