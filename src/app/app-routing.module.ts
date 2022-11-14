@@ -20,9 +20,9 @@ import {
 } from './service/role-guard.service';
 import {ApplyListComponent} from "./cv/apply-list/apply-list.component";
 import {CompanyEditComponent} from "./company/company-edit/company-edit.component";
-import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
 import {CompanyManagementComponent} from "./company/company-management/company-management.component";
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
+import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
 
 
 export const ROUTES: Routes = [
@@ -68,36 +68,52 @@ export const ROUTES: Routes = [
     path: 'company/list', component: CompanyListComponent
   },
   {
+    path: 'company/company-detail/:id', component: CompanyDetailComponent
+  },
+  {
+    path: 'user/company-detail/:id', component: CompanyDetailComponent
+  },
+  {
     path: 'company-detail/:id', component: CompanyDetailComponent
   },
   {
     path: 'user/job-list', component: UserJobListComponent
   },
   {
-    path: 'job/job-create', component: JobCreateComponent
+    path: 'company/job/job-create', component: JobCreateComponent
   },
   {
     path: 'job/job-detail/:id', component: JobDetailComponent
   },
-  {
-    path: 'job/job-edit/:id', component: JobEditComponent
-  },
-  {
-    path: 'job/job-delete/:id', component: JobDeleteComponent
-  },
+  // {
+  //   path: 'company/job/job-edit/:id', component: JobEditComponent
+  // },
+  // {
+  //   path: 'job/job-delete/:id', component: JobDeleteComponent
+  // },
   {
     path: 'user/create-cv', component: CvCreateComponent
   },
   {
     path: 'user/list-cv', component: CvListComponent
   },
-  {
-    path: 'job/job-detail/:id', component: JobDetailComponent
-
-  },
+  // {
+  //   path: 'job/job-detail/:id', component: JobDetailComponent
+  //
+  // },
   {
     path: 'company/company-management', component: CompanyManagementComponent
   },
+  {
+    path: 'company/company-management/job-edit/:id', component: JobEditComponent
+  },
+  {
+    path: 'company/company-management/job-delete/:id', component: JobDeleteComponent
+  },
+  {
+    path: 'company/company-management/job-detail/:id', component: JobDetailComponent
+  },
+
   {
     path: 'user/list-apply', component: ApplyListComponent
 
