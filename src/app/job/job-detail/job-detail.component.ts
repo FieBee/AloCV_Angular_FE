@@ -90,7 +90,7 @@ export class JobDetailComponent implements OnInit {
   }
 
   getCvByJobId(){
-    this.cvService.findCVByJobId(this.job.id).subscribe((data: any)=>{
+    this.cvService.findCVByJobId(this.id).subscribe((data: any)=>{
       this.cvs = data;
       console.log(data)
     })
