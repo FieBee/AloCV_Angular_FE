@@ -8,6 +8,7 @@ import {Subscription} from "rxjs";
 import {CvService} from "../../service/cv/cv.service";
 import {Cv} from "../../model/cv";
 import {UserService} from "../../service/user/user.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-job-detail',
@@ -53,7 +54,7 @@ export class JobDetailComponent implements OnInit {
         this.jobService.findById(this.id).subscribe(jobData => {
           data.job = jobData
           this.cvService.editCv(data.id,data).subscribe(data=> {
-            alert("Ứng tuyển thành công!")
+            Swal.fire("Ứng tuyển thành công!")
           },error => console.log("Lỗi add Cv"))
         })
       })
@@ -95,7 +96,4 @@ export class JobDetailComponent implements OnInit {
     })
   }
 
-  // getUserCV() {
-  //   this.userService.findById(this.cvs.id)
-  // }
 }

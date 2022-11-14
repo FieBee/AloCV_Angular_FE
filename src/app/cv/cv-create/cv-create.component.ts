@@ -16,6 +16,7 @@ import {User} from "../../model/user";
 import {Job} from "../../model/job";
 import {JobFieldService} from "../../service/jobField/job-field.service";
 import {Cv} from "../../model/cv";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-cv-create',
@@ -89,7 +90,7 @@ export class CvCreateComponent implements OnInit {
     }
     console.log(a)
     this.cvService.saveCv(a).subscribe(data => {
-      alert('success');
+      Swal.fire('success');
       this.cvForm.reset();
     });
   }
