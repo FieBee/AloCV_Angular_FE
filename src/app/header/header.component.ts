@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit,OnChanges {
 
   async logout(){
     await this.showMessage.alertLogout()
-    this.router.navigate(["home"]).then(()=>{
+    this.router.navigate([""]).then(()=>{
       location.reload();
     })
   }

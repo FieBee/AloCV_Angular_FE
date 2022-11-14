@@ -5,7 +5,7 @@
   <div class="container d-flex align-items-center justify-content-between">
 
     <div class="logo">
-      <h1 class="text-light"><a routerLink="home"><span>AloCV</span></a></h1>
+      <h1 class="text-light"><a routerLink=""><span>AloCV</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     </div>
@@ -15,21 +15,21 @@
         <li class="nav-item">
           <!--                            <a *ngIf="checkRole == 'COMPANY'" routerLink="list-recruitmentnew-company"-->
           <!--                               class="nav-link dropdown-toggle active">Trang chủ</a>-->
-          <a routerLink="home"
+          <a routerLink=""
              class="nav-link active">Trang chủ</a>
         </li>
-        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
-          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
-        </li>
+<!--        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">-->
+<!--          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>-->
+<!--        </li>-->
         <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
           <a routerLink="/list-account" class="nav-link">Quản lý tài khoản</a>
         </li>
         <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
           <a routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>
         </li>
-        <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item">
-          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>
-        </li>
+<!--        <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item">-->
+<!--          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>-->
+<!--        </li>-->
 
 
 
@@ -40,7 +40,7 @@
               <a routerLink="/company/company-management" class="nav-link">Quản lý bài đăng</a>
             </li>
             <li class="nav-item">
-              <a routerLink="/job/job-create" class="nav-link">Viết Bài Đăng</a>
+              <a routerLink="/company/job/job-create" class="nav-link">Viết Bài Đăng</a>
             </li>
 
           </ul>
@@ -60,17 +60,17 @@
             </li>
           </ul>
         </li>
-        <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item">
-          <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>
-        </li>
-        <li *ngIf="checkRole == 'ROLE_USER'||'ROLE_COMPANY'" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle">Công ty</a>
-          <ul class="dropdown">
-            <li class="nav-item">
-              <a routerLink="list-company" class="nav-link">Danh sách công ty</a>
-            </li>
-          </ul>
-        </li>
+<!--        <li *ngIf="checkRole == 'ROLE_COMPANY'" class="nav-item">-->
+<!--          <a routerLink="list-recruitmentnew-user" class="nav-link">Việc làm</a>-->
+<!--        </li>-->
+<!--        <li *ngIf="checkRole == 'ROLE_USER'||'ROLE_COMPANY'" class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle">Công ty</a>-->
+<!--          <ul class="dropdown">-->
+<!--            <li class="nav-item">-->
+<!--              <a routerLink="list-company" class="nav-link">Danh sách công ty</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </li>-->
           <li style="margin-left: 50px; margin-right: -50px" *ngIf="dataName">
             <div *ngIf="!checkDataImg">
               <img style="width: 40px;height: auto;padding: 0px; border-radius: 50%" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" >
@@ -83,7 +83,7 @@
         <li *ngIf="dataName">
           <button type="button" class=" btn btn-link px-3 me-2 ">
             <a >
-              <input [routerLink]="['company/edit/',dataId]" style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
+              <input [routerLink]="['company/company-detail/',dataId]" style="text-decoration: none" type="button"  class=" btn btn-link px-3 me-2" [(ngModel)]="dataName">
             </a>
           </button>
         </li>
@@ -98,8 +98,8 @@
 
 
 
-        <li><a *ngIf="!dataName" routerLink="register" class="getstarted scrollto" href="#about">Đăng ký</a></li>
-        <li><a *ngIf="dataName" (click)="this.logout()" class="getstarted scrollto" href="#about">Đăng xuất</a></li>
+        <li><a *ngIf="!dataName" routerLink="register" class="getstarted scrollto" >Đăng ký</a></li>
+        <li><a *ngIf="dataName" (click)="this.logout()" class="getstarted scrollto" >Đăng xuất</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
