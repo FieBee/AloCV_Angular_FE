@@ -125,6 +125,9 @@ export const ROUTES: Routes = [
   {
   path: 'company/user-detail/:id', component: UserDetailComponent
   },
+  {
+    path: 'user/user-detail/:id', component: UserDetailComponent
+  },
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
 
