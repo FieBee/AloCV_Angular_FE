@@ -89,6 +89,13 @@
                         </div>
                       </div>
 
+                      <div class="mb-5 wow fadeIn" *ngIf="dataRole == 'ROLE_COMPANY'">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                          <p>CV đã nộp vào công việc này: </p>
+                          <p *ngFor="let c of cvs">{{c.user.name}}</p>
+                        </div>
+                      </div>
+
                       <div class="col-8" *ngIf="!dataRole">
                         <button routerLink="/login" class="btn btn-primary">Đăng nhập để xem chi tiết!</button  >
                       </div>

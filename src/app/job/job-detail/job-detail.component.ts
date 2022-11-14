@@ -7,6 +7,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {CvService} from "../../service/cv/cv.service";
 import {Cv} from "../../model/cv";
+import {UserService} from "../../service/user/user.service";
 
 @Component({
   selector: 'app-job-detail',
@@ -28,11 +29,14 @@ export class JobDetailComponent implements OnInit {
   cvs: Cv[] | undefined;
 
 
+
+
   constructor(private jobService: JobService,
               private companyService: CompanyService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private cvService: CvService
+              private cvService: CvService,
+              private userService: UserService
   ) {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       // @ts-ignore
@@ -90,4 +94,8 @@ export class JobDetailComponent implements OnInit {
       console.log(data)
     })
   }
+
+  // getUserCV() {
+  //   this.userService.findById(this.cvs.id)
+  // }
 }
