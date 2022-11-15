@@ -10,4 +10,5 @@ export interface Company {
   linkFb? : string;
   status? : boolean;
   description? :string;
+  suggest?:boolean;
 }
