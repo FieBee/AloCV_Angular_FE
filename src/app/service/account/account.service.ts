@@ -20,7 +20,7 @@ export class AccountService {
     return this.httpClient.post<Account>(API_URL + `/account` , account);
   }
 
-  findById(id: number):Observable<Account>{
+  findById(id: number | undefined):Observable<Account>{
     return this.httpClient.get<Account>(API_URL + `/account/${id}`);
   }
 
@@ -29,7 +29,18 @@ export class AccountService {
   }
 
   delete(id: any): Observable<Account>{
-    return this.httpClient.delete<Account>(API_URL + `/account/${id}`);
+    return this.httpClient.delete<Account>(API_URL + `/account/block/${id}`);
+  }
 
+  unblock(id: any): Observable<Account>{
+    return this.httpClient.delete<Account>(API_URL + `/account/unblock/${id}`);
+  }
+
+  getAllAccountUser():Observable<Account[]>{
+    return this.httpClient.get<Account[]>(API_URL + `/account/getUser`)
+  }
+
+  getAllAccountCompany():Observable<Account[]>{
+    return this.httpClient.get<Account[]>(API_URL + `/account/getCompany`)
   }
 }

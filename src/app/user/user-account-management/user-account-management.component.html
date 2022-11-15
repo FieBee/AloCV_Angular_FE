@@ -1,1 +1,30 @@
-<p>user-account-management works!</p>
+
+<div class="col-10 m-auto">
+  <h1 style="text-align: center;margin-top: 30px">Danh sách tài khoản người dùng</h1>
+  <table class="table table-striped container text-center" >
+    <thead>
+    <tr>
+      <td>STT</td>
+      <td>Ngày tạo </td>
+      <td>Tài khoản</td>
+      <td>Trạng thái</td>
+      <td colspan="2" style="text-align: center">Hành động</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let account of userList; index as i" >
+      <td>{{i + 1}}</td>
+      <td><a  class="btn"  style="width: 40%">{{account.createdAt}}</a></td>
+      <td>{{account.userName}}</td>
+      <td *ngIf="account.status">Đang hoạt động</td>
+      <td *ngIf="!account.status">Đang khóa</td>
+      <td style="text-align: right">
+        <button type="button" class="btn btn-outline-warning" (click)="block(account.id)" >Khoá</button>
+      </td>
+      <td style="text-align: left">
+        <button type="button" class="btn  btn-outline-danger" (click)="unblock(account.id)" >Mở khóa</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
