@@ -24,6 +24,11 @@ import {CompanyManagementComponent} from "./company/company-management/company-m
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
 import {UserDetailComponent} from "./user/user-detail/user-detail.component";
+import {UserAccountManagementComponent} from "./user/user-account-management/user-account-management.component";
+import {
+  CompanyAccountManagementComponent
+} from "./company/company-account-management/company-account-management.component";
+import {AccountManagementComponent} from "./account/account-management/account-management.component";
 
 
 export const ROUTES: Routes = [
@@ -58,6 +63,13 @@ export const ROUTES: Routes = [
       roles:["ROLE_ADMIN"]
     }
   },
+  {
+    path: 'admin/management/user', component: UserAccountManagementComponent
+  },
+  {
+    path: 'admin/management/company', component: CompanyAccountManagementComponent
+  },
+
   {
     path: 'company', component: HomeComponent,
     canActivate: [AuthGuard],
@@ -130,6 +142,7 @@ export const ROUTES: Routes = [
   },
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
+
 
 ];
 
