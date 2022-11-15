@@ -19,8 +19,11 @@
                         <p class="fw-bold mb-1" style="text-align: center">{{c.description}}</p>
                       </div>
                     </div>
-                    <div>
+                    <div style="padding-top: 20px">
                       <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/user/edit-cv', c.id]" style="width: 70%">Sửa CV</button>
+                    </div>
+                    <div style="padding-top: 10px">
+                      <button type="button" class="btn btn-outline-info btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/user/delete-cv', c.id]" style="width: 70%">Khoá CV</button>
                     </div>
                   </td>
                   <td>

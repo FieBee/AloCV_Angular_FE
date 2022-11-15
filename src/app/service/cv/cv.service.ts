@@ -39,4 +39,7 @@ export class CvService {
   findCVByUserIdAndStatus(id: any): Observable<Cv>{
     return this.httpClient.get<Cv>(API_URL + `/cvs/status/${id}`)
   }
+  deleteByStatus(id: number | undefined): Observable<Cv>{
+    return this.httpClient.delete<Cv>(API_URL + `/cvs/status/${id}`)
+  }
 }

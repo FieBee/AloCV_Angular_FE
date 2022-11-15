@@ -26,6 +26,7 @@ import {CompanyDetailComponent} from "./company/company-detail/company-detail.co
 import {UserDetailComponent} from "./user/user-detail/user-detail.component";
 import {AdminJobListComponent} from "./admin/admin-job-list/admin-job-list.component";
 import {CvEditComponent} from "./cv/cv-edit/cv-edit.component";
+import {CvDeleteComponent} from "./cv/cv-delete/cv-delete.component";
 
 
 export const ROUTES: Routes = [
@@ -104,6 +105,8 @@ export const ROUTES: Routes = [
     path: 'admin/admin-job', component: AdminJobListComponent
   },{
     path: 'user/edit-cv/:id', component: CvEditComponent
+  },{
+    path: 'user/delete-cv/:id', component: CvDeleteComponent
   },
   // {
   //   path: 'job/job-detail/:id', component: JobDetailComponent

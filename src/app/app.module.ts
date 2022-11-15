@@ -40,6 +40,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserAccountManagementComponent } from './user/user-account-management/user-account-management.component';
 import { AdminJobListComponent } from './admin/admin-job-list/admin-job-list.component';
 import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
+import { CvDeleteComponent } from './cv/cv-delete/cv-delete.component';
 
 
 
@@ -79,7 +80,8 @@ import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
     UserDetailComponent,
     UserAccountManagementComponent,
     AdminJobListComponent,
-    CvEditComponent
+    CvEditComponent,
+    CvDeleteComponent
 
 
   ],
