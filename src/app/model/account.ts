@@ -6,5 +6,5 @@ export interface Account extends DateAt{
   password? : string;
   appRole? : any;
   status?: any;
-  actice?: any;
+  active?: any;
 }

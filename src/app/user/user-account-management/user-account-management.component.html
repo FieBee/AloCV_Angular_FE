@@ -10,7 +10,7 @@
       <th>Ngày tạo </th>
       <th>Tài khoản</th>
       <th>Trạng thái</th>
-      <th colspan="2" style="text-align: center">Hành động</th>
+      <th style="text-align: center">Hành động</th>
     </tr>
     </thead>
     <tbody>
@@ -18,11 +18,14 @@
       <td>{{i + 1}}</td>
       <td><a  class="btn"  style="width: 40%">{{account.createdAt}}</a></td>
       <td>{{account.userName}}</td>
-      <td *ngIf="account.status">Đang hoạt động</td>
-      <td *ngIf="!account.status">Đã khóa</td>
+      <td *ngIf="account.status && account.active">Đang hoạt động</td>
+      <td *ngIf="!account.status && account.active">Đã khóa</td>
+      <td *ngIf="!account.active">Chờ duyệt</td>
       <td  style="text-align: center">
-        <button *ngIf="account.status" type="button" class="btn btn-outline-warning" (click)="block(account.id)" >Khoá</button>
-        <button *ngIf="!account.status" type="button" class="btn  btn-outline-danger" (click)="unblock(account.id)" >Mở khóa</button>
+        <button *ngIf="account.status && account.active" type="button" class="btn btn-outline-warning" (click)="block(account.id)" >Khoá</button>
+        <button *ngIf="!account.status && account.active" type="button" class="btn  btn-outline-danger" (click)="unblock(account.id)" >Mở khóa</button>
+        <button *ngIf="!account.active" type="button" class="btn  btn-outline-success" (click)="setActiceTrue(account.id)" >Phê duyệt</button>
+
       </td>
     </tr>
     </tbody>

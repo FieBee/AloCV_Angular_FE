@@ -36,6 +36,10 @@ export class AccountService {
     return this.httpClient.delete<Account>(API_URL + `/account/unblock/${id}`);
   }
 
+  setActice(id: any): Observable<Account>{
+    return this.httpClient.delete<Account>(API_URL + `/account/setActive/${id}`);
+  }
+
   getAllAccountUser():Observable<Account[]>{
     return this.httpClient.get<Account[]>(API_URL + `/account/getUser`)
   }

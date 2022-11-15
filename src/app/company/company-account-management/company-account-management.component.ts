@@ -27,16 +27,24 @@ export class CompanyAccountManagementComponent implements OnInit {
   block(id: number|undefined) {
     this.accountService.delete(id).subscribe(data =>{
       console.log("Khóa tài khoản thành công!!")
+      this.getAllAccountUser();
     })
-    location.reload();
   }
 
 
   unblock(id: number|undefined){
     this.accountService.unblock(id).subscribe(data =>{
       console.log("Mở khóa tài khoản thành công!!")
+      this.getAllAccountUser();
     })
-    location.reload();
+  }
+
+  setActiceTrue(id: number|undefined){
+    this.accountService.setActice(id).subscribe(data => {
+      console.log("Duyệt tài khoản thành công!!")
+      this.getAllAccountUser();
+    })
+
   }
 
 }
