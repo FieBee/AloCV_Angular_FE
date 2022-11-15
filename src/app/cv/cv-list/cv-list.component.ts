@@ -20,7 +20,7 @@ export class CvListComponent implements OnInit {
     this.getAll()
   }
   getAll() {
-    this.cvService.findCVByUserId(this.userId).subscribe((result: any) => {
+    this.cvService.findCVByUserIdAndStatus(this.userId).subscribe((result: any) => {
       this.cv = result;
       // console.log(result);
     }, (error: any) => {

@@ -18,11 +18,11 @@ export class CvService {
     return this.httpClient.post<Cv>(API_URL + `/cvs` , cv);
   }
 
-  findById(id: number):Observable<Cv>{
+  findById(id: number | undefined):Observable<Cv>{
     return this.httpClient.get<Cv>(API_URL + `/cvs/${id}`);
   }
 
-  editCv(id: number | undefined, cv: Cv): Observable<Cv>{
+  editCv(id: number | any, cv: Cv): Observable<Cv>{
     return this.httpClient.put<Cv>(API_URL + `/cvs/${id}`,cv);
   }
 
@@ -35,5 +35,11 @@ export class CvService {
 
   findCVByJobId(id: any):Observable<Cv>{
     return this.httpClient.get<Cv>(API_URL + `/cvs/jobs/${id}`);
+  }
+  findCVByUserIdAndStatus(id: any): Observable<Cv>{
+    return this.httpClient.get<Cv>(API_URL + `/cvs/status/${id}`)
+  }
+  deleteByStatus(id: number | undefined): Observable<Cv>{
+    return this.httpClient.delete<Cv>(API_URL + `/cvs/status/${id}`)
   }
 }

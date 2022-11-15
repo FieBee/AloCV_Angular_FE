@@ -10,8 +10,6 @@ import {UserJobListComponent} from "./user/user-job-list/user-job-list.component
 import {JobCreateComponent} from "./job/job-create/job-create.component";
 import {JobEditComponent} from "./job/job-edit/job-edit.component";
 import {JobDeleteComponent} from "./job/job-delete/job-delete.component";
-
-// import {FindJobUserComponent} from "./user/find-job-user/find-job-user.component";
 import {CvCreateComponent} from "./cv/cv-create/cv-create.component";
 import {CvListComponent} from "./cv/cv-list/cv-list.component";
 import {NotfoundComponent} from "./notfound/notfound.component";
@@ -24,7 +22,10 @@ import {CompanyManagementComponent} from "./company/company-management/company-m
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
 import {UserDetailComponent} from "./user/user-detail/user-detail.component";
-import {AdminJobListComponent} from "./admin/admin-job-list/admin-job-list.component";
+import {CvEditComponent} from "./cv/cv-edit/cv-edit.component";
+import {CvDeleteComponent} from "./cv/cv-delete/cv-delete.component";
+import {AdminJobManagementComponent} from "./admin/admin-job-management/admin-job-management.component";
+import {JobSuggestComponent} from "./admin/job-suggest/job-suggest.component";
 
 
 export const ROUTES: Routes = [
@@ -100,7 +101,9 @@ export const ROUTES: Routes = [
     path: 'user/list-cv', component: CvListComponent
   },
   {
-    path: 'admin/admin-job', component: AdminJobListComponent
+    path: 'user/edit-cv/:id', component: CvEditComponent
+  },{
+    path: 'user/delete-cv/:id', component: CvDeleteComponent
   },
   // {
   //   path: 'job/job-detail/:id', component: JobDetailComponent
@@ -132,9 +135,14 @@ export const ROUTES: Routes = [
   {
     path: 'user/user-detail/:id', component: UserDetailComponent
   },
+  {
+    path: 'admin/admin-job', component: AdminJobManagementComponent
+  },
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
-
+  {
+    path: 'admin/job-suggest/:id', component: JobSuggestComponent
+  },
 ];
 
 
