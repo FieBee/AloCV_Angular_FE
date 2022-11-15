@@ -20,9 +20,9 @@
     <td>{{j.location.name}}</td>
     <td style="color: #1438ec" *ngIf="j.status">Hoạt động</td>
     <td style="color: #f50f0f" *ngIf="!j.status">Đã khóa</td>
-    <td style="text-align: center" *ngIf="j.status"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" (click)="lockJob(this.j.id)" style="width: 70%">Khóa</button></td>
-    <td style="text-align: center" *ngIf="!j.status"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" (click)="unlockJob(this.j.id)" style="width: 70%">Mở khóa</button></td>
-    <td style="text-align: center" ><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['/admin/job-suggest',j.id]" style="width: 70%">Theem ao de xuat</button></td>
+    <td style="text-align: center" *ngIf="j.status"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" (click)="lockJob(j.id)" style="width: 70%">Khóa</button></td>
+    <td style="text-align: center" *ngIf="!j.status"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" (click)="unlockJob(j.id)" style="width: 70%">Mở khóa</button></td>
+    <td style="text-align: center" ><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" (click)="suggestJob(j.id)" style="width: 70%">Thêm vào đề xuất</button></td>
   </tr>
   </tbody>
 </table>

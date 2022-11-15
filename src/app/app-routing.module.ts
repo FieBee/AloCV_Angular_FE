@@ -141,7 +141,7 @@ export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
   {
-    path: 'admin/job-suggest/:id', component: JobSuggestComponent
+    path: 'admin/job-suggest/', component: JobSuggestComponent
   },
 ];
 

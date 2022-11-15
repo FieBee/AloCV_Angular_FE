@@ -83,7 +83,8 @@ import { AdminJobManagementComponent } from './admin/admin-job-management/admin-
     UserAccountManagementComponent,
     CvEditComponent,
     CvDeleteComponent,
-    AdminJobManagementComponent
+    AdminJobManagementComponent,
+    JobSuggestComponent
 
 
   ],
