@@ -37,6 +37,7 @@ import { ApplyListComponent } from './cv/apply-list/apply-list.component';
 import { CompanyTopRecruitmentComponent } from './company/company-top-recruitment/company-top-recruitment.component';
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
 
 
 
@@ -72,7 +73,8 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     CompanyEditComponent,
     CompanyTopRecruitmentComponent,
     CompanyDetailComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    CvEditComponent
 
   ],
   imports: [
