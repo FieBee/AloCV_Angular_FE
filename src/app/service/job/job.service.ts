@@ -20,6 +20,10 @@ export class JobService {
     return this.httpClient.get<Job[]>(API_URL + `/job`)
   }
 
+  findAllJob():Observable<Job[]>{
+    return this.httpClient.get<Job[]>(API_URL + `/job/admin`)
+  }
+
   saveJob(job: Job):Observable<Job>{
     return this.httpClient.post<Job>(API_URL + `/job` , job);
   }
