@@ -79,7 +79,7 @@ export class CvEditComponent implements OnInit {
     this.cvService.editCv(this.cv.id, this.cv).subscribe(()=>{
       console.log(this.cv.id)
       this.getCvImg();
-      Swal.fire('Thành công');
+      Swal.fire('CV của bạn đã sửa thành công');
 
       // this.router.navigate(['']).then(() => {
       //   location.reload();

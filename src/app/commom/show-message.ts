@@ -31,6 +31,14 @@ export class ShowMessage {
     })
   }
 
+  alertLoginFailActive(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Lỗi',
+      text: 'Tài khoản đang chờ phê duyệt!',
+    })
+  }
+
   alertRegisterSuccess(){
     Swal.fire(
       '',
