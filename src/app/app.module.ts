@@ -39,6 +39,8 @@ import { CompanyDetailComponent } from './company/company-detail/company-detail.
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserAccountManagementComponent } from './user/user-account-management/user-account-management.component';
 import { AdminJobListComponent } from './admin/admin-job-list/admin-job-list.component';
+import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
+
 
 
 
@@ -76,7 +78,9 @@ import { AdminJobListComponent } from './admin/admin-job-list/admin-job-list.com
     CompanyDetailComponent,
     UserDetailComponent,
     UserAccountManagementComponent,
-    AdminJobListComponent
+    AdminJobListComponent,
+    CvEditComponent
+
 
   ],
   imports: [
