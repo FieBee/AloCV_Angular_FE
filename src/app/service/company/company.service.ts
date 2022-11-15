@@ -36,4 +36,12 @@ export class CompanyService {
   getTopRecruitment(): Observable<Company[]>{
     return this.httpClient.get<Company[]>(API_URL + `/topcompanyjob`);
   }
+
+  setSuggestTrue(id: number | undefined | any):Observable<Company>{
+    return this.httpClient.get<Company>(API_URL + `/company/setSuggestTrue/${id}`);
+  }
+
+  setSuggestFalse(id: number | undefined | any):Observable<Company>{
+    return this.httpClient.get<Company>(API_URL + `/company/setSuggestFalse/${id}`);
+  }
 }

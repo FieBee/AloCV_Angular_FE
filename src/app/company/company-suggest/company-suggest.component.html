@@ -16,8 +16,8 @@
       <td>{{i + 1}}</td>
       <td><a  class="btn"  style="width: 60%;text-align: left">{{company.name}}</a></td>
       <td  style="text-align: center;width: 30%;">
-        <button *ngIf="!company.suggest" type="button" class="btn btn-outline-success" >Đề xuất</button>
-        <button *ngIf="company.suggest" type="button" class="btn  btn-outline-danger">Bỏ đề xuất</button>
+        <button *ngIf="!company.suggest" type="button" (click)="setSuggestTrue(company.id)" class="btn btn-outline-success" >Đề xuất</button>
+        <button *ngIf="company.suggest" type="button" (click)="setSuggestFalse(company.id)" class="btn  btn-outline-danger">Bỏ đề xuất</button>
       </td>
     </tr>
     </tbody>
