@@ -44,4 +44,8 @@ export class CompanyService {
   setSuggestFalse(id: number | undefined | any):Observable<Company>{
     return this.httpClient.get<Company>(API_URL + `/company/setSuggestFalse/${id}`);
   }
+  getCompanySuggest():Observable<Company[]>{
+    return this.httpClient.get<Company[]>(API_URL + `/company/suggest`);
+  }
+
 }

@@ -44,7 +44,8 @@ import { AdminJobManagementComponent } from './admin/admin-job-management/admin-
 
 import { CompanyAccountManagementComponent } from './company/company-account-management/company-account-management.component';
 import { AccountManagementComponent } from './account/account-management/account-management.component';
-import { CompanySuggestComponent } from './company/company-suggest/company-suggest.component';
+import { CompanySuggestListComponent } from './company/company-suggest-list/company-suggest-list.component';
+import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
 
 
 
@@ -88,7 +89,8 @@ import { CompanySuggestComponent } from './company/company-suggest/company-sugge
     CvEditComponent,
     CvDeleteComponent,
     AdminJobManagementComponent,
-    CompanySuggestComponent
+    CompanySuggestComponent,
+    CompanySuggestListComponent
 
 
   ],
