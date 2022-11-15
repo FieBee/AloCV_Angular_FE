@@ -12,5 +12,6 @@ export interface Job {
   description? : string;
   recruitNumber? : number;
   gender? : string;
-  status?: boolean
+  status?: boolean;
+  user?:any
 }

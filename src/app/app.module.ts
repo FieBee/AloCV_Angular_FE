@@ -37,9 +37,9 @@ import { ApplyListComponent } from './cv/apply-list/apply-list.component';
 import { CompanyTopRecruitmentComponent } from './company/company-top-recruitment/company-top-recruitment.component';
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
-import { JobSuggestedComponent } from './admin/job-suggested/job-suggested.component';
 import { UserAccountManagementComponent } from './user/user-account-management/user-account-management.component';
 import { AdminJobListComponent } from './admin/admin-job-list/admin-job-list.component';
+import { JobSuggestComponent } from './admin/job-suggest/job-suggest.component';
 
 
 
@@ -76,9 +76,9 @@ import { AdminJobListComponent } from './admin/admin-job-list/admin-job-list.com
     CompanyTopRecruitmentComponent,
     CompanyDetailComponent,
     UserDetailComponent,
-    JobSuggestedComponent,
     UserAccountManagementComponent,
-    AdminJobListComponent
+    AdminJobListComponent,
+    JobSuggestComponent
 
   ],
   imports: [
