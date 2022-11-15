@@ -45,7 +45,7 @@ export class CvDeleteComponent implements OnInit {
   deleteCv() {
     console.log(this.id)
     this.cvService.deleteByStatus(this.id).subscribe(() => {
-      Swal.fire('Khóa công việc thành công!');
+      Swal.fire('Xoá CV thành công!');
       this.router.navigate(['/user/list-cv']);
     }, e => {
       console.log(e);
