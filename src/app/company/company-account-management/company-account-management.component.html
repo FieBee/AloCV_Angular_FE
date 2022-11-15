@@ -1,7 +1,7 @@
 
 <div class="col-10 m-auto">
   <br>
-  <h1 style="text-align: center;margin-top: 30px">Danh sách tài khoản người dùng</h1>
+  <h1 style="text-align: center;margin-top: 30px">Danh sách tài khoản doanh nghiệp</h1>
   <br>
   <table class="table table-striped container text-center" >
     <thead>
@@ -14,7 +14,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let account of userList; index as i" >
+    <tr *ngFor="let account of companyList; index as i" >
       <td>{{i + 1}}</td>
       <td><a  class="btn"  style="width: 40%">{{account.createdAt}}</a></td>
       <td>{{account.userName}}</td>
