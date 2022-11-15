@@ -1,0 +1,27 @@
+<br>
+<h1 style="text-align: center">List</h1>
+<br>
+<table class="table table-borderless container" >
+  <thead>
+  <tr>
+    <td>#</td>
+    <td>Tiêu đề</td>
+    <td>Nghành nghề</td>
+    <td>Vị trí</td>
+    <td>Trạng thái</td>
+    <td colspan="2" style="text-align: center">Action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let j of jobList; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{j.name}}</td>
+    <td>{{j.jobField.name}}</td>
+    <td>{{j.location.name}}</td>
+    <td style="color: #1438ec" *ngIf="j.status">Hoạt động</td>
+    <td style="color: #f50f0f" *ngIf="!j.status">Đã khóa</td>
+    <td style="text-align: center" *ngIf="j.status"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" (click)="lockJob(this.j.id)" style="width: 70%">Khóa</button></td>
+    <td style="text-align: center" *ngIf="!j.status"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" (click)="unlockJob(this.j.id)" style="width: 70%">Mở khóa</button></td>
+  </tr>
+  </tbody>
+</table>

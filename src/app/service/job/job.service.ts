@@ -40,6 +40,10 @@ export class JobService {
     return this.httpClient.delete<Job>(API_URL + `/job/${id}`);
   }
 
+  unlock(id: any): Observable<Job>{
+    return this.httpClient.delete<Job>(API_URL + `/job/unlock/${id}`);
+  }
+
   findJobByCompanyId(id: number | undefined):Observable<Job[]>{
     return this.httpClient.get<Job[]>(API_URL +`/job/company/${id}`)
   }
