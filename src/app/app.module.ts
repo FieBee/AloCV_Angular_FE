@@ -42,6 +42,8 @@ import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
 import { CvDeleteComponent } from './cv/cv-delete/cv-delete.component';
 import { AdminJobManagementComponent } from './admin/admin-job-management/admin-job-management.component';
 
+import { CompanyAccountManagementComponent } from './company/company-account-management/company-account-management.component';
+import { AccountManagementComponent } from './account/account-management/account-management.component';
 
 
 
@@ -78,6 +80,9 @@ import { AdminJobManagementComponent } from './admin/admin-job-management/admin-
     CompanyTopRecruitmentComponent,
     CompanyDetailComponent,
     UserDetailComponent,
+    UserAccountManagementComponent,
+    CompanyAccountManagementComponent,
+    AccountManagementComponent,
     UserAccountManagementComponent,
     CvEditComponent,
     CvDeleteComponent,
