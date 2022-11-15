@@ -24,6 +24,7 @@ import {CompanyManagementComponent} from "./company/company-management/company-m
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
 import {UserDetailComponent} from "./user/user-detail/user-detail.component";
+import {AdminJobListComponent} from "./admin/admin-job-list/admin-job-list.component";
 
 
 export const ROUTES: Routes = [
@@ -97,6 +98,9 @@ export const ROUTES: Routes = [
   },
   {
     path: 'user/list-cv', component: CvListComponent
+  },
+  {
+    path: 'admin/admin-job', component: AdminJobListComponent
   },
   // {
   //   path: 'job/job-detail/:id', component: JobDetailComponent

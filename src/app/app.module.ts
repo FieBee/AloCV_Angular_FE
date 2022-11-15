@@ -38,6 +38,7 @@ import { CompanyTopRecruitmentComponent } from './company/company-top-recruitmen
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserAccountManagementComponent } from './user/user-account-management/user-account-management.component';
+import { AdminJobListComponent } from './admin/admin-job-list/admin-job-list.component';
 
 
 
@@ -74,7 +75,8 @@ import { UserAccountManagementComponent } from './user/user-account-management/u
     CompanyTopRecruitmentComponent,
     CompanyDetailComponent,
     UserDetailComponent,
-    UserAccountManagementComponent
+    UserAccountManagementComponent,
+    AdminJobListComponent
 
   ],
   imports: [
