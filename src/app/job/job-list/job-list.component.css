@@ -199,17 +199,31 @@ ul li input[type=checkbox]:checked ~ i:after {
 }
 .detail-div{
   bottom: 180px;
+  left: -20px;
   position: absolute;
   width: 300px;
   height: 230px;
-  background-color: lavenderblush;
+  background-color: mistyrose;
   /*opacity: 0.5;*/
   display: none;
-  z-index: 3;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .demo:hover .detail-div  {
   /*background-color: black;*/
   display: block;
-
+  opacity: 1;
+  pointer-events: auto;
+  transition: color 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);;
+}
+.detail-div:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: mistyrose;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
 }
 
