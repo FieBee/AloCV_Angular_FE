@@ -9,6 +9,7 @@ import {CvService} from "../../service/cv/cv.service";
 import {Cv} from "../../model/cv";
 import {UserService} from "../../service/user/user.service";
 import Swal from "sweetalert2";
+import {MailService} from "../../service/mail/mail.service";
 
 @Component({
   selector: 'app-job-detail',
@@ -17,10 +18,7 @@ import Swal from "sweetalert2";
 })
 export class JobDetailComponent implements OnInit {
   sub:Subscription;
-  job: Job={
-    jobField:{
-      id:0,
-    }
+  job: Job ={
   };
 
   companyList: Company |undefined;
@@ -39,7 +37,8 @@ export class JobDetailComponent implements OnInit {
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private cvService: CvService,
-              private userService: UserService
+              private userService: UserService,
+              private mailService: MailService
   ) {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       // @ts-ignore
@@ -115,4 +114,15 @@ export class JobDetailComponent implements OnInit {
 
   }
 
+
+  confirmCv(id:any){
+    this.userService.findById(id).subscribe(dataUser => {
+      this.jobService.findById(this.id).subscribe(dataJob => {
+        this.mailService.sendMailApply(dataUser,dataJob.id).subscribe(result => {
+          console.log("Gửi mail tới người ứng tuyển thành công!")
+        }
+        )
+      })
+    })
+  }
 }
