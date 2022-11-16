@@ -21,4 +21,8 @@ export class MailService {
   sendMailApply(user: User, job: any):Observable<Object> {
     return this.httpClient.post(API_URL + `/mail/apply/${job}`, user);
   }
+
+  shareJob(user1: any,user2: any,link:any):Observable<Object> {
+    return this.httpClient.get(API_URL + `/mail/apply/${user1}/${user2}/${link}`);
+  }
 }

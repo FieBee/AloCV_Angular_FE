@@ -16,7 +16,7 @@
                       <div class="card-body p-1-9 p-xl-5">
                         <div class="mb-4">
                           <h3 class="h4 mb-0">{{job.company.name}}</h3><br>
-                          <span class="text-primary">By nhóm 1 vjp pro number 1</span>
+
                         </div>
                         <ul class="list-unstyled mb-4">
                           <li class="mb-3"><a href="#!"><i
@@ -92,12 +92,10 @@
                       <div class="mb-5 wow fadeIn" *ngIf="dataRole == 'ROLE_COMPANY'">
                         <div class="text-start mb-1-6 wow fadeIn">
                           <p>CV đã nộp vào công việc này: </p>
-                          <div *ngFor="let c of cvs">
-                            <p >
-                              <a href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
-                            </p>
-                            <button (click)="confirmCv(c.user.id)">Hẹn phỏng vấn</button>
-                            <button>Hủy bỏ</button>
+                          <div  *ngFor="let c of cvs">
+                            <a class="col-3" href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
+                            <button style="margin-left: 15px" class="btn btn-primary" (click)="confirmCv(c.user.id)">Hẹn phỏng vấn</button>
+                            <button style="margin-left: 15px" class="btn btn-primary col-2" >Loại</button>
                           </div>
                         </div>
 
@@ -126,8 +124,18 @@
 
 
                     </div>
+
                     </table>
+
                   </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col-2"></div>
+                  <h5 style="margin-top: 5px" class="col-4 ">Chia sẻ tin tuyển dụng này với: </h5>
+                  <input [(ngModel)]="user2"  style="margin-left: -35px;width: 350px"  class=" form-control" type="text" placeholder="Email">
+                  <button style="margin-left: 10px;background:  #ff712a !important;color: white" class="col-1 btn btn-outline-success waves-effect">Chia sẻ</button>
                 </div>
               </div>
 
@@ -135,6 +143,8 @@
             </div>
           </div>
         </div>
+
+
   </div>
 </div>
   </div>
