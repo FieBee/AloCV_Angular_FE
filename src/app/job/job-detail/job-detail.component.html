@@ -135,7 +135,7 @@
                   <div class="col-2"></div>
                   <h5 style="margin-top: 5px" class="col-4 ">Chia sẻ tin tuyển dụng này với: </h5>
                   <input [(ngModel)]="user2"  style="margin-left: -35px;width: 350px"  class=" form-control" type="text" placeholder="Email">
-                  <button style="margin-left: 10px;background:  #ff712a !important;color: white" class="col-1 btn btn-outline-success waves-effect">Chia sẻ</button>
+                  <button (click)="shareJob()" style="margin-left: 10px;background:  #ff712a !important;color: white" class="col-1 btn btn-outline-success waves-effect">Chia sẻ</button>
                 </div>
               </div>
 

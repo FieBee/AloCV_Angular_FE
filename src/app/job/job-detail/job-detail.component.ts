@@ -36,6 +36,7 @@ export class JobDetailComponent implements OnInit {
 
 
 
+
   constructor(private jobService: JobService,
               private companyService: CompanyService,
               private router: Router,
@@ -48,7 +49,9 @@ export class JobDetailComponent implements OnInit {
       // @ts-ignore
       this.id = +paramMap.get('id');
       this.getJobById(this.id);
-      console.log(this.id)
+      console.log(paramMap.keys)
+      this.link = "http://localhost:4200/job/job-detail/"+paramMap.get('id');
+      console.log(this.link)
       this.getJobByJobFieldId(this.id);
     })
   }
@@ -132,9 +135,9 @@ export class JobDetailComponent implements OnInit {
   }
 
   shareJob(){
-    // this.getUser_userName()
-    // this.mailService.shareJob().subscribe(user1 =>{
-  // })
+    this.mailService.shareJob(this.getUser_userName(),this.user2,this.link).subscribe(data =>{
+      console.log("Đã chia sẻ việc làm")
+  })
 
   }
 }
