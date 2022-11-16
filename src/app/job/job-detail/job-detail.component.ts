@@ -9,6 +9,7 @@ import {CvService} from "../../service/cv/cv.service";
 import {Cv} from "../../model/cv";
 import {UserService} from "../../service/user/user.service";
 import Swal from "sweetalert2";
+import {MailService} from "../../service/mail/mail.service";
 
 @Component({
   selector: 'app-job-detail',
@@ -18,7 +19,6 @@ import Swal from "sweetalert2";
 export class JobDetailComponent implements OnInit {
   sub:Subscription;
   job: Job ={
-    id: 1,
   };
 
   companyList: Company |undefined;
@@ -26,9 +26,9 @@ export class JobDetailComponent implements OnInit {
   dataRole = localStorage.getItem("role")
   cvList:any;
   cvId: any;
-
+  jobList: Job[] | undefined | any;
   cvs: Cv[] | undefined;
-
+  companyImg: any;
 
 
 
@@ -37,13 +37,15 @@ export class JobDetailComponent implements OnInit {
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private cvService: CvService,
-              private userService: UserService
+              private userService: UserService,
+              private mailService: MailService
   ) {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       // @ts-ignore
       this.id = +paramMap.get('id');
       this.getJobById(this.id);
       console.log(this.id)
+      this.getJobByJobFieldId(this.id);
     })
   }
 
@@ -67,6 +69,7 @@ export class JobDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCv();
     this.getCvByJobId();
+
   }
   getJobById(j: number) {
     this.jobService.findById(j).subscribe((result: any) => {
@@ -96,4 +99,30 @@ export class JobDetailComponent implements OnInit {
     })
   }
 
+  getJobByJobFieldId(j: number) {
+    this.jobService.findById(j).subscribe((result: any) => {
+      this.jobService.findJobByJobFieldId(this.job.jobField.id).subscribe((data: any) => {
+        this.jobList = data
+        console.log(data)
+      }, error => console.log("fail"))
+      console.log(this.job)
+      this.job = result;
+      console.log(result);
+    }, (error: any) => {
+      console.log(error);
+    })
+
+  }
+
+
+  confirmCv(id:any){
+    this.userService.findById(id).subscribe(dataUser => {
+      this.jobService.findById(this.id).subscribe(dataJob => {
+        this.mailService.sendMailApply(dataUser,dataJob.id).subscribe(result => {
+          console.log("Gửi mail tới người ứng tuyển thành công!")
+        }
+        )
+      })
+    })
+  }
 }

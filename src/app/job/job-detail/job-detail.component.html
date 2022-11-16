@@ -92,8 +92,15 @@
                       <div class="mb-5 wow fadeIn" *ngIf="dataRole == 'ROLE_COMPANY'">
                         <div class="text-start mb-1-6 wow fadeIn">
                           <p>CV đã nộp vào công việc này: </p>
-                          <p *ngFor="let c of cvs"><a href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a></p>
+                          <div *ngFor="let c of cvs">
+                            <p >
+                              <a href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
+                            </p>
+                            <button (click)="confirmCv(c.user.id)">Hẹn phỏng vấn</button>
+                            <button>Hủy bỏ</button>
+                          </div>
                         </div>
+
                       </div>
 
                       <div class="col-8" *ngIf="!dataRole">
@@ -131,7 +138,63 @@
   </div>
 </div>
   </div>
+
+  <div style="" class="row">
+    <div class="row" >
+      <div class="col-10">
+        <p style="font-size: 30px;margin-left: 190px; margin-top: 100px; float: initial; color: #eb5d1e ">Tin tuyển dụng cùng nghành nghề</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container h-100" style="margin-top: -10px">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+                      integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous"/>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+                <div class="container " style="text-align: center; margin-top: -25px; justify-content: left">
+                  <div  *ngFor="let j of jobList; index as i" style=" background:rgb(255,255,255); margin-top: 15px;float: left ;margin-right: 15px;height :195px;width: 260px;border-radius: 25px;border: 1px #ebe6ec" class="col-3 card border-0 shadow" >
+                    <div  style="float: left" class="row">
+                      <div  class="icon row">
+                        <div class="col-3">
+                          <img [src]="j.company.image" style="float: left;border-radius: 50%;height: 50px;width: auto; margin-top: 15px;margin-left: 5px"  >
+                        </div>
+                        <div class="col-8  mt-3">
+                          <p style="float: left; padding-left: 0px"  class="title">
+                            <a style="font-size: 13px" href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></p>            </div>
+
+                      </div>
+                      <div class="row">
+                        <p class="description">{{j.company.name}}</p>
+                        <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">
+                      </div>
+                      <div class="row">
+                        <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>
+                        <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </section>
+
+
+
+
+
+
+
 
 
 

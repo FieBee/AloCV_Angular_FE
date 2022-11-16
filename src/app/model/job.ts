@@ -14,4 +14,5 @@ export interface Job {
   gender? : string;
   status?: boolean;
   user?:any
+  highlight?: string
 }
