@@ -1,5 +1,5 @@
 export interface Company {
-  id? : number;
+  id? : any;
   name? : string;
   account? : any;
   image? : string;
@@ -10,4 +10,5 @@ export interface Company {
   linkFb? : string;
   status? : boolean;
   description? :string;
+  suggest?:boolean;
 }

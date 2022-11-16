@@ -1,25 +1,25 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AccountService} from "../../service/account/account.service";
 import {Account} from "../../model/account";
 
 @Component({
-  selector: 'app-user-account-management',
-  templateUrl: './user-account-management.component.html',
-  styleUrls: ['./user-account-management.component.css']
+  selector: 'app-company-account-management',
+  templateUrl: './company-account-management.component.html',
+  styleUrls: ['./company-account-management.component.css']
 })
-export class UserAccountManagementComponent implements OnInit {
+export class CompanyAccountManagementComponent implements OnInit {
 
   constructor(private accountService: AccountService) {
   }
 
-  userList: Account[] = [];
+  companyList: Account[] = [];
   ngOnInit(): void {
     this.getAllAccountUser();
   }
 
   getAllAccountUser() {
-    this.accountService.getAllAccountUser().subscribe(data => {
-      this.userList = data;
+    this.accountService.getAllAccountCompany().subscribe(data => {
+      this.companyList = data;
       console.log(data);
     },error => console.error("Lỗi không lấy được list account user!!"))
   }
@@ -27,18 +27,16 @@ export class UserAccountManagementComponent implements OnInit {
   block(id: number|undefined) {
     this.accountService.delete(id).subscribe(data =>{
       console.log("Khóa tài khoản thành công!!")
-      this.getAllAccountUser()
+      this.getAllAccountUser();
     })
-
   }
 
 
   unblock(id: number|undefined){
     this.accountService.unblock(id).subscribe(data =>{
       console.log("Mở khóa tài khoản thành công!!")
-      this.getAllAccountUser()
+      this.getAllAccountUser();
     })
-
   }
 
   setActiceTrue(id: number|undefined){
@@ -48,4 +46,5 @@ export class UserAccountManagementComponent implements OnInit {
     })
 
   }
+
 }

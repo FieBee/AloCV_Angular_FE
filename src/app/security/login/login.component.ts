@@ -38,7 +38,15 @@ export class LoginComponent implements OnInit {
     resp.subscribe(data => {
       if (!data){
         this.message = "Sai tên tài khoản hoặc mật khẩu!"
-        // this.showMessage.alertLoginFail();
+      }else if (JSON.parse(data).status == false){
+        console.log("status fail")
+        this.showMessage.alertLoginFail();
+        return;
+      }else if (JSON.parse(data).active == false){
+        console.log(JSON.parse(data).active)
+        console.log("active fail")
+        this.showMessage.alertLoginFailActive();
+        return;
       }else {
         localStorage.setItem("data",JSON.parse(data));
         localStorage.setItem("token",JSON.parse(data).token);

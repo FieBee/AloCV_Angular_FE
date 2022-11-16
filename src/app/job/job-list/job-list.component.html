@@ -1,3 +1,6 @@
+<script>
+
+</script>
 <section style="margin-top: -50px" id="hero" class="d-flex align-items-center">
 
   <div style="height: 160px" class="container">
@@ -63,6 +66,8 @@
   </div>
 </div>
 
+
+
 <div style="" class="row">
   <div class="row">
     <div class="col-5">
@@ -82,16 +87,28 @@
 <div style="margin-top: -100px;text-align: center; justify-content: left;" class="row">
   <div  style="float: left; background:rgb(254,248,245)" class="col-10">
     <a href="">
-      <div  *ngFor="let j of jobList; index as i" style=" background:rgb(246,236,236); margin-top: 15px;float: left ;margin-right: 15px;height :178px;width: 250px;border-radius: 5px;border: 1px solid #ebe6ec" class="col-3" >
 
-        <div  style="float: left" class="row">
+      <div  *ngFor="let j of jobList; index as i" style=" background:rgb(246,236,236); margin-top: 15px;float: left ;margin-right: 15px;height :178px;width: 250px;border-radius: 5px;border: 1px solid #ebe6ec" class="col-3  navbar-detail">
+
+        <div  style="float: left" class="row ">
           <div  class="icon row">
             <div class="col-3">
               <img [src]="j.company.image" style="float: left;border-radius: 50%;height: 50px;width: auto; margin-top: 15px;margin-left: 5px"  >
             </div>
             <div class="col-8  mt-3">
-              <p style="float: left; padding-left: 0px"  class="title">
-                <a style="font-size: 13px" href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></p>            </div>
+
+              <div>
+
+              </div>
+              <div style="float: left; padding-left: 0px"  class="title demo">
+              <a class="detail-div" style="color: black; text-decoration: none; font-size: 16px; font-weight: 300; font-family: 'Times New Roman'; text-align: left; padding-top: 10px; flex-direction: column"><span>Công việc: {{j.name}}</span><br>
+                                    <span>Công ty: {{j.company.name}}</span><br>
+                                    <span>Mô tả công việc: {{j.description}}</span><br>
+                                    <span>Số lượng: {{j.recruitNumber}}</span>
+
+              </a>
+                <a style="font-size: 13px" href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></div>
+            </div>
 
           </div>
           <div class="row">
@@ -104,6 +121,7 @@
           </div>
         </div>
       </div>
+
     </a>
 
   </div>
@@ -130,8 +148,10 @@
             <a  (click)="getJobByJobFieldId(lo.id)">{{lo.name}}</a>
           </p>
         </div>
-
       </li>
     </ul>
   </div>
 </div>
+
+
+

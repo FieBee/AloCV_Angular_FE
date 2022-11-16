@@ -22,6 +22,11 @@ import {CompanyManagementComponent} from "./company/company-management/company-m
 import {JobDetailComponent} from "./job/job-detail/job-detail.component";
 import {CompanyDetailComponent} from "./company/company-detail/company-detail.component";
 import {UserDetailComponent} from "./user/user-detail/user-detail.component";
+import {UserAccountManagementComponent} from "./user/user-account-management/user-account-management.component";
+import {
+  CompanyAccountManagementComponent
+} from "./company/company-account-management/company-account-management.component";
+import {AccountManagementComponent} from "./account/account-management/account-management.component";
 import {CvEditComponent} from "./cv/cv-edit/cv-edit.component";
 import {CvDeleteComponent} from "./cv/cv-delete/cv-delete.component";
 import {AdminJobManagementComponent} from "./admin/admin-job-management/admin-job-management.component";
@@ -59,6 +64,13 @@ export const ROUTES: Routes = [
       roles:["ROLE_ADMIN"]
     }
   },
+  {
+    path: 'admin/management/user', component: UserAccountManagementComponent
+  },
+  {
+    path: 'admin/management/company', component: CompanyAccountManagementComponent
+  },
+
   {
     path: 'company', component: HomeComponent,
     canActivate: [AuthGuard],

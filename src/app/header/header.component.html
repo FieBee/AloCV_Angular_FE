@@ -21,8 +21,17 @@
 <!--        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">-->
 <!--          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>-->
 <!--        </li>-->
-        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
-          <a routerLink="/list-account" class="nav-link">Quản lý tài khoản</a>
+        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle">Quản lý tài khoản</a>
+          <ul class="dropdown">
+            <li class="nav-item">
+              <a routerLink="admin/management/company" class="nav-link">Quản lí tài khoản doanh nghiệp</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="admin/management/user" class="nav-link">Quản lí tài khoản người dùng</a>
+            </li>
+
+          </ul>
         </li>
         <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
           <a routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>
