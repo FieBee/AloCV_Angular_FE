@@ -17,8 +17,10 @@ import Swal from "sweetalert2";
 })
 export class JobDetailComponent implements OnInit {
   sub:Subscription;
-  job: Job ={
-    id: 1,
+  job: Job={
+    jobField:{
+      id:0,
+    }
   };
 
   companyList: Company |undefined;
@@ -26,9 +28,9 @@ export class JobDetailComponent implements OnInit {
   dataRole = localStorage.getItem("role")
   cvList:any;
   cvId: any;
-
+  jobList: Job[] | undefined | any;
   cvs: Cv[] | undefined;
-
+  companyImg: any;
 
 
 
@@ -44,6 +46,7 @@ export class JobDetailComponent implements OnInit {
       this.id = +paramMap.get('id');
       this.getJobById(this.id);
       console.log(this.id)
+      this.getJobByJobFieldId(this.id);
     })
   }
 
@@ -67,6 +70,7 @@ export class JobDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCv();
     this.getCvByJobId();
+
   }
   getJobById(j: number) {
     this.jobService.findById(j).subscribe((result: any) => {
@@ -94,6 +98,21 @@ export class JobDetailComponent implements OnInit {
       this.cvs = data;
       console.log(data)
     })
+  }
+
+  getJobByJobFieldId(j: number) {
+    this.jobService.findById(j).subscribe((result: any) => {
+      this.jobService.findJobByJobFieldId(this.job.jobField.id).subscribe((data: any) => {
+        this.jobList = data
+        console.log(data)
+      }, error => console.log("fail"))
+      console.log(this.job)
+      this.job = result;
+      console.log(result);
+    }, (error: any) => {
+      console.log(error);
+    })
+
   }
 
 }
