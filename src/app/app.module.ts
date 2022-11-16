@@ -53,6 +53,7 @@ import {CompanySuggestComponent} from "./company/company-suggest-management/comp
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,7 @@ import {CompanySuggestComponent} from "./company/company-suggest-management/comp
     AdminJobManagementComponent,
     JobSuggestComponent,
     CompanySuggestComponent,
-    CompanySuggestListComponent
+    CompanySuggestListComponent,
 
 
 
