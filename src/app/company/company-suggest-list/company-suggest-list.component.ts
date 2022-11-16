@@ -15,10 +15,10 @@ export class CompanySuggestListComponent implements OnInit {
     this.getCompanySuggest();
   }
 
-  conpanyList : Company[] = []
+  companyList : Company[] = []
   getCompanySuggest(){
     this.companyService.getCompanySuggest().subscribe(data => {
-      this.conpanyList = data;
+      this.companyList = data;
     })
   }
 }

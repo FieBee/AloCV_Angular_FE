@@ -15,6 +15,7 @@ export class JobSuggestComponent implements OnInit {
   jobList: Job[] | undefined | any;
   userId : number =1;
   dataRole = localStorage.getItem("role")
+  companyImg: any;
 
   constructor(private jobService: JobService,
               private userService: UserService) {
@@ -30,6 +31,5 @@ export class JobSuggestComponent implements OnInit {
       console.log(data)
     }, error => console.log("fail"))
   }
-
 
 }

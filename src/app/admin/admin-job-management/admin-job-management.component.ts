@@ -110,7 +110,8 @@ export class AdminJobManagementComponent implements OnInit {
           console.log(data.user)
           console.log(userData)
           this.jobService.editJob(data.id,data).subscribe(data => {
-            Swal.fire("Đã đưa lên danh mục đề xuất!")
+            // Swal.fire("Đã đưa lên danh mục đề xuất!")
+            this.getAllJob()
           },error => console.log("Thử lại"))
         })
       })
@@ -118,6 +119,14 @@ export class AdminJobManagementComponent implements OnInit {
     //   alert("Chọn lại")
     // }
   }
+  reverseSuggest(id: number|undefined){
+      this.jobService.reverseSuggest(id).subscribe(data =>{
+        // Swal.fire("Đã xóa khỏi danh mục đề xuất")
+        this.getAllJob()
+      })
+    }
+
+
 
   getJobById(j: number) {
     this.jobService.findById(j).subscribe((result: any) => {

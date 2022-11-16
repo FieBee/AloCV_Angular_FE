@@ -56,6 +56,7 @@ export class JobListComponent implements OnInit {
   jobList: Job[] | undefined | any;
   companyList: Company[] | undefined
   companyImg: any;
+  dataRole = localStorage.getItem("role")
 
 
   constructor(private jobService: JobService,
@@ -69,7 +70,6 @@ export class JobListComponent implements OnInit {
     this.getAllCompany();
     this.getAllLocation();
     this.getAllJob();
-
   }
 
   getSearch(pageable: any) {
@@ -142,5 +142,12 @@ export class JobListComponent implements OnInit {
     this.jobService.getTopJobByDate().subscribe(data => {
       this.jobList = data;
     }, error => alert("Lỗi!! Không thể lấy được danh sách công việc theo Date!!"))
+  }
+
+  getJobByUserId() {
+    this.jobService.findJobByUserIdAndStatusIsTrue(1).subscribe((data: any) => {
+      this.jobList = data
+      console.log(data)
+    }, error => console.log("fail"))
   }
 }

@@ -71,4 +71,7 @@ export class JobService {
   findJobByUserIdAndStatusIsTrue(id:any):Observable<Job[]>{
     return this.httpClient.get<Job[]>(API_URL + `/job/findByUserId/${id}`)
   }
+  reverseSuggest(id: any): Observable<Job>{
+    return this.httpClient.delete<Job>(API_URL + `/job/reverse/${id}`);
+  }
 }
