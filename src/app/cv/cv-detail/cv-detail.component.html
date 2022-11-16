@@ -10,30 +10,33 @@
               <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
               <div class="container">
                 <div class="row justify-content-center">
-                  <div class="col-md-7 col-lg-5 mb-5 mb-lg-0 wow fadeIn" *ngFor="let cv of cvs">
+                  <div class="col-md-7 col-lg-6 mb-5 mb-lg-0 wow fadeIn" *ngFor="let cv of cvs">
                     <div class="card border-0 shadow">
                       <img [src]="cv.image" alt="khong co anh">
                       <div class="card-body p-1-9 p-xl-5">
                         <div class="mb-4">
-                          <h3 class="h4 mb-0">{{cv.description}}</h3><br>
-                          <span class="text-primary">By nhóm 1 vjp pro number 1</span>
+                          <a href=""><h3 class="h4 mb-0">{{cv.description}}</h3></a><br>
+                          <span  [routerLink]="['/company/user-detail',users.id]" href="">{{users.name}}</span>
                         </div>
                         <ul class="list-unstyled mb-4">
-<!--                          <li class="mb-3"><a href="#!"><i-->
-<!--                            class="far fa-envelope display-25 me-3 text-secondary"></i>{{job.company.account.userName}}-->
-<!--                          </a></li>-->
-                          <li class="mb-3"><a href="#!"><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>+012
-                            (345)
-                            6789</a></li>
+                          <li class="mb-3"><a><i
+                            class="far fa-envelope display-25 me-3 text-secondary">
+                          </i>
+                            {{users.account.userName}}
+                          </a></li>
+                          <li class="mb-3"><a href=""><i class="fas fa-mobile-alt display-25 me-3 text-secondary">
+                          </i>
+                            {{users.phoneNumber}}
+                          </a></li>
 <!--                          <li><a href="#!"><i-->
 <!--                            class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>{{job.company.address}}-->
 <!--                          </a></li>-->
                         </ul>
                         <ul class="social-icon-style2 ps-0">
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
+                          <li><a href="http://facebook.com" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
+                          <li><a href="http://twitter.com" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
+                          <li><a href="http://youtube.com" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
+                          <li><a href="http://linkedin.com" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                       </div>
                     </div>
