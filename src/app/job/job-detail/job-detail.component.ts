@@ -10,6 +10,8 @@ import {Cv} from "../../model/cv";
 import {UserService} from "../../service/user/user.service";
 import Swal from "sweetalert2";
 import {MailService} from "../../service/mail/mail.service";
+import firebase from "firebase/compat";
+import User = firebase.User;
 
 @Component({
   selector: 'app-job-detail',
@@ -29,6 +31,8 @@ export class JobDetailComponent implements OnInit {
   jobList: Job[] | undefined | any;
   cvs: Cv[] | undefined;
   companyImg: any;
+  link: any;
+  user2: any;
 
 
 
@@ -63,14 +67,13 @@ export class JobDetailComponent implements OnInit {
     }else {
       alert("Hãy chọn CV!!")
     }
-
   }
 
   ngOnInit(): void {
     this.getAllCv();
     this.getCvByJobId();
-
   }
+
   getJobById(j: number) {
     this.jobService.findById(j).subscribe((result: any) => {
       console.log(this.job)
@@ -90,6 +93,14 @@ export class JobDetailComponent implements OnInit {
 
   getUserId(){
     return localStorage.getItem("dataId");
+  }
+
+  getUser_userName(){
+    this.userService.findById(this.getUserId()).subscribe(data => {
+      console.log(data.account.userName)
+      return data.account.userName;
+
+    })
   }
 
   getCvByJobId(){
@@ -118,5 +129,12 @@ export class JobDetailComponent implements OnInit {
         )
       })
     })
+  }
+
+  shareJob(){
+    // this.getUser_userName()
+    // this.mailService.shareJob().subscribe(user1 =>{
+  // })
+
   }
 }

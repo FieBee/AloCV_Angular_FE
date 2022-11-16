@@ -1,89 +1,113 @@
 
-<section class="vh-200" style="background-color: #eee;">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <p style="color: rgb(69,134,248)" class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sửa thông tin công ty</p>
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <br>
+    <br>
 
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img style="border-radius:0; padding-left: 50px" src="https://haycafe.vn/wp-content/uploads/2022/03/anh-lam-viec-nhom-1.jpg"
-                     class="img-fluid" alt="Sample image">
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-
-                <form #editCompanyForm="ngForm" (ngSubmit)="updateAccount()">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Tên công ty</label>
-                      <input id="name" name="name" type="text" class="form-control" [(ngModel)]="company.name"/>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Email</label>
-                      <input id="userName" name="userName" type="text" class="form-control" [(ngModel)]="company.account.userName"/>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Password</label>
-                      <input id="password" name="password" type="text" class="form-control" [(ngModel)]="company.account.password"/>
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-image fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Ảnh đại diện công ty</label>
-                      <input name="image" type="file" #uploadFile (change)="uploadFileImg()"   id="image" class="col-4 form-control" [src]="company.image">
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Địa chỉ công ty</label>
-                      <input id="address" name="address" type="text" class="form-control" [(ngModel)]="company.address"/>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Số lượng nhân viên</label>
-                      <input id="staffNumber" name="staffNumber" type="number" class="form-control" [(ngModel)]="company.staffNumber"/>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Chi nhánh công ty</label>
-                      <input id="branch" name="branch" type="text" class="form-control" [(ngModel)]="company.branch"/>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" [disabled]="!editCompanyForm.valid" class="btn btn-primary btn-lg"
-                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Cập nhật</button>
-                  </div>
-                </form>
-              </div>
-
-            </div>
-          </div>
+    <form #editCompanyForm="ngForm" (ngSubmit)="updateAccount(editCompanyForm)">
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label"> Tên công ty </label>
+          <input
+            type="text"
+            placeholder="Tên công ty"
+            class="formbold-form-input"
+            name="name"
+            [(ngModel)]="company.name"
+          />
         </div>
       </div>
-    </div>
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label"> Email </label>
+          <input
+            type="text"
+            placeholder="Email Công ty"
+            class="formbold-form-input"
+            name="userName"
+            [(ngModel)]="company.account.userName"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label"> Password </label>
+          <input
+            type="text"
+            placeholder="Mật mã truy cập"
+            class="formbold-form-input"
+            name="password"
+            [(ngModel)]="company.account.password"
+          />
+        </div>
+      </div>
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label"> Ảnh đại diện công ty </label>
+          <input
+            #uploadFile (change)="uploadFileImg()"
+            type="file"
+            placeholder="Ảnh đại diện công ty"
+            class="formbold-form-input"
+            name="image"
+            [src]="company.image"
+          />
+        </div>
+      </div>
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label"> Địa chỉ công ty </label>
+          <input
+            type="text"
+            placeholder="Địa chỉ công ty"
+            class="formbold-form-input"
+            name="address"
+            [(ngModel)]="company.address"
+          />
+        </div>
+      </div>
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label">Số lượng nhân viên </label>
+          <input
+            type="number"
+            placeholder="Số lượng nhân viên"
+            class="formbold-form-input"
+            name="staffNumber"
+            [(ngModel)]="company.staffNumber"
+          />
+        </div>
+      </div>
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label">Chi nhánh công ty</label>
+          <input
+            type="text"
+            placeholder="Chi nhánh công ty"
+            class="formbold-form-input"
+            name="branch"
+            [(ngModel)]="company.branch"
+          />
+        </div>
+      </div>
+      <div class="formbold-mb-3 form-group">
+        <label class="formbold-form-label">
+          Mô tả
+        </label>
+        <textarea
+          rows="6"
+          class="formbold-form-input"
+          name="description"
+          [(ngModel)]="company.description"
+        ></textarea>
+      </div>
+      <button type="submit" class="formbold-btn" [disabled]="!editCompanyForm.valid">Cập nhật</button>
+    </form>
   </div>
-</section>
+</div>
+
+
 
 
 

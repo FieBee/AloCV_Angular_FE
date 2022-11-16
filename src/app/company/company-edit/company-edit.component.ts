@@ -83,14 +83,14 @@ export class CompanyEditComponent implements OnInit {
    updateCompany(){
     this.companyService.editCompany(this.companyId, this.company).subscribe(()=>{
       this.getCompanyImg();
-      alert('Success');
+      alert('Cập nhật thành công');
       console.log(this.company)
       this.router.navigate(['']).then(() => {
         location.reload();
       });
     });
   }
-  updateAccount() {
+  updateAccount(editCompanyForm: NgForm) {
     this.company.image = this.arrayPicture;
     this.accountService.editAccount(this.company.account.id, this.company.account).subscribe(data => {
       console.log(this.company.image)
