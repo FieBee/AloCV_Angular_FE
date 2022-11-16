@@ -71,7 +71,7 @@
 <div style="" class="row">
   <div class="row">
     <div class="col-5">
-      <p style="margin-top: -150px;font-size: 30px; float: left">Tin tuyển dụng, việc làm tốt nhất</p>
+      <p style="margin-top: -150px;font-size: 30px; float: left" > Tin tuyển dụng, việc làm tốt nhất</p>
     </div>
     <div style="margin-top:-145px " class="col-1">
       <p><a style="background: rgb(253,236,228); color: black; border: #ded5d5 1px solid" (click)="getAllJob()" class="btn-primary btn">Tất cả</a></p>
@@ -101,9 +101,11 @@
 
               </div>
               <div style="float: left; padding-left: 0px"  class="title demo">
-              <a class="detail-div" style="color: black; text-decoration: none; font-size: 16px; font-weight: 300; font-family: 'Times New Roman'; text-align: left; padding-top: 10px; flex-direction: column"><span>Công việc: {{j.name}}</span><br>
+              <a class="detail-div fa-light fa-fire" style="color: black; text-decoration: none; font-size: 13px; font-weight: 300; font-family: 'Times New Roman'; border-radius: 20px; text-align: left; padding-top: 10px; flex-direction: column">
+                                    <span class="bi bi-arrow-through-heart">{{j.highlight}}</span><br>
+                                    <span>Công việc: {{j.name}}</span><br>
                                     <span>Công ty: {{j.company.name}}</span><br>
-                                    <span>Mô tả công việc: {{j.description}}</span><br>
+<!--                                    <span>Mô tả công việc: {{j.description}}</span><br>-->
                                     <span>Số lượng: {{j.recruitNumber}}</span>
 
               </a>
