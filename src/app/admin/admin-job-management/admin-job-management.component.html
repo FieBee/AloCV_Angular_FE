@@ -1,15 +1,18 @@
 <br>
-<h1 style="text-align: center">List</h1>
 <br>
-<table class="table table-borderless container" >
+<br>
+<br>
+<h1 style="text-align: center">Danh sách công việc</h1>
+<br>
+<table class="table table-striped container text-center" >
   <thead>
-  <tr>
+  <tr style="font-weight: bold">
     <td>#</td>
     <td>Tiêu đề</td>
     <td>Nghành nghề</td>
     <td>Vị trí</td>
     <td>Trạng thái</td>
-    <td colspan="2" style="text-align: center">Action</td>
+    <td colspan="4" style="text-align: center">Hành động</td>
   </tr>
   </thead>
   <tbody>
@@ -20,8 +23,12 @@
     <td>{{j.location.name}}</td>
     <td style="color: #1438ec" *ngIf="j.status">Hoạt động</td>
     <td style="color: #f50f0f" *ngIf="!j.status">Đã khóa</td>
-    <td style="text-align: center" *ngIf="j.status"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" (click)="lockJob(this.j.id)" style="width: 70%">Khóa</button></td>
-    <td style="text-align: center" *ngIf="!j.status"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" (click)="unlockJob(this.j.id)" style="width: 70%">Mở khóa</button></td>
+    <td style="text-align: center" *ngIf="j.status"><button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" (click)="lockJob(j.id)" style="">Khóa</button></td>
+    <td style="text-align: center" *ngIf="!j.status"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" (click)="unlockJob(j.id)" style="">Mở khóa</button></td>
+    <td style="text-align: center" >
+      <button *ngIf="!j.user" type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark" (click)="suggestJob(j.id)" style="">Đề xuất</button>
+      <button  *ngIf="j.user" type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" (click)="reverseSuggest(j.id)" style="position: absolute;right: 100px">Bỏ đề xuất</button>
+    </td>
   </tr>
   </tbody>
 </table>

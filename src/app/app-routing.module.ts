@@ -30,6 +30,7 @@ import {AccountManagementComponent} from "./account/account-management/account-m
 import {CvEditComponent} from "./cv/cv-edit/cv-edit.component";
 import {CvDeleteComponent} from "./cv/cv-delete/cv-delete.component";
 import {AdminJobManagementComponent} from "./admin/admin-job-management/admin-job-management.component";
+import {JobSuggestComponent} from "./admin/job-suggest/job-suggest.component";
 
 
 export const ROUTES: Routes = [
@@ -151,7 +152,9 @@ export const ROUTES: Routes = [
   },
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
-
+  {
+    path: 'admin/job-suggest/', component: JobSuggestComponent
+  },
 ];
 
 

@@ -1,0 +1,74 @@
+<div style="" class="row">
+  <div class="row" >
+    <div class="col-5">
+      <p style="margin-top: 100px;font-size: 30px; float: left">Được đề xuất cho bạn</p>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 100px;text-align: center; justify-content: left;" class="row" >
+  <div  style="float: left; background:rgb(254,248,245)" class="col-10">
+    <a href="">
+
+      <div  *ngFor="let j of jobList; index as i" style=" background:rgb(246,236,236); margin-top: 15px;float: left ;margin-right: 15px;height :178px;width: 250px;border-radius: 5px;border: 1px solid #ebe6ec" class="col-3  navbar-detail">
+
+        <div  style="float: left" class="row ">
+          <div  class="icon row">
+            <div class="col-3">
+              <img [src]="j.company.image" style="float: left;border-radius: 50%;height: 50px;width: auto; margin-top: 15px;margin-left: 5px"  >
+            </div>
+            <div class="col-8  mt-3">
+
+              <div>
+
+              </div>
+              <div style="float: left; padding-left: 0px"  class="title demo">
+                <a class="detail-div" style="color: black; text-decoration: none; font-size: 18px; font-weight: 300; font-family: 'Times New Roman'; text-align: left; padding-top: 10px"><span>Công việc: {{j.name}}</span><br>
+                  <span>Công ty: {{j.company.name}}</span><br>
+                  <span>Mô tả công việc: {{j.description}}</span><br>
+                  <span>Số lượng: {{j.recruitNumber}}</span>
+
+                </a>
+                <a style="font-size: 13px" href="" [routerLink]="['/job/job-detail',j.id]" >{{j.name}}</a></div>
+            </div>
+
+          </div>
+          <div class="row">
+            <p class="description">{{j.company.name}}</p>
+            <input [(ngModel)]="companyImg" type="hidden" [value]="j.company.image" class="description">
+          </div>
+          <div class="row">
+            <div class="col-6"><p style="font-size: 12px">{{j.location.name}}</p></div>
+            <div style="font-size: 12px" class="col-6"><p>{{j.position}}</p></div>
+          </div>
+        </div>
+      </div>
+
+    </a>
+
+  </div>
+</div>
+
+<!--  <table border="1px solid black" class="table table-borderless container" >-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <td>ID</td>-->
+<!--      <td>Tên</td>-->
+<!--      <td>Địa điểm</td>-->
+<!--      <td>Description</td>-->
+<!--      <td>Action</td>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <div class="row" *ngIf="dataRole == 'ROLE_USER'">-->
+<!--    <tr *ngFor="let j of jobList; index as i">-->
+<!--      <td>{{i + 1}}</td>-->
+<!--      <td>{{j.name}}</td>-->
+<!--      <td>{{j.location.name}}</td>-->
+<!--      <td>{{j.description}}</td>-->
+<!--      <td style="text-align: center"><button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" [routerLink]="['job-detail',j.id]" style="width: 100%">Chi tiết</button></td>-->
+<!--    </tr>-->
+<!--    </div>-->
+<!--    </tbody>-->
+<!--  </table>-->
+

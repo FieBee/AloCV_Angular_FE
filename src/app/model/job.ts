@@ -13,5 +13,6 @@ export interface Job {
   recruitNumber? : number;
   gender? : string;
   status?: boolean;
+  user?:any
   highlight?: string
 }

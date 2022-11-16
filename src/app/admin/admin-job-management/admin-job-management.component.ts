@@ -6,6 +6,8 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {JobField} from "../../model/job-field";
 import {LocationService} from "../../service/location/location.service";
 import {JobFieldService} from "../../service/jobField/job-field.service";
+import Swal from "sweetalert2";
+import {UserService} from "../../service/user/user.service";
 
 @Component({
   selector: 'app-admin-job-management',
@@ -14,7 +16,7 @@ import {JobFieldService} from "../../service/jobField/job-field.service";
 })
 export class AdminJobManagementComponent implements OnInit {
 
-  sub:Subscription;
+  // sub:Subscription;
 
   jobList: Job[] | undefined | any;
 
@@ -25,18 +27,22 @@ export class AdminJobManagementComponent implements OnInit {
 
   locationList: any
 
-  id: number | undefined;
+  id: any = localStorage.getItem("dataId");
+  jobId: any;
+  jbs: Job[] | undefined;
+  dataRole = localStorage.getItem("role")
 
   constructor(private jobService: JobService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private locationService: LocationService,
-              private jobFieldService:JobFieldService) {
-    this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
-      // @ts-ignore
-      this.id = +paramMap.get('id');
-      this.getJob(this.id);
-    })
+              private jobFieldService:JobFieldService,
+              private userService: UserService) {
+    // this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
+    //   // @ts-ignore
+    //   this.id = +paramMap.get('id');
+    //   this.getJobById(this.id);
+    // })
   }
 
   getJob(id: number){
@@ -57,6 +63,7 @@ export class AdminJobManagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllJob()
+    this.getUserId()
   }
 
   lockJob(id: number | undefined) {
@@ -92,6 +99,54 @@ export class AdminJobManagementComponent implements OnInit {
     }, (error: any) => {
       console.log(error);
     })
+  }
+
+  suggestJob(id: number | undefined) {
+    // if(this.jobId) {
+      this.jobService.findById(id).subscribe(data => {
+        console.log(id)
+        this.userService.findById(this.id).subscribe(userData =>{
+          data.user=userData
+          console.log(data.user)
+          console.log(userData)
+          this.jobService.editJob(data.id,data).subscribe(data => {
+            // Swal.fire("Đã đưa lên danh mục đề xuất!")
+            this.getAllJob()
+          },error => console.log("Thử lại"))
+        })
+      })
+    // } else {
+    //   alert("Chọn lại")
+    // }
+  }
+  reverseSuggest(id: number|undefined){
+      this.jobService.reverseSuggest(id).subscribe(data =>{
+        // Swal.fire("Đã xóa khỏi danh mục đề xuất")
+        this.getAllJob()
+      })
+    }
+
+
+
+  getJobById(j: number) {
+    this.jobService.findById(j).subscribe((result: any) => {
+      console.log(this.job)
+      this.job = result;
+      console.log(result);
+    }, (error: any) => {
+      console.log(error);
+    })
+  }
+
+  // getJobByUserId(){
+  //   this.jobService.findJobByUserId(this.id).subscribe((data: any) =>{
+  //     this.jbs= data;
+  //     console.log(data)
+  //   })
+  // }
+
+  getUserId(){
+    return localStorage.getItem("dataId");
   }
 
 }

@@ -61,11 +61,17 @@ export class JobService {
       '&salaryRange_max=' + salaryRange_max  +'&jobField=' + jobField + '&location=' + location + '&company=' + company );
   }
 
-  findJobByUserId(id: string):Observable<Job[]> {
+  findJobByUserId(id: any):Observable<Job[]> {
     return this.httpClient.get<Job[]>(API_URL + `/job/searchByUserId/${id}`)
   }
 
   getTopJobByDate(): Observable<Company[]>{
     return this.httpClient.get<Company[]>(API_URL + `/topcompanyjob/job`);
+  }
+  findJobByUserIdAndStatusIsTrue(id:any):Observable<Job[]>{
+    return this.httpClient.get<Job[]>(API_URL + `/job/findByUserId/${id}`)
+  }
+  reverseSuggest(id: any): Observable<Job>{
+    return this.httpClient.delete<Job>(API_URL + `/job/reverse/${id}`);
   }
 }
