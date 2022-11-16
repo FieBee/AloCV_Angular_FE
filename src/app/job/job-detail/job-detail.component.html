@@ -92,8 +92,15 @@
                       <div class="mb-5 wow fadeIn" *ngIf="dataRole == 'ROLE_COMPANY'">
                         <div class="text-start mb-1-6 wow fadeIn">
                           <p>CV đã nộp vào công việc này: </p>
-                          <p *ngFor="let c of cvs"><a href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a></p>
+                          <div *ngFor="let c of cvs">
+                            <p >
+                              <a href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
+                            </p>
+                            <button (click)="confirmCv(c.user.id)">Hẹn phỏng vấn</button>
+                            <button>Hủy bỏ</button>
+                          </div>
                         </div>
+
                       </div>
 
                       <div class="col-8" *ngIf="!dataRole">

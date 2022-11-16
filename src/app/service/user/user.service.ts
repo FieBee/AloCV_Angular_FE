@@ -18,7 +18,7 @@ export class UserService {
     return this.httpClient.get<User[]>(API_URL + `/user`)
   }
 
-  findById(id: number):Observable<User>{
+  findById(id: any|undefined|null):Observable<User>{
     return this.httpClient.get<User>(API_URL + `/user/${id}`);
   }
 
