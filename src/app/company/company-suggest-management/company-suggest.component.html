@@ -1,0 +1,25 @@
+<div style="height: 50px"></div>
+<div class="col-10 m-auto">
+  <br>
+  <h1 style="text-align: center;margin-top: 30px">Danh sách doanh nghiệp đề xuất</h1>
+  <br>
+  <table class="table table-striped container text-center" >
+    <thead>
+    <tr>
+      <th style="width: 30px;">STT</th>
+      <th>Tên công ty</th>
+      <th colspan="2" style="text-align: center">Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let company of companyList; index as i" >
+      <td>{{i + 1}}</td>
+      <td><a  class="btn"  style="width: 60%;text-align: left">{{company.name}}</a></td>
+      <td  style="text-align: center;width: 30%;">
+        <button *ngIf="!company.suggest" type="button" (click)="setSuggestTrue(company.id)" class="btn btn-outline-success" >Đề xuất</button>
+        <button *ngIf="company.suggest" type="button" (click)="setSuggestFalse(company.id)" class="btn  btn-outline-danger">Bỏ đề xuất</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
