@@ -38,6 +38,8 @@ import { CompanyTopRecruitmentComponent } from './company/company-top-recruitmen
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserAccountManagementComponent } from './user/user-account-management/user-account-management.component';
+import { JobSuggestComponent } from './admin/job-suggest/job-suggest.component';
+
 import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
 import { CvDeleteComponent } from './cv/cv-delete/cv-delete.component';
 import { AdminJobManagementComponent } from './admin/admin-job-management/admin-job-management.component';
@@ -46,6 +48,7 @@ import { CompanyAccountManagementComponent } from './company/company-account-man
 import { AccountManagementComponent } from './account/account-management/account-management.component';
 import { CompanySuggestListComponent } from './company/company-suggest-list/company-suggest-list.component';
 import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
+
 
 
 
@@ -89,8 +92,10 @@ import {CompanySuggestComponent} from "./company/company-suggest-management/comp
     CvEditComponent,
     CvDeleteComponent,
     AdminJobManagementComponent,
+    JobSuggestComponent,
     CompanySuggestComponent,
-    CompanySuggestListComponent
+    CompanySuggestListComponent,
+
 
 
   ],

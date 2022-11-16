@@ -29,6 +29,7 @@ export class JobCreateComponent implements OnInit {
     description: new FormControl(),
     recruitNumber: new FormControl('', [Validators.required]),
     gender: new FormControl(),
+    highlight: new FormControl(),
   });
 
   locationList: Location[] | undefined;

@@ -33,12 +33,21 @@
 
           </ul>
         </li>
-        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item">
-          <a routerLink="/lockUnlockAdmin" class="nav-link">Quản lý tin tuyển dụng</a>
+
+        <li *ngIf="checkRole == 'ROLE_ADMIN'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle">Quản lý đề xuất </a>
+          <ul class="dropdown">
+            <li class="nav-item">
+          <a routerLink="admin/admin-job-management" class="nav-link">Quản lý tin tuyển dụng đề xuất</a>
         </li>
+            <li class="nav-item">
+              <a routerLink="admin/company-suggest" class="nav-link">Quản lí công ty đề xuất</a>
+            </li>
 <!--        <li *ngIf="checkRole == 'ROLE_USER'" class="nav-item">-->
 <!--          <a routerLink="/list-recruitmentnew-user/xxx" class="nav-link">Việc làm</a>-->
 <!--        </li>-->
+          </ul>
+        </li>
 
 
 
@@ -114,6 +123,7 @@
         <li><a *ngIf="dataName" (click)="this.logout()" class="getstarted scrollto" >Đăng xuất</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
+
     </nav><!-- .navbar -->
 
   </div>

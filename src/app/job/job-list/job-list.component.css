@@ -201,10 +201,10 @@ ul li input[type=checkbox]:checked ~ i:after {
   bottom: 180px;
   left: -20px;
   position: absolute;
-  width: 300px;
-  height: 230px;
+  width: 250px;
+  height: 180px;
   background-color: mistyrose;
-  /*opacity: 0.5;*/
+  opacity: 0.5;
   display: none;
   z-index: 2;
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
