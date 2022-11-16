@@ -1,53 +1,91 @@
 
 
-<section class="vh-200" style="background-color: #eee;">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <p style="color: rgb(69,134,248)" class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Tạo mới CV của bạn</p>
+<!--<section class="vh-200" style="background-color: #eee;">-->
+<!--  <div class="container h-100">-->
+<!--    <div class="row d-flex justify-content-center align-items-center h-100">-->
+<!--      <div class="col-lg-12 col-xl-11">-->
+<!--        <div class="card text-black" style="border-radius: 25px;">-->
+<!--          <div class="card-body p-md-5">-->
+<!--            <div class="row justify-content-center">-->
+<!--              <p style="color: rgb(69,134,248)" class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Tạo mới CV của bạn</p>-->
 
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+<!--              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">-->
 
-                <img style="border-radius: 12px" src="https://haycafe.vn/wp-content/uploads/2022/03/anh-lam-viec-nhom-1.jpg"
-                     class="img-fluid" alt="Sample image">
+<!--                <img style="border-radius: 12px" src="https://haycafe.vn/wp-content/uploads/2022/03/anh-lam-viec-nhom-1.jpg"-->
+<!--                     class="img-fluid" alt="Sample image">-->
 
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+<!--              </div>-->
+<!--              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">-->
 
 
-                <form [formGroup]="cvForm" (ngSubmit)="submit()" class="mx-1 mx-md-4" style="padding-top: 100px">
+<!--                <form [formGroup]="cvForm" (ngSubmit)="submit()" class="mx-1 mx-md-4" style="padding-top: 100px">-->
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">Mô tả thông tin</label>
-                      <input id="description" type="text" formControlName="description" class="form-control" />
-                    </div>
-                  </div>
+<!--                  <div class="d-flex flex-row align-items-center mb-4">-->
+<!--                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>-->
+<!--                    <div class="form-outline flex-fill mb-0">-->
+<!--                      <label class="form-label">Mô tả thông tin</label>-->
+<!--                      <input id="description" type="text" formControlName="description" class="form-control" />-->
+<!--                    </div>-->
+<!--                  </div>-->
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-image fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label">CV của bạn</label>
-                      <input formControlName="image" type="file" #uploadFile (change)="uploadFileImg()"   id="image" class="col-4 form-control" >
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button [disabled]="!cvForm.valid && !cvForm.valid" type="submit" class="btn btn-primary btn-lg"
-                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Tạo mới</button>
-                  </div>
-                </form>
+<!--                  <div class="d-flex flex-row align-items-center mb-4">-->
+<!--                    <i class="fas fa-image fa-lg me-3 fa-fw"></i>-->
+<!--                    <div class="form-outline flex-fill mb-0">-->
+<!--                      <label class="form-label">CV của bạn</label>-->
+<!--                      <input formControlName="image" type="file" #uploadFile (change)="uploadFileImg()"   id="image" class="col-4 form-control" >-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">-->
+<!--                    <button [disabled]="!cvForm.valid && !cvForm.valid" type="submit" class="btn btn-primary btn-lg"-->
+<!--                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Tạo mới</button>-->
+<!--                  </div>-->
+<!--                </form>-->
 
-              </div>
+<!--              </div>-->
 
-            </div>
-          </div>
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <!--    <img alt="" style="height: 100px; width: auto" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/L%C3%A1_c%E1%BB%9D_c%E1%BB%A7a_%C4%90%E1%BA%A3ng_c%E1%BB%99ng_s%E1%BA%A3n_Vi%E1%BB%87t_Nam.png?20220329090833">-->
+
+    <!--    <h1 style="text-align: center; color: #e77575" >Thêm mới công việc</h1>-->
+    <br>
+    <br>
+
+    <form [formGroup]="cvForm" (ngSubmit)="submit()">
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label"> Mô tả thông tin </label>
+          <input
+            placeholder="Mô tả thông tin CV"
+            id="description" type="text" formControlName="description"
+            class="formbold-form-input"
+          />
         </div>
       </div>
-    </div>
+
+      <div class="formbold-mb-3 form-group">
+        <div>
+          <label class="formbold-form-label"> CV của bạn</label>
+          <input
+            formControlName="image" type="file" #uploadFile (change)="uploadFileImg()"   id="image"
+          />
+        </div>
+      </div>
+      <button type="submit" class="formbold-btn" [disabled]="!cvForm.valid && !cvForm.valid">Tạo mới</button>
+    </form>
   </div>
-</section>
+</div>
+
+
+
+
 
