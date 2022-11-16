@@ -90,7 +90,7 @@ export class CvCreateComponent implements OnInit {
     }
     console.log(a)
     this.cvService.saveCv(a).subscribe(data => {
-      Swal.fire('success');
+      Swal.fire('Tạo mới CV thành công');
       this.cvForm.reset();
     });
   }
