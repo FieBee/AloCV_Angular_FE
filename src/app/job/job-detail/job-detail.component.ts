@@ -104,14 +104,8 @@ export class JobDetailComponent implements OnInit {
       this.jobService.findJobByJobFieldId(this.job.jobField.id).subscribe((data: any) => {
         this.jobList = data
         console.log(data)
-      }, error => console.log("fail"))
-      console.log(this.job)
-      this.job = result;
-      console.log(result);
-    }, (error: any) => {
-      console.log(error);
+      })
     })
-
   }
 
 
