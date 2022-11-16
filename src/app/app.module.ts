@@ -48,6 +48,8 @@ import { CompanyAccountManagementComponent } from './company/company-account-man
 import { AccountManagementComponent } from './account/account-management/account-management.component';
 import { CompanySuggestListComponent } from './company/company-suggest-list/company-suggest-list.component';
 import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
+import { CompanySComponent } from './company/company-s/company-s.component';
+import { Company1Component } from './company/company1/company1.component';
 
 
 
@@ -93,7 +95,9 @@ import {CompanySuggestComponent} from "./company/company-suggest-management/comp
     AdminJobManagementComponent,
     JobSuggestComponent,
     CompanySuggestComponent,
-    CompanySuggestListComponent
+    CompanySuggestListComponent,
+    CompanySComponent,
+    Company1Component
 
 
 

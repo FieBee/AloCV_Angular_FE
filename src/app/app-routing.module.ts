@@ -32,6 +32,8 @@ import {CvDeleteComponent} from "./cv/cv-delete/cv-delete.component";
 import {AdminJobManagementComponent} from "./admin/admin-job-management/admin-job-management.component";
 import {JobSuggestComponent} from "./admin/job-suggest/job-suggest.component";
 import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
+import {CompanySComponent} from "./company/company-s/company-s.component";
+import {Company1Component} from "./company/company1/company1.component";
 
 
 export const ROUTES: Routes = [
@@ -152,12 +154,12 @@ export const ROUTES: Routes = [
     path: 'admin/admin-job-management', component: AdminJobManagementComponent
   },
   { path: '', component: HomeComponent },
-  { path: '**', component: NotfoundComponent },
+  // { path: '**', component: NotfoundComponent },
   {
     path: 'admin/job-suggest/', component: JobSuggestComponent
   },
   {
-    path: 'admin/company-suggest-management', component: CompanySuggestComponent
+    path: 'admin/companyS', component: CompanySuggestComponent
   }
 ];
 
