@@ -30,10 +30,10 @@
                           </a></li>
                         </ul>
                         <ul class="social-icon-style2 ps-0">
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
-                          <li><a href="#!" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
+                          <li><a href="http://facebook.com" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
+                          <li><a href="http://twitter.com" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
+                          <li><a href="http://youtube.com" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
+                          <li><a href="http://linkedin.com" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                       </div>
                     </div>
@@ -93,7 +93,7 @@
                         <div class="text-start mb-1-6 wow fadeIn">
                           <p>CV đã nộp vào công việc này: </p>
                           <div  *ngFor="let c of cvs">
-                            <a class="col-3" href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
+                            <a class="col-3" href="" [routerLink]="['/cv/cv-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
                             <button style="margin-left: 15px" class="btn btn-primary" (click)="confirmCv(c.user.id)">Hẹn phỏng vấn</button>
                             <button style="margin-left: 15px" class="btn btn-primary col-2" >Loại</button>
                           </div>
