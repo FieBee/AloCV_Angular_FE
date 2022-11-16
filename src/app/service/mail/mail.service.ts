@@ -22,7 +22,8 @@ export class MailService {
     return this.httpClient.post(API_URL + `/mail/apply/${job}`, user);
   }
 
-  shareJob(user1: any,user2: any,link:any):Observable<Object> {
-    return this.httpClient.get(API_URL + `/mail/apply/${user1}/${user2}/${link}`);
+  shareJob(user1: any,user2: any,id:any):Observable<Object> {
+    return this.httpClient.get(API_URL + '/mail/share?user1=' + user1 + '&user2=' + user2 +
+      '&id=' + id);
   }
 }

@@ -33,6 +33,7 @@ export class JobDetailComponent implements OnInit {
   companyImg: any;
   link: any;
   user2: any;
+  user1: any;
 
 
 
@@ -50,7 +51,6 @@ export class JobDetailComponent implements OnInit {
       this.id = +paramMap.get('id');
       this.getJobById(this.id);
       console.log(paramMap.keys)
-      this.link = "http://localhost:4200/job/job-detail/"+paramMap.get('id');
       console.log(this.link)
       this.getJobByJobFieldId(this.id);
     })
@@ -99,11 +99,7 @@ export class JobDetailComponent implements OnInit {
   }
 
   getUser_userName(){
-    this.userService.findById(this.getUserId()).subscribe(data => {
-      console.log(data.account.userName)
-      return data.account.userName;
 
-    })
   }
 
   getCvByJobId(){
@@ -135,9 +131,14 @@ export class JobDetailComponent implements OnInit {
   }
 
   shareJob(){
-    this.mailService.shareJob(this.getUser_userName(),this.user2,this.link).subscribe(data =>{
-      console.log("Đã chia sẻ việc làm")
-  })
-
+    this.userService.findById(this.getUserId()).subscribe(data => {
+      console.log(data.account.userName)
+      console.log(this.user1)
+      this.mailService.shareJob(data.account.userName,this.user2,this.id).subscribe(result =>{
+        console.log("Đã chia sẻ việc làm")
+      })
+    })
   }
+
+
 }
