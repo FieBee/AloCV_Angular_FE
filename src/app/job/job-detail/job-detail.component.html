@@ -93,7 +93,7 @@
                         <div class="text-start mb-1-6 wow fadeIn">
                           <p>CV đã nộp vào công việc này: </p>
                           <div  *ngFor="let c of cvs">
-                            <a class="col-3" href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
+                            <a class="col-3" href="" [routerLink]="['/cv/cv-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
                             <button style="margin-left: 15px" class="btn btn-primary" (click)="confirmCv(c.user.id)">Hẹn phỏng vấn</button>
                             <button style="margin-left: 15px" class="btn btn-primary col-2" >Loại</button>
                           </div>
