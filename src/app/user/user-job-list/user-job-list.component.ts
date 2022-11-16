@@ -12,6 +12,7 @@ export class UserJobListComponent implements OnInit {
   job: Job[] | undefined ;
 
   constructor(private jobService: JobService) {
+
   }
 
   ngOnInit(): void {

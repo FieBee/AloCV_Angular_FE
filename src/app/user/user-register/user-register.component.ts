@@ -76,24 +76,12 @@ export class UserRegisterComponent implements OnInit {
       user.image = this.arrayPicture;
       this.userService.saveUser(user).subscribe( data =>{
         this.showMessage.alertRegisterSuccess()
-        // this.router.navigate("home")
+        this.router.navigate(["login"])
 
       })
     })
 
   }
-  // checkAccount_userName(){
-  //   this.accountService.getAll().subscribe(data =>{
-  //     const accountList: any = data;
-  //     console.log(data)
-  //     for (let i = 0; i < accountList.length; i++) {
-  //       if (this.accountForm.get("userName")?.valid == accountList[i].userName){
-  //         return false
-  //       }
-  //     }
-  //     return true
-  //   })
-  // }
 
   uploadFileImg(){
     this.selectedImage = this.avatarDom?.nativeElement.files[0];

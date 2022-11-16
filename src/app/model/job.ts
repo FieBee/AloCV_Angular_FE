@@ -4,6 +4,7 @@ export interface Job {
   jobField? : any;
   salaryRange? : number;
   location? : any;
+  company? : any;
   position? : string;
   experience? : string;
   jobType? : string;
@@ -11,4 +12,5 @@ export interface Job {
   description? : string;
   recruitNumber? : number;
   gender? : string;
+  status?: boolean
 }

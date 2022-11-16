@@ -4,6 +4,10 @@ import {JobService} from "../../service/job/job.service";
 import {LocationService} from "../../service/location/location.service";
 import {Job} from "../../model/job";
 import {Location} from "../../model/location";
+import {JobField} from "../../model/job-field";
+import {JobFieldService} from "../../service/jobField/job-field.service";
+import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-job-create',
@@ -23,29 +27,38 @@ export class JobCreateComponent implements OnInit {
     jobType: new FormControl(),
     expiredDate: new FormControl(),
     description: new FormControl(),
-    recruitNumber: new FormControl(),
+    recruitNumber: new FormControl('', [Validators.required]),
     gender: new FormControl(),
   });
 
   locationList: Location[] | undefined;
 
+  jobFieldList: JobField[] | undefined;
+  companyId: any | null = localStorage.getItem('dataId')
+
   constructor(private jobService: JobService,
-              private locationService: LocationService) {
+              private jobFieldService: JobFieldService,
+              private locationService: LocationService,
+              private router:Router) {
   }
 
   ngOnInit(): void {
-    this.getAllLocation();
+    this.getAllLocation()
+    this.getAllJobField()
   }
 
   addJob() {
     const job: Job = {
       name: this.jobForm.value.name,
-      // jobField: {
-      //   id: this.jobForm.value.jobField
-      // },
+      jobField: {
+        id: this.jobForm.value.jobField
+      },
       salaryRange: this.jobForm.value.salaryRange,
       location: {
         id: this.jobForm.value.location
+      },
+      company: {
+        id:this.companyId
       },
       position: this.jobForm.value.position,
       experience: this.jobForm.value.experience,
@@ -57,8 +70,10 @@ export class JobCreateComponent implements OnInit {
     };
     console.log(job)
     this.jobService.saveJob(job).subscribe(() => {
-      alert('success');
-      this.jobForm.reset();
+      Swal.fire('Thành công',
+        'Bạn đã thêm công việc mới thành công',
+        'success')
+      this.router.navigate(['/company/company-management']);
     }, () => {
     });
   }
@@ -71,5 +86,19 @@ export class JobCreateComponent implements OnInit {
       console.log(error);
     })
   }
+
+  getAllJobField() {
+    this.jobFieldService.getAll().subscribe((result: any) => {
+      this.jobFieldList = result;
+      console.log(result);
+    }, (error: any) => {
+      console.log(error);
+    })
+  }
+
+  get recruitNumber(){
+    return this.jobForm.get('recruitNumber');
+  }
+
 
 }

@@ -21,16 +21,31 @@ export class CompanyService {
     return this.httpClient.post<Company>(API_URL + `/company` , company);
   }
 
-  findById(id: number):Observable<Company>{
+  findById(id: number | any):Observable<Company>{
     return this.httpClient.get<Company>(API_URL + `/company/${id}`);
   }
 
-  editCompany(id: number | undefined, company: Company): Observable<Company>{
+  editCompany(id: number | undefined | any, company: Company): Observable<Company>{
     return this.httpClient.put<Company>(API_URL + `/company/${id}`,company);
   }
 
   delete(id: any): Observable<Company>{
     return this.httpClient.delete<Company>(API_URL + `/company/${id}`);
+  }
+
+  getTopRecruitment(): Observable<Company[]>{
+    return this.httpClient.get<Company[]>(API_URL + `/topcompanyjob`);
+  }
+
+  setSuggestTrue(id: number | undefined | any):Observable<Company>{
+    return this.httpClient.get<Company>(API_URL + `/company/setSuggestTrue/${id}`);
+  }
+
+  setSuggestFalse(id: number | undefined | any):Observable<Company>{
+    return this.httpClient.get<Company>(API_URL + `/company/setSuggestFalse/${id}`);
+  }
+  getCompanySuggest():Observable<Company[]>{
+    return this.httpClient.get<Company[]>(API_URL + `/company/suggest`);
   }
 
 }

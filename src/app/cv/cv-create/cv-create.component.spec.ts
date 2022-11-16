@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindJobUserComponent } from './find-job-user.component';
+import { CvCreateComponent } from './cv-create.component';
 
-describe('FindJobUserComponent', () => {
-  let component: FindJobUserComponent;
-  let fixture: ComponentFixture<FindJobUserComponent>;
+describe('CvCreateComponent', () => {
+  let component: CvCreateComponent;
+  let fixture: ComponentFixture<CvCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FindJobUserComponent ]
+      declarations: [ CvCreateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FindJobUserComponent);
+    fixture = TestBed.createComponent(CvCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

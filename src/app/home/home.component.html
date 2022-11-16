@@ -1,64 +1,13 @@
-<section style="margin-top: -50px" id="hero" class="d-flex align-items-center">
 
-  <div style="height: 160px" class="container">
-    <div id="footer" class="row gy-3">
-
-      <div class="footer-newsletter col-lg-8 order-2 order-lg-6 d-flex flex-column justify-content-center">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-6">
-              <h4>Join Our Newsletter</h4>
-              <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-              <form action="" method="post">
-                <input type="email" name="email"><input type="submit" value="Subscribe">
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 order-1 order-lg-2 hero-img">
-        <img src="assets/img/hero-img.svg" class="img-fluid animated" alt="">
-      </div>
-    </div>
-  </div>
-
-</section>
 
 
 
 <!--List Job-->
 <section id="services" class="services ">
   <div class="container" >
-    <div class="row text-center mt-5 ">
-
-      <h1>Tin tuyển dụng mới nhất</h1>
-    </div>
-
-    <div class="row">
-      <div  class="col-md-3 col-lg-3 d-flex align-items-stretch"  >
-        <div  class="icon-box">
-          <div class="icon row">
-            <div class="col-4">
-              <img style="float: left;border-radius: 50%;height: 70px;width: auto"  src="https://images.foody.vn/res/g103/1024417/s120x120/9f432a8b-bd10-474b-8268-9c94e5ad6d43.jpeg" alt="Pate bơ béo (400gram)" width="60" height="60">
-            </div>
-            <div class="col-8   mt-3">
-              <h3 style="float: left"  class="title"><a href="">Tên công việc</a></h3>
-            </div>
-          </div>
-          <div class="row">
-            <p class="description">Tên cty</p>
-            <p class="description">thông tin</p>
-          </div>
-          <div class="row">
-            <div class="col-5"><p>Địa điểm</p></div>
-            <div class="col-5"><p>gì ấy</p></div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
+    <app-job-list></app-job-list>
+    <hr>
+    <app-company-suggest-list></app-company-suggest-list>
+    <app-company-top-recruitment></app-company-top-recruitment>
   </div>
 </section><!-- End Services Section -->
