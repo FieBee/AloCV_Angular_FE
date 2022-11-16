@@ -91,7 +91,7 @@
 
                       <div class="mb-5 wow fadeIn" *ngIf="dataRole == 'ROLE_COMPANY'">
                         <div class="text-start mb-1-6 wow fadeIn">
-                          <p>CV đã nộp vào công việc này: </p>
+                          <p>Các ứng viên: </p>
                           <div *ngFor="let c of cvs">
                             <p >
                               <a href="" [routerLink]="['/company/user-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
