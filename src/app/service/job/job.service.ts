@@ -70,6 +70,6 @@ export class JobService {
   }
 
   getAllPageable(p:number): Observable<Job[]>{
-    return this.httpClient.get<Job[]>(`http://localhost:8080/job/pagingjob?p=${p}&psize=5`)
+    return this.httpClient.get<Job[]>(`http://localhost:8080/job/pagingjob?p=${p}&psize=12`)
   }
 }

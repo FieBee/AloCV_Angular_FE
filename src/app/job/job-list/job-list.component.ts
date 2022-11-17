@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+  import {Component, OnInit} from '@angular/core';
 import {Job} from "../../model/job";
 import {JobService} from "../../service/job/job.service";
 import {CompanyService} from "../../service/company/company.service";
