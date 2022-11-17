@@ -185,6 +185,10 @@ ul li input[type=checkbox]:checked ~ i:after {
   }
 }
 
+.demo{
+  transition-delay: 6s;
+}
+
 
 /*.dropdown{*/
 /*  position: relative;*/
@@ -198,30 +202,36 @@ ul li input[type=checkbox]:checked ~ i:after {
   position: relative;
 }
 .detail-div{
+  /*place-items: center;*/
   bottom: 180px;
-  left: -20px;
+  left: 0px;
   position: absolute;
-  width: 250px;
+  width: 260px;
   height: 180px;
-  background-color: mistyrose;
-  opacity: 0.5;
+  background-color: #675f5c;
+  opacity: 0.1;
   display: none;
   z-index: 2;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
 }
 .demo:hover .detail-div  {
   /*background-color: black;*/
   display: block;
   opacity: 1;
-  pointer-events: auto;
-  transition: color 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);;
+  transition-delay: 1s;
+
 }
 .detail-div:before {
   position: absolute;
   content: "";
   height: 15px;
   width: 15px;
-  background: mistyrose;
+  background: #675f5c;
+  opacity: 1;
   bottom: -8px;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
