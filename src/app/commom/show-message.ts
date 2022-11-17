@@ -47,6 +47,14 @@ export class ShowMessage {
     )
   }
 
+  alertShareJob(){
+    Swal.fire(
+      '',
+      'Chia sẻ thành công!',
+      'success'
+    )
+  }
+
   async alertLogout(){
     await Swal.fire({
       title: 'Bạn chắc chắc muốn đăng xuất?',

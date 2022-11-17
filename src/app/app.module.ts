@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
 import {LoginComponent} from "./security/login/login.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
@@ -48,7 +48,8 @@ import { CompanyAccountManagementComponent } from './company/company-account-man
 import { AccountManagementComponent } from './account/account-management/account-management.component';
 import { CompanySuggestListComponent } from './company/company-suggest-list/company-suggest-list.component';
 import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
-
+import {Interceptor} from "./interceptor";
+// import { Interceptor } from './Interceptor';
 
 
 
@@ -111,7 +112,9 @@ import {CompanySuggestComponent} from "./company/company-suggest-management/comp
     AngularFireStorageModule,
     AngularFireDatabaseModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 // @ts-ignore
