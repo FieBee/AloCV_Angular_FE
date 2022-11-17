@@ -51,6 +51,7 @@ import {CompanySuggestComponent} from "./company/company-suggest-management/comp
 import { CvDetailComponent } from './cv/cv-detail/cv-detail.component';
 
 import {Interceptor} from "./interceptor";
+import { ForgotPasswordComponent } from './account/forgot-password/forgot-password.component';
 // import { Interceptor } from './Interceptor';
 
 
@@ -98,6 +99,7 @@ import {Interceptor} from "./interceptor";
     CompanySuggestComponent,
     CompanySuggestListComponent,
     CvDetailComponent,
+    ForgotPasswordComponent,
 
 
 
