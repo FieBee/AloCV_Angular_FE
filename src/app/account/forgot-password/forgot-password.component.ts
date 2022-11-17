@@ -10,8 +10,8 @@ import {AccountService} from "../../service/account/account.service";
 export class ForgotPasswordComponent implements OnInit {
   userName: any;
   inputMail: boolean = false;
-  inputOTP: boolean = false;
-  checkMailFail:any;
+  inputOTP: any;
+  checkMailFail:boolean = false;
   checkOTP:any;
   otp:any;
   newPassword:any;
@@ -29,6 +29,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.accountService.getAll().subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].userName == this.userName){
+          this.checkMailFail = false
           console.log(data[i])
           this.inputMail = true;
           this.otp= Math.floor(Math.random() * 1000)
@@ -41,7 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
           return;
         }
       }
-      this.checkMailFail = false;
+      this.checkMailFail = true;
     })
 
   }
@@ -50,8 +51,9 @@ export class ForgotPasswordComponent implements OnInit {
     if (this.otp == this.checkOTP){
       this.inputOTP = true;
       this.inputMail = false;
+      return
     }
-
+    this.inputOTP = false
   }
 
   editPassword(){
