@@ -10,7 +10,6 @@ import {JobField} from "../../model/job-field";
 import {Location} from "../../model/location";
 
 
-
 @Component({
   selector: 'app-job-list',
   templateUrl: './job-list.component.html',
@@ -18,58 +17,66 @@ import {Location} from "../../model/location";
 })
 export class JobListComponent implements OnInit {
 
-  salaryRangeList:string[] = ["Dưới 5Tr",
+  salaryRangeList: string[] = ["Dưới 5Tr",
     "5Tr - 10Tr",
     "10Tr - 30Tr",
     "Trên 30Tr",
   ];
-  salaryRange_min:number | any = 0;
-  salaryRange_max:number | any = 1000000000;
+  salaryRange_min: number | any = 0;
+  salaryRange_max: number | any = 1000000000;
   public name = '';
   public jobField = '';
   public locationData = '';
   public companyData = '';
   salary: string | undefined
+  page: number[] = [0, 1, 2, 3, 4, 5, 6]
 
-  checkSalary(){
-    if (this.salary == "Dưới 5Tr"){
+  checkSalary() {
+    if (this.salary == "Dưới 5Tr") {
       this.salaryRange_min = 0;
       this.salaryRange_max = 5000000
-    }else if (this.salary == "5Tr - 10Tr"){
+    } else if (this.salary == "5Tr - 10Tr") {
       this.salaryRange_min = 5000000;
       this.salaryRange_max = 10000000
-    }else if (this.salary == "10Tr - 30Tr"){
+    } else if (this.salary == "10Tr - 30Tr") {
       this.salaryRange_min = 10000000;
       this.salaryRange_max = 30000000
-    }else if(this.salary == "Trên 30Tr"){
+    } else if (this.salary == "Trên 30Tr") {
       this.salaryRange_min = 30000000;
       this.salaryRange_max = 10000000000;
-    }else {
+    } else {
       this.salaryRange_min = 0;
       this.salaryRange_max = 10000000000;
     }
     this.getSearch(0)
   }
 
-  jobFieldList: JobField[]=[]
+  jobFieldList: JobField[] = []
   locationList: any
   jobList: Job[] | undefined | any;
   companyList: Company[] | undefined
   companyImg: any;
 
+  getAllPageable(p: number) {
+    this.jobService.getAllPageable(p).subscribe(data=>{
+      this.jobList = data;
+      console.log(data)
+    })
+
+  }
 
   constructor(private jobService: JobService,
               private companyService: CompanyService,
               private locationService: LocationService,
-              private jobFieldService:JobFieldService) {
+              private jobFieldService: JobFieldService) {
   }
 
   ngOnInit(): void {
     this.getAllJobField()
     this.getAllCompany();
     this.getAllLocation();
-    this.getAllJob();
-
+    // this.getAllJob();
+this.getAllPageable(0);
   }
 
   getSearch(pageable: any) {
@@ -80,21 +87,21 @@ export class JobListComponent implements OnInit {
     console.log(this.locationData)
     console.log(this.companyData)
 
-    this.jobService.getAllJobBy(this.name,this.salaryRange_min , this.salaryRange_max,
+    this.jobService.getAllJobBy(this.name, this.salaryRange_min, this.salaryRange_max,
       this.jobField, this.locationData, this.companyData).subscribe(data => {
-      this.jobList=data
+      this.jobList = data
       console.log(data)
     });
   }
 
-  getAllJob() {
-    this.jobService.getAll().subscribe((result: any) => {
-      this.jobList = result;
-      // console.log(result);
-    }, (error: any) => {
-      console.log(error);
-    })
-  }
+  // getAllJob() {
+  //   this.jobService.getAll().subscribe((result: any) => {
+  //     this.jobList = result;
+  //     // console.log(result);
+  //   }, (error: any) => {
+  //     console.log(error);
+  //   })
+  // }
 
   getJobByCompanyId(id: number | undefined) {
     this.jobService.findJobByCompanyId(id).subscribe((data: any) => {
@@ -109,6 +116,7 @@ export class JobListComponent implements OnInit {
       console.log(data)
     }, error => console.log("fail"))
   }
+
   getJobByJobFieldId(id: number | undefined) {
     this.jobService.findJobByJobFieldId(id).subscribe((data: any) => {
       this.jobList = data
@@ -138,9 +146,10 @@ export class JobListComponent implements OnInit {
     })
   }
 
-  getTopJobByDate(){
+  getTopJobByDate() {
     this.jobService.getTopJobByDate().subscribe(data => {
       this.jobList = data;
     }, error => alert("Lỗi!! Không thể lấy được danh sách công việc theo Date!!"))
   }
+
 }

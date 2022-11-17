@@ -69,7 +69,7 @@
       <p style="margin-top: -150px;font-size: 30px; float: left">Tin tuyển dụng, việc làm tốt nhất</p>
     </div>
     <div style="margin-top:-145px " class="col-1">
-      <p><a style="background: rgb(253,236,228); color: black; border: #ded5d5 1px solid" (click)="getAllJob()" class="btn-primary btn">Tất cả</a></p>
+<!--      <p><a style="background: rgb(253,236,228); color: black; border: #ded5d5 1px solid" (click)="getAllJob()" class="btn-primary btn">Tất cả</a></p>-->
     </div>
     <div style="margin-top:-145px; margin-left: -20px " class="col-2">
       <p><a style="background: rgb(253,236,228); color: black;border: #ded5d5 1px solid" (click)="getTopJobByDate()" class="btn-primary btn">Mới nhất</a></p>
@@ -135,3 +135,15 @@
     </ul>
   </div>
 </div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <div *ngFor="let page1 of page ">
+    <li class="page-item"><a class="page-link" (click)="getAllPageable(page1)">{{page1}}</a></li>
+    </div>
+<!--    <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--    <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--    <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+  </ul>
+</nav>

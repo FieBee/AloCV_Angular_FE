@@ -68,4 +68,8 @@ export class JobService {
   getTopJobByDate(): Observable<Company[]>{
     return this.httpClient.get<Company[]>(API_URL + `/topcompanyjob/job`);
   }
+
+  getAllPageable(p:number): Observable<Job[]>{
+    return this.httpClient.get<Job[]>(`http://localhost:8080/job/pagingjob?p=${p}&psize=5`)
+  }
 }
