@@ -32,6 +32,7 @@ import {CvDeleteComponent} from "./cv/cv-delete/cv-delete.component";
 import {AdminJobManagementComponent} from "./admin/admin-job-management/admin-job-management.component";
 import {JobSuggestComponent} from "./admin/job-suggest/job-suggest.component";
 import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
+import {CvDetailComponent} from "./cv/cv-detail/cv-detail.component";
 
 
 
@@ -113,6 +114,9 @@ export const ROUTES: Routes = [
   },
   {
     path: 'user/list-cv', component: CvListComponent
+  },
+  {
+    path: 'cv/cv-detail/:id', component: CvDetailComponent
   },
   {
     path: 'user/edit-cv/:id', component: CvEditComponent
