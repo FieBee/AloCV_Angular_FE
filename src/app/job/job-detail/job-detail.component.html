@@ -16,7 +16,6 @@
                       <div class="card-body p-1-9 p-xl-5">
                         <div class="mb-4">
                           <h3 class="h4 mb-0">{{job.company.name}}</h3><br>
-                          <span class="text-primary">By nhóm 1 vjp pro number 1</span>
                         </div>
                         <ul class="list-unstyled mb-4">
                           <li class="mb-3"><a href="#!"><i
@@ -91,14 +90,23 @@
 
                       <div class="mb-5 wow fadeIn" *ngIf="dataRole == 'ROLE_COMPANY'">
                         <div class="text-start mb-1-6 wow fadeIn">
-                          <p>CV đã nộp vào công việc này: </p>
-                          <div  *ngFor="let c of cvs">
-                            <a class="col-3" href="" [routerLink]="['/cv/cv-detail',c.user.id]" style="color: #0dcaf0">{{c.user.name}}</a>
-                            <button style="margin-left: 15px" class="btn btn-primary" (click)="confirmCv(c.user.id)">Hẹn phỏng vấn</button>
-                            <button style="margin-left: 15px" class="btn btn-primary col-2" >Loại</button>
+                          <p>Ứng viên đã ứng tuyển: </p>
+                          <div style="margin-left: 20px"  *ngFor="let c of cvs">
+<!--                            <p [(ngModel)]="cvIdAccept">{{c.id}}</p>-->
+<!--                            <input type="text"   [value]="c.id">-->
+                            <div  class="row mt-1">
+                              <div class="col-4">
+                                <a class="row" href="" [routerLink]="['/cv/cv-detail',c.user.id]" style="color: #103dd2;padding-left: 15px;width: 300px">{{c.user.name}}</a>
+                              </div>
+                              <div class="col-8">
+                                <button *ngIf="!c.apply" class="btn btn-outline-success" style="margin-left: 15px" (click)="confirmCv(c.user.id,c.id)">Hẹn phỏng vấn</button>
+                                <p style="margin-left: 10px" *ngIf="c.apply">Đã hẹn phỏng vấn</p>
+                                <button *ngIf="!c.apply && !remove" class="btn btn-outline-secondary" style="margin-left: 15px" (click)="removeCv(c.id)" >Loại</button>
+
+                              </div>
+                            </div>
                           </div>
                         </div>
-
                       </div>
 
                       <div class="col-8" *ngIf="!dataRole">
@@ -195,22 +203,4 @@
         </div>
       </div>
     </div>
-
-
 </section>
-
-
-
-
-
-
-
-
-
-
-<!--<div class="mb-5 wow fadeIn">-->
-<!--  <div class="text-start mb-1-6 wow fadeIn">-->
-<!--    <h2  class="mb-0 text-primary" style="font-size: 25px">Danh sach cv: <i-->
-<!--      style="font-size: 20px; color: #18d26e; font-style: normal" *ngFor="let cv of cvs">{{cv.description}} </i></h2>-->
-<!--  </div>-->
-<!--</div>-->
