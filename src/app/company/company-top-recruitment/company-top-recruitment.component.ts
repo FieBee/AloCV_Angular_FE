@@ -10,12 +10,23 @@ import {CompanyService} from "../../service/company/company.service";
 })
 export class CompanyTopRecruitmentComponent implements OnInit {
 
+  page: number[] = [0, 1]
+
   companyList: Company[]=[]
 
   constructor(private companyService:CompanyService) { }
 
   ngOnInit(): void {
     this.getTopRecruitment();
+    this.getAllPageable(0);
+  }
+
+  getAllPageable(p: number) {
+    this.companyService.getAllPageable(p).subscribe(data=>{
+      this.companyList = data;
+      console.log(data)
+    })
+
   }
 
   getTopRecruitment(){
@@ -24,5 +35,6 @@ export class CompanyTopRecruitmentComponent implements OnInit {
       console.log(data);
     },error => console.log("Lỗi không lấy được danh sách company!!"))
   }
+
 
 }

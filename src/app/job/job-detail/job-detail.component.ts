@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import {MailService} from "../../service/mail/mail.service";
 import firebase from "firebase/compat";
 import User = firebase.User;
+import {ShowMessage} from "../../commom/show-message";
 
 @Component({
   selector: 'app-job-detail',
@@ -34,8 +35,9 @@ export class JobDetailComponent implements OnInit {
   link: any;
   user2: any;
   user1: any;
-
-
+  accept:any = false;
+  remove:any = false;
+  cvIdAccept:any;
 
 
   constructor(private jobService: JobService,
@@ -44,7 +46,8 @@ export class JobDetailComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private cvService: CvService,
               private userService: UserService,
-              private mailService: MailService
+              private mailService: MailService,
+              private showMasage:ShowMessage
   ) {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       // @ts-ignore
@@ -98,14 +101,9 @@ export class JobDetailComponent implements OnInit {
     return localStorage.getItem("dataId");
   }
 
-  getUser_userName(){
-
-  }
-
   getCvByJobId(){
     this.cvService.findCVByJobId(this.id).subscribe((data: any)=>{
       this.cvs = data;
-      console.log(data)
     })
   }
 
@@ -119,13 +117,38 @@ export class JobDetailComponent implements OnInit {
   }
 
 
-  confirmCv(id:any){
+  async confirmCv(id:any,cvId:any){
     this.userService.findById(id).subscribe(dataUser => {
+      this.router.navigate(['http://localhost:4200/job/job-detail/'+ this.id])
       this.jobService.findById(this.id).subscribe(dataJob => {
+        this.setCvAccept(cvId);
+        this.showMasage.alertSuccess();
         this.mailService.sendMailApply(dataUser,dataJob.id).subscribe(result => {
+            this.getCvByJobId();
           console.log("Gửi mail tới người ứng tuyển thành công!")
         }
         )
+      })
+    })
+  }
+
+  setCvAccept(id:any){
+    this.cvService.findById(id).subscribe(data =>{
+      data.apply = true;
+      console.log(data)
+      this.cvService.editCv(id,data).subscribe(result => {
+        console.log("Đã sửa cv")
+        console.log(result)
+      });
+    })
+  }
+
+  removeCv(id:any){
+    this.cvService.findById(id).subscribe(data =>{
+      data.job = null;
+      this.cvService.editCv(id, data).subscribe(data => {
+        console.log("Đã loại ứng viên!")
+        this.getCvByJobId();
       })
     })
   }

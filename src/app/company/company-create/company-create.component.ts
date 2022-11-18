@@ -38,7 +38,7 @@ export class CompanyCreateComponent implements OnInit {
     name: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
     address: new FormControl(),
-    staffNumber: new FormControl(),
+    staffNumber: new FormControl('', Validators.required),
     branch: new FormControl(),
     linkMap: new FormControl(),
     linkFb: new FormControl(),
@@ -127,6 +127,10 @@ export class CompanyCreateComponent implements OnInit {
 
   get image() {
     return this.companyForm.get('image');
+  }
+
+  get staffNumber() {
+    return this.companyForm.get('staffNumber');
   }
 
 }
