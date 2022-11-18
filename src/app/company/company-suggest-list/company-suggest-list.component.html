@@ -4,9 +4,9 @@
     <div *ngFor="let company of companyList"  class="col-3">
       <a style="color: black" [routerLink]="['company-detail/',company.id]">
         <div style="justify-content: center;text-align: center">
-          <img style="margin: auto;width: 150px; height: auto" [src]="company.image">
+          <img  style=" ;margin: auto;width: 150px; height: auto" [src]="company.image">
         </div>
-        <div style="font-size: 15px;text-align: center;margin-top: 5px" ><b>{{company.name}}</b></div>
+        <div style=";text-decoration: none ;font-size: 15px;text-align: center;margin-top: 5px" ><b>{{company.name}}</b></div>
       </a>
       <div style="font-size: 12px;text-align: center;margin-top: 5px">{{company.address}}</div>
     </div>

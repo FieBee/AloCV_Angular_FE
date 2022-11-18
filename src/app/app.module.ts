@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
 import {LoginComponent} from "./security/login/login.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
@@ -40,16 +40,27 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserAccountManagementComponent } from './user/user-account-management/user-account-management.component';
 import { JobSuggestComponent } from './admin/job-suggest/job-suggest.component';
 
-import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
-import { CvDeleteComponent } from './cv/cv-delete/cv-delete.component';
-import { AdminJobManagementComponent } from './admin/admin-job-management/admin-job-management.component';
+// import { CvEditComponent } from './cv/cv-edit/cv-edit.component';
+// import { CvDeleteComponent } from './cv/cv-delete/cv-delete.component';
+// import { AdminJobManagementComponent } from './admin/admin-job-management/admin-job-management.component';
 
-import { CompanyAccountManagementComponent } from './company/company-account-management/company-account-management.component';
-import { AccountManagementComponent } from './account/account-management/account-management.component';
-import { CompanySuggestListComponent } from './company/company-suggest-list/company-suggest-list.component';
+// import { CompanyAccountManagementComponent } from './company/company-account-management/company-account-management.component';
+// import { AccountManagementComponent } from './account/account-management/account-management.component';
+import { CompanySuggestListComponent } from "./company/company-suggest-list/company-suggest-list.component";
 import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
-import { CvDetailComponent } from './cv/cv-detail/cv-detail.component';
+// import { CvDetailComponent } from './cv/cv-detail/cv-detail.component';
 
+import {Interceptor} from "./interceptor";
+import { ForgotPasswordComponent } from './account/forgot-password/forgot-password.component';
+import {
+  CompanyAccountManagementComponent
+} from "./company/company-account-management/company-account-management.component";
+import {AdminJobManagementComponent} from "./admin/admin-job-management/admin-job-management.component";
+import {AccountManagementComponent} from "./account/account-management/account-management.component";
+import {CvEditComponent} from "./cv/cv-edit/cv-edit.component";
+import {CvDeleteComponent} from "./cv/cv-delete/cv-delete.component";
+import {CvDetailComponent} from "./cv/cv-detail/cv-detail.component";
+// import { Interceptor } from './Interceptor';
 
 
 
@@ -96,6 +107,7 @@ import { CvDetailComponent } from './cv/cv-detail/cv-detail.component';
     CompanySuggestComponent,
     CompanySuggestListComponent,
     CvDetailComponent,
+    ForgotPasswordComponent,
 
 
 
@@ -113,7 +125,9 @@ import { CvDetailComponent } from './cv/cv-detail/cv-detail.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 // @ts-ignore
