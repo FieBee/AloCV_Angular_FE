@@ -15,51 +15,36 @@
                   <div class="col-md-7 col-lg-5 mb-5 mb-lg-0 wow fadeIn">
                     <div class="card border-0 shadow">
                       <img [src]="users.image" alt="khong co anh">
-                      <div class="card-body p-1-9 p-xl-5">
+                      <div style="position: absolute; margin-left: 550px; width: 500px" class="card-body p-1-9 p-xl-5">
                         <div class="mb-4">
-                          <h3 class="h4 mb-0">{{users.name}}</h3><br>
-                          <span class="text-primary">By nhóm 1 vjp pro number 1</span>
+                          <h3 class="h4 mb-0">{{users.name}}</h3>
+                          <ul style="margin-top: -50px" class="list-unstyled mb-4">
+                            <li style="margin-top: 100px" class="mb-3">
+                              <a href=""><i
+                                class="far fa-envelope display-25 me-3 text-secondary"></i>Email: {{users.account.userName}}
+                              </a>
+                            </li>
+                            <li style="margin-top: 20px" class="mb-3"><a href=""><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>Số điện thoại:
+                              {{users.phoneNumber}}</a></li>
+
+                          </ul>
+
+                          <ul class="social-icon-style2 ps-0">
+                            <li><a href="http://facebook.com" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="http://twitter.com" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="http://youtube.com" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="http://linkedin.com" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
+                          </ul>
                         </div>
 
-                        <ul class="social-icon-style2 ps-0">
-                          <li><a href="http://facebook.com" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
-                          <li><a href="http://twitter.com" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
-                          <li><a href="http://youtube.com" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
-                          <li><a href="http://linkedin.com" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
+
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-5" style="padding-top: 10px">
                     <table style="border: 1px">
                       <div class="ps-lg-1-6 ps-xl-5">
-                        <ul class="list-unstyled mb-4">
-                          <li style="margin-top: 100px" class="mb-3">
-                            <a href=""><i
-                              class="far fa-envelope display-25 me-3 text-secondary"></i>Email: {{users.account.userName}}
-                            </a>
-                          </li>
-                          <li style="margin-top: 20px" class="mb-3"><a href=""><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>Số điện thoại:
-                            {{users.phoneNumber}}</a></li>
-<!--                          <li style="margin-top: 20px"><a href="" ><i-->
-<!--                            class="fas fa-map-marker-alt display-25 me-3 text-secondary" ></i><img [src]="c.image" alt="khong co anh">-->
-<!--                          </a></li>-->
-<!--                          <li style="margin-top: 20px" class="mb-3">-->
-<!--                            <a href=""><i-->
-<!--                              class="far fa-user display-25 me-3 text-secondary"></i>Số lượng nhân viên: {{company.staffNumber}}-->
-<!--                            </a>-->
-<!--                          </li>-->
-<!--                          <li style="margin-top: 20px" class="mb-3">-->
-<!--                            <a href=""><i-->
-<!--                              class="far fa-map-home display-25 me-3 text-secondary"></i>Chi nhánh: {{company.branch}}-->
-<!--                            </a>-->
-<!--                          </li>-->
-<!--                          <li style="margin-top: 20px" class="mb-3">-->
-<!--                            <a href=""><i-->
-<!--                              class="far fa-barcode-alt display-25 me-3 text-secondary"></i>Về chúng tôi: {{company.branch}}-->
-<!--                            </a>-->
-<!--                          </li>-->
-                        </ul>
+
 
                       </div>
                     </table>

@@ -19,8 +19,14 @@ export class ShowMessage {
       'Đăng nhập thành công!',
       'success'
     )
+  }
 
-
+  async alertSuccess(){
+    await Swal.fire(
+      '',
+      'Thành công!',
+      'success'
+    )
   }
 
   alertLoginFail(){
