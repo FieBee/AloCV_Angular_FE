@@ -78,4 +78,8 @@ export class JobService {
   reverseSuggest(id: any): Observable<Job>{
     return this.httpClient.delete<Job>(API_URL + `/job/reverse/${id}`);
   }
+
+  getAllPageable(p:number): Observable<Job[]>{
+    return this.httpClient.get<Job[]>(`http://localhost:8080/job/pagingjob?p=${p}&psize=12`)
+  }
 }
