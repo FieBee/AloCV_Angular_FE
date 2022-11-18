@@ -207,7 +207,7 @@ ul li input[type=checkbox]:checked ~ i:after {
   left: 0px;
   position: absolute;
   width: 260px;
-  height: 180px;
+  height: auto;
   background-color: #675f5c;
   opacity: 0.1;
   display: none;
