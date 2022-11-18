@@ -16,6 +16,10 @@ export class AccountService {
     return this.httpClient.get<Account[]>(API_URL + `/account`)
   }
 
+  getAllByActiveAndStatus():Observable<Account[]>{
+    return this.httpClient.get<Account[]>(API_URL + `/account/getAllIsTrue`)
+  }
+
   saveAccount(account: Account):Observable<Account>{
     return this.httpClient.post<Account>(API_URL + `/account` , account);
   }
