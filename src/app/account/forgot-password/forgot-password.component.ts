@@ -3,6 +3,7 @@ import {MailService} from "../../service/mail/mail.service";
 import {AccountService} from "../../service/account/account.service";
 import {ShowMessage} from "../../commom/show-message";
 import {Router} from "@angular/router";
+import {Account} from "../../model/account";
 
 @Component({
   selector: 'app-forgot-password',
@@ -18,8 +19,10 @@ export class ForgotPasswordComponent implements OnInit {
   checkOTP:any;
   otp:any;
   newPassword:any;
-  newAccount:any;
+  newAccount: any;
   accountId:any = 0;
+  status:any;
+  active:any;
 
   constructor(private mailService: MailService,
               private accountService: AccountService,
@@ -31,7 +34,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   onCheckMail() {
-    this.accountService.getAll().subscribe(data => {
+    this.accountService.getAllByActiveAndStatus().subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].userName == this.userName){
           this.checkMailFail = false
@@ -49,7 +52,6 @@ export class ForgotPasswordComponent implements OnInit {
       }
       this.checkMailFail = true;
     })
-
   }
 
   sendOTP() {
@@ -63,11 +65,12 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   editPassword(){
-    this.newAccount = {
+    this.newAccount =  {
       userName: this.userName,
       password: this.newPassword
     }
     this.accountService.editAccount(this.accountId,this.newAccount).subscribe(data =>{
+      console.log(this.newAccount)
       this.messageService.alertForgotPassword();
       this.router.navigate(["login"])
       console.log("Thay đổi mật khẩu thành công!")
