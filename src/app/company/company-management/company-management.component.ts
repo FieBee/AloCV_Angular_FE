@@ -17,7 +17,7 @@ export class CompanyManagementComponent implements OnInit {
     this.getJobByCompanyId(this.companyId)
   }
   getJobByCompanyId(id: number | undefined) {
-    this.jobService.findJobByCompanyId(id).subscribe((data: any) => {
+    this.jobService.findJobByCompany(id).subscribe((data: any) => {
       this.jobList = data
       console.log(data)
     }, error => console.log("fail"))
@@ -25,5 +25,25 @@ export class CompanyManagementComponent implements OnInit {
   jobList: Job[] | undefined | any;
   companyImg: any;
   companyId : any  = localStorage.getItem("dataId")
+
+  lockJob(id: number | undefined) {
+    this.jobService.delete(id).subscribe(() => {
+      // Swal.fire('Khóa thành công!');
+      this.getJobByCompanyId(this.companyId);
+      // this.router.navigate(['/admin/admin-job']);
+    }, e => {
+      console.log(e);
+    });
+  }
+
+  unlockJob(id: number | undefined) {
+    this.jobService.unlock(id).subscribe(() => {
+      // Swal.fire('Mở khóa thành công!');
+      this.getJobByCompanyId(this.companyId);
+      // this.router.navigate(['/admin/admin-job']);
+    }, e => {
+      console.log(e);
+    });
+  }
 
 }
