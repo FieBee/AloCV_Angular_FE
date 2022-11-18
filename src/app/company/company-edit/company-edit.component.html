@@ -101,6 +101,7 @@
           />
         </div>
       </div>
+
       <div class="formbold-mb-3 form-group">
         <div>
           <label class="formbold-form-label">Số lượng nhân viên </label>
@@ -110,9 +111,15 @@
             class="formbold-form-input"
             name="staffNumber"
             [(ngModel)]="company.staffNumber"
+            #staffNumber = "ngModel"
+            required
           />
         </div>
       </div>
+      <div class="alert" *ngIf="!staffNumber?.valid && (staffNumber?.dirty ||staffNumber?.touched)">
+        <p style="color: red"> Số lượng nhân viên không được để trống. </p> <br>
+      </div>
+
       <div class="formbold-mb-3 form-group">
         <div>
           <label class="formbold-form-label">Chi nhánh công ty</label>
