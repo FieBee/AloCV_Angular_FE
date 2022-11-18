@@ -10,7 +10,7 @@ import {CompanyService} from "../../service/company/company.service";
 })
 export class CompanyTopRecruitmentComponent implements OnInit {
 
-  page: number[] = [0, 1, 2, 3, 4, 5, 6]
+  page: number[] = [0, 1]
 
   companyList: Company[]=[]
 
