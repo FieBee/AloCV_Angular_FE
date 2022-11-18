@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import {Company} from "../../model/company";
+import {Job} from "../../model/job";
 
 const API_URL = `${environment.apiUrl}`;
 @Injectable({
@@ -35,6 +36,10 @@ export class CompanyService {
 
   getTopRecruitment(): Observable<Company[]>{
     return this.httpClient.get<Company[]>(API_URL + `/topcompanyjob`);
+  }
+
+  getAllPageable(p:number): Observable<Job[]>{
+    return this.httpClient.get<Company[]>(`http://localhost:8080/company/pagingcompany?p=${p}&psize=5`)
   }
 
   setSuggestTrue(id: number | undefined | any):Observable<Company>{

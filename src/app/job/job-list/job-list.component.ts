@@ -30,6 +30,7 @@ export class JobListComponent implements OnInit {
   public locationData = '';
   public companyData = '';
   salary: string | undefined
+  page: number[] = [0, 1, 2, 3, 4, 5, 6]
 
   checkSalary(){
     if (this.salary == "Dưới 5Tr"){
@@ -58,6 +59,13 @@ export class JobListComponent implements OnInit {
   companyImg: any;
   dataRole = localStorage.getItem("role")
 
+  getAllPageable(p: number) {
+    this.jobService.getAllPageable(p).subscribe(data=>{
+      this.jobList = data;
+      console.log(data)
+    })
+
+  }
 
   constructor(private jobService: JobService,
               private companyService: CompanyService,
@@ -69,7 +77,8 @@ export class JobListComponent implements OnInit {
     this.getAllJobField()
     this.getAllCompany();
     this.getAllLocation();
-    this.getAllJob();
+    // this.getAllJob();
+this.getAllPageable(0);
   }
 
   getSearch(pageable: any) {
