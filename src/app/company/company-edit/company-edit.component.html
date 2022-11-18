@@ -14,9 +14,15 @@
             class="formbold-form-input"
             name="name"
             [(ngModel)]="company.name"
+            #companyName = "ngModel"
+            required
           />
         </div>
       </div>
+      <div class="alert" *ngIf="!companyName?.valid && (companyName?.dirty ||companyName?.touched)">
+        <p style="color: red"> Tên công ty không được để trống. </p> <br>
+      </div>
+
       <div class="formbold-mb-3 form-group">
         <div>
           <label class="formbold-form-label"> Email </label>
@@ -26,9 +32,22 @@
             class="formbold-form-input"
             name="userName"
             [(ngModel)]="company.account.userName"
+            #email = "ngModel"
+            email
+            required
           />
         </div>
       </div>
+      <div class="alert" *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+        <div style="color: red" *ngIf="email.errors?.['required']">
+          Mail không được để trống.
+        </div>
+
+        <div style="color: red" *ngIf="email.errors?.['email']">
+          Mail không đúng định dạng.
+        </div>
+      </div>
+      <br>
 
       <div class="formbold-mb-3 form-group">
         <div>
@@ -39,9 +58,23 @@
             class="formbold-form-input"
             name="password"
             [(ngModel)]="company.account.password"
+            #password = "ngModel"
+            required
+            minlength="6"
           />
         </div>
       </div>
+      <div class="alert" *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
+        <div style="color: red" *ngIf="password.errors?.['required']">
+          Mật khẩu không được để trống.
+        </div>
+
+        <div style="color: red" *ngIf="password.errors?.['minlength']">
+          Mật khẩu tối thiểu 6 ký tự.
+        </div>
+      </div>
+      <br>
+
       <div class="formbold-mb-3 form-group">
         <div>
           <label class="formbold-form-label"> Ảnh đại diện công ty </label>
@@ -55,6 +88,7 @@
           />
         </div>
       </div>
+
       <div class="formbold-mb-3 form-group">
         <div>
           <label class="formbold-form-label"> Địa chỉ công ty </label>
@@ -91,6 +125,7 @@
           />
         </div>
       </div>
+
       <div class="formbold-mb-3 form-group">
         <label class="formbold-form-label">
           Mô tả
@@ -100,8 +135,14 @@
           class="formbold-form-input"
           name="description"
           [(ngModel)]="company.description"
+          #description = "ngModel"
+          required
         ></textarea>
       </div>
+      <div class="alert" *ngIf="!description?.valid && (description?.dirty ||description?.touched)">
+        <p style="color: red"> Mô tả không được để trống. </p> <br>
+      </div>
+
       <button type="submit" class="formbold-btn" [disabled]="!editCompanyForm.valid">Cập nhật</button>
     </form>
   </div>
