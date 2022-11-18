@@ -33,6 +33,7 @@ import {AdminJobManagementComponent} from "./admin/admin-job-management/admin-jo
 import {JobSuggestComponent} from "./admin/job-suggest/job-suggest.component";
 import {CompanySuggestComponent} from "./company/company-suggest-management/company-suggest.component";
 import {CvDetailComponent} from "./cv/cv-detail/cv-detail.component";
+import {ForgotPasswordComponent} from "./account/forgot-password/forgot-password.component";
 
 
 
@@ -163,6 +164,9 @@ export const ROUTES: Routes = [
   },
   {
     path: 'admin/company-suggest', component: CompanySuggestComponent
+  },
+  {
+    path: 'forgot-password', component: ForgotPasswordComponent
   }
 ];
 
