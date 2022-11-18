@@ -48,6 +48,10 @@ export class JobService {
     return this.httpClient.get<Job[]>(API_URL +`/job/company/${id}`)
   }
 
+  findJobByCompany(id: number | undefined):Observable<Job[]>{
+    return this.httpClient.get<Job[]>(API_URL +`/job/company/all/${id}`)
+  }
+
   findJobByLocationId(id: number | undefined):Observable<Job[]>{
     return this.httpClient.get<Job[]>(API_URL +`/job/location/${id}`)
   }
