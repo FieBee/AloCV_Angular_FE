@@ -5,4 +5,5 @@ export interface Cv {
   status? : boolean;
   user? : any;
   job? : any;
+  apply?:any;
 }

@@ -13,8 +13,8 @@
                   <div class="col-md-7 col-lg-6 mb-5 mb-lg-0 wow fadeIn" *ngFor="let cv of cvs">
                     <div class="card border-0 shadow">
                       <img [src]="cv.image" alt="khong co anh">
-                      <div class="card-body p-1-9 p-xl-5">
-                        <div class="mb-4">
+                      <div style="position: absolute; margin-left: 600px; width: 500px" class="card-body p-1-9 p-xl-5">
+                        <div  class="mb-4">
                           <a href=""><h3 class="h4 mb-0">{{cv.description}}</h3></a><br>
                           <span  [routerLink]="['/company/user-detail',users.id]" href="">{{users.name}}</span>
                         </div>
@@ -28,9 +28,6 @@
                           </i>
                             {{users.phoneNumber}}
                           </a></li>
-<!--                          <li><a href="#!"><i-->
-<!--                            class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>{{job.company.address}}-->
-<!--                          </a></li>-->
                         </ul>
                         <ul class="social-icon-style2 ps-0">
                           <li><a href="http://facebook.com" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
@@ -46,65 +43,18 @@
                       <div class="ps-lg-1-6 ps-xl-5">
                         <div class="mb-5 wow fadeIn">
                           <div class="text-start mb-1-6 wow fadeIn">
-<!--                            <p>Công việc: {{job.name}}</p>-->
                           </div>
                         </div>
-<!--                        <div class="mb-5 wow fadeIn">-->
-<!--                          <div class="text-start mb-1-6 wow fadeIn">-->
-<!--                            <p>Mô tả công việc: {{job.description}}</p>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="mb-5 wow fadeIn">-->
-<!--                          <div class="text-start mb-1-6 wow fadeIn">-->
-<!--                            <p>Hình thức làm việc: {{job.jobType}}</p>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="mb-5 wow fadeIn">-->
-<!--                          <div class="text-start mb-1-6 wow fadeIn">-->
-<!--                            <p>Giới tính: {{job.gender}}</p>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="mb-5 wow fadeIn">-->
-<!--                          <div class="text-start mb-1-6 wow fadeIn">-->
-<!--                            <p>Số lượng cần tuyển: {{job.recruitNumber}}</p>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="mb-5 wow fadeIn">-->
-<!--                          <div class="text-start mb-1-6 wow fadeIn">-->
-<!--                            <p>Cấp bậc và kinh nghiệm yêu cầu: {{job.jobField.name}} {{job.experience}}</p>-->
-<!--                          </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="mb-5 wow fadeIn">-->
-<!--                          <div class="text-start mb-1-6 wow fadeIn">-->
-<!--                            <p>Địa điểm làm việc: {{job.location.name}}</p>-->
-<!--                          </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="mb-5 wow fadeIn">-->
-<!--                          <div class="text-start mb-1-6 wow fadeIn">-->
-<!--                            <p>Ngày hết hạn: {{job.expiredDate}}</p>-->
-<!--                          </div>-->
-<!--                        </div>-->
-
-
-
                       </div>
-
                     </table>
-
                   </div>
                 </div>
                 <br>
                 <br>
               </div>
-
-
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
