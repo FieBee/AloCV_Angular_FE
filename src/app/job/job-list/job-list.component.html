@@ -49,7 +49,7 @@
     <b>Công ty</b>
     <select style="overflow: auto" class="form-select" aria-label="Default select example" [(ngModel)]="companyData" name="companyId">Tất cả
       <option selected value="">Tất cả</option>
-      <option style="position: absolute;overflow: auto" *ngFor="let company of companyList" [value]="company.name">{{company.name}}</option>
+      <option  style="position: absolute;overflow: auto" *ngFor="let company of companyList" [value]="company.name">{{company.name}}</option>
     </select>
   </div>
 
@@ -141,7 +141,7 @@
         <h2>Địa điểm</h2>
         <div style="margin-top: 20px">
           <p style="margin-top: -10px" *ngFor="let lo of locationList">
-            <a  (click)="getJobByLocationId(lo.id)" href="">{{lo.name}}</a>
+            <a  (click)="getJobByLocationId(lo.id)">{{lo.name}}</a>
           </p>
         </div>
       </li>
