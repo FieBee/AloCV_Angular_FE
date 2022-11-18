@@ -30,7 +30,7 @@ export class JobListComponent implements OnInit {
   public locationData = '';
   public companyData = '';
   salary: string | undefined
-  page: number[] = [0, 1, 2, 3, 4, 5, 6]
+  page: number[] = [0, 1]
 
   checkSalary(){
     if (this.salary == "Dưới 5Tr"){
@@ -62,8 +62,8 @@ export class JobListComponent implements OnInit {
   getAllPageable(p: number) {
     this.jobService.getAllPageable(p).subscribe(data=>{
       this.jobList = data;
-      console.log(data)
-    })
+      console.log("list job "+data)
+    }, error => console.log("fail disply list"))
 
   }
 
@@ -74,11 +74,11 @@ export class JobListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllPageable(0);
     this.getAllJobField()
     this.getAllCompany();
     this.getAllLocation();
     // this.getAllJob();
-this.getAllPageable(0);
   }
 
   getSearch(pageable: any) {
