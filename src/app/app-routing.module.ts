@@ -163,6 +163,9 @@ export const ROUTES: Routes = [
     path: 'admin/job-suggest/', component: JobSuggestComponent
   },
   {
+    path: 'admin/company-suggest', component: CompanySuggestComponent
+  },
+  {
     path: 'forgot-password', component: ForgotPasswordComponent
   }
 ];
